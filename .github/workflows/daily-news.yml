@@ -1,7 +1,7 @@
 name: Update primary-source news
 on:
   schedule:
-    - cron: '15 0 * * *' # 08:15 Asia/Taipei; GitHub may delay scheduled jobs
+    - cron: '0 0,5,10 * * *' # 08:00, 13:00, 18:00 Asia/Taipei; GitHub may delay scheduled jobs
   push:
     branches: [main]
     paths:
