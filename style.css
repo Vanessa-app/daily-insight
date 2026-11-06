@@ -8,3 +8,6 @@
 .explore-section>p.meta{margin:0 0 16px}
 .explore-topics{flex-wrap:wrap}
 @media(max-width:600px){nav{flex-wrap:wrap;gap:0 16px}.tab{padding:12px 2px}}
+
+.article-prose{margin:24px 0}
+.article-prose>.reader-text{margin:0 0 1em}
