@@ -133,4 +133,4 @@ async function readNews(url) {
    .filter(a => safeUrl(a.url) && a.verification === 'publisher_domain_checked');
  render();
 })();
-if('serviceWorker'in navigator&&location.protocol==='https:')navigator.serviceWorker.register('./sw.js').catch(()=>{});
+if('serviceWorker'in navigator&&location.protocol==='https:')navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).catch(()=>{});
