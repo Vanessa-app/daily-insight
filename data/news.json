@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-06T06:07:11.389453+00:00",
+  "updated_at": "2026-11-06T06:25:07.131891+00:00",
   "items": [
     {
       "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/iss075e0227352orig.jpg",
@@ -1099,27 +1099,27 @@
     "nasa": {
       "status": "ok",
       "accepted": 1,
-      "checked_at": "2026-11-06T06:07:11.389453+00:00"
+      "checked_at": "2026-11-06T06:25:07.131891+00:00"
     },
     "who": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-06T06:07:11.389453+00:00"
+      "checked_at": "2026-11-06T06:25:07.131891+00:00"
     },
     "un": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-06T06:07:11.389453+00:00"
+      "checked_at": "2026-11-06T06:25:07.131891+00:00"
     },
     "數位發展部": {
       "status": "partial",
       "accepted": 4,
-      "checked_at": "2026-11-06T06:07:11.389453+00:00"
+      "checked_at": "2026-11-06T06:25:07.131891+00:00"
     },
     "行政院": {
-      "status": "partial",
-      "accepted": 4,
-      "checked_at": "2026-11-06T06:07:11.389453+00:00"
+      "status": "error",
+      "accepted": 0,
+      "checked_at": "2026-11-06T06:25:07.131891+00:00"
     }
   },
   "disclaimer": "Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed."
