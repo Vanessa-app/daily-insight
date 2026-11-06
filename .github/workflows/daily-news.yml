@@ -2,6 +2,13 @@ name: Update primary-source news
 on:
   schedule:
     - cron: '15 0 * * *' # 08:15 Asia/Taipei; GitHub may delay scheduled jobs
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/daily-news.yml'
+      - 'scripts/update_news.py'
+      - 'sources.json'
+      - 'requirements.txt'
   workflow_dispatch:
 permissions:
   contents: write
@@ -14,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install HTML extraction dependency
+      - name: Install translation and feed dependencies
         run: python -m pip install -r requirements.txt
       - name: Update publisher evidence and offline translation
         run: python scripts/update_news.py
