@@ -71,38 +71,39 @@ function reader(a){
  const quizHtml=quiz?`<section class="quiz-panel" id="knowledge-quiz"><div class="kicker">LEARN & LEVEL UP</div><h3>🧠 閱讀後的知識挑戰</h3><p>答題後提供解說，幫助理解文章。</p>${result?`<div class="notice">🏆 已完成：${result.score}/${result.total} 題正確，獲得 ${result.score*20+10} XP。<button class="btn" data-quiz-reset="${esc(a.id||a.url)}">重新挑戰</button></div><div class="quiz-feedback">${quiz.map((q,i)=>`<p><strong>第 ${i+1} 題：</strong>${esc(q.explanation)}</p>`).join('')}</div>`:`${quiz.map((q,i)=>`<fieldset class="quiz-question"><legend>${i+1}. ${esc(q.question)}</legend>${q.options.map((o,j)=>`<label class="quiz-choice"><input type="radio" name="quiz-${i}" value="${j}"> ${esc(o)}</label>`).join('')}</fieldset>`).join('')}<button class="btn primary" data-quiz-submit="${esc(a.id||a.url)}">提交答案，領取 XP</button><div id="quiz-feedback" aria-live="polite"></div>`}</section>`:`<div class="notice">本篇尚無經過內容審核的專屬測驗，為避免虛構題目，暫不提供挑戰。</div>`;
  return `<section class="reader"><button class="back" data-back="1">← 返回探索</button><div class="kicker">${esc(a.category)} / ${esc(a.source)}</div><h2>${esc(a.title)}</h2>${a.demo?'<div class="notice">此為原創雙語教學示範，不是即時新聞；部署並更新後才會有官方來源內容。</div>':''}${imageMarkup(a,"reader-cover")}${a.image_url&&a.image_rights==="approved"?`<div class="meta">圖片：${esc(a.image_credit||a.source)} · ${esc(a.image_license||"授權已確認")}</div>`:""}<div class="statsline">${a.kind==='knowledge'?'知識專題':`發布：${esc(date(a.published_at))}`} · 來源網域已核對 · 主張未獨立查證</div><div class="notice"><strong>內容範圍：</strong>${a.demo?'Daily Insight 原創教學示範全文（非官方新聞）':hasApprovedFullText(a)?'已核准重製的官方全文':a.content_scope==='official_article_extracted'?'已擷取官方文章正文，但尚未確認完整性或授權':'官方來源摘要或部分內文，並非全文'}。未確認可合法重製的文章不提供全文。<br><strong>翻譯狀態：</strong>${esc(status)}。${nativeChinese?'': '翻譯可能有誤，請以原文為準。'}${license?`<br><strong>全文授權：</strong><a href="${esc(license)}" target="_blank" rel="noopener noreferrer">${esc(a.license_name)}</a>` : ''}</div>${nativeChinese?"":`<div class="filters" style="margin-top:20px"><button class="mode ${state.mode==='zh'?'active':''}" data-mode="zh">繁體中文</button><button class="mode ${state.mode==='both'?'active':''}" data-mode="both">逐段對照</button><button class="mode ${state.mode==='original'?'active':''}" data-mode="original">原文</button></div>`}<div class="evidence-list">${panels}</div><div class="notice"><strong>來源與驗證：</strong>本文文字來自${a.demo?'Daily Insight 原創示範':(hasApprovedFullText(a)||a.content_scope==='official_article_extracted')?'官方文章頁面':'發布者提供的 RSS'}。來源網域檢查不等於事實已查證。若要取得完整全文，必須確認該來源的授權及全文存取方式。</div>${editorialReason(a)&&!(hasApprovedFullText(a)&&translated)?`<div class="notice">重要例外 · ${esc(editorialReason(a))}</div>`:""}${quizHtml}<div class="actions"><a class="btn primary" href="${esc(source)}" target="_blank" rel="noopener noreferrer">查閱官方原始文件 ↗</a><button class="btn" data-save="${esc(a.url)}">${state.saved.includes(a.url)?'★ 已收藏':'☆ 收藏'}</button><button class="btn" data-read="${esc(a.url)}">${state.read.includes(a.url)?'✓ 已閱讀':'完成閱讀'}</button></div></section>`;
 }
-function articleSection(id, title, description, articles) {
- return `<section class="explore-section" id="${id}" aria-labelledby="${id}-title">
-   <div class="sectionhead"><h2 id="${id}-title">${title}</h2><span class="meta">${articles.length} 篇</span></div>
-   <p class="meta">${description}</p>
-   ${articles.length ? `<div class="grid">${articles.map(article).join('')}</div>` : '<p class="empty">目前沒有符合篩選條件的文章。</p>'}
- </section>`;
+const TOPICS = new Map([
+ ['醫療與健康', ['健康與醫學常識', '醫療與健康']],
+ ['環境與自然', ['環境與自然', '地球科學', '水利與工程']],
+ ['科技與工程', ['AI與科技', '通訊與防災', '軟體與開源']],
+ ['生活與食品', ['食品與生活', '生活與食品']],
+ ['文化與歷史', ['文化與歷史']],
+ ['社會與公共政策', ['社會與長照', '居住與公共服務', '國際政治與全球趨勢']]
+]);
+function topicOf(article) {
+ return [...TOPICS].find(([, categories]) => categories.includes(article.category))?.[0] || article.category || '其他';
 }
 function explore(items) {
- const selected = homepageArticles(items);
- const categories = ['全部', '有測驗', ...new Set(selected.map(a => a.category))];
+ const isKnowledge = state.page === 'knowledge';
+ const title = isKnowledge ? '知識' : '新聞';
+ const selected = homepageArticles(items).filter(a => (a.kind === 'knowledge') === isKnowledge);
+ const topics = ['全部', '有測驗', ...new Set([...TOPICS.keys(), ...selected.map(topicOf)])];
  const visible = selected.filter(a => state.filter === '全部' ||
-   (state.filter === '有測驗' ? quizData(a) : a.category === state.filter));
- const news = visible.filter(a => a.kind !== 'knowledge');
- const knowledge = visible.filter(a => a.kind === 'knowledge');
+   (state.filter === '有測驗' ? quizData(a) : topicOf(a) === state.filter));
  const bad = Object.entries(state.meta?.sources || {}).filter(([, status]) => status.status !== 'ok');
- return `<section class="hero"><div><div class="kicker">YOUR DAILY DOSE OF PERSPECTIVE</div><h2>今天，讓好奇心<br>帶你看得更遠。</h2><p>從第一手官方資訊出發，慢慢讀、深入想。每天 30 分鐘，建立屬於你的世界知識地圖。</p><div class="statsline"><span>◷ 30 分鐘每日閱讀</span><span>✧ 原始來源優先</span><span>↗ 原文可追溯</span></div></div><div class="hero-art" aria-hidden="true"></div></section>
- <div class="sectionhead"><h2>今日探索</h2><span class="meta">新聞更新：${esc(date(state.meta?.updated_at))}</span></div>
- <div class="actions explore-links" aria-label="前往閱讀區塊">
-   <a class="btn" href="#explore-news">前往新聞</a>
-   <a class="btn" href="#explore-knowledge">前往知識</a>
- </div>
- <div class="filters" aria-label="篩選新聞和知識">${categories.map(category =>
-   `<button class="filter ${state.filter === category ? 'selected' : ''}" data-filter="${esc(category)}" aria-pressed="${state.filter === category}">${esc(category)}</button>`).join('')}</div>
- ${bad.length ? `<div class="notice">部分來源更新異常：${bad.map(([key]) => esc(key)).join('、')}。不以虛構資料填補。</div>` : ''}
- ${articleSection('explore-news', '新聞', '台灣與國際時事、官方公告與政策進展。', news)}
- ${articleSection('explore-knowledge', '知識', '科普、生活指南與專題解說，可依主題閱讀。', knowledge)}`;
+ return `<section class="explore-section" aria-labelledby="explore-title">
+   <div class="sectionhead"><h2 id="explore-title">${title}</h2><span class="meta">${visible.length} 篇</span></div>
+   <p class="meta">${isKnowledge ? '科普、生活指南與長期可查閱的專題解說。' : `台灣與國際時事、官方公告與政策進展。新聞更新：${esc(date(state.meta?.updated_at))}`}</p>
+   <div class="filters explore-topics" aria-label="${title}主題分類">${topics.map(topic =>
+     `<button class="filter ${state.filter === topic ? 'selected' : ''}" data-filter="${esc(topic)}" aria-pressed="${state.filter === topic}">${esc(topic)}</button>`).join('')}</div>
+   ${!isKnowledge && bad.length ? `<div class="notice">部分來源更新異常：${bad.map(([key]) => esc(key)).join('、')}。不以虛構資料填補。</div>` : ''}
+   ${visible.length ? `<div class="grid">${visible.map(article).join('')}</div>` : '<p class="empty">此分類目前沒有符合刊登條件的文章。</p>'}
+ </section>`;
 }
-function render(){document.querySelector('#streak').textContent=`已讀 ${state.read.length} 篇`;document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===state.page));const main=document.querySelector('#main');if(state.selected){const a=state.news.find(x=>x.url===state.selected);if(a){main.innerHTML=reader(a);return}state.selected=null}const n=state.news;if(state.page==='news'){main.innerHTML=explore(n)}
+function render(){document.querySelector('#streak').textContent=`已讀 ${state.read.length} 篇`;document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===state.page));const main=document.querySelector('#main');if(state.selected){const a=state.news.find(x=>x.url===state.selected);if(a){main.innerHTML=reader(a);return}state.selected=null}const n=state.news;if(state.page==='news'||state.page==='knowledge'){main.innerHTML=explore(n)}
 else if(state.page==='saved'){const a=n.filter(x=>state.saved.includes(x.url));main.innerHTML=`<div class="sectionhead"><h2>我的收藏書架</h2></div>${a.length?`<div class="grid">${a.map(article).join('')}</div>`:'<div class="empty">尚未收藏文章。看到喜歡的主題時，按下「收藏」即可。</div>'}`}
 else if(state.page==='stats'){const aw=awards();main.innerHTML=`<div class="sectionhead"><h2>學習足跡</h2><button class="btn primary" data-challenges="1">開始知識挑戰</button></div><div class="grid"><div class="card"><div class="card-body"><div class="stat">${state.read.length}</div><p>已閱讀篇數</p></div></div><div class="card"><div class="card-body"><div class="stat">${state.saved.length}</div><p>收藏文章數</p></div></div></div><div class="badge-grid"><div class="badge-card">🏆 <strong>${aw.xp} XP</strong><small>知識經驗值</small></div><div class="badge-card">📖 <strong>${aw.completed} 篇</strong><small>挑戰完成</small></div><div class="badge-card">⭐ <strong>${aw.perfect} 篇</strong><small>滿分達成</small></div><div class="badge-card ${aw.completed>=1?'unlocked':'locked'}">🏅 <strong>初次探索</strong><small>完成首次挑戰</small></div><div class="badge-card ${aw.perfect>=3?'unlocked':'locked'}">🏅 <strong>理解達人</strong><small>三次滿分</small></div><div class="badge-card ${aw.completed>=5?'unlocked':'locked'}">🏅 <strong>閱讀冒險家</strong><small>完成五篇挑戰</small></div></div><div class="notice">紀錄保存在目前的瀏覽器，不會跨裝置同步。已閱讀不等於完成事實核查。</div>`}
 else main.innerHTML=`<div class="sectionhead"><h2>我們如何對待資訊</h2></div><div class="notice">從核准的官方來源取得第一手資料。經核對授權的繁中原文可完整閱讀，並附原始發布頁與授權連結。網域核對不能證明所有主張正確；正式新聞翻譯由 GitHub Actions 背景執行，可能因模型或資源限制失敗，不能保證完全準確。無摘要或無翻譯時明確標示，不捏造。完整轉載須確認授權。</div>`}
-document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.challenges){state.page='news';state.filter='有測驗';state.selected=null;render()}else if(b.dataset.page){state.page=b.dataset.page;state.selected=null;render()}else if(b.dataset.filter){state.filter=b.dataset.filter;render()}else if(b.dataset.open){state.selected=b.dataset.open;state.mode='zh';render();window.scrollTo(0,0)}else if(b.dataset.back){state.selected=null;render()}else if(b.dataset.mode){state.mode=b.dataset.mode;render()}else if(b.dataset.save){state.saved=state.saved.includes(b.dataset.save)?state.saved.filter(x=>x!==b.dataset.save):[...state.saved,b.dataset.save];persist();render()}else if(b.dataset.quizReset){delete state.quizResults[b.dataset.quizReset];persist();render()}
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.challenges){state.page='knowledge';state.filter='有測驗';state.selected=null;render()}else if(b.dataset.page){state.page=b.dataset.page;state.filter='全部';state.selected=null;render()}else if(b.dataset.filter){state.filter=b.dataset.filter;render()}else if(b.dataset.open){state.selected=b.dataset.open;state.mode='zh';render();window.scrollTo(0,0)}else if(b.dataset.back){state.selected=null;render()}else if(b.dataset.mode){state.mode=b.dataset.mode;render()}else if(b.dataset.save){state.saved=state.saved.includes(b.dataset.save)?state.saved.filter(x=>x!==b.dataset.save):[...state.saved,b.dataset.save];persist();render()}else if(b.dataset.quizReset){delete state.quizResults[b.dataset.quizReset];persist();render()}
 else if(b.dataset.quizSubmit){
  const a=state.news.find(x=>(x.id||x.url)===b.dataset.quizSubmit),quiz=a&&quizData(a);if(!quiz)return;
  const choices=quiz.map((_,i)=>document.querySelector(`input[name="quiz-${i}"]:checked`));
