@@ -102,26 +102,54 @@ function articleArtwork(a) {
  const [background,ink,defaultArt]=ILLUSTRATIONS[key];
  return {background,ink,artwork:custom||defaultArt,tailored:ARTICLE_ART.has(a.id)};
 }
+const GENERATED_ART = new Map([
+ ["curated:hpa", ["preventive-checkup", "血壓計、聽診器與健康檢查表插圖"]],
+ ["ey:eb1d2b2d-ef21-4e57-83fc-4d8765a4bfd5", ["railway-museum", "歷史鐵道工場內的退役列車與保存紀錄"]],
+ ["ey:92740cf4-2585-4cc7-8593-d6d9ffd90f9b", ["elder-welfare", "長者在服務櫃檯諮詢，旁邊有福利與經費文件"]],
+ ["knowledge:quake", ["quake-magnitude", "地下斷層釋放震波，地震儀記下波形"]],
+ ["knowledge:quake2", ["quake-impact", "同一次地震對兩處不同地盤與建物造成不同影響"]],
+ ["knowledge:food", ["frozen-food", "冷凍櫃內的密封食物與一旁的保冷提袋"]],
+ ["curated:eq36", ["quake-intensity", "吊燈、餐具與椅子隨地面搖晃的室內情境"]],
+ ["curated:finance", ["cloud-receipt", "手機條碼、雲端發票與匯入銀行帳戶的示意"]],
+ ["curated:fapp", ["receipt-app", "用手機檢查發票中獎結果的示意"]],
+ ["curated:env", ["carbon-fee", "委員對照排放與費率資料討論，旁有工廠情境"]],
+ ["curated:env2", ["approved-products", "網購環境用藥時檢查產品核准標示的示意"]],
+ ["library:cpi", ["cpi-housing", "購物籃、租金憑據和房屋買賣契約並列"]],
+ ["library:stress", ["stress-response", "放下手機通知，與陪伴者一起平復情緒"]],
+ ["library:alcohol", ["alcohol-family", "把酒杯放到一旁的家人對話情境"]],
+ ["library:lang", ["taiwan-languages", "不同世代交流，並以手語溝通的情境"]],
+ ["library:archive", ["national-archives", "檔案管理人員保存紙本紀錄與古地契"]],
+ ["library:housing", ["social-housing", "社會住宅住戶簽租約並領取鑰匙的情境"]],
+ ["library:mydata", ["mydata-certificate", "在家透過電腦同意帶入身分資料並申請文件"]],
+ ["library:tech", ["public-code", "居民與公部門開發人員一起討論公共服務程式"]],
+ ["library:tsunami", ["tsunami-origin", "海床位移推動上方水體，長浪向海岸傳播"]],
+ ["library:gastro", ["gastro-transmission", "食物、手部接觸與不同微生物的示意"]],
+ ["library:logic", ["logic-sentences", "用陳述卡片和疑問泡泡區分句子是否可判真偽"]],
+ ["nasa:60000835", ["artemis-moon", "月球上方的太空船與遠處地球的概念插畫"]],
+ ["moda:21226", ["digital-certificate", "電腦上的數位憑證與新舊金鑰替換示意"]],
+ ["ey:d6716352-809b-48b5-a600-da100e7c5de0", ["coast-patrol", "沿岸巡邏船、瞭望與海上救援設備"]],
+]);
 function imageMarkup(a,cls='card-art'){
  const image=safeUrl(a.image_url), source=safeUrl(a.url), license=safeUrl(a.image_license_url);
  const original=image&&source&&a.image_rights==='approved';
  const {background,ink,artwork,tailored}=articleArtwork(a);
- const generated=a.id==='curated:hpa';
+ const generated=GENERATED_ART.get(a.id);
  const illustration=`<div class="topic-art" ${original?'hidden':''} style="--art-bg:${background};--art-ink:${ink}">
-   <div class="illustration-frame"><svg viewBox="0 0 324 204" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+   <div class="illustration-frame${generated?' has-generated':''}"><svg viewBox="0 0 324 204" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
      <circle cx="162" cy="102" r="88" fill="currentColor" opacity=".09"/>
      <path d="M47 127v-12m-6 6h12m223-66v-12m-6 6h12m-221 97h23m190-35h-18" fill="none" stroke="currentColor" stroke-width="2" opacity=".45"/>
      <g fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">${artwork}</g>
-   </svg>${generated?`<img class="generated-illustration" src="./art/preventive-checkup.webp" alt="血壓計、聽診器與健康檢查表插圖" loading="${cls==='reader-cover'?'eager':'lazy'}">`:''}</div>
-   <span class="visual-label">${tailored?'文章插圖':'主題插圖'}</span></div>`;
+   </svg>${generated?`<img class="generated-illustration" src="./art/${generated[0]}.webp" alt="${esc(generated[1])}" loading="${cls==='reader-cover'?'eager':'lazy'}">`:''}</div>
+   <span class="visual-label">${generated?'AI 文章插圖':tailored?'文章插圖':'主題插圖'}</span></div>`;
  const photo=original?`<a class="official-photo" href="${esc(source)}" target="_blank" rel="noopener noreferrer" aria-label="開啟官方原文及配圖">
    <img src="${esc(image)}" alt="${esc(a.image_alt||a.title)}" loading="${cls==='reader-cover'?'eager':'lazy'}" referrerpolicy="no-referrer">
-   <span class="visual-label">官方原圖 ↗</span></a>`:'';
+ </a>`:'';
  const credit=original&&cls==='reader-cover'?`<p class="photo-credit meta">圖片來源：${esc(a.image_credit||a.source)} · ${license?`<a href="${esc(license)}" target="_blank" rel="noopener noreferrer">${esc(a.image_license)}</a>`:esc(a.image_license||'已核對授權')}</p>`:'';
  return `<div class="article-visual"><div class="${cls}">${photo}${illustration}</div>${credit}</div>`;
 }
 document.addEventListener('error',event=>{
  if(event.target.classList?.contains('generated-illustration')){
+   event.target.parentElement.classList.remove('has-generated');
    event.target.remove();
    return;
  }
