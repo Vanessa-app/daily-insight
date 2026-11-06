@@ -1,5 +1,0 @@
-[
- {"id":"nasa","name":"NASA","category":"AI與科技","feed":"https://www.nasa.gov/feed/","allowed_hosts":["nasa.gov","www.nasa.gov"]},
- {"id":"who","name":"WHO","category":"健康與醫學常識","feed":"https://www.who.int/rss-feeds/news-english.xml","allowed_hosts":["who.int","www.who.int"]},
- {"id":"un","name":"United Nations","category":"國際政治與全球趨勢","feed":"https://www.un.org/en/rss.xml","allowed_hosts":["un.org","www.un.org"]}
-]
