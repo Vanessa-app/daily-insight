@@ -105,6 +105,82 @@ def parse_entries(xml):
         results.append((text(item,'{http://www.w3.org/2005/Atom}title'),link,text(item,'{http://www.w3.org/2005/Atom}published') or text(item,'{http://www.w3.org/2005/Atom}updated'),text(item,'{http://www.w3.org/2005/Atom}summary')))
     return results
 
+TAIWAN_RELEASES = (
+    ('moda', '數位發展部', 'https://moda.gov.tw/press/press-releases/372',
+     r'/press/press-releases/\d+', '.article1.cpArticle', 'h2 .titleTxt', 'AI與科技',
+     'CC0 1.0', 'https://moda.gov.tw/announcement/publicdeclare/951'),
+    ('ey', '行政院', 'https://www.ey.gov.tw/Page/6485009ABEC1CB9C',
+     r'/Page/9277F759E41CCD91/[0-9a-f-]{36}', '.words_content .data_left', '.words .h2',
+     '社會與公共政策', '政府資料開放授權條款－第1版',
+     'https://www.ey.gov.tw/Page/2EADDBFEDDB6357E'),
+)
+TAIPEI = dt.timezone(dt.timedelta(hours=8))
+
+def publisher_page(url, allowed):
+    if not host_ok(url, allowed):
+        raise ValueError('unapproved URL')
+    with urllib.request.urlopen(urllib.request.Request(url, headers=HEADERS), timeout=18) as response:
+        if not host_ok(response.geturl(), allowed) or 'text/html' not in response.headers.get('Content-Type', ''):
+            raise ValueError('unexpected publisher response')
+        payload = response.read(2_000_001)
+    if len(payload) > 2_000_000:
+        raise ValueError('publisher page too large')
+    return BeautifulSoup(payload, 'html.parser', from_encoding='utf-8')
+
+def taiwan_releases(retained, statuses):
+    for sid, name, listing, path, body_selector, title_selector, category, license_name, license_url in TAIWAN_RELEASES:
+        allowed = [urllib.parse.urlsplit(listing).hostname]
+        accepted = failed = 0
+        try:
+            page = publisher_page(listing, allowed)
+            urls = list(dict.fromkeys(urllib.parse.urljoin(listing, a['href'])
+                        for a in page.select('a[href]') if re.fullmatch(path, a['href'])))
+            if not urls:
+                raise ValueError('release links missing')
+            for url in urls[:5]:
+                try:
+                    page = publisher_page(url, allowed)
+                    body = page.select_one(body_selector)
+                    heading = page.select_one(title_selector)
+                    if not body or not heading:
+                        raise ValueError('release layout changed')
+                    # Require every text block to be a paragraph. Skip embedded media,
+                    # third-party notices, and contact details pending editorial review.
+                    if any(node.name != 'p' for node in body.find_all(recursive=False)) or body.select('img,video,iframe,table,figure,blockquote'):
+                        continue
+                    parts = [p.get_text(strip=False).strip() for p in body.find_all('p', recursive=False)]
+                    parts = [p for p in parts if p]
+                    prose = ''.join(parts)
+                    if len(parts) < 2 or re.sub(r'\s+', '', prose) != re.sub(r'\s+', '', body.get_text()):
+                        continue
+                    if re.search(r'版權所有|禁止轉載|不得轉載|另行授權|經同意方可|©|新聞聯絡人|09\d{2}[- ]?\d{3}[- ]?\d{3}', prose):
+                        continue
+                    if sid == 'moda':
+                        date = dt.datetime.fromisoformat(re.search(r'"datePublished"\s*:\s*"([^"]+)"', str(page)).group(1))
+                    else:
+                        y, m, d = map(int, re.search(r'(\d{3})-(\d{2})-(\d{2})', page.select_one('.date_style2').get_text()).groups())
+                        date = dt.datetime(y+1911, m, d, tzinfo=TAIPEI)
+                    if date > NOW or NOW-date > dt.timedelta(days=30):
+                        continue
+                    retained[url] = {
+                        'id': sid+':'+url.rsplit('/',1)[-1], 'source_id': sid, 'source': name,
+                        'kind': 'news', 'category': category, 'title': heading.get_text(strip=True),
+                        'url': url, 'published_at': date.isoformat(), 'content_complete': True,
+                        'reuse_license': 'approved', 'license_name': license_name, 'license_url': license_url,
+                        'content_scope': 'official_full_text', 'translation_status': 'original_zh_hant',
+                        'evidence_original': parts, 'excerpt_original': parts[0],
+                        'verification': 'publisher_domain_checked', 'claim_verification': 'not_independently_verified'
+                    }
+                    accepted += 1
+                except (ValueError, AttributeError, OSError) as exc:
+                    failed += 1
+                    print(name, url, type(exc).__name__, exc)
+            status = 'partial' if failed else 'ok'
+        except (ValueError, OSError) as exc:
+            status = 'error'
+            print(name, type(exc).__name__, exc)
+        statuses[name] = {'status': status, 'accepted': accepted, 'checked_at': NOW.isoformat()}
+
 def run():
     sources = json.loads((ROOT/'sources.json').read_text(encoding='utf-8'))
     target = ROOT/'data/news.json'
@@ -157,10 +233,12 @@ def run():
             statuses[sid] = {'status':'ok','accepted':accepted,'checked_at':NOW.isoformat()}
         except Exception as exc:
             statuses[sid] = {'status':'error','reason':type(exc).__name__,'checked_at':NOW.isoformat()}
+    taiwan_releases(retained, statuses)
     valid = {s['id']:s['allowed_hosts'] for s in sources}
+    valid.update({row[0]: [urllib.parse.urlsplit(row[2]).hostname] for row in TAIWAN_RELEASES})
     items = [x for x in retained.values() if x.get('source_id') in valid and host_ok(x.get('url',''),valid[x['source_id']]) and x.get('published_at')]
     items.sort(key=lambda x:x['published_at'],reverse=True)
-    output = {'schema_version':3,'updated_at':NOW.isoformat(),'items':items[:24],'sources':statuses,'disclaimer':'Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed.'}
+    output = {'schema_version':3,'updated_at':NOW.isoformat(),'items':items[:60],'sources':statuses,'disclaimer':'Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed.'}
     target.parent.mkdir(exist_ok=True)
     target.write_text(json.dumps(output,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print('Accepted',len(output['items']),'items; source status:',{k:v['status'] for k,v in statuses.items()})

@@ -82,6 +82,21 @@ const TOPICS = new Map([
 function topicOf(article) {
  return [...TOPICS].find(([, categories]) => categories.includes(article.category))?.[0] || article.category || '其他';
 }
+function dailyKnowledge(items, now = Date.now()) {
+ const groups = new Map();
+ for (const a of homepageArticles(items)) {
+   if (a.kind !== 'knowledge') continue;
+   const topic = topicOf(a);
+   if (!groups.has(topic)) groups.set(topic, []);
+   groups.get(topic).push(a);
+ }
+ const topics = [...groups.keys()];
+ if (!topics.length) return null;
+ const day = Math.floor((now + 8 * 3600000) / 86400000);
+ const topic = topics[day % topics.length];
+ const articles = groups.get(topic);
+ return {topic, article: articles[Math.floor(day / topics.length) % articles.length]};
+}
 function explore(items) {
  const isKnowledge = state.page === 'knowledge';
  const title = isKnowledge ? '知識' : '新聞';
@@ -89,6 +104,7 @@ function explore(items) {
  const topics = ['全部', '有測驗', ...new Set([...TOPICS.keys(), ...selected.map(topicOf)])];
  const visible = selected.filter(a => state.filter === '全部' ||
    (state.filter === '有測驗' ? quizData(a) : topicOf(a) === state.filter));
+ const today = state.filter === '全部' ? dailyKnowledge(items) : null;
  const bad = Object.entries(state.meta?.sources || {}).filter(([, status]) => status.status !== 'ok');
  return `<section class="explore-section" aria-labelledby="explore-title">
    <div class="sectionhead"><h2 id="explore-title">${title}</h2><span class="meta">${visible.length} 篇</span></div>
@@ -96,6 +112,7 @@ function explore(items) {
    <div class="filters explore-topics" aria-label="${title}主題分類">${topics.map(topic =>
      `<button class="filter ${state.filter === topic ? 'selected' : ''}" data-filter="${esc(topic)}" aria-pressed="${state.filter === topic}">${esc(topic)}</button>`).join('')}</div>
    ${!isKnowledge && bad.length ? `<div class="notice">部分來源更新異常：${bad.map(([key]) => esc(key)).join('、')}。不以虛構資料填補。</div>` : ''}
+   ${today ? `<div class="notice"><strong>今日知識 · ${esc(today.topic)}</strong><p>${esc(today.article.title)}</p><button class="btn primary" data-open="${esc(today.article.url)}">閱讀今日知識</button></div>` : ''}
    ${visible.length ? `<div class="grid">${visible.map(article).join('')}</div>` : '<p class="empty">此分類目前沒有符合刊登條件的文章。</p>'}
  </section>`;
 }
@@ -122,15 +139,16 @@ async function readNews(url) {
 }
 (async () => {
  const [daily, taiwan] = await Promise.allSettled([
-   readNews(LIVE_DATA).catch(() => readNews(DATA)),
+   readNews(LIVE_DATA + '?refresh=' + Date.now()).catch(() => readNews(DATA)),
    readNews('./data/taiwan.json')
  ]);
  const sources = {...daily.value?.sources};
  if (daily.status === 'rejected') sources.fetch = {status: 'error'};
  if (taiwan.status === 'rejected') sources['台灣全文'] = {status: 'error'};
  state.meta = {updated_at: daily.value?.updated_at, sources};
- state.news = [...(daily.value?.items || []), ...(taiwan.value?.items || [])]
+ const combined = [...(daily.value?.items || []), ...(taiwan.value?.items || [])]
    .filter(a => safeUrl(a.url) && a.verification === 'publisher_domain_checked');
+ state.news = [...new Map(combined.map(a => [a.url, a])).values()];
  render();
 })();
 if('serviceWorker'in navigator&&location.protocol==='https:')navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).catch(()=>{});
