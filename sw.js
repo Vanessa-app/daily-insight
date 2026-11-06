@@ -1,4 +1,4 @@
-const CACHE='daily-insight-v1.8-knowledge-3';const ASSETS=['./','./index.html','./style.css?v=reading1','./app.js?v=knowledge3','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png','./data/news.json','./data/taiwan.json'];
+const CACHE='daily-insight-v1.8-knowledge-4';const ASSETS=['./','./index.html','./style.css?v=reading1','./app.js?v=knowledge4','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png','./data/news.json','./data/taiwan.json'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS.map(path=>new Request(path,{cache:'reload'})))).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith("daily-insight-")&&k!==CACHE).map(k=>caches.delete(k))))));
 self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;const u=new URL(e.request.url);if(u.origin!==self.location.origin)return;
