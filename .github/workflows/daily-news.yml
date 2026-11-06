@@ -8,15 +8,15 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Update publisher evidence and optional translation
-        env:
-          DEEPL_AUTH_KEY: ${{ secrets.DEEPL_AUTH_KEY }}
+      - name: Install HTML extraction dependency
+        run: python -m pip install -r requirements.txt
+      - name: Update publisher evidence and offline translation
         run: python scripts/update_news.py
       - name: Commit data only when changed
         run: |

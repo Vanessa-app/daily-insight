@@ -4,6 +4,7 @@ import datetime as dt
 import email.utils
 import json
 import html
+from bs4 import BeautifulSoup
 import re
 import os
 import pathlib
@@ -49,45 +50,49 @@ def paragraphs(raw):
     cleaned = [clean_excerpt(x) for x in parts]
     return [x for x in cleaned if x][:35]
 
-def translate_segments(parts):
-    """Translate publisher-supplied text only, with explicit status; no silent failure."""
-    key = os.environ.get('DEEPL_AUTH_KEY','').strip()
-    if not parts: return [], 'no_original_text'
-    if not key: return [], 'not_configured'
-    endpoint = os.environ.get('DEEPL_API_URL','https://api-free.deepl.com/v2/translate')
-    if endpoint not in ('https://api-free.deepl.com/v2/translate','https://api.deepl.com/v2/translate'):
-        return [], 'invalid_endpoint'
-    translated=[]
-    try:
-        # DeepL accepts repeated text fields; cap total request size and count.
-        for start in range(0,len(parts),15):
-            batch=parts[start:start+15]
-            payload=urllib.parse.urlencode([('text',p) for p in batch]+[('target_lang','ZH-HANT')]).encode()
-            req=urllib.request.Request(endpoint,data=payload,headers={'Authorization':'DeepL-Auth-Key '+key,'Content-Type':'application/x-www-form-urlencoded'})
-            with urllib.request.urlopen(req,timeout=35) as response: obj=json.load(response)
-            texts=[x.get('text','') for x in obj.get('translations',[])]
-            if len(texts)!=len(batch) or any(not t.strip() for t in texts): raise ValueError('translation_count_mismatch')
-            translated.extend(texts)
-        return translated, 'translated'
-    except Exception as exc:
-        print('Translation unavailable:',type(exc).__name__)
-        return [], 'provider_error'
 
-
-def translate_excerpt(content):
-    """Optional translation of short feed excerpts; no fabricated text."""
-    key=os.environ.get("DEEPL_AUTH_KEY", "")
-    if not key or not content: return None
-    endpoint=os.environ.get("DEEPL_API_URL", "https://api-free.deepl.com/v2/translate")
-    if endpoint not in ("https://api-free.deepl.com/v2/translate", "https://api.deepl.com/v2/translate"): return None
-    data=urllib.parse.urlencode({"text":content,"target_lang":"ZH-HANT"}).encode()
-    req=urllib.request.Request(endpoint,data=data,headers={"Authorization":"DeepL-Auth-Key "+key,"Content-Type":"application/x-www-form-urlencoded"})
+def article_image_candidate(url,allowed):
+    """Find publisher image metadata; do NOT assume re-use rights."""
+    if not host_ok(url,allowed): return None
     try:
-        with urllib.request.urlopen(req,timeout=15) as response:
-            obj=json.load(response)
-        result=obj["translations"][0]["text"]
-        return result if isinstance(result,str) and result.strip() else None
+        req=urllib.request.Request(url,headers=HEADERS)
+        with urllib.request.urlopen(req,timeout=12) as resp:
+            if not host_ok(resp.geturl(),allowed): return None
+            if 'html' not in resp.headers.get('Content-Type',''): return None
+            body=resp.read(900_000)
+        soup=BeautifulSoup(body,'html.parser')
+        node=soup.find('meta',attrs={'property':'og:image'}) or soup.find('meta',attrs={'name':'twitter:image'})
+        if not node or not node.get('content'): return None
+        image=urllib.parse.urljoin(url,node['content'])
+        return image if image.startswith('https://') else None
     except Exception: return None
+
+def translate_segments(parts):
+    """Offline model: no API key; fail closed on model or resource errors."""
+    if not parts: return [], 'no_original_text'
+    try:
+        from transformers import pipeline
+        from opencc import OpenCC
+        translator = pipeline('translation', model='Helsinki-NLP/opus-mt-en-zh', device=-1)
+        convert = OpenCC('s2t')
+        results = []
+        for part in parts:
+            # Split to reduce truncation. Paragraph alignment preserved.
+            sentences = re.split(r'(?<=[.!?])\s+', part)
+            translated_sentences=[]
+            for sentence in sentences:
+                if not sentence.strip(): continue
+                if len(sentence)>850: raise ValueError('sentence_too_long_for_safe_translation')
+                out=translator(sentence, max_length=512, truncation=False)[0]['translation_text']
+                if not out.strip(): raise ValueError('empty_translation')
+                translated_sentences.append(convert.convert(out))
+            results.append(' '.join(translated_sentences))
+        if len(results)!=len(parts): raise ValueError('segment_count_mismatch')
+        return results, 'translated_unreviewed'
+    except Exception as exc:
+        print('Translation unavailable:',type(exc).__name__,str(exc)[:200])
+        return [], 'translation_error_'+type(exc).__name__
+
 
 def parse_entries(xml):
     root = ET.fromstring(xml)
@@ -119,7 +124,7 @@ def run():
                 if len(payload)>2_000_000: raise ValueError('feed too large')
             parsed = parse_entries(payload)
             accepted = 0
-            for title,url,published,description in parsed[:100]:
+            for title,url,published,description in parsed[:3]:
                 if not title or not host_ok(url,allowed): continue
                 date = date_value(published)
                 if not date: continue
@@ -127,19 +132,21 @@ def run():
                 # Source authenticity is domain-based; individual claims are NOT independently fact-checked.
                 excerpt=clean_excerpt(description)
                 segments=paragraphs(description)
+                scope='publisher_feed_excerpt'; complete=False; extraction_status='not_attempted'
                 previous=retained.get(url,{})
-                if previous.get('evidence_original')==segments and previous.get('translation_status')=='translated':
+                if previous.get('evidence_original')==segments and previous.get('translation_status')=='translated_unreviewed':
                     translated=previous.get('evidence_zh_hant',[])
-                    status='translated'
+                    status='translated_unreviewed'
                 else:
                     translated,status=translate_segments(segments)
                 # No full-text claim unless an explicitly licensed full-text adapter exists.
                 # Current approved feeds only provide publisher excerpts, which may be long.
                 retained[url] = {
+                    'image_url':article_image_candidate(url,allowed), 'image_rights':'unverified', 'image_credit':source['name'], 'quiz_reviewed':False, 'quiz':[],
                     'excerpt_original':excerpt,'translation_zh_hant':' '.join(translated) if translated else None,
                     'evidence_original':segments,'evidence_zh_hant':translated,
-                    'translation_status':status,'content_scope':'publisher_feed_excerpt',
-                    'content_complete':False,'reuse_license':'not_confirmed',
+                    'translation_status':status,'content_scope':scope,'extraction_status':extraction_status,
+                    'content_complete':complete,'reuse_license':'not_confirmed',
                     'id':sid+':'+str(abs(__import__('zlib').crc32(url.encode()))),
                     'source_id':sid,'source':source['name'],'category':source['category'],
                     'title':title[:300],'url':url,'published_at':date,
@@ -153,7 +160,7 @@ def run():
     valid = {s['id']:s['allowed_hosts'] for s in sources}
     items = [x for x in retained.values() if x.get('source_id') in valid and host_ok(x.get('url',''),valid[x['source_id']]) and x.get('published_at')]
     items.sort(key=lambda x:x['published_at'],reverse=True)
-    output = {'schema_version':2,'updated_at':NOW.isoformat(),'items':items[:150],'sources':statuses,'disclaimer':'Publisher feed excerpts only; no full-text rights assumed. Source domain verified; claims not independently fact-checked.'}
+    output = {'schema_version':3,'updated_at':NOW.isoformat(),'items':items[:24],'sources':statuses,'disclaimer':'Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed.'}
     target.parent.mkdir(exist_ok=True)
     target.write_text(json.dumps(output,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print('Accepted',len(output['items']),'items; source status:',{k:v['status'] for k,v in statuses.items()})

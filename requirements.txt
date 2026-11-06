@@ -1,0 +1,6 @@
+beautifulsoup4==4.12.3
+transformers==4.44.2
+torch>=2.2,<3
+sentencepiece>=0.2,<1
+sacremoses>=0.1,<1
+opencc-python-reimplemented==0.1.7
