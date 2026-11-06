@@ -46,10 +46,49 @@ function readingStatus(a) {
  return '重要例外 · ' + (hasApprovedFullText(a) ? '可讀全文' : '僅節錄或標題')
    + ' · ' + (hasChinese(a) ? '有繁中' : '尚無繁中');
 }
+const ILLUSTRATIONS = {
+ health: ['#dcebe2','#286452','<rect x="105" y="45" width="112" height="118" rx="13"/><path d="M139 45v-8h44v8M139 96h44m-22-22v44M131 137h60"/>'],
+ earth: ['#dceae9','#28627a','<path d="M84 114l47-57 43 44 28-29 34 42M82 138c25-22 44 20 68 0s43 18 69 0 31-2 39 0M82 157c25-22 44 20 68 0s43 18 69 0 31-2 39 0"/><circle cx="211" cy="48" r="12"/>'],
+ technology: ['#dbe5f0','#2c5680','<rect x="115" y="59" width="93" height="93" rx="12"/><rect x="142" y="86" width="39" height="39" rx="5"/><path d="M115 84H89m26 42H89m119-42h26m-26 42h26m-97-67V38m47 21V38m-47 114v22m47-22v22"/>'],
+ food: ['#f1e5cf','#89592d','<circle cx="161" cy="104" r="55"/><circle cx="161" cy="104" r="36"/><path d="M84 57v35c0 11 9 17 17 17m0-52v102m16-102v35c0 11-8 17-16 17m126 50V57c-15 14-16 43 0 50"/>'],
+ history: ['#eee0d0','#86583d','<path d="M92 83l70-39 70 39zm13 13h114m-105 0v47m31-47v47m34-47v47m31-47v47M101 144h122m-133 17h144"/>'],
+ rail: ['#eee0d0','#86583d','<rect x="108" y="47" width="107" height="98" rx="18"/><rect x="125" y="67" width="72" height="31" rx="5"/><path d="M138 145l-24 28m71-28 24 28m-88-9h81m-67-46h5m43 0h5"/>'],
+ society: ['#e8e4ed','#644c78','<circle cx="126" cy="68" r="20"/><circle cx="197" cy="68" r="20"/><path d="M86 142v-13c0-24 18-38 40-38s39 14 39 38v13zm79-13c0-24 14-38 32-38 22 0 40 14 40 38v13h-72"/>'],
+ finance: ['#ebe8cf','#71602f','<path d="M96 148h132M108 148v-35h25v35m17 0V94h25v54m17 0V73h25v75M107 92l49-24 38-25m-24 0h24v23"/>'],
+ mind: ['#eae2ef','#744d7e','<path d="M150 153H112v-28l-17-5 13-27c1-29 25-49 54-49 34 0 57 24 57 57 0 21-9 35-25 47v18m-38-78c-8-17-31-10-30 7 1 13 20 25 30 31 10-6 29-18 30-31 1-17-22-24-30-7z"/>'],
+ life: ['#dfead3','#42703b','<path d="M161 157V102m0 20c-38 0-64-22-64-63 42 0 64 19 64 63zm0-13c0-37 26-58 67-58 0 38-27 58-67 58zm-36 52h72"/>'],
+ logic: ['#e6e1ef','#564d85','<rect x="95" y="42" width="48" height="38" rx="6"/><rect x="182" y="42" width="48" height="38" rx="6"/><rect x="138" y="128" width="48" height="38" rx="6"/><path d="M119 80v22h87V80m-44 22v26m-10-15 10 15 10-15"/>']
+};
+const TOPIC_ILLUSTRATIONS = {
+ '醫療與健康':'health','環境與自然':'earth','科技與工程':'technology',
+ '日常生活與實用技能':'food','生活與食品':'food','藝術與歷史':'history','文化與歷史':'history',
+ '人文':'history','社會與公共政策':'society','經濟與財政':'finance','商業與經濟':'finance',
+ '心理學與人類行為':'mind','生命科學':'life','邏輯學':'logic'
+};
 function imageMarkup(a,cls='card-art'){
- const u=safeUrl(a.image_url);
- return u&&a.image_rights==='approved'?`<div class="${cls} has-photo"><img src="${esc(u)}" alt="${esc(a.image_alt||a.title)}" loading="lazy" referrerpolicy="no-referrer"></div>`:`<div class="${cls}"></div>`;
+ const image=safeUrl(a.image_url), source=safeUrl(a.url), license=safeUrl(a.image_license_url);
+ const original=image&&source&&a.image_rights==='approved';
+ const key=/鐵道|鐵路/.test(a.title)?'rail':TOPIC_ILLUSTRATIONS[topicOf(a)]||'society';
+ const [background, ink, artwork]=ILLUSTRATIONS[key];
+ const illustration=`<div class="topic-art" ${original?'hidden':''} style="--art-bg:${background};--art-ink:${ink}">
+   <svg viewBox="0 0 324 204" aria-hidden="true" focusable="false">
+     <circle cx="162" cy="102" r="88" fill="currentColor" opacity=".09"/>
+     <path d="M47 127v-12m-6 6h12m223-66v-12m-6 6h12m-221 97h23m190-35h-18" fill="none" stroke="currentColor" stroke-width="2" opacity=".45"/>
+     <g fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">${artwork}</g>
+   </svg><span class="visual-label">主題插圖</span></div>`;
+ const photo=original?`<a class="official-photo" href="${esc(source)}" target="_blank" rel="noopener noreferrer" aria-label="開啟官方原文及配圖">
+   <img src="${esc(image)}" alt="${esc(a.image_alt||a.title)}" loading="${cls==='reader-cover'?'eager':'lazy'}" referrerpolicy="no-referrer">
+   <span class="visual-label">官方原圖 ↗</span></a>`:'';
+ const credit=original&&cls==='reader-cover'?`<p class="photo-credit meta">圖片來源：${esc(a.image_credit||a.source)} · ${license?`<a href="${esc(license)}" target="_blank" rel="noopener noreferrer">${esc(a.image_license)}</a>`:esc(a.image_license||'已核對授權')}</p>`:'';
+ return `<div class="article-visual"><div class="${cls}">${photo}${illustration}</div>${credit}</div>`;
 }
+document.addEventListener('error',event=>{
+ const photo=event.target.closest?.('.official-photo');
+ if(!photo)return;
+ photo.parentElement.querySelector('.topic-art').hidden=false;
+ photo.closest('.article-visual').querySelector('.photo-credit')?.remove();
+ photo.remove();
+},true);
 function quizData(a){return a.quiz_reviewed===true&&Array.isArray(a.quiz)&&a.quiz.length>0&&a.quiz.every(q=>q.question&&Array.isArray(q.options)&&q.options.length>=2&&Number.isInteger(q.answer)&&q.answer>=0&&q.answer<q.options.length&&q.explanation)?a.quiz:null}
 function awards(){const r=Object.values(state.quizResults||{}),perfect=r.filter(x=>x.score===x.total).length;return {xp:r.reduce((s,x)=>s+x.score*20+10,0),completed:r.length,perfect}}
 function article(a){const saved=state.saved.includes(a.url),read=state.read.includes(a.url);return `<article class="card">${imageMarkup(a)}<div class="card-body"><div class="meta">${a.demo?'【原創示範】 ':''}${esc(a.category)} · ${esc(a.source)} · ${a.kind==='knowledge'?'知識專題':esc(date(a.published_at))}</div><h3>${esc(a.title)}</h3>${quizData(a)?'<div class="meta">附知識挑戰</div>':''}${readingStatus(a)?`<div class="meta">${esc(readingStatus(a))}</div>`:""}<p>${esc(a.translation_zh_hant||a.excerpt_original||'官方來源目前只提供標題，尚無可展示的內文。')}</p><div class="actions"><button class="btn primary" data-open="${esc(a.url)}">開始閱讀 →</button><button class="btn" data-save="${esc(a.url)}">${saved?'★ 已收藏':'☆ 收藏'}</button>${read?'<span class="meta">✓ 已閱讀</span>':''}</div></div></article>`}
@@ -81,7 +120,7 @@ function reader(a){
    <p>正確答案：${esc(q.options[q.answer])}<br>${esc(q.explanation)}</p>
    ${paragraph ? `<button class="btn" data-quiz-paragraph="${paragraph}">查看原文第 ${paragraph} 段</button>` : ''}</div>`;
  }).join('')}</div>`:`${quiz.map((q,i)=>`<fieldset class="quiz-question"><legend>${i+1}. ${esc(q.question)}</legend>${q.options.map((o,j)=>`<label class="quiz-choice"><input type="radio" name="quiz-${i}" value="${j}"> ${esc(o)}</label>`).join('')}</fieldset>`).join('')}<button class="btn primary" data-quiz-submit="${esc(a.id||a.url)}">提交答案，領取 XP</button><div id="quiz-feedback" aria-live="polite"></div>`}</section>`:`<div class="notice">本篇尚無經過內容審核的專屬測驗，為避免虛構題目，暫不提供挑戰。</div>`;
- return `<section class="reader"><button class="back" data-back="1">← 返回探索</button><div class="kicker">${esc(a.category)} / ${esc(a.source)}</div><h2>${esc(a.title)}</h2>${a.demo?'<div class="notice">此為原創雙語教學示範，不是即時新聞；部署並更新後才會有官方來源內容。</div>':''}${imageMarkup(a,"reader-cover")}${a.image_url&&a.image_rights==="approved"?`<div class="meta">圖片：${esc(a.image_credit||a.source)} · ${esc(a.image_license||"授權已確認")}</div>`:""}<div class="statsline">${a.kind==='knowledge'?'知識專題':`發布：${esc(date(a.published_at))}`} · 來源網域已核對 · 主張未獨立查證</div><div class="notice"><strong>內容範圍：</strong>${a.demo?'Daily Insight 原創教學示範全文（非官方新聞）':hasApprovedFullText(a)?'已核准重製的官方全文':a.content_scope==='official_article_extracted'?'已擷取官方文章正文，但尚未確認完整性或授權':'官方來源摘要或部分內文，並非全文'}。未確認可合法重製的文章不提供全文。<br><strong>翻譯狀態：</strong>${esc(status)}。${nativeChinese?'': '翻譯可能有誤，請以原文為準。'}${license?`<br><strong>全文授權：</strong><a href="${esc(license)}" target="_blank" rel="noopener noreferrer">${esc(a.license_name)}</a>` : ''}</div>${translated?`<div class="filters" style="margin-top:20px"><button class="mode ${state.mode==='zh'?'active':''}" data-mode="zh">繁體中文</button><button class="mode ${state.mode==='both'?'active':''}" data-mode="both">逐段對照</button><button class="mode ${state.mode==='original'?'active':''}" data-mode="original">原文</button></div>`:""}<div class="${compare?'evidence-list':'article-prose'}">${panels}</div><div class="notice"><strong>來源與驗證：</strong>本文文字來自${a.demo?'Daily Insight 原創示範':(hasApprovedFullText(a)||a.content_scope==='official_article_extracted')?'官方文章頁面':'發布者提供的 RSS'}。來源網域檢查不等於事實已查證。若要取得完整全文，必須確認該來源的授權及全文存取方式。</div>${editorialReason(a)&&!(hasApprovedFullText(a)&&translated)?`<div class="notice">重要例外 · ${esc(editorialReason(a))}</div>`:""}${quizHtml}<div class="actions"><a class="btn primary" href="${esc(source)}" target="_blank" rel="noopener noreferrer">查閱官方原始文件 ↗</a><button class="btn" data-save="${esc(a.url)}">${state.saved.includes(a.url)?'★ 已收藏':'☆ 收藏'}</button><button class="btn" data-read="${esc(a.url)}">${state.read.includes(a.url)?'✓ 已閱讀':'完成閱讀'}</button></div></section>`;
+ return `<section class="reader"><button class="back" data-back="1">← 返回探索</button><div class="kicker">${esc(a.category)} / ${esc(a.source)}</div><h2>${esc(a.title)}</h2>${a.demo?'<div class="notice">此為原創雙語教學示範，不是即時新聞；部署並更新後才會有官方來源內容。</div>':''}${imageMarkup(a,"reader-cover")}<div class="statsline">${a.kind==='knowledge'?'知識專題':`發布：${esc(date(a.published_at))}`} · 來源網域已核對 · 主張未獨立查證</div><div class="notice"><strong>內容範圍：</strong>${a.demo?'Daily Insight 原創教學示範全文（非官方新聞）':hasApprovedFullText(a)?'已核准重製的官方全文':a.content_scope==='official_article_extracted'?'已擷取官方文章正文，但尚未確認完整性或授權':'官方來源摘要或部分內文，並非全文'}。未確認可合法重製的文章不提供全文。<br><strong>翻譯狀態：</strong>${esc(status)}。${nativeChinese?'': '翻譯可能有誤，請以原文為準。'}${license?`<br><strong>全文授權：</strong><a href="${esc(license)}" target="_blank" rel="noopener noreferrer">${esc(a.license_name)}</a>` : ''}</div>${translated?`<div class="filters" style="margin-top:20px"><button class="mode ${state.mode==='zh'?'active':''}" data-mode="zh">繁體中文</button><button class="mode ${state.mode==='both'?'active':''}" data-mode="both">逐段對照</button><button class="mode ${state.mode==='original'?'active':''}" data-mode="original">原文</button></div>`:""}<div class="${compare?'evidence-list':'article-prose'}">${panels}</div><div class="notice"><strong>來源與驗證：</strong>本文文字來自${a.demo?'Daily Insight 原創示範':(hasApprovedFullText(a)||a.content_scope==='official_article_extracted')?'官方文章頁面':'發布者提供的 RSS'}。來源網域檢查不等於事實已查證。若要取得完整全文，必須確認該來源的授權及全文存取方式。</div>${editorialReason(a)&&!(hasApprovedFullText(a)&&translated)?`<div class="notice">重要例外 · ${esc(editorialReason(a))}</div>`:""}${quizHtml}<div class="actions"><a class="btn primary" href="${esc(source)}" target="_blank" rel="noopener noreferrer">查閱官方原始文件 ↗</a><button class="btn" data-save="${esc(a.url)}">${state.saved.includes(a.url)?'★ 已收藏':'☆ 收藏'}</button><button class="btn" data-read="${esc(a.url)}">${state.read.includes(a.url)?'✓ 已閱讀':'完成閱讀'}</button></div></section>`;
 }
 const TOPICS = new Map([
  ['醫療與健康', ['健康與醫學常識', '醫療與健康']],
