@@ -19,7 +19,7 @@ function originalParts(a) {
 }
 function hasChinese(a, parts = originalParts(a)) {
  if (a.translation_status === 'original_zh_hant') return parts.length > 0 && parts.every(hasText);
- return ['translated', 'translated_unreviewed', 'human_reviewed_demo'].includes(a.translation_status)
+ return ['translated', 'translated_unreviewed', 'translated_editorial', 'human_reviewed_demo'].includes(a.translation_status)
    && parts.length > 0 && parts.every(hasText)
    && Array.isArray(a.evidence_zh_hant) && a.evidence_zh_hant.length === parts.length
    && a.evidence_zh_hant.every(hasText);
@@ -59,7 +59,7 @@ function reader(a){
  const translated=!nativeChinese&&hasChinese(a,parts);
  const license=safeUrl(a.license_url);
  const source=safeUrl(a.url)||'#';
- const status=nativeChinese?'官方繁中原文':a.translation_status==='human_reviewed_demo'?'原創示範文章：已提供編輯對照譯文':translated?'已產生機器翻譯（未經人工校對）':a.translation_status==='translation_pending'?'背景翻譯尚未完成':a.translation_status?.startsWith('provider_error')?'背景翻譯失敗：'+a.translation_status:'目前沒有中文翻譯：'+(a.translation_status||'未知');
+ const status=nativeChinese?'官方繁中原文':a.translation_status==='human_reviewed_demo'?'原創示範文章：已提供編輯對照譯文':a.translation_status==='translated_editorial'?'Daily Insight 繁中翻譯':translated?'已產生機器翻譯（未經人工校對）':a.translation_status==='translation_pending'?'背景翻譯尚未完成':a.translation_status?.startsWith('provider_error')?'背景翻譯失敗：'+a.translation_status:'目前沒有中文翻譯：'+(a.translation_status||'未知');
  const compare=translated&&state.mode==='both';
  const displayParts=translated&&state.mode==='zh'?translations:parts;
  const panels=parts.length?displayParts.map((part,i)=>{
