@@ -65,17 +65,55 @@ const TOPIC_ILLUSTRATIONS = {
  '人文':'history','社會與公共政策':'society','經濟與財政':'finance','商業與經濟':'finance',
  '心理學與人類行為':'mind','生命科學':'life','邏輯學':'logic'
 };
+// Original editorial motifs keyed to the source article, not photographs of events.
+const ARTICLE_ART = new Map([
+ ['ey:eb1d2b2d-ef21-4e57-83fc-4d8765a4bfd5',['rail','']],
+ ['ey:92740cf4-2585-4cc7-8593-d6d9ffd90f9b',['society','<path d="M160 65c-14-14-30 1 0 24 30-23 14-38 0-24zM242 106v51m0-51c0-13 18-13 18 0"/>']],
+ ['knowledge:quake',['earth','<path d="M66 122h41l13-13 13 25 21-62 22 75 14-25h68M91 164h144"/><circle cx="232" cy="58" r="16"/>']],
+ ['knowledge:quake2',['earth','<path d="M78 142h172m-147 0V89h43v53m13 0V67h53v75m-86-40h7m49-16h8m-8 20h8M81 162l25-9 25 9 26-9 26 9 25-9 26 9"/>']],
+ ['knowledge:food',['food','<rect x="103" y="45" width="115" height="114" rx="12"/><path d="M103 95h115m-98-31v16m0 33v20m44-19v30m-13-22 26 15m0-15-26 15"/>']],
+ ['curated:hpa',['health','']],
+ ['curated:eq36',['earth','<path d="M74 153h180M93 138v-19h22v19m13 0v-40h22v40m13 0V76h22v62m13 0V53h22v85M86 83l15-12 14 12 17-19"/>']],
+ ['curated:finance',['finance','<rect x="92" y="43" width="65" height="114" rx="12"/><path d="M110 111V78m9 33V78m10 33V78m10 33V78m32 24h24m-7-7 7 7-7 7m20-26 25-13 25 13v39h-50zM220 122v-23m13 23V99m13 23V99"/>']],
+ ['curated:fapp',['finance','<rect x="119" y="37" width="84" height="128" rx="13"/><path d="M134 66h54m-45 20h36m-38 35 13 13 25-27m-23 46h11M223 54l13-13m-8 32h19M96 57 84 44m8 33H74"/>']],
+ ['curated:env',['life','<path d="M161 48v91m-47 0h94m-73-73h52m-52 0-26 43h52zm52 0-25 43h50zM192 54c13-24 31-24 50-22-10 24-24 31-45 29"/>']],
+ ['curated:env2',['life','<path d="M98 81h64l11 17v53H90V98zm6-25h51v25m33 28 33-17 32 17v20c0 21-14 34-32 43-18-9-33-22-33-43zm18 21 10 10 20-22"/>']],
+ ['library:cpi',['finance','<path d="M77 112l47-44 47 44m-79-14v55h64v-55m-25 55v-28h-17v28m62 0h78m-65-8 15-28 19 9 24-39m-13 0h13v13"/>']],
+ ['library:stress',['mind','<path d="M88 108c18-33 38-33 56 0s38 33 56 0 38-33 56 0M99 132c14-19 29-19 43 0s31 19 45 0m17-67 12-19m7 33 24-5M118 63l-12-14"/>']],
+ ['library:alcohol',['mind','<path d="M100 55h53l-8 32c-4 12-12 17-19 17s-15-5-19-17zm26 49v34m-19 0h38m48-50c-13-19-37-4-32 15 3 14 20 25 32 34 14-9 31-20 34-34 5-19-19-34-34-15z"/>']],
+ ['library:lang',['history','<path d="M84 55h100v63h-52l-26 21v-21H84zm101 33h55v51h-19v18l-23-18h-35v-12m-61-51h61m-61 19h40m47 22h32"/>']],
+ ['library:archive',['history','<path d="M85 87h153v67H85zM78 71h167v19H78zm56 38h55v24h-55zM110 61V49h102v12m-59 62h16"/>']],
+ ['library:housing',['society','<path d="M79 105l45-43 45 43m-77-12v63h63V93m-39 63v-35h17v35m40-61 37-34 38 34m-66-10v71h57V85m-33 71v-39h13v39"/>']],
+ ['library:mydata',['technology','<rect x="99" y="47" width="114" height="112" rx="10"/><path d="M122 72h67m-67 22h43m-43 23h30m18 16 12 12 22-26m-66-72V35h38v12"/>']],
+ ['library:tech',['technology','<path d="M117 72l-34 33 34 33m87-66 34 33-34 33m-24-82-35 98"/><circle cx="161" cy="45" r="10"/><circle cx="161" cy="163" r="10"/>']],
+ ['library:tsunami',['earth','<path d="M75 132c29 0 45-35 63-56 28-33 71-19 73 13-20-13-46-6-49 17-3 28 53 31 85 31M76 155h172m-120-5 20-19m5 19 20-15"/>']],
+ ['library:gastro',['life','<path d="M132 59c1 25 7 31 21 30 18-2 24-22 41-14 34 17 29 66-4 79-37 15-75-5-76-36 0-16 11-23 14-33 3-9 4-17 4-26z"/><circle cx="222" cy="67" r="11"/><path d="M222 51v-6m0 44v-6m-16-16h-6m44 0h-6"/>']],
+ ['library:logic',['logic','']],
+ ['ey:d6716352-809b-48b5-a600-da100e7c5de0',['earth','<path d="M86 119h148l-22 28H111zm29 0V87h78v32m-53-32V66h27v21m-13-21V49m-69 115c15-13 29 13 44 0s29 13 44 0 29 13 44 0 29 13 44 0"/>']],
+ ['nasa:60000835',['technology','<circle cx="210" cy="70" r="28"/><path d="M85 149c19-34 45-56 78-70l12 12c-14 33-37 60-71 79zm17-11-17-6-18 25 20-3m28 3 6 16-25 16 4-19m53-72 20 20m-40 1 14 14"/>']],
+ ['moda:21226',['technology','<rect x="105" y="45" width="112" height="114" rx="11"/><path d="M126 69h68m-68 19h50m-50 20h40m21 24 13-13 13 13-13 18z"/>']]
+]);
+function articleArtwork(a) {
+ const topic=topicOf(a);
+ const [key,custom]=ARTICLE_ART.get(a.id)||[
+   /鐵道|鐵路/.test(a.title)?'rail':Object.hasOwn(TOPIC_ILLUSTRATIONS,topic)?TOPIC_ILLUSTRATIONS[topic]:'society',
+   ''
+ ];
+ const [background,ink,defaultArt]=ILLUSTRATIONS[key];
+ return {background,ink,artwork:custom||defaultArt,tailored:ARTICLE_ART.has(a.id)};
+}
 function imageMarkup(a,cls='card-art'){
  const image=safeUrl(a.image_url), source=safeUrl(a.url), license=safeUrl(a.image_license_url);
  const original=image&&source&&a.image_rights==='approved';
- const key=/鐵道|鐵路/.test(a.title)?'rail':TOPIC_ILLUSTRATIONS[topicOf(a)]||'society';
- const [background, ink, artwork]=ILLUSTRATIONS[key];
+ const {background,ink,artwork,tailored}=articleArtwork(a);
+ const generated=a.id==='curated:hpa';
  const illustration=`<div class="topic-art" ${original?'hidden':''} style="--art-bg:${background};--art-ink:${ink}">
-   <svg viewBox="0 0 324 204" aria-hidden="true" focusable="false">
+   <div class="illustration-frame"><svg viewBox="0 0 324 204" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
      <circle cx="162" cy="102" r="88" fill="currentColor" opacity=".09"/>
      <path d="M47 127v-12m-6 6h12m223-66v-12m-6 6h12m-221 97h23m190-35h-18" fill="none" stroke="currentColor" stroke-width="2" opacity=".45"/>
      <g fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">${artwork}</g>
-   </svg><span class="visual-label">主題插圖</span></div>`;
+   </svg>${generated?`<img class="generated-illustration" src="./art/preventive-checkup.webp" alt="血壓計、聽診器與健康檢查表插圖" loading="${cls==='reader-cover'?'eager':'lazy'}">`:''}</div>
+   <span class="visual-label">${tailored?'文章插圖':'主題插圖'}</span></div>`;
  const photo=original?`<a class="official-photo" href="${esc(source)}" target="_blank" rel="noopener noreferrer" aria-label="開啟官方原文及配圖">
    <img src="${esc(image)}" alt="${esc(a.image_alt||a.title)}" loading="${cls==='reader-cover'?'eager':'lazy'}" referrerpolicy="no-referrer">
    <span class="visual-label">官方原圖 ↗</span></a>`:'';
@@ -83,6 +121,10 @@ function imageMarkup(a,cls='card-art'){
  return `<div class="article-visual"><div class="${cls}">${photo}${illustration}</div>${credit}</div>`;
 }
 document.addEventListener('error',event=>{
+ if(event.target.classList?.contains('generated-illustration')){
+   event.target.remove();
+   return;
+ }
  const photo=event.target.closest?.('.official-photo');
  if(!photo)return;
  photo.parentElement.querySelector('.topic-art').hidden=false;

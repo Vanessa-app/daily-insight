@@ -3,7 +3,7 @@
 .evidence-list{display:grid;gap:16px;margin:24px 0}.evidence-row{border:1px solid #ded9d1;border-radius:14px;padding:22px;background:#fff}.evidence-row.compare{display:grid;grid-template-columns:1fr 1fr;gap:24px}.evidence-row.compare>div+div{border-left:1px solid #e4dfd6;padding-left:24px}.translation-missing{color:#8a6250;font-style:italic}.evidence-row .reader-text{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.9}@media(max-width:700px){.evidence-row.compare{grid-template-columns:1fr}.evidence-row.compare>div+div{border-left:0;border-top:1px solid #e4dfd6;padding-left:0;padding-top:18px}}
 
 /* V1.7 article photography and knowledge challenges */
-.card-art.has-photo:after{display:none}.card-art.has-photo img,.reader-cover.has-photo img{width:100%;height:100%;object-fit:cover;display:block}.card-art{height:160px}.reader-cover{height:300px;border-radius:16px;background:linear-gradient(120deg,#b6c8bb,#d8b99d);margin:20px 0;overflow:hidden}.quiz-panel{background:#fffdf8;border:1px solid #e2ded4;border-radius:16px;padding:24px;margin:30px 0}.quiz-panel h3{font-size:24px}.quiz-question{border:0;border-top:1px solid #e4e1d9;padding:18px 0;margin:0}.quiz-question legend{font-weight:700;line-height:1.7;padding-top:12px}.quiz-choice{display:block;border:1px solid #dddcd5;border-radius:9px;padding:12px;margin:9px 0;cursor:pointer;line-height:1.6}.quiz-choice:has(input:checked){border-color:#294b40;background:#eff5ef}.quiz-feedback{background:#edf4e9;padding:18px;border-radius:12px;line-height:1.8;margin-top:18px}.badge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:22px 0}.badge-card{background:#fffdf8;border:1px solid #e2ded4;padding:20px;border-radius:12px;display:flex;flex-direction:column;gap:8px}.badge-card strong{font-size:17px}.badge-card small{color:#69756c}.badge-card.locked{opacity:.5}@media(max-width:600px){.badge-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.reader-cover{height:190px}}
+.card-art.has-photo:after{display:none}.card-art{height:160px}.reader-cover{height:300px;border-radius:16px;background:linear-gradient(120deg,#b6c8bb,#d8b99d);margin:20px 0;overflow:hidden}.quiz-panel{background:#fffdf8;border:1px solid #e2ded4;border-radius:16px;padding:24px;margin:30px 0}.quiz-panel h3{font-size:24px}.quiz-question{border:0;border-top:1px solid #e4e1d9;padding:18px 0;margin:0}.quiz-question legend{font-weight:700;line-height:1.7;padding-top:12px}.quiz-choice{display:block;border:1px solid #dddcd5;border-radius:9px;padding:12px;margin:9px 0;cursor:pointer;line-height:1.6}.quiz-choice:has(input:checked){border-color:#294b40;background:#eff5ef}.quiz-feedback{background:#edf4e9;padding:18px;border-radius:12px;line-height:1.8;margin-top:18px}.badge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:22px 0}.badge-card{background:#fffdf8;border:1px solid #e2ded4;padding:20px;border-radius:12px;display:flex;flex-direction:column;gap:8px}.badge-card strong{font-size:17px}.badge-card small{color:#69756c}.badge-card.locked{opacity:.5}@media(max-width:600px){.badge-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.reader-cover{height:190px}}
 
 .site-toolbar #explore-toolbar>p.meta{margin:0 0 16px}
 .explore-topics{flex-wrap:wrap}
@@ -27,11 +27,12 @@
 .article-visual .card-art{height:clamp(112px,16vw,160px)}
 .article-visual .card-art:after{display:none}
 .article-visual .reader-cover{height:clamp(148px,28vw,240px);margin:16px 0 8px;background:#eeeae0}
-.topic-art,.official-photo{display:block;position:relative;width:100%;height:100%;overflow:hidden}
+.topic-art,.official-photo{display:grid;grid-template-rows:minmax(0,1fr) auto;width:100%;height:100%}
 .topic-art[hidden]{display:none}
 .topic-art{color:var(--art-ink);background:var(--art-bg)}
-.topic-art svg{width:100%;height:100%;display:block}
-.official-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.reader-cover .official-photo img{object-fit:contain}
-.visual-label{position:absolute;right:8px;bottom:8px;border-radius:5px;padding:3px 7px;background:#f8f6f0;color:#273b33;font-size:11px;line-height:1.4}
+.illustration-frame{display:grid;min-height:0}
+.illustration-frame svg,.illustration-frame img{grid-area:1/1}
+.illustration-frame svg,.illustration-frame img,.official-photo img{display:block;width:100%;height:100%;min-height:0;object-fit:contain}
+.illustration-frame img{background:var(--art-bg)}
+.visual-label{justify-self:end;padding:3px 8px;background:#f8f6f0;color:#273b33;font-size:11px;line-height:1.4}
 .photo-credit{margin:0 0 12px}
