@@ -1,9 +1,9 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-07T00:51:50.542604+00:00",
+  "updated_at": "2026-11-07T05:43:38.686978+00:00",
   "items": [
     {
-      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/hubble-m30-potm2610a.jpg",
+      "image_url": null,
       "image_rights": "unverified",
       "image_credit": "NASA",
       "quiz_reviewed": false,
@@ -1159,27 +1159,27 @@
     "nasa": {
       "status": "ok",
       "accepted": 1,
-      "checked_at": "2026-11-07T00:51:50.542604+00:00"
+      "checked_at": "2026-11-07T05:43:38.686978+00:00"
     },
     "who": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-07T00:51:50.542604+00:00"
+      "checked_at": "2026-11-07T05:43:38.686978+00:00"
     },
     "un": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-07T00:51:50.542604+00:00"
+      "checked_at": "2026-11-07T05:43:38.686978+00:00"
     },
     "數位發展部": {
       "status": "partial",
       "accepted": 4,
-      "checked_at": "2026-11-07T00:51:50.542604+00:00"
+      "checked_at": "2026-11-07T05:43:38.686978+00:00"
     },
     "行政院": {
       "status": "ok",
       "accepted": 5,
-      "checked_at": "2026-11-07T00:51:50.542604+00:00"
+      "checked_at": "2026-11-07T05:43:38.686978+00:00"
     }
   },
   "disclaimer": "Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed."
