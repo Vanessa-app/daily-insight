@@ -109,6 +109,9 @@ TAIWAN_RELEASES = (
     ('moda', '數位發展部', 'https://moda.gov.tw/press/press-releases/372',
      r'/press/press-releases/\d+', '.article1.cpArticle', 'h2 .titleTxt', 'AI與科技',
      'CC0 1.0', 'https://moda.gov.tw/announcement/publicdeclare/951'),
+    ('adi', '數位產業署', 'https://moda.gov.tw/ADI/news/latest-news/766',
+     r'/ADI/news/latest-news/\d+', '.article1.cpArticle', 'h2 .titleTxt', 'AI與科技',
+     'CC0 1.0', 'https://moda.gov.tw/announcement/publicdeclare/951'),
     ('ey', '行政院', 'https://www.ey.gov.tw/Page/6485009ABEC1CB9C',
      r'/Page/9277F759E41CCD91/[0-9a-f-]{36}', '.words_content .data_left', '.words .h2',
      '社會與公共政策', '政府資料開放授權條款－第1版',
@@ -137,7 +140,7 @@ def taiwan_releases(retained, statuses):
                         for a in page.select('a[href]') if re.fullmatch(path, a['href'])))
             if not urls:
                 raise ValueError('release links missing')
-            for url in urls[:5]:
+            for url in [url for url in urls if url != listing][:8]:
                 try:
                     page = publisher_page(url, allowed)
                     body = page.select_one(body_selector)
@@ -155,7 +158,9 @@ def taiwan_releases(retained, statuses):
                         continue
                     if re.search(r'版權所有|禁止轉載|不得轉載|另行授權|經同意方可|©|新聞聯絡人|09\d{2}[- ]?\d{3}[- ]?\d{3}', prose):
                         continue
-                    if sid == 'moda':
+                    if sid == 'adi':
+                        date = dt.datetime.fromisoformat(page.select_one('.infoDate span').get_text(strip=True)).replace(tzinfo=TAIPEI)
+                    elif sid == 'moda':
                         date = dt.datetime.fromisoformat(re.search(r'"datePublished"\s*:\s*"([^"]+)"', str(page)).group(1))
                     else:
                         y, m, d = map(int, re.search(r'(\d{3})-(\d{2})-(\d{2})', page.select_one('.date_style2').get_text()).groups())

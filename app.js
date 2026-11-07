@@ -127,6 +127,7 @@ const GENERATED_ART = new Map([
  ["library:gastro", ["gastro-transmission", "食物、手部接觸與不同微生物的示意"]],
  ["library:logic", ["logic-sentences", "用陳述卡片和疑問泡泡區分句子是否可判真偽"]],
  ["nasa:60000835", ["artemis-moon", "月球上方的太空船與遠處地球的概念插畫"]],
+ ["adi:21252", ["digital-certificate", "電子簽章主題插畫：電腦上的數位憑證與簽署驗證"]],
  ["moda:21226", ["digital-certificate", "電腦上的數位憑證與新舊金鑰替換示意"]],
  ["ey:d6716352-809b-48b5-a600-da100e7c5de0", ["coast-patrol", "沿岸巡邏船、瞭望與海上救援設備"]],
 ]);
@@ -230,6 +231,19 @@ function dailyKnowledge(items, now = Date.now()) {
  const articles = groups.get(topic);
  return {topic, article: articles[Math.floor(day / topics.length) % articles.length]};
 }
+function checkedTime(s){const d=new Date(s);return !s||isNaN(d)?'尚未取得':new Intl.DateTimeFormat('zh-TW',{dateStyle:'medium',timeStyle:'short',hour12:false,timeZone:'Asia/Taipei'}).format(d)}
+function mergeArticles(curated, live){
+ const merged=new Map(curated.map(a=>[a.url,a]));
+ for(const a of live){
+  const previous=merged.get(a.url);
+  if(previous?.kind==='knowledge')continue;
+  const next={...previous,...a};
+  if(previous?.image_rights==='approved')for(const key of Object.keys(previous).filter(k=>k.startsWith('image_')))next[key]=previous[key];
+  if(previous && JSON.stringify(previous.evidence_original)!==JSON.stringify(a.evidence_original)){next.quiz=[];next.quiz_reviewed=false;}
+  merged.set(a.url,next);
+ }
+ return [...merged.values()].filter(a=>safeUrl(a.url)&&a.verification==='publisher_domain_checked');
+}
 function explore(items) {
  const isKnowledge = state.page === 'knowledge';
  const title = isKnowledge ? '知識' : '新聞';
@@ -240,10 +254,11 @@ function explore(items) {
  const today = state.filter === '全部' ? dailyKnowledge(items) : null;
  const bad = Object.entries(state.meta?.sources || {}).filter(([, status]) => status.status !== 'ok');
  const controls = `<div class="sectionhead"><h2 id="explore-title">${title}</h2><span class="meta">${visible.length} 篇</span></div>
-   <p class="meta">${isKnowledge ? '科普、生活指南與長期可查閱的專題解說。' : `台灣與國際時事、官方公告與政策進展。新聞更新：${esc(date(state.meta?.updated_at))}`}</p>
+   <p class="meta">${isKnowledge ? '科普、生活指南與長期可查閱的專題解說。' : `台灣與國際時事、官方公告與政策進展。最近檢查：${esc(checkedTime(state.meta?.updated_at))}（台灣時間） · 最新可讀新聞：${esc(date(selected[0]?.published_at))}`}</p>
    <div class="filters explore-topics" aria-label="${title}主題分類">${topics.map(topic =>
      `<button class="filter ${state.filter === topic ? 'selected' : ''}" data-filter="${esc(topic)}" aria-pressed="${state.filter === topic}">${esc(topic)}</button>`).join('')}</div>`;
  const content = `<section class="explore-section" aria-labelledby="explore-title">
+   ${!isKnowledge ? '<p class="meta">每日預定於 08:00、13:00、18:00 檢查；免費排程可能延遲。檢查完成不代表一定有符合全文與中文刊登條件的新文章。</p>' : ''}
    ${!isKnowledge && bad.length ? `<div class="notice">部分來源更新異常：${bad.map(([key]) => esc(key)).join('、')}。不以虛構資料填補。</div>` : ''}
    ${today ? `<div class="notice"><strong>今日知識 · ${esc(today.topic)}</strong><p>${esc(today.article.title)}</p><button class="btn primary" data-open="${esc(today.article.url)}">閱讀今日知識</button></div>` : ''}
    ${visible.length ? `<div class="grid">${visible.map(article).join('')}</div>` : '<p class="empty">此分類目前沒有符合刊登條件的文章。</p>'}
@@ -296,9 +311,7 @@ async function readNews(url) {
  if (daily.status === 'rejected') sources.fetch = {status: 'error'};
  if (taiwan.status === 'rejected') sources['台灣全文'] = {status: 'error'};
  state.meta = {updated_at: daily.value?.updated_at, sources};
- const combined = [...(daily.value?.items || []), ...(taiwan.value?.items || [])]
-   .filter(a => safeUrl(a.url) && a.verification === 'publisher_domain_checked');
- state.news = [...new Map(combined.map(a => [a.url, a])).values()];
+ state.news = mergeArticles(taiwan.value?.items || [], daily.value?.items || []);
  render();
 })();
 if('serviceWorker'in navigator&&location.protocol==='https:')navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).catch(()=>{});
