@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-08T05:45:24.511663+00:00",
+  "updated_at": "2026-11-08T10:38:43.309113+00:00",
   "items": [
     {
       "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/moon-base-artists-concept.jpg",
@@ -954,7 +954,7 @@
       "claim_verification": "not_independently_verified"
     },
     {
-      "image_url": null,
+      "image_url": "https://www.un.org/sites/un2.un.org/files/2020/11/107449.jpg",
       "image_rights": "unverified",
       "image_credit": "United Nations",
       "quiz_reviewed": false,
@@ -987,7 +987,7 @@
       "claim_verification": "not_independently_verified"
     },
     {
-      "image_url": null,
+      "image_url": "https://www.un.org/sites/un2.un.org/files/2020/11/107449.jpg",
       "image_rights": "unverified",
       "image_credit": "United Nations",
       "quiz_reviewed": false,
@@ -1491,32 +1491,32 @@
     "nasa": {
       "status": "ok",
       "accepted": 2,
-      "checked_at": "2026-11-08T05:45:24.511663+00:00"
+      "checked_at": "2026-11-08T10:38:43.309113+00:00"
     },
     "who": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-08T05:45:24.511663+00:00"
+      "checked_at": "2026-11-08T10:38:43.309113+00:00"
     },
     "un": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-08T05:45:24.511663+00:00"
+      "checked_at": "2026-11-08T10:38:43.309113+00:00"
     },
     "數位發展部": {
       "status": "ok",
       "accepted": 5,
-      "checked_at": "2026-11-08T05:45:24.511663+00:00"
+      "checked_at": "2026-11-08T10:38:43.309113+00:00"
     },
     "數位產業署": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-08T05:45:24.511663+00:00"
+      "checked_at": "2026-11-08T10:38:43.309113+00:00"
     },
     "行政院": {
       "status": "ok",
       "accepted": 8,
-      "checked_at": "2026-11-08T05:45:24.511663+00:00"
+      "checked_at": "2026-11-08T10:38:43.309113+00:00"
     }
   },
   "disclaimer": "Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed."
