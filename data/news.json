@@ -1,7 +1,65 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-08T00:52:12.351926+00:00",
+  "updated_at": "2026-11-08T05:45:24.511663+00:00",
   "items": [
+    {
+      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/moon-base-artists-concept.jpg",
+      "image_rights": "unverified",
+      "image_credit": "NASA",
+      "quiz_reviewed": false,
+      "quiz": [],
+      "excerpt_original": "NASA announced a suite of awards and mission updates on Saturday to expand the agency’s Moon Base exploration, science, and infrastructure capabilities. The investments will advance commercial robotic deliveries, a nuclear-powered rover named PROMISE, launch and orbital transfer services, and surface infrastructure as the agency works with American industry to establish a sustained presence on […]",
+      "translation_zh_hant": "美國航天局在星期六宣佈了一系列獎項和任務更新,以擴大該機構的月球探索、科學和基礎設施能力。 投資將推動商業機器人送貨、名爲PROMISSE的核動力運輸工具、發射和軌道轉移服務以及地面基礎設施,因爲該機構與美國工業合作,在[.]建立持續存在。",
+      "evidence_original": [
+        "NASA announced a suite of awards and mission updates on Saturday to expand the agency’s Moon Base exploration, science, and infrastructure capabilities. The investments will advance commercial robotic deliveries, a nuclear-powered rover named PROMISE, launch and orbital transfer services, and surface infrastructure as the agency works with American industry to establish a sustained presence on […]"
+      ],
+      "evidence_zh_hant": [
+        "美國航天局在星期六宣佈了一系列獎項和任務更新,以擴大該機構的月球探索、科學和基礎設施能力。 投資將推動商業機器人送貨、名爲PROMISSE的核動力運輸工具、發射和軌道轉移服務以及地面基礎設施,因爲該機構與美國工業合作,在[.]建立持續存在。"
+      ],
+      "translation_status": "translated_unreviewed",
+      "content_scope": "publisher_feed_excerpt",
+      "extraction_status": "not_attempted",
+      "content_complete": false,
+      "reuse_license": "not_confirmed",
+      "id": "nasa:279341519",
+      "source_id": "nasa",
+      "source": "NASA",
+      "category": "AI與科技",
+      "title": "NASA Awards Moon Base Transportation, Technology, Science Projects",
+      "url": "https://www.nasa.gov/news-release/nasa-awards-moon-base-transportation-technology-science-projects/",
+      "published_at": "2026-11-07T22:47:03+00:00",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
+    {
+      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/jsc2025e076292large.jpg",
+      "image_rights": "unverified",
+      "image_credit": "NASA",
+      "quiz_reviewed": false,
+      "quiz": [],
+      "excerpt_original": "NASA is looking for the explorers who will help write the next chapter of human spaceflight. Applications are now open for the agency’s next class of astronauts, who will join NASA as America returns to the Moon, builds the Moon Base, and lays the groundwork for the first crewed missions to Mars. The next generation […]",
+      "translation_zh_hant": "美國航天局正在尋找探險家 來幫助撰寫人類太空飛行的下一章 現在向該機構的下一班宇航員開放申請,這些宇航員將隨着美國返回月球而加入美國航天局,建造月球基地,併爲首次乘員前往火星的任務奠定基礎。 下一代[.]",
+      "evidence_original": [
+        "NASA is looking for the explorers who will help write the next chapter of human spaceflight. Applications are now open for the agency’s next class of astronauts, who will join NASA as America returns to the Moon, builds the Moon Base, and lays the groundwork for the first crewed missions to Mars. The next generation […]"
+      ],
+      "evidence_zh_hant": [
+        "美國航天局正在尋找探險家 來幫助撰寫人類太空飛行的下一章 現在向該機構的下一班宇航員開放申請,這些宇航員將隨着美國返回月球而加入美國航天局,建造月球基地,併爲首次乘員前往火星的任務奠定基礎。 下一代[.]"
+      ],
+      "translation_status": "translated_unreviewed",
+      "content_scope": "publisher_feed_excerpt",
+      "extraction_status": "not_attempted",
+      "content_complete": false,
+      "reuse_license": "not_confirmed",
+      "id": "nasa:3291777430",
+      "source_id": "nasa",
+      "source": "NASA",
+      "category": "AI與科技",
+      "title": "NASA Seeks Next Generation of Explorers to Join Astronaut Corps",
+      "url": "https://www.nasa.gov/news-release/nasa-seeks-next-generation-of-explorers-to-join-astronaut-corps/",
+      "published_at": "2026-11-07T18:11:57+00:00",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
     {
       "id": "ey:e1dc1a32-20ed-4956-821b-2964eec44250",
       "source_id": "ey",
@@ -896,7 +954,7 @@
       "claim_verification": "not_independently_verified"
     },
     {
-      "image_url": "https://www.un.org/sites/un2.un.org/files/2020/11/107449.jpg",
+      "image_url": null,
       "image_rights": "unverified",
       "image_credit": "United Nations",
       "quiz_reviewed": false,
@@ -929,7 +987,7 @@
       "claim_verification": "not_independently_verified"
     },
     {
-      "image_url": "https://www.un.org/sites/un2.un.org/files/2020/11/107449.jpg",
+      "image_url": null,
       "image_rights": "unverified",
       "image_credit": "United Nations",
       "quiz_reviewed": false,
@@ -1431,34 +1489,34 @@
   ],
   "sources": {
     "nasa": {
-      "status": "error",
-      "reason": "HTTPError",
-      "checked_at": "2026-11-08T00:52:12.351926+00:00"
+      "status": "ok",
+      "accepted": 2,
+      "checked_at": "2026-11-08T05:45:24.511663+00:00"
     },
     "who": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-08T00:52:12.351926+00:00"
+      "checked_at": "2026-11-08T05:45:24.511663+00:00"
     },
     "un": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-08T00:52:12.351926+00:00"
+      "checked_at": "2026-11-08T05:45:24.511663+00:00"
     },
     "數位發展部": {
       "status": "ok",
       "accepted": 5,
-      "checked_at": "2026-11-08T00:52:12.351926+00:00"
+      "checked_at": "2026-11-08T05:45:24.511663+00:00"
     },
     "數位產業署": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-08T00:52:12.351926+00:00"
+      "checked_at": "2026-11-08T05:45:24.511663+00:00"
     },
     "行政院": {
       "status": "ok",
       "accepted": 8,
-      "checked_at": "2026-11-08T00:52:12.351926+00:00"
+      "checked_at": "2026-11-08T05:45:24.511663+00:00"
     }
   },
   "disclaimer": "Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed."
