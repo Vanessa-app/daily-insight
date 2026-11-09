@@ -48,7 +48,11 @@ def stamp(raw):
     return value.astimezone(dt.timezone.utc)
 
 def media_feed(source):
-    root = ET.fromstring(fetch(source['feed']))
+    # Some publisher feeds include XML-invalid control characters in CDATA.
+    # Remove only characters XML 1.0 forbids; keep all visible source text.
+    raw=fetch(source['feed']).decode('utf-8-sig')
+    raw=re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', '', raw)
+    root = ET.fromstring(raw)
     results = []
     for entry in root.findall('.//item')[:20]:
         title = entry.findtext('title', '').strip()
@@ -147,9 +151,8 @@ def run():
             source=tasks[task]
             try:
                 items=task.result()
-                if not items: raise ValueError('no recent entries')
                 for a in items: retained[a['url']]=a
-                statuses[source['name']+' / '+source['category']]={'status':'ok','accepted':len(items),'checked_at':NOW.isoformat()}
+                statuses[source['name']+' / '+source['category']]={'status':'ok' if items else 'no_recent_items','accepted':len(items),'checked_at':NOW.isoformat()}
             except Exception as error:
                 statuses[source['name']+' / '+source['category']]={'status':'error','reason':type(error).__name__,'checked_at':NOW.isoformat()}
     candidates=[]

@@ -18,6 +18,13 @@ class CatalogContracts(unittest.TestCase):
         self.assertEqual(items[0]['evidence_original'],[])
         self.assertEqual(items[0]['content_scope'],'media_headline')
 
+    def test_xml_invalid_control_characters_do_not_discard_an_entire_feed(self):
+        source={'id':'test','name':'Test','category':'生活','feed':'https://example.com/rss','allowed_hosts':['example.com'],'rss_reuse':True}
+        now=catalog.NOW.strftime('%a, %d %b %Y %H:%M:%S GMT')
+        xml=f'<rss><channel><item><title>新聞</title><link>https://example.com/a</link><pubDate>{now}</pubDate><description><![CDATA[保留文字\x08以及後續內容]]></description></item></channel></rss>'.encode()
+        with patch.object(catalog,'fetch',return_value=xml):items=catalog.media_feed(source)
+        self.assertEqual(items[0]['evidence_original'],['保留文字以及後續內容'])
+
     def test_rejects_off_domain_and_future_entries(self):
         source={'id':'test','name':'Test','category':'科技','feed':'https://example.com/rss','allowed_hosts':['example.com']}
         now=catalog.NOW.strftime('%a, %d %b %Y %H:%M:%S GMT')
