@@ -9,6 +9,7 @@ const news=JSON.parse(fs.readFileSync('data/news.json')).items;
 context.fixture=[...curated,...catalog,...news];
 run('state.news=mergeArticles(fixture,[]);state.read=[]');
 const counts=run(`({news:readingQueue(state.news,'news').length,knowledge:readingQueue(state.news,'knowledge').length})`);
+assert.ok(run(`readingQueue(state.news,'news').every(a=>Date.parse(a.published_at)>=Date.now()-7*86400000)`));
 assert.ok(counts.news>100);assert.ok(counts.knowledge>=40);
 const first=run(`readingQueue(state.news,'knowledge')[0].url`);context.first=first;
 run(`state.read.push(first)`);

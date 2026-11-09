@@ -231,7 +231,7 @@ function topicOf(article) {
  return [...topics].find(([topic, categories]) => topic === article.category || categories.includes(article.category))?.[0] || article.category || '其他';
 }
 function readingQueue(items,kind,now=Date.now()){
- const unread=homepageArticles(items).filter(a=>(a.kind==='knowledge'?'knowledge':'news')===kind&&!state.read.includes(a.url));
+ const unread=homepageArticles(items).filter(a=>(a.kind==='knowledge'?'knowledge':'news')===kind&&!state.read.includes(a.url)&&(kind!=='news'||(Date.parse(a.published_at)>=now-7*86400000&&Date.parse(a.published_at)<=now+10*60000)));
  const day=Math.floor((now+8*3600000)/86400000);
  const ordered=kind==='news'?[...unread].sort((a,b)=>{
    const ageA=(now-Date.parse(a.published_at))/86400000,ageB=(now-Date.parse(b.published_at))/86400000;
@@ -262,7 +262,7 @@ function mergeArticles(curated, live){
 }
 function explore(items) {
  const isKnowledge=state.page==='knowledge', kind=isKnowledge?'knowledge':'news',title=isKnowledge?'知識':'新聞';
- const selected=homepageArticles(items).filter(a=>(a.kind==='knowledge')===isKnowledge);
+ const selected=homepageArticles(items).filter(a=>(a.kind==='knowledge')===isKnowledge).sort((a,b)=>isKnowledge?(Date.parse(b.added_at)||0)-(Date.parse(a.added_at)||0):(Date.parse(b.published_at)||0)-(Date.parse(a.published_at)||0));
  const topics=['全部','有測驗',...new Set([...(isKnowledge?KNOWLEDGE_TOPICS:TOPICS).keys(),...selected.map(topicOf)])];
  const matches=a=>state.filter==='全部'||(state.filter==='有測驗'?quizData(a):topicOf(a)===state.filter);
  const unread=selected.filter(a=>!state.read.includes(a.url));
@@ -279,7 +279,7 @@ function explore(items) {
  <div class="filters explore-topics" aria-label="${title}主題分類">${topics.map(topic=>`<button class="filter ${state.filter===topic?'selected':''}" data-filter="${esc(topic)}">${esc(topic)}</button>`).join('')}</div>`;
  const content=`<section class="explore-section" aria-labelledby="explore-title">
  <div class="actions reading-options"><button class="btn ${recommended?'primary':''}" data-shelf="recommended">推薦未讀</button><button class="btn ${!recommended?'primary':''}" data-shelf="library">全部館藏（含已讀）</button><button class="btn" data-refresh="1">重新取得內容</button></div>
- <p class="meta">此區已讀 ${selected.length-unread.length} 篇；${recommended?`目前推薦 ${visible.length} 篇，完成一篇即補下一篇。`:'保留全部文章與收藏。'}閱讀進度保存在目前瀏覽器。背景每日 08:00、13:00、18:00 擴充資料，免費排程可能延遲。</p>
+ <p class="meta">此區已讀 ${selected.length-unread.length} 篇；${!isKnowledge&&recommended?'推薦最近七日新聞；舊聞保留在全部館藏。':''}${recommended?`目前推薦 ${visible.length} 篇，完成一篇即補下一篇。`:'保留全部文章與收藏。'}閱讀進度保存在目前瀏覽器。背景每日 08:00、13:00、18:00 擴充資料，免費排程可能延遲。</p>
  ${state.refreshMessage?`<p role="status" class="meta">${esc(state.refreshMessage)}</p>`:''}
  ${bad.length?`<div class="notice">部分來源暫時無法取得：${bad.map(([key])=>esc(key)).join('、')}。其他來源繼續更新，保留先前可用內容。</div>`:''}
  ${today?`<div class="notice"><strong>今日知識 · ${esc(today.topic)}</strong><p>${esc(today.article.title)}</p><button class="btn primary" data-open="${esc(today.article.url)}">閱讀今日知識</button></div>`:''}
