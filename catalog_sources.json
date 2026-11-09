@@ -1,0 +1,278 @@
+{
+  "media": [
+    {
+      "id": "ltn-politics",
+      "name": "自由時報",
+      "category": "台灣政治與社會",
+      "feed": "https://news.ltn.com.tw/rss/politics.xml",
+      "allowed_hosts": [
+        "news.ltn.com.tw",
+        "ec.ltn.com.tw",
+        "art.ltn.com.tw",
+        "sports.ltn.com.tw",
+        "health.ltn.com.tw"
+      ],
+      "rss_reuse": true,
+      "license_name": "自由時報 RSS 非商業使用條款（僅 RSS 訊息，非全文）",
+      "license_url": "https://service.ltn.com.tw/RSS"
+    },
+    {
+      "id": "ltn-world",
+      "name": "自由時報",
+      "category": "國際與全球趨勢",
+      "feed": "https://news.ltn.com.tw/rss/world.xml",
+      "allowed_hosts": [
+        "news.ltn.com.tw",
+        "ec.ltn.com.tw",
+        "art.ltn.com.tw",
+        "sports.ltn.com.tw",
+        "health.ltn.com.tw"
+      ],
+      "rss_reuse": true,
+      "license_name": "自由時報 RSS 非商業使用條款（僅 RSS 訊息，非全文）",
+      "license_url": "https://service.ltn.com.tw/RSS"
+    },
+    {
+      "id": "ltn-business",
+      "name": "自由時報",
+      "category": "商業與經濟",
+      "feed": "https://news.ltn.com.tw/rss/business.xml",
+      "allowed_hosts": [
+        "news.ltn.com.tw",
+        "ec.ltn.com.tw",
+        "art.ltn.com.tw",
+        "sports.ltn.com.tw",
+        "health.ltn.com.tw"
+      ],
+      "rss_reuse": true,
+      "license_name": "自由時報 RSS 非商業使用條款（僅 RSS 訊息，非全文）",
+      "license_url": "https://service.ltn.com.tw/RSS"
+    },
+    {
+      "id": "ltn-life",
+      "name": "自由時報",
+      "category": "日常生活與實用技能",
+      "feed": "https://news.ltn.com.tw/rss/life.xml",
+      "allowed_hosts": [
+        "news.ltn.com.tw",
+        "ec.ltn.com.tw",
+        "art.ltn.com.tw",
+        "sports.ltn.com.tw",
+        "health.ltn.com.tw"
+      ],
+      "rss_reuse": true,
+      "license_name": "自由時報 RSS 非商業使用條款（僅 RSS 訊息，非全文）",
+      "license_url": "https://service.ltn.com.tw/RSS"
+    },
+    {
+      "id": "ltn-art",
+      "name": "自由時報",
+      "category": "文化與歷史",
+      "feed": "https://news.ltn.com.tw/rss/art.xml",
+      "allowed_hosts": [
+        "news.ltn.com.tw",
+        "ec.ltn.com.tw",
+        "art.ltn.com.tw",
+        "sports.ltn.com.tw",
+        "health.ltn.com.tw"
+      ],
+      "rss_reuse": true,
+      "license_name": "自由時報 RSS 非商業使用條款（僅 RSS 訊息，非全文）",
+      "license_url": "https://service.ltn.com.tw/RSS"
+    },
+    {
+      "id": "ltn-sports",
+      "name": "自由時報",
+      "category": "運動與健康",
+      "feed": "https://news.ltn.com.tw/rss/sports.xml",
+      "allowed_hosts": [
+        "news.ltn.com.tw",
+        "ec.ltn.com.tw",
+        "art.ltn.com.tw",
+        "sports.ltn.com.tw",
+        "health.ltn.com.tw"
+      ],
+      "rss_reuse": true,
+      "license_name": "自由時報 RSS 非商業使用條款（僅 RSS 訊息，非全文）",
+      "license_url": "https://service.ltn.com.tw/RSS"
+    },
+    {
+      "id": "yahoo-technology",
+      "name": "Yahoo奇摩新聞",
+      "category": "科技與工程",
+      "feed": "https://tw.news.yahoo.com/rss/technology",
+      "allowed_hosts": [
+        "tw.news.yahoo.com",
+        "tw.sports.yahoo.com",
+        "tw.stock.yahoo.com"
+      ]
+    },
+    {
+      "id": "yahoo-health",
+      "name": "Yahoo奇摩新聞",
+      "category": "醫療與健康",
+      "feed": "https://tw.news.yahoo.com/rss/health",
+      "allowed_hosts": [
+        "tw.news.yahoo.com",
+        "tw.sports.yahoo.com",
+        "tw.stock.yahoo.com"
+      ]
+    },
+    {
+      "id": "yahoo-finance",
+      "name": "Yahoo奇摩新聞",
+      "category": "商業與經濟",
+      "feed": "https://tw.news.yahoo.com/rss/finance",
+      "allowed_hosts": [
+        "tw.news.yahoo.com",
+        "tw.sports.yahoo.com",
+        "tw.stock.yahoo.com"
+      ]
+    },
+    {
+      "id": "yahoo-world",
+      "name": "Yahoo奇摩新聞",
+      "category": "國際與全球趨勢",
+      "feed": "https://tw.news.yahoo.com/rss/world",
+      "allowed_hosts": [
+        "tw.news.yahoo.com",
+        "tw.sports.yahoo.com",
+        "tw.stock.yahoo.com"
+      ]
+    },
+    {
+      "id": "yahoo-lifestyle",
+      "name": "Yahoo奇摩新聞",
+      "category": "日常生活與實用技能",
+      "feed": "https://tw.news.yahoo.com/rss/lifestyle",
+      "allowed_hosts": [
+        "tw.news.yahoo.com",
+        "tw.sports.yahoo.com",
+        "tw.stock.yahoo.com"
+      ]
+    },
+    {
+      "id": "yahoo-sports",
+      "name": "Yahoo奇摩新聞",
+      "category": "運動與健康",
+      "feed": "https://tw.news.yahoo.com/rss/sports",
+      "allowed_hosts": [
+        "tw.news.yahoo.com",
+        "tw.sports.yahoo.com",
+        "tw.stock.yahoo.com"
+      ]
+    }
+  ],
+  "knowledge": [
+    {
+      "category": "日常生活與實用技能",
+      "discovery_category": "學習方法",
+      "titles": [
+        "間隔重複",
+        "番茄工作法",
+        "費曼技巧",
+        "主動回憶",
+        "批判性思維"
+      ]
+    },
+    {
+      "category": "商業與經濟",
+      "discovery_category": "經濟學概念",
+      "titles": [
+        "機會成本",
+        "沉沒成本",
+        "比較優勢",
+        "資訊不對稱",
+        "公共財"
+      ]
+    },
+    {
+      "category": "心理學與人類行為",
+      "discovery_category": "認知偏誤",
+      "titles": [
+        "確認偏誤",
+        "錨定效應",
+        "損失規避",
+        "旁觀者效應",
+        "古典制約"
+      ]
+    },
+    {
+      "category": "人文",
+      "discovery_category": "哲學概念",
+      "titles": [
+        "思想實驗",
+        "科學方法",
+        "可證偽性",
+        "倫理學",
+        "語言相對論"
+      ]
+    },
+    {
+      "category": "藝術與歷史",
+      "discovery_category": "藝術史",
+      "titles": [
+        "文藝復興",
+        "印象派",
+        "包浩斯",
+        "浮世繪",
+        "絲綢之路"
+      ]
+    },
+    {
+      "category": "生命科學",
+      "discovery_category": "細胞生物學",
+      "titles": [
+        "細胞凋亡",
+        "表觀遺傳學",
+        "基因漂變",
+        "內共生學說",
+        "免疫記憶"
+      ]
+    },
+    {
+      "category": "邏輯學",
+      "discovery_category": "謬誤",
+      "titles": [
+        "稻草人論證",
+        "滑坡謬誤",
+        "訴諸人身",
+        "肯定後件",
+        "必要條件和充分條件"
+      ]
+    },
+    {
+      "category": "環境與自然",
+      "discovery_category": "生態學",
+      "titles": [
+        "生態系統服務",
+        "生物累積",
+        "碳循環",
+        "都市熱島",
+        "生物多樣性"
+      ]
+    },
+    {
+      "category": "醫療與健康",
+      "discovery_category": "公共衛生",
+      "titles": [
+        "群體免疫",
+        "安慰劑效應",
+        "睡眠衛生",
+        "抗生素抗藥性",
+        "隨機對照試驗"
+      ]
+    },
+    {
+      "category": "科技與工程",
+      "discovery_category": "資訊安全",
+      "titles": [
+        "公開金鑰加密",
+        "雜湊函式",
+        "雙因素驗證",
+        "版本控制",
+        "社交工程"
+      ]
+    }
+  ]
+}

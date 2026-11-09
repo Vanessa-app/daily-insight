@@ -70,10 +70,13 @@ def article_image_candidate(url,allowed):
 def translate_segments(parts):
     """Offline model: no API key; fail closed on model or resource errors."""
     if not parts: return [], 'no_original_text'
+    if os.environ.get('DI_TRANSLATION') == '0': return [], 'translation_not_requested'
     try:
         from transformers import pipeline
         from opencc import OpenCC
-        translator = pipeline('translation', model='Helsinki-NLP/opus-mt-en-zh', device=-1)
+        global _translator
+        if '_translator' not in globals(): _translator = pipeline('translation', model='Helsinki-NLP/opus-mt-en-zh', device=-1)
+        translator = _translator
         convert = OpenCC('s2t')
         results = []
         for part in parts:

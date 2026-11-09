@@ -1,33 +1,52 @@
-name: Update primary-source news
+name: Update news and knowledge
 on:
   schedule:
-    - cron: '0 0,5,10 * * *' # 08:00, 13:00, 18:00 Asia/Taipei; GitHub may delay scheduled jobs
+    - cron: '0 0,5,10 * * *' # 08:00, 13:00, 18:00 Asia/Taipei; scheduled jobs may be delayed
   push:
     branches: [main]
     paths:
       - '.github/workflows/daily-news.yml'
       - 'scripts/update_news.py'
+      - 'scripts/update_catalog.py'
+      - 'catalog_sources.json'
       - 'sources.json'
       - 'requirements.txt'
   workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: daily-insight-content
+  cancel-in-progress: false
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install translation and feed dependencies
+          cache: pip
+      - name: Install lightweight Chinese reading dependencies
         run: python -m pip install -r requirements.txt
-      - name: Update publisher evidence and offline translation
+      - name: Collect official publisher content
+        id: official
+        continue-on-error: true
+        env:
+          DI_TRANSLATION: '0'
         run: python scripts/update_news.py
-      - name: Commit data only when changed
+      - name: Expand media and open knowledge catalog
+        id: catalog
+        continue-on-error: true
+        run: python -u scripts/update_catalog.py
+      - name: Save available content and expose failures
+        if: always()
+        env:
+          OFFICIAL_OUTCOME: ${{ steps.official.outcome }}
+          CATALOG_OUTCOME: ${{ steps.catalog.outcome }}
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/news.json
-          if ! git diff --cached --quiet; then git commit -m 'Update publisher evidence and translation'; git push; fi
+          git add data/news.json data/catalog.json
+          if ! git diff --cached --quiet; then git commit -m 'Refresh news and grow knowledge catalog'; git push; fi
+          if [ "$OFFICIAL_OUTCOME" != success ] || [ "$CATALOG_OUTCOME" != success ]; then exit 1; fi
