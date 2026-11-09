@@ -1,7 +1,59 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-08T10:38:43.309113+00:00",
+  "updated_at": "2026-11-09T00:54:43.817400+00:00",
   "items": [
+    {
+      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/stmd-exteriorlunarbase-hdlandscapeversion-2026-0521.png",
+      "image_rights": "unverified",
+      "image_credit": "NASA",
+      "quiz_reviewed": false,
+      "quiz": [],
+      "excerpt_original": "On Sunday, NASA announced the opening of its $1 million Moon Base Student Challenge during a MAX POWER event at Kennedy Space Center Visitor Complex in Florida. As part of a Golden Age of Science, the competition invites student teams at U.S. high schools and post-secondary schools to contribute designs for the Moon Base. “We’re […]",
+      "translation_zh_hant": "週日,美國航天局宣佈在佛羅里達肯尼迪空間中心訪客綜合體的MAX POWER活動期間,開啓其100萬美元月球基地學生挑戰。 作爲金色科學時代的一部分,比賽邀請美國學生團隊參加。 高中和中學後學校爲月球基地的設計作出貢獻。 \" 我們是... \"",
+      "evidence_original": [
+        "On Sunday, NASA announced the opening of its $1 million Moon Base Student Challenge during a MAX POWER event at Kennedy Space Center Visitor Complex in Florida. As part of a Golden Age of Science, the competition invites student teams at U.S. high schools and post-secondary schools to contribute designs for the Moon Base. “We’re […]"
+      ],
+      "evidence_zh_hant": [
+        "週日,美國航天局宣佈在佛羅里達肯尼迪空間中心訪客綜合體的MAX POWER活動期間,開啓其100萬美元月球基地學生挑戰。 作爲金色科學時代的一部分,比賽邀請美國學生團隊參加。 高中和中學後學校爲月球基地的設計作出貢獻。 \" 我們是... \""
+      ],
+      "translation_status": "translated_unreviewed",
+      "content_scope": "publisher_feed_excerpt",
+      "extraction_status": "not_attempted",
+      "content_complete": false,
+      "reuse_license": "not_confirmed",
+      "id": "nasa:629074875",
+      "source_id": "nasa",
+      "source": "NASA",
+      "category": "AI與科技",
+      "title": "NASA Announces $1 Million to Students for Moon Base Challenge",
+      "url": "https://www.nasa.gov/news-release/nasa-announces-1-million-to-students-for-moon-base-challenge/",
+      "published_at": "2026-11-08T15:26:38+00:00",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
+    {
+      "id": "adi:21270",
+      "source_id": "adi",
+      "source": "數位產業署",
+      "kind": "news",
+      "category": "AI與科技",
+      "title": "數位逗鎮趣巡迴 【數位逗鎮趣】再度攜手彰化田中馬拉松  結合賽事服務與數位體驗跑出安全數位力",
+      "url": "https://moda.gov.tw/ADI/news/latest-news/21270",
+      "published_at": "2026-11-08T00:00:00+08:00",
+      "content_complete": true,
+      "reuse_license": "approved",
+      "license_name": "CC0 1.0",
+      "license_url": "https://moda.gov.tw/announcement/publicdeclare/951",
+      "content_scope": "official_full_text",
+      "translation_status": "original_zh_hant",
+      "evidence_original": [
+        "由數位發展部數位產業署主辦的「數位逗鎮趣」，今年再度攜手彰化田中馬拉松，延續去年的合作成果，從熱鬧的選手之夜一路延伸至馬拉松賽事現場，結合防詐、資安、AI應用、數位學習及數位消費等多元主題，透過互動闖關與生活化體驗，邀請跑者及民眾在參與賽事之餘，一同探索數位科技的便利與安全，讓數位素養教育融入全民運動盛事。\n情境闖關破解詐騙　AI資安防護一起學\n防詐與資安體驗結合假客服、釣魚連結等生活情境，讓民眾透過互動挑戰破解詐騙話術，並實際操作「網路詐騙通報查詢網」，學習查詢與通報可疑訊息。同時融入AI資安及個資保護觀念，讓民眾發現：「原來有些訊息看起來很真實，連使用AI也要注意個資安全！」也更加了解遇到可疑資訊時，先查證的重要性。\nAI神隊友帶路　數位學習與消費權益一次懂\nAI互動導覽、遊戲分級及數位學習等體驗，吸引大小朋友一起探索科技應用，也透過集資平臺案例認識數位消費權益。不少民眾對AI導覽的便利應用感到新奇，家長則分享：「原來集資和一般網購不一樣，孩子買遊戲點數也有這麼多要注意的地方！」讓數位知識更貼近日常生活。\n選手之夜防詐有獎徵答　熱鬧互動守護荷包\n選手之夜結合digi@防詐有獎徵答，因應時事宣導選舉小物詐騙、LINE投票詐騙及實用防詐工具等生活化題目，吸引民眾熱情搶答。現場也提醒大家，不隨意點擊陌生連結、不依指示操作網銀，並善用防詐工具查證可疑資訊，讓民眾在歡笑與搶答中學習實用的防詐知識。\n賽事服務結合防詐宣導　田中馬資訊站再升級\n今年也持續打造「田中馬×數位逗鎮趣-服務資訊站」，提供賽事資訊查詢、即時成績查詢及digi@防詐宣導。讓跑者及民眾透過現場展示及宣導資訊，認識近期常見的詐騙手法與實用防詐工具。\n數位知識走入生活　打造更安心的數位環境\n數位產業署表示，「數位逗鎮趣」透過展覽、市集及在地活動，將數位知識帶入民眾生活。期盼民眾在趣味體驗中學習防詐、資安及數位應用知識，並將所學分享給親友，共同打造更安全、便利的數位生活。",
+        "【數位逗鎮趣-辦理場次預告】\n12/16(三)13:30-16:00-臺東-國立臺東大學"
+      ],
+      "excerpt_original": "由數位發展部數位產業署主辦的「數位逗鎮趣」，今年再度攜手彰化田中馬拉松，延續去年的合作成果，從熱鬧的選手之夜一路延伸至馬拉松賽事現場，結合防詐、資安、AI應用、數位學習及數位消費等多元主題，透過互動闖關與生活化體驗，邀請跑者及民眾在參與賽事之餘，一同探索數位科技的便利與安全，讓數位素養教育融入全民運動盛事。\n情境闖關破解詐騙　AI資安防護一起學\n防詐與資安體驗結合假客服、釣魚連結等生活情境，讓民眾透過互動挑戰破解詐騙話術，並實際操作「網路詐騙通報查詢網」，學習查詢與通報可疑訊息。同時融入AI資安及個資保護觀念，讓民眾發現：「原來有些訊息看起來很真實，連使用AI也要注意個資安全！」也更加了解遇到可疑資訊時，先查證的重要性。\nAI神隊友帶路　數位學習與消費權益一次懂\nAI互動導覽、遊戲分級及數位學習等體驗，吸引大小朋友一起探索科技應用，也透過集資平臺案例認識數位消費權益。不少民眾對AI導覽的便利應用感到新奇，家長則分享：「原來集資和一般網購不一樣，孩子買遊戲點數也有這麼多要注意的地方！」讓數位知識更貼近日常生活。\n選手之夜防詐有獎徵答　熱鬧互動守護荷包\n選手之夜結合digi@防詐有獎徵答，因應時事宣導選舉小物詐騙、LINE投票詐騙及實用防詐工具等生活化題目，吸引民眾熱情搶答。現場也提醒大家，不隨意點擊陌生連結、不依指示操作網銀，並善用防詐工具查證可疑資訊，讓民眾在歡笑與搶答中學習實用的防詐知識。\n賽事服務結合防詐宣導　田中馬資訊站再升級\n今年也持續打造「田中馬×數位逗鎮趣-服務資訊站」，提供賽事資訊查詢、即時成績查詢及digi@防詐宣導。讓跑者及民眾透過現場展示及宣導資訊，認識近期常見的詐騙手法與實用防詐工具。\n數位知識走入生活　打造更安心的數位環境\n數位產業署表示，「數位逗鎮趣」透過展覽、市集及在地活動，將數位知識帶入民眾生活。期盼民眾在趣味體驗中學習防詐、資安及數位應用知識，並將所學分享給親友，共同打造更安全、便利的數位生活。",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
     {
       "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/moon-base-artists-concept.jpg",
       "image_rights": "unverified",
@@ -1491,32 +1543,32 @@
     "nasa": {
       "status": "ok",
       "accepted": 2,
-      "checked_at": "2026-11-08T10:38:43.309113+00:00"
+      "checked_at": "2026-11-09T00:54:43.817400+00:00"
     },
     "who": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-08T10:38:43.309113+00:00"
+      "checked_at": "2026-11-09T00:54:43.817400+00:00"
     },
     "un": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-08T10:38:43.309113+00:00"
+      "checked_at": "2026-11-09T00:54:43.817400+00:00"
     },
     "數位發展部": {
       "status": "ok",
       "accepted": 5,
-      "checked_at": "2026-11-08T10:38:43.309113+00:00"
+      "checked_at": "2026-11-09T00:54:43.817400+00:00"
     },
     "數位產業署": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-08T10:38:43.309113+00:00"
+      "checked_at": "2026-11-09T00:54:43.817400+00:00"
     },
     "行政院": {
       "status": "ok",
       "accepted": 8,
-      "checked_at": "2026-11-08T10:38:43.309113+00:00"
+      "checked_at": "2026-11-09T00:54:43.817400+00:00"
     }
   },
   "disclaimer": "Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed."
