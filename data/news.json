@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-10T05:48:26.966280+00:00",
+  "updated_at": "2026-11-10T10:50:19.731748+00:00",
   "items": [
     {
       "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/jsc2025e076292large.jpg",
@@ -1342,7 +1342,7 @@
       "claim_verification": "not_independently_verified"
     },
     {
-      "image_url": "https://www.who.int/ResourcePackages/WHO/assets/whofallback.jpg",
+      "image_url": "https://www.who.int/images/default-source/fallback/header-logos/h-logo-blue1820eae93c154e37b2588ab90fdbc17e.svg?sfvrsn=aaed4f35_20",
       "image_rights": "unverified",
       "image_credit": "WHO",
       "quiz_reviewed": false,
@@ -1631,32 +1631,32 @@
     "nasa": {
       "status": "ok",
       "accepted": 0,
-      "checked_at": "2026-11-10T05:48:26.966280+00:00"
+      "checked_at": "2026-11-10T10:50:19.731748+00:00"
     },
     "who": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-10T05:48:26.966280+00:00"
+      "checked_at": "2026-11-10T10:50:19.731748+00:00"
     },
     "un": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-10T05:48:26.966280+00:00"
+      "checked_at": "2026-11-10T10:50:19.731748+00:00"
     },
     "數位發展部": {
       "status": "ok",
       "accepted": 5,
-      "checked_at": "2026-11-10T05:48:26.966280+00:00"
+      "checked_at": "2026-11-10T10:50:19.731748+00:00"
     },
     "數位產業署": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-10T05:48:26.966280+00:00"
+      "checked_at": "2026-11-10T10:50:19.731748+00:00"
     },
     "行政院": {
       "status": "ok",
       "accepted": 8,
-      "checked_at": "2026-11-10T05:48:26.966280+00:00"
+      "checked_at": "2026-11-10T10:50:19.731748+00:00"
     }
   },
   "disclaimer": "Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed."
