@@ -1,7 +1,59 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-09T10:51:42.321146+00:00",
+  "updated_at": "2026-11-10T00:51:58.229405+00:00",
   "items": [
+    {
+      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/jsc2025e076292large.jpg",
+      "image_rights": "unverified",
+      "image_credit": "NASA",
+      "quiz_reviewed": false,
+      "quiz": [],
+      "excerpt_original": "Read this release in English here.La NASA busca a los exploradores que ayudarán a escribir el próximo capítulo de los vuelos espaciales tripulados. Ya está abierto el plazo de inscripción para la próxima promoción de astronautas de la agencia, que se incorporarán a la NASA en un momento en el que Estados Unidos regresa a […]",
+      "translation_zh_hant": null,
+      "evidence_original": [
+        "Read this release in English here.La NASA busca a los exploradores que ayudarán a escribir el próximo capítulo de los vuelos espaciales tripulados. Ya está abierto el plazo de inscripción para la próxima promoción de astronautas de la agencia, que se incorporarán a la NASA en un momento en el que Estados Unidos regresa a […]"
+      ],
+      "evidence_zh_hant": [],
+      "translation_status": "translation_not_requested",
+      "content_scope": "publisher_feed_excerpt",
+      "extraction_status": "not_attempted",
+      "content_complete": false,
+      "reuse_license": "not_confirmed",
+      "id": "nasa:1468591251",
+      "source_id": "nasa",
+      "source": "NASA",
+      "category": "AI與科技",
+      "title": "La NASA busca a la próxima generación de astronautas",
+      "url": "https://www.nasa.gov/news-release/la-nasa-busca-a-la-proxima-generacion-de-astronautas/",
+      "published_at": "2026-11-09T19:27:20+00:00",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
+    {
+      "id": "adi:21280",
+      "source_id": "adi",
+      "source": "數位產業署",
+      "kind": "news",
+      "category": "AI與科技",
+      "title": "數位產業署串聯國際衛星產業 加速創新應用落地 鏈結日英衛星產業網絡 8家業者展現跨域共創商機",
+      "url": "https://moda.gov.tw/ADI/news/latest-news/21280",
+      "published_at": "2026-11-09T00:00:00+08:00",
+      "content_complete": true,
+      "reuse_license": "approved",
+      "license_name": "CC0 1.0",
+      "license_url": "https://moda.gov.tw/announcement/publicdeclare/951",
+      "content_scope": "official_full_text",
+      "translation_status": "original_zh_hant",
+      "evidence_original": [
+        "為加速臺灣衛星應用服務發展，數位發展部數位產業署今（9）日於臺南沙崙綠能科技示範場域舉辦「TAIWAN Satcom Summit 2026」，以「國際鏈結、跨國實證、產業媒合及商業應用」為核心，上午邀集日本、英國及國內衛星領域專家，交流國際產業趨勢與商業化經驗；下午接續辦理衛星應用產業交流媒合會（Demo Day），集結8家國內業者展示智慧海洋、無人載具、韌性通訊及遠距醫療等創新方案。透過國際論壇與產業媒合雙軸串聯，促進國內外資源對接，展現臺灣衛星應用從技術創新邁向產業落地的發展動能。",
+        "鏈結日英衛星產業網絡　探索跨國實證與商業合作契機\n數位產業署陳怡君副署長表示，隨著全球低軌衛星、非地面網路（NTN）及衛星數據應用快速發展，衛星服務正加速延伸至海事安全、防救災、物流運輸及產業韌性等多元領域。臺灣既具備完整的資通訊產業供應鏈與跨域整合優勢，應把握衛星服務發展契機，將既有技術能量轉化為具市場價值的創新應用。數產署持續透過國際合作、創新競賽、補助徵案及場域實證等機制，串聯產學研創新能量與產業需求，讓衛星應用從「技術做得出來」，進一步走向「場域用得起來、服務賣得出去」，拓展臺灣衛星應用的國際市場機會。\n而上午國際論壇邀請日本XGMF、日本富士通及英國Space South Central等國際產業組織與企業代表，分享全球衛星應用發展經驗。其中，日本XGMF NTN 計畫主持人豊嶋守生博士，探討非地面網路（NTN）產業生態系及臺日跨國場域驗證合作；英國Space South Central國際合作經理Tobias Marchant，分享區域太空產業聚落如何串聯產學研資源，加速創新商業化。日本富士通VP暨FDE事業部長土井悠哉則以NEDO衛星數據創新競賽經驗，分享從創意競賽走向商業市場的實務案例；國立中央大學太空及遙測研究中心曾國欣特聘教授兼主任亦介紹衛星數據結合AI、雲端與遙測技術的加值應用潛力。\n此次論壇除引進國際經驗，更著重探索與日英衛星應用產業生態系的合作契機，包括海事通訊、災害應變及衛星數據應用等跨國驗證方向，協助國內業者掌握國際市場需求，為臺灣衛星創新服務拓展海外合作機會。",
+        "8家衛星應用方案實際亮相　跨域媒合帶動產業合作商機\n下午衛星應用產業交流媒合會（Demo Day）聚焦產業創新與跨域合作，透過「主題分享、方案展示及商務媒合」，集結衛星數位應用創新大賽獲獎隊伍等8家國內業者，呈現「智慧海洋、無人載具與移動場域」及「產業韌性與關鍵服務」兩大應用主題。由宇研共創、極御科技、水芯實驗室及伸波通訊展示無人機巡檢、海上安全定位及智慧冷鏈監控；中華電信、宏達電、博誠電子及坤安科技則分享韌性通訊、遠洋遠距醫療、災害應變及資安防護等創新方案，展現衛星結合AI、5G及物聯網的跨域應用潛力。\n數位產業署陳慧慧副組長表示，衛星應用發展不僅在於技術創新，更需串聯產業需求與應用場域。透過此次交流媒合，促進技術供應端與需求端對接，推動跨域合作與場域實證，加速衛星應用從技術驗證走向商業落地，逐步擴大臺灣衛星應用產業生態系。",
+        "從國際鏈結到產業落地　逐步建構臺灣衛星應用生態系\n數位產業署強調，臺灣衛星應用產業正逐步從技術探索走向跨域整合與實際應用。未來，數位產業署將持續扮演產業資源整合與國際合作推手，深化與國際衛星組織及產業網絡的交流，並結合國內公私場域資源與業者創新能量，促進更多衛星應用服務落地驗證及商業合作，以國際鏈結拓展市場機會、以產業媒合促進跨域共創、以場域實證帶動應用擴散，逐步打造具國際競爭力的臺灣衛星應用產業生態系。"
+      ],
+      "excerpt_original": "為加速臺灣衛星應用服務發展，數位發展部數位產業署今（9）日於臺南沙崙綠能科技示範場域舉辦「TAIWAN Satcom Summit 2026」，以「國際鏈結、跨國實證、產業媒合及商業應用」為核心，上午邀集日本、英國及國內衛星領域專家，交流國際產業趨勢與商業化經驗；下午接續辦理衛星應用產業交流媒合會（Demo Day），集結8家國內業者展示智慧海洋、無人載具、韌性通訊及遠距醫療等創新方案。透過國際論壇與產業媒合雙軸串聯，促進國內外資源對接，展現臺灣衛星應用從技術創新邁向產業落地的發展動能。",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
     {
       "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/stmd-exteriorlunarbase-hdlandscapeversion-2026-0521.png",
       "image_rights": "unverified",
@@ -1254,7 +1306,7 @@
       "claim_verification": "not_independently_verified"
     },
     {
-      "image_url": "https://www.who.int/images/default-source/fallback/header-logos/h-logo-blue1820eae93c154e37b2588ab90fdbc17e.svg?sfvrsn=aaed4f35_20",
+      "image_url": "https://www.who.int/ResourcePackages/WHO/assets/whofallback.jpg",
       "image_rights": "unverified",
       "image_credit": "WHO",
       "quiz_reviewed": false,
@@ -1543,32 +1595,32 @@
     "nasa": {
       "status": "ok",
       "accepted": 1,
-      "checked_at": "2026-11-09T10:51:42.321146+00:00"
+      "checked_at": "2026-11-10T00:51:58.229405+00:00"
     },
     "who": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-09T10:51:42.321146+00:00"
+      "checked_at": "2026-11-10T00:51:58.229405+00:00"
     },
     "un": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-09T10:51:42.321146+00:00"
+      "checked_at": "2026-11-10T00:51:58.229405+00:00"
     },
     "數位發展部": {
       "status": "ok",
       "accepted": 5,
-      "checked_at": "2026-11-09T10:51:42.321146+00:00"
+      "checked_at": "2026-11-10T00:51:58.229405+00:00"
     },
     "數位產業署": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-09T10:51:42.321146+00:00"
+      "checked_at": "2026-11-10T00:51:58.229405+00:00"
     },
     "行政院": {
       "status": "error",
       "accepted": 0,
-      "checked_at": "2026-11-09T10:51:42.321146+00:00"
+      "checked_at": "2026-11-10T00:51:58.229405+00:00"
     }
   },
   "disclaimer": "Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed."
