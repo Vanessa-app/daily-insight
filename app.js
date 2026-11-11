@@ -1,6 +1,13 @@
  'use strict';
-const KEY='daily-insight-v1.8',DATA='./data/news.json';
-const LIVE_DATA='https://raw.githubusercontent.com/Vanessa-app/daily-insight/main/data/news.json';
+const KEY='daily-insight-v1.8';
+const DATA_SOURCES = [
+ {key:'daily', file:'news.json', label:'新聞資料', backup:true},
+ {key:'taiwan', file:'taiwan.json', label:'台灣全文'},
+ {key:'catalog', file:'catalog.json', label:'知識與媒體資料', backup:true}
+];
+const articleData = new Map();
+const failedData = new Set();
+const RAW_DATA = 'https://raw.githubusercontent.com/Vanessa-app/daily-insight/main/data/';
 const state={page:'news',filter:'全部',news:[],meta:null,selected:null,mode:'zh',saved:[],read:[],quizResults:{},...load()};
 let explorationScroll = 0;
 state.shelf='recommended';
@@ -273,6 +280,11 @@ function explore(items) {
  const today=isKnowledge&&state.filter==='全部'&&recommended?dailyKnowledge(items):null;
  const bad=Object.entries(state.meta?.sources||{}).filter(([,status])=>status.status==='error');
  const time=isKnowledge?state.meta?.catalog_at:state.meta?.updated_at;
+ const emptyMessage = selected.length
+   ? '這個範圍目前沒有符合條件的文章，可切換主題或查看全部館藏。'
+   : refreshPending ? '正在取得文章，資料載入後會顯示在這裡。'
+   : failedData.size ? '目前無法取得此區文章，請按「重新取得內容」重試。'
+   : '此區目前沒有可讀文章。';
  const latest=selected.reduce((d,a)=>Date.parse(a.published_at)>(Date.parse(d)||0)?a.published_at:d,null);
  const controls=`<div class="sectionhead"><h2 id="explore-title">${title}</h2><span class="meta">${selected.length} 篇 · 未讀 ${unread.length} 篇</span></div>
  <p class="meta">${isKnowledge?'跨主題開放知識，依閱讀進度補充未讀推薦。':'新聞與可信媒體索引；站內全文及原站閱讀均清楚標示。'} 最近檢查：${esc(checkedTime(time))}（台灣時間）${!isKnowledge?` · 最新發布：${esc(date(latest))}`:''}</p>
@@ -283,7 +295,7 @@ function explore(items) {
  ${state.refreshMessage?`<p role="status" class="meta">${esc(state.refreshMessage)}</p>`:''}
  ${bad.length?`<div class="notice">部分來源暫時無法取得：${bad.map(([key])=>esc(key)).join('、')}。其他來源繼續更新，保留先前可用內容。</div>`:''}
  ${today?`<div class="notice"><strong>今日知識 · ${esc(today.topic)}</strong><p>${esc(today.article.title)}</p><button class="btn primary" data-open="${esc(today.article.url)}">閱讀今日知識</button></div>`:''}
- ${visible.length?`<div class="grid">${visible.map(article).join('')}</div>`:`<div class="empty">${selected.length?'這個範圍的未讀內容已讀完。可切換主題或全部館藏，背景更新後會加入新的未讀文章。':'來源正在建立內容；請稍後重新取得。'}</div>`}
+ ${visible.length?`<div class="grid">${visible.map(article).join('')}</div>`:`<div class="empty">${emptyMessage}</div>`}
  </section>`;
  return {controls,content};
 }
@@ -319,34 +331,74 @@ else if(b.dataset.quizSubmit){
 }
 else if(b.dataset.read){if(!state.read.includes(b.dataset.read))state.read.push(b.dataset.read);persist();render()}});
 async function readNews(url) {
- const response = await fetch(url, {cache: 'no-store'});
- if (!response.ok) throw Error('HTTP ' + response.status);
- const data = await response.json();
- if (!Array.isArray(data.items)) throw Error('invalid data');
- return data;
+ const controller = new AbortController();
+ const deadline = setTimeout(() => controller.abort(), 12000);
+ try {
+  const response = await fetch(url, {cache:'no-store', signal:controller.signal});
+  if (!response.ok) throw new Error('HTTP ' + response.status);
+  const data = await response.json();
+  if (!Array.isArray(data?.items)) throw new Error('invalid article data');
+  const items = data.items.filter(item => item && typeof item.url === 'string');
+  if (data.items.length && !items.length) throw new Error('invalid articles');
+  return {...data, items};
+ } finally {
+  clearTimeout(deadline);
+ }
 }
-async function refreshContent(manual=false){
- if(refreshPending)return;refreshPending=true;
- if(manual){state.refreshMessage='正在取得最新新聞與知識…';if(!state.selected)render()}
- const previous=new Set(state.news.map(a=>a.url));
- const [daily,taiwan,catalog]=await Promise.allSettled([
-  readNews(LIVE_DATA+'?refresh='+Date.now()).catch(()=>readNews(DATA)),
-  readNews('./data/taiwan.json'),
-  readNews('https://raw.githubusercontent.com/Vanessa-app/daily-insight/main/data/catalog.json?refresh='+Date.now()).catch(()=>readNews('./data/catalog.json'))
+
+async function readArticleSource(source) {
+ try {
+  return await readNews('./data/' + source.file);
+ } catch (error) {
+  if (!source.backup) throw error;
+  return readNews(RAW_DATA + source.file);
+ }
+}
+
+function applyArticleData() {
+ const daily = articleData.get('daily');
+ const taiwan = articleData.get('taiwan');
+ const catalog = articleData.get('catalog');
+ const sources = {...daily?.sources, ...catalog?.sources};
+ for (const source of DATA_SOURCES) {
+  if (failedData.has(source.key)) sources[source.label] = {status:'error'};
+ }
+ const dates = [daily?.updated_at, catalog?.updated_at].filter(Boolean).sort();
+ state.meta = {updated_at:dates.at(-1), catalog_at:catalog?.updated_at, sources};
+ state.news = mergeArticles(taiwan?.items || [], [
+  ...(daily?.items || []), ...(catalog?.items || [])
  ]);
- const sources={...(daily.value?.sources||{}),...(catalog.value?.sources||{})};
- if(daily.status==='rejected')sources['新聞資料']={status:'error'};
- if(catalog.status==='rejected')sources['知識與媒體資料']={status:'error'};
- if(taiwan.status==='rejected')sources['台灣全文']={status:'error'};
- const dates=[daily.value?.updated_at,catalog.value?.updated_at].filter(Boolean).sort();
- state.meta={updated_at:dates.at(-1),catalog_at:catalog.value?.updated_at,sources};
- const live=[...(daily.value?.items||[]),...(catalog.value?.items||[])];
- const loaded=mergeArticles(taiwan.value?.items||[],live);
- if(loaded.length)state.news=loaded;
- const added=state.news.filter(a=>!previous.has(a.url)).length;
- state.refreshMessage=manual?(added?`已取得 ${added} 篇新增內容。`:'已取得目前可用內容；未讀推薦已依閱讀紀錄重新整理。'):'';
- lastRefresh=Date.now();refreshPending=false;
- if(!state.selected)render();
+}
+
+async function refreshContent(manual=false) {
+ if (refreshPending) return;
+ refreshPending = true;
+ const previous = new Set(state.news.map(article => article.url));
+ state.refreshMessage = manual ? '正在取得最新新聞與知識…' : '';
+ try {
+  if (!state.selected) render();
+  await Promise.allSettled(DATA_SOURCES.map(async source => {
+   try {
+    const data = await readArticleSource(source);
+    articleData.set(source.key, data);
+    failedData.delete(source.key);
+   } catch {
+    failedData.add(source.key);
+   }
+   applyArticleData();
+   if (!state.selected) render();
+  }));
+  if (manual) {
+   const added = state.news.filter(article => !previous.has(article.url)).length;
+   if (added) state.refreshMessage = `已取得 ${added} 篇新增內容。`;
+   else if (failedData.size === DATA_SOURCES.length) state.refreshMessage = '文章更新失敗，請稍後重試。';
+   else state.refreshMessage = '已取得目前可用內容。';
+  }
+ } finally {
+  lastRefresh = Date.now();
+  refreshPending = false;
+  if (!state.selected) render();
+ }
 }
 refreshContent();
 setInterval(()=>{if(!document.hidden&&!state.selected)refreshContent()},5*60*1000);
