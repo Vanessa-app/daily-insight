@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-12T05:55:48.694205+00:00",
+  "updated_at": "2026-11-12T10:56:21.936488+00:00",
   "items": [
     {
       "id": "ey:3e1ca979-057e-4b00-81be-3d061228db6e",
@@ -75,6 +75,34 @@
         "卓院長強調，打擊毒品、遏止毒駕，都是政府維護社會治安的重要工作，感謝所有第一線執法人員，也請各部會及各地方政府持續共同合作，全面強化前端查緝及後端檢驗，展現政府打擊毒品的決心，守護國人生命安全。"
       ],
       "excerpt_original": "行政院長卓榮泰今（12）日在行政院會聽取法務部「擴充新興毒品暨尿液檢驗量能」報告後表示，面對依托咪酯等新興毒品快速氾濫，政府已從「源頭嚇阻、強化查緝、重懲毒駕」三大方向，提出14項作為。此外，更重要的是檢驗量能必須充足，才能有效打擊犯罪，因此行政院已於今（2026）年9月1日核定擴充新興毒品檢驗量能計畫，後續請各相關部會積極辦理。",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
+    {
+      "id": "ey:2bf5da95-69d8-49ba-9a19-53a611672d0b",
+      "source_id": "ey",
+      "source": "行政院",
+      "kind": "news",
+      "category": "社會與公共政策",
+      "title": "115資訊月暨臺灣教育科技展開幕 卓揆：公私協力推動AI服務、培育人才向下扎根 共創AI新時代",
+      "url": "https://www.ey.gov.tw/Page/9277F759E41CCD91/2bf5da95-69d8-49ba-9a19-53a611672d0b",
+      "published_at": "2026-11-12T00:00:00+08:00",
+      "content_complete": true,
+      "reuse_license": "approved",
+      "license_name": "政府資料開放授權條款－第1版",
+      "license_url": "https://www.ey.gov.tw/Page/2EADDBFEDDB6357E",
+      "content_scope": "official_full_text",
+      "translation_status": "original_zh_hant",
+      "evidence_original": [
+        "行政院長卓榮泰今（12）日出席「115資訊月暨臺灣教育科技展開幕典禮」時表示，政府以國家戰略高度推動「人才、技術、產業、治理」四大面向同步發展，其中「人才培育」更是核心關鍵。未來4年除了投入逾1,300億元推動「AI新十大建設」之外，預計2026至2029年間亦投入117億元推動「AI人才方舟計畫」，建構中小學AI學習環境，向下扎根，並透過公私協力推動AI服務，共同打造「全民智慧生活圈」，讓臺灣真正成為「人工智慧島」。",
+        "卓院長指出，今（2026）年資訊月參展廠商相當踴躍，感謝主辦單位「台北市電腦公會」將「臺灣教育科技展」納入其中，讓莘莘學子們共同參與，協助培育人才。卓院長指出，今年展覽主軸是「共創AI新時代」，所謂「共創」就是希望每個人都能親身參與，將自身的生活與學識相互融合，以因應AI所帶來的挑戰。而透過「臺灣教育科技展」能讓各界互相學習，最終實現「全民智慧生活圈」目標，並落實賴清德總統所期許「讓人民生活得更好，也讓臺灣與世界更充分地接軌」願景。",
+        "卓院長表示，政府以國家戰略高度檢視整體資訊產業發展，並從人才、技術、產業、治理四面向同步推進。他強調，四者雖同等重要，但核心靈魂在於人才培育，若無傑出、廣大且能善用資訊科技的人才，便無法帶動整體產業發展，並推動資訊技術的進步，因此政府已將人才培育列為最重要的發展目標。",
+        "卓院長進一步說明，臺灣擁有優質的硬體建設，但發展不能僅停留在製造層面上，必須公私部門齊力推動AI服務，臺灣才能真正成為一座「人工智慧島」。有鑑於此，未來4年，政府預計投入逾1,300億元推動「AI新十大建設」，除了發展軟體、引導百工百業智慧應用，實現「全民智慧生活圈」目標之外，人才培育亦是其中關鍵的一環。此外，教育部提出「AI人才方舟計畫」，預計2026年至2029年間編列約117億元預算，打造中小學AI智慧教育新生態，及早培養學童從資訊工具中獲取知識及解決問題的能力，期能對AI人才發展做更長遠與健全的布局。",
+        "最後，卓院長再次感謝全體「傑出資訊人才獎」得主及所有參展廠商，並歡迎全國民眾踴躍前來參觀，期盼各界秉持勇於創新、樂於分享的精神，透過同業或跨界交流，展現豐碩的產業成果；同時也預祝為期4天的展期順利圓滿，讓每位參觀者都能滿載而歸，不僅豐富個人生活經驗，也為未來產業界的發展與治理奠定更健全的基礎。",
+        "致詞結束後，卓院長依序頒發「傑出資訊人才獎」予11位獲獎人。在「資訊產品、技術、元件之開發、設計或行銷」類，得獎者包括宏碁資訊服務股份有限公司周幸蓉總經理、中華電信研究院王景弘副院長，以及倍力資訊股份有限公司許金隆董事長兼總經理；在「資訊教育、資訊技術、資訊學術研究」類，得獎者包括國立雲林科技大學張傳育校長、國立陽明交通大學資訊工程學系邱維辰教授、中央研究院資訊科技創新研究中心曹昱研究員兼AIIC執行長，以及宜蘭縣中山國小林穎俊資訊組長；在「資訊化之推動管理與應用」類，得獎者則包括衛生福利部資訊處李建璋處長、財政部財政資訊中心張文熙主任、臺中市政府林谷隆副秘書長，以及高雄醫學大學附設中和紀念醫院盧鴻興副院長。卓院長肯定每位得獎者在各領域都有卓越表現，也成為下一代進入相關領域的重要橋梁。",
+        "隨後，卓院長依序參觀LINE、Meta、教育部「AI應用智慧教室」、「AI人才方舟」展區、數位發展部「共創AI島」展區、遠傳電信、中華電信等展位，瞭解AI技術發展及應用。包括總統府沈榮津資政、行政院葉俊顯政委兼國家發展委員會主委、李慧芝發言人、數位發展部林宜敬部長、內政部董建宏次長、教育部劉國偉次長、台北市電腦公會彭双浪榮譽理事長、資訊月活動委員會劉瑞復主委等均出席今日開幕典禮。"
+      ],
+      "excerpt_original": "行政院長卓榮泰今（12）日出席「115資訊月暨臺灣教育科技展開幕典禮」時表示，政府以國家戰略高度推動「人才、技術、產業、治理」四大面向同步發展，其中「人才培育」更是核心關鍵。未來4年除了投入逾1,300億元推動「AI新十大建設」之外，預計2026至2029年間亦投入117億元推動「AI人才方舟計畫」，建構中小學AI學習環境，向下扎根，並透過公私協力推動AI服務，共同打造「全民智慧生活圈」，讓臺灣真正成為「人工智慧島」。",
       "verification": "publisher_domain_checked",
       "claim_verification": "not_independently_verified"
     },
@@ -1837,74 +1865,38 @@
       "published_at": "2020-09-09T00:01:05+00:00",
       "verification": "publisher_domain_checked",
       "claim_verification": "not_independently_verified"
-    },
-    {
-      "excerpt_original": "WHO to roll out learning and monitoring tools to improve service provision during pandemic The World Health Organization (WHO) today published a first indicative survey on the impact of COVID-19 on health systems based on 105 countries’ reports. Data collected from five regions over the period from March to June 2020 illustrate that almost every country (90%) experienced disruption to its health services, with low- and middle-income countries reporting the greatest difficulties. Most countries reported that many routine and elective services have been suspended, while critical care - such as cancer screening and treatment and HIV therapy – has seen high-risk interruptions in low-income countries. \"The survey shines a light on the cracks in our health systems, but it also serves to inform new strategies to improve healthcare provision during the pandemic and beyond,” said Dr Tedros Adhanom Ghebreyesus, WHO Director-General. \"COVID-19 should be a lesson to all countries that health is not an ‘either-or’ equation. We must better prepare for emergencies but also keep investing in health systems that fully respond to people’s needs throughout the life course.\" Services hit across the board: Based on reports from key informants, countries on average experienced disruptions in 50% of a set of 25 tracer services. The most frequently disrupted areas reported included routine immunization – outreach services (70%) and facility-based services (61%), non-communicable diseases diagnosis and treatment (69%), family planning and contraception (68%), treatment for mental health disorders (61%), cancer diagnosis and treatment (55%). Countries also reported disruptions in malaria diagnosis and treatment (46%), tuberculosis case detection and treatment (42%) and antiretroviral treatment (32%). While some areas of health care, such as dental care and rehabilitation, may have been deliberately suspended in line with government protocols, the disruption of many of the other services is expected to have harmful effects on population health in the short- medium- and long-term. Potentially life-saving emergency services were disrupted in almost a quarter of responding countries. Disruptions to 24-hour emergency room services for example were affected in 22% of countries, urgent blood transfusions were disrupted in 23% of countries, emergency surgery was affected in 19% of the countries. Disruption due to a mix of supply and demand side factors. 76% of countries reported reductions in outpatient care attendance due to lower demand and other factors such as lockdowns and financial difficulties. The most commonly reported factor on the supply side was cancellation of elective services (66%). Other factors reported by countries included staff redeployment to provide COVID-19 relief, unavailability of services due to closings, and interruptions in the supply of medical equipment and health products. Adapting service delivery strategies. Many countries have started to implement some of the WHO recommended strategies to mitigate service disruptions, such as triaging to identify priorities, shifting to on-line patient consultations, changes to prescribing practices and supply chain and public health information strategies. However, only 14% of countries reported removal of user fees, which WHO recommends to offset potential financial difficulties for patients. The pulse survey also provides an indication of countries’ experiences in adapting strategies to mitigate the impact on service provision. Despite the limitations of such a survey, it highlights the need to improve real-time monitoring of changes in service delivery and utilization as the outbreak is likely to wax and wane over the next months, and to adapt solutions accordingly. To that end, WHO will continue to work with countries and to provide supportive tools to address the fallout from COVID-19. Given countries’ urgent demand for assistance during the pandemic response, WHO is developing the COVID19: Health Services Learning Hub , a web-based platform that will allow sharing of experiences and learning from innovative country practices that can inform the collective global response. WHO is also devising additional surveys at the sub-national level and in health facilities to gauge the longer-term impact of disruptions and help countries weigh the benefits and risks of pursuing different mitigation strategies. Note to editors The survey ‘ Rapid assessment of continuity of essential health services during the COVID-19 pandemic ’, was conducted in 159 countries (all WHO regions except the Americas). 105 responses were received (66% response rate) from senior ministry of health officials covering the period from March to June 2020. The purpose of the survey was to gain insights and perspectives on both the impact of the COVID-19 pandemic on up to 25 essential health services in countries and how countries are adapting strategies to maintain essential services. While pulse surveys have some limitations, the strength of this effort is that it is comprehensive, looking at 25 core health services (as opposed to single topic surveys) and representing disruptions to these services in a comparable way across over 100 countries. It reveals that even robust health systems can be rapidly overwhelmed and compromised by a COVID-19 outbreak, reinforcing the need for sustained data collection and strategic adaptations to ensure maintenance of essential care provision. Links: Survey Operational Guidance for maintaining essential services during an outbreak",
-      "translation_zh_hant": null,
-      "evidence_original": [
-        "WHO to roll out learning and monitoring tools to improve service provision during pandemic",
-        "The World Health Organization (WHO) today published a first indicative survey on the impact of COVID-19 on health systems based on 105 countries’ reports. Data collected from five regions over the period from March to June 2020 illustrate that almost every country (90%) experienced disruption to its health services, with low- and middle-income countries reporting the greatest difficulties. Most countries reported that many routine and elective services have been suspended, while critical care - such as cancer screening and treatment and HIV therapy – has seen high-risk interruptions in low-income countries.",
-        "\"The survey shines a light on the cracks in our health systems, but it also serves to inform new strategies to improve healthcare provision during the pandemic and beyond,” said Dr Tedros Adhanom Ghebreyesus, WHO Director-General. \"COVID-19 should be a lesson to all countries that health is not an ‘either-or’ equation. We must better prepare for emergencies but also keep investing in health systems that fully respond to people’s needs throughout the life course.\"",
-        "Services hit across the board: Based on reports from key informants, countries on average experienced disruptions in 50% of a set of 25 tracer services. The most frequently disrupted areas reported included routine immunization – outreach services (70%) and facility-based services (61%), non-communicable diseases diagnosis and treatment (69%), family planning and contraception (68%), treatment for mental health disorders (61%), cancer diagnosis and treatment (55%).",
-        "Countries also reported disruptions in malaria diagnosis and treatment (46%), tuberculosis case detection and treatment (42%) and antiretroviral treatment (32%). While some areas of health care, such as dental care and rehabilitation, may have been deliberately suspended in line with government protocols, the disruption of many of the other services is expected to have harmful effects on population health in the short- medium- and long-term.",
-        "Potentially life-saving emergency services were disrupted in almost a quarter of responding countries. Disruptions to 24-hour emergency room services for example were affected in 22% of countries, urgent blood transfusions were disrupted in 23% of countries, emergency surgery was affected in 19% of the countries.",
-        "Disruption due to a mix of supply and demand side factors. 76% of countries reported reductions in outpatient care attendance due to lower demand and other factors such as lockdowns and financial difficulties. The most commonly reported factor on the supply side was cancellation of elective services (66%). Other factors reported by countries included staff redeployment to provide COVID-19 relief, unavailability of services due to closings, and interruptions in the supply of medical equipment and health products.",
-        "Adapting service delivery strategies. Many countries have started to implement some of the WHO recommended strategies to mitigate service disruptions, such as triaging to identify priorities, shifting to on-line patient consultations, changes to prescribing practices and supply chain and public health information strategies. However, only 14% of countries reported removal of user fees, which WHO recommends to offset potential financial difficulties for patients.",
-        "The pulse survey also provides an indication of countries’ experiences in adapting strategies to mitigate the impact on service provision. Despite the limitations of such a survey, it highlights the need to improve real-time monitoring of changes in service delivery and utilization as the outbreak is likely to wax and wane over the next months, and to adapt solutions accordingly.",
-        "To that end, WHO will continue to work with countries and to provide supportive tools to address the fallout from COVID-19. Given countries’ urgent demand for assistance during the pandemic response, WHO is developing the COVID19: Health Services Learning Hub , a web-based platform that will allow sharing of experiences and learning from innovative country practices that can inform the collective global response. WHO is also devising additional surveys at the sub-national level and in health facilities to gauge the longer-term impact of disruptions and help countries weigh the benefits and risks of pursuing different mitigation strategies.",
-        "Note to editors",
-        "The survey ‘ Rapid assessment of continuity of essential health services during the COVID-19 pandemic ’, was conducted in 159 countries (all WHO regions except the Americas). 105 responses were received (66% response rate) from senior ministry of health officials covering the period from March to June 2020. The purpose of the survey was to gain insights and perspectives on both the impact of the COVID-19 pandemic on up to 25 essential health services in countries and how countries are adapting strategies to maintain essential services.",
-        "While pulse surveys have some limitations, the strength of this effort is that it is comprehensive, looking at 25 core health services (as opposed to single topic surveys) and representing disruptions to these services in a comparable way across over 100 countries. It reveals that even robust health systems can be rapidly overwhelmed and compromised by a COVID-19 outbreak, reinforcing the need for sustained data collection and strategic adaptations to ensure maintenance of essential care provision.",
-        "Links:",
-        "Survey",
-        "Operational Guidance for maintaining essential services during an outbreak"
-      ],
-      "evidence_zh_hant": [],
-      "translation_status": "not_configured",
-      "content_scope": "publisher_feed_excerpt",
-      "content_complete": false,
-      "reuse_license": "not_confirmed",
-      "id": "who:1747537576",
-      "source_id": "who",
-      "source": "WHO",
-      "category": "健康與醫學常識",
-      "title": "In WHO global pulse survey, 90% of countries report disruptions to essential health services since COVID-19 pandemic",
-      "url": "https://www.who.int/news/item/31-08-2020-in-who-global-pulse-survey-90-of-countries-report-disruptions-to-essential-health-services-since-covid-19-pandemic",
-      "published_at": "2020-08-31T10:00:25+00:00",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
     }
   ],
   "sources": {
     "nasa": {
       "status": "ok",
       "accepted": 0,
-      "checked_at": "2026-11-12T05:55:48.694205+00:00"
+      "checked_at": "2026-11-12T10:56:21.936488+00:00"
     },
     "who": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-12T05:55:48.694205+00:00"
+      "checked_at": "2026-11-12T10:56:21.936488+00:00"
     },
     "un": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-12T05:55:48.694205+00:00"
+      "checked_at": "2026-11-12T10:56:21.936488+00:00"
     },
     "數位發展部": {
       "status": "ok",
       "accepted": 5,
-      "checked_at": "2026-11-12T05:55:48.694205+00:00"
+      "checked_at": "2026-11-12T10:56:21.936488+00:00"
     },
     "數位產業署": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-12T05:55:48.694205+00:00"
+      "checked_at": "2026-11-12T10:56:21.936488+00:00"
     },
     "行政院": {
       "status": "ok",
       "accepted": 7,
-      "checked_at": "2026-11-12T05:55:48.694205+00:00"
+      "checked_at": "2026-11-12T10:56:21.936488+00:00"
     }
   },
   "disclaimer": "Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed."
