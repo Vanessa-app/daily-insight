@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-13T05:54:55.658149+00:00",
+  "updated_at": "2026-11-13T10:54:10.557818+00:00",
   "items": [
     {
       "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/jsc2026e402724-i-am-artemis-katie.jpeg",
@@ -1761,32 +1761,32 @@
     "nasa": {
       "status": "ok",
       "accepted": 1,
-      "checked_at": "2026-11-13T05:54:55.658149+00:00"
+      "checked_at": "2026-11-13T10:54:10.557818+00:00"
     },
     "who": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-13T05:54:55.658149+00:00"
+      "checked_at": "2026-11-13T10:54:10.557818+00:00"
     },
     "un": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-13T05:54:55.658149+00:00"
+      "checked_at": "2026-11-13T10:54:10.557818+00:00"
     },
     "數位發展部": {
       "status": "ok",
       "accepted": 4,
-      "checked_at": "2026-11-13T05:54:55.658149+00:00"
+      "checked_at": "2026-11-13T10:54:10.557818+00:00"
     },
     "數位產業署": {
       "status": "ok",
       "accepted": 5,
-      "checked_at": "2026-11-13T05:54:55.658149+00:00"
+      "checked_at": "2026-11-13T10:54:10.557818+00:00"
     },
     "行政院": {
       "status": "ok",
       "accepted": 7,
-      "checked_at": "2026-11-13T05:54:55.658149+00:00"
+      "checked_at": "2026-11-13T10:54:10.557818+00:00"
     }
   },
   "disclaimer": "Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed."
