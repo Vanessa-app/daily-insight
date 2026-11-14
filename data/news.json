@@ -1,7 +1,61 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-13T10:54:10.557818+00:00",
+  "updated_at": "2026-11-14T00:51:21.271462+00:00",
   "items": [
+    {
+      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/at2016blu.jpg",
+      "image_rights": "unverified",
+      "image_credit": "NASA",
+      "quiz_reviewed": false,
+      "quiz": [],
+      "excerpt_original": "Using NASA’s Chandra X-ray Observatory, astronomers have discovered what is triggering repeated outbursts from a giant, unstable star located in the galaxy shown in this image released on Nov. 9, 2026. The volatile star, known as AT 2016blu, is in the spiral galaxy NGC 4559, located about 30 million light-years from Earth. Astronomers estimate the […]",
+      "translation_zh_hant": null,
+      "evidence_original": [
+        "Using NASA’s Chandra X-ray Observatory, astronomers have discovered what is triggering repeated outbursts from a giant, unstable star located in the galaxy shown in this image released on Nov. 9, 2026. The volatile star, known as AT 2016blu, is in the spiral galaxy NGC 4559, located about 30 million light-years from Earth. Astronomers estimate the […]"
+      ],
+      "evidence_zh_hant": [],
+      "translation_status": "translation_not_requested",
+      "content_scope": "publisher_feed_excerpt",
+      "extraction_status": "not_attempted",
+      "content_complete": false,
+      "reuse_license": "not_confirmed",
+      "id": "nasa:1764588077",
+      "source_id": "nasa",
+      "source": "NASA",
+      "category": "AI與科技",
+      "title": "Outbursts from a Massive Star",
+      "url": "https://www.nasa.gov/image-article/outbursts-from-a-massive-star/",
+      "published_at": "2026-11-13T16:39:33+00:00",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
+    {
+      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/s66-63535-f.png",
+      "image_rights": "unverified",
+      "image_credit": "NASA",
+      "quiz_reviewed": false,
+      "quiz": [],
+      "excerpt_original": "Astronauts James A. Lovell Jr. and Edwin E. “Buzz” Aldrin Jr. orbited Earth from November 11 to 15, 1966, on Gemini XII, the final mission of NASA’s Gemini program. In addition to successfully completing rendezvous maneuvers and spacewalks, procedures vital to sending American astronauts to the Moon, the crew was also spurring the development of […]",
+      "translation_zh_hant": null,
+      "evidence_original": [
+        "Astronauts James A. Lovell Jr. and Edwin E. “Buzz” Aldrin Jr. orbited Earth from November 11 to 15, 1966, on Gemini XII, the final mission of NASA’s Gemini program. In addition to successfully completing rendezvous maneuvers and spacewalks, procedures vital to sending American astronauts to the Moon, the crew was also spurring the development of […]"
+      ],
+      "evidence_zh_hant": [],
+      "translation_status": "translation_not_requested",
+      "content_scope": "publisher_feed_excerpt",
+      "extraction_status": "not_attempted",
+      "content_complete": false,
+      "reuse_license": "not_confirmed",
+      "id": "nasa:448836828",
+      "source_id": "nasa",
+      "source": "NASA",
+      "category": "AI與科技",
+      "title": "Gemini Astronaut Photos Inspired Early Earth Observation Program",
+      "url": "https://www.nasa.gov/image-article/gemini-astronaut-photos-inspired-early-earth-observation-program/",
+      "published_at": "2026-11-13T16:05:54+00:00",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
     {
       "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/jsc2026e402724-i-am-artemis-katie.jpeg",
       "image_rights": "unverified",
@@ -1705,88 +1759,38 @@
       "published_at": "2023-09-21T21:17:29+00:00",
       "verification": "publisher_domain_checked",
       "claim_verification": "not_independently_verified"
-    },
-    {
-      "excerpt_original": "Happening now at the SDG Media Zone: Johan Santana, young innovator who codes to address SDG 3 and 10 (speaking). He expresses his desire to assist individuals with visual impairments and other disabilities. They've developed a hands-free blind cane and smart glasses and will work on coding a wheelchair capable of moving in all directions: forward, backward, left, and right. Also in the picture: Michael Melillo, Sr. Director of Network Monitoring and Management Software Products, Broadcom Inc.(left) Bervin Harris, Renaissance Youth Center (second from left). Image: Groups audience: General Assembly 78 Live Blog",
-      "translation_zh_hant": null,
-      "evidence_original": [
-        "Happening now at the SDG Media Zone:",
-        "Johan Santana, young innovator who codes to address SDG 3 and 10 (speaking). He expresses his desire to assist individuals with visual impairments and other disabilities. They've developed a hands-free blind cane and smart glasses and will work on coding a wheelchair capable of moving in all directions: forward, backward, left, and right.",
-        "Also in the picture: Michael Melillo, Sr. Director of Network Monitoring and Management Software Products, Broadcom Inc.(left) Bervin Harris, Renaissance Youth Center (second from left).",
-        "Image:",
-        "Groups audience:",
-        "General Assembly 78 Live Blog"
-      ],
-      "evidence_zh_hant": [],
-      "translation_status": "not_configured",
-      "content_scope": "publisher_feed_excerpt",
-      "content_complete": false,
-      "reuse_license": "not_confirmed",
-      "id": "un:2084657022",
-      "source_id": "un",
-      "source": "United Nations",
-      "category": "國際政治與全球趨勢",
-      "title": "Johan Santana GA78",
-      "url": "https://www.un.org/en/card/209811",
-      "published_at": "2023-09-21T20:49:09+00:00",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
-    },
-    {
-      "excerpt_original": "Michael Lodge (Secretary General, International Seabed Authority) and Emilie McGloane (Director, Peace Boat US) met at the SDG Media Zone to discuss the importance of a new historic treaty - the Treaty of the High Seas - which protects biodiversity beyond national jurisdiction (often shortened to BBNJ). Michael Lodge emphasized the vastness of oceans and said that “1% of oceans contain more minerals than exist on land”. He continued: \"Good regulation is important to ensure that the ocean’s resources are not exploited\". So far, some 60 UN Member States have signed onto the treaty since its opening this week at UNGA78. Image: Groups audience: General Assembly 78 Live Blog",
-      "translation_zh_hant": null,
-      "evidence_original": [
-        "Michael Lodge (Secretary General, International Seabed Authority) and Emilie McGloane (Director, Peace Boat US) met at the SDG Media Zone to discuss the importance of a new historic treaty - the Treaty of the High Seas - which protects biodiversity beyond national jurisdiction (often shortened to BBNJ). Michael Lodge emphasized the vastness of oceans and said that “1% of oceans contain more minerals than exist on land”. He continued: \"Good regulation is important to ensure that the ocean’s resources are not exploited\". So far, some 60 UN Member States have signed onto the treaty since its opening this week at UNGA78.",
-        "Image:",
-        "Groups audience:",
-        "General Assembly 78 Live Blog"
-      ],
-      "evidence_zh_hant": [],
-      "translation_status": "not_configured",
-      "content_scope": "publisher_feed_excerpt",
-      "content_complete": false,
-      "reuse_license": "not_confirmed",
-      "id": "un:1647813158",
-      "source_id": "un",
-      "source": "United Nations",
-      "category": "國際政治與全球趨勢",
-      "title": "International Seabed Authority",
-      "url": "https://www.un.org/en/card/209805",
-      "published_at": "2023-09-21T20:18:59+00:00",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
     }
   ],
   "sources": {
     "nasa": {
       "status": "ok",
-      "accepted": 1,
-      "checked_at": "2026-11-13T10:54:10.557818+00:00"
+      "accepted": 2,
+      "checked_at": "2026-11-14T00:51:21.271462+00:00"
     },
     "who": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-13T10:54:10.557818+00:00"
+      "checked_at": "2026-11-14T00:51:21.271462+00:00"
     },
     "un": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-13T10:54:10.557818+00:00"
+      "checked_at": "2026-11-14T00:51:21.271462+00:00"
     },
     "數位發展部": {
       "status": "ok",
-      "accepted": 4,
-      "checked_at": "2026-11-13T10:54:10.557818+00:00"
+      "accepted": 3,
+      "checked_at": "2026-11-14T00:51:21.271462+00:00"
     },
     "數位產業署": {
       "status": "ok",
       "accepted": 5,
-      "checked_at": "2026-11-13T10:54:10.557818+00:00"
+      "checked_at": "2026-11-14T00:51:21.271462+00:00"
     },
     "行政院": {
-      "status": "ok",
-      "accepted": 7,
-      "checked_at": "2026-11-13T10:54:10.557818+00:00"
+      "status": "error",
+      "accepted": 0,
+      "checked_at": "2026-11-14T00:51:21.271462+00:00"
     }
   },
   "disclaimer": "Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed."
