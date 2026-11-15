@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-14T10:36:53.299929+00:00",
+  "updated_at": "2026-11-15T00:51:54.400116+00:00",
   "items": [
     {
       "id": "ey:89307195-5510-4d51-a0ec-42731e0e5bf5",
@@ -26,6 +26,60 @@
         "致詞結束後，卓院長與行政院李慧芝發言人、中部聯合服務中心李貴富副執行長、林月琴立委、賴惠員立委、陳品安議員、徐筱菁議員、許櫻萍議員、苗栗玉清宮魏俊傑董事長等貴賓合影留念。"
       ],
       "excerpt_original": "行政院長卓榮泰今（14）日前往苗栗玉清宮參拜祈福，祈求風調雨順、國泰民安。卓院長強調，隨著AI科技時代來臨，現正是改造苗栗的最好時機，尤其苗栗北接「桃竹苗大矽谷」，南鄰中部「精密智慧新核心」，地理位置相當優越。中央並挹注經費積極投入苗栗交通建設、提升在地醫療量能及推動地方創生，全面帶動地方發展，期盼讓苗栗縣脫胎換骨。",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
+    {
+      "id": "adi:21444",
+      "source_id": "adi",
+      "source": "數位產業署",
+      "kind": "news",
+      "category": "AI與科技",
+      "title": "從生成到代理，引爆百工百業AI新賽局！ 2026 GenAI Stars Pitch Day揭金質獎、潛力之星獎",
+      "url": "https://moda.gov.tw/ADI/news/latest-news/21444",
+      "published_at": "2026-11-14T00:00:00+08:00",
+      "content_complete": true,
+      "reuse_license": "approved",
+      "license_name": "CC0 1.0",
+      "license_url": "https://moda.gov.tw/announcement/publicdeclare/951",
+      "content_scope": "official_full_text",
+      "translation_status": "original_zh_hant",
+      "evidence_original": [
+        "由數位發展部數位產業署主辦，工研院、台慶科技教育發展基金會、台北市電腦公會、臺大智活中心共同執行的「2026 GenAI Stars生成式AI百工百業應用選拔」，吸引產業、新創、學研共275組隊伍踴躍參賽，領域擴及19大產業，選出25支團隊晉級決審。歷經三個月的客製化實戰加速輔導，昨（13）日於資訊月數產署主題館舉辦「2026 GenAI Stars Pitch Day百工百業應用發表會暨頒獎典禮」，25組團隊向百位產官學研、創投展示生成式AI（GenAI）落地應用成果，並揭曉「金質獎」、「潛力之星獎」的得主。",
+        "數位發展部政務次長楊佳玲也親臨活動，頒發金質獎予獲獎團隊，肯定團隊投入AI創新應用、推動產業數位轉型的成果。臺大智活中心劉佩玲主任指出，2026年是Agent元年，從生成式AI走向代理式AI，GenAI Stars邁入第三屆，今年有8成團隊投入代理式AI。讓GenAI應用深入百工百業，正是臺灣企業的優勢與機會。深度輔導期間透過工作坊、一對一專家諮詢、大師講座、簡報力講座，協助團隊鏈結產官學研及創投等生態系資源，助團隊開拓合作機會、募資及申請補助，加速應用落地。",
+        "為協助團隊提升產品開發及商業拓展能力，本屆深度輔導安排3場實務工作坊，主題涵蓋商業模式、需求驗證及SBIR計畫書撰寫；另邀請產業專家及企業代表，透過大師講座分享AI導入經驗、商業模式及市場拓展策略，並提供一對一專家諮詢，協助團隊釐清產品定位、技術架構及商業發展方向。在資源鏈結方面，已協助2組團隊獲得政府補助，11組團隊取得算力資源，並促成18組團隊獲得創投關注追蹤，6組團隊與企業展開合作洽談，讓團隊不只完成產品開發，也能進一步接觸實際市場需求。",
+        "本屆25組決審團隊橫跨半導體製造、醫療照護、法律、金融保險、遊戲動畫等領域，其中11組獲得金質獎、14組獲得潛力之星獎。資訊月期間，部分獲獎團隊也將於數產署主題館展出，包括金質獎團隊日月光半導體以多模態AI Agent打造「STAR維修之星」設備維修指引系統，解決維修經驗難以傳承的問題；想核為專業電影工作者打造的「Real Engine」，從故事、資產製作與管理、影片生成、影片剪輯與視覺特效，一路到剪輯與調光，完全對接AI電影製作專業流程。潛力之星團隊方面，瑞艾科技的AI智慧職安網串接既有監視器即可辨識未佩戴防護具、火焰煙霧與人員跌倒；慧術科技則協助醫師於手術中即時辨識影像並自動生成手術紀錄。透過實際產品展示，讓民眾及企業了解AI如何應用於不同產業，並看見臺灣團隊將AI技術轉化為產品與服務的成果。",
+        "今年GenAI Stars也首度設立「企業合作賽道」，邀請新思科技（Synopsys）參與，聚焦AI原生工程（AI-native Engineering）應用需求，涵蓋AI驅動EDA、Physical AI、量子與次世代運算、AI生命科學等題目。透過企業出題、企業派任評審，自73組報名團隊選出7組，由台灣與美國總部主管透過視訊進行決選；後續將評估工具與流程驗證、聯合技術評估及共同銷售等合作模式，促進臺灣AI團隊與國際企業的技術交流及合作。",
+        "此外，今年首度舉辦「2026 GenAI Stars閉門投資媒合會」，邀集25家關注生成式AI領域的創投及企業投資部門，安排團隊與投資人進行交流，媒合內容涵蓋半導體與晶片設計、醫療生技及企業營運與資安等領域，協助團隊接觸潛在投資夥伴。",
+        "GenAI Stars持續以促進生成式AI跨域應用為目標，透過競賽選拔、專業輔導、企業合作及投資媒合，協助AI團隊將創意轉化為實際產品與服務，並鏈結產業資源、拓展市場機會。無論是投入AI技術開發的新創團隊，或尋求AI轉型與創新應用的企業，都能透過GenAI Stars找到交流與合作的機會。歡迎企業代表、產業人士及民眾於11月12日至15日資訊月展覽期間，前往數產署主題館參觀，親身體驗金質獎及潛力之星團隊的創新應用，認識臺灣AI團隊，為各行各業開創新的應用可能。"
+      ],
+      "excerpt_original": "由數位發展部數位產業署主辦，工研院、台慶科技教育發展基金會、台北市電腦公會、臺大智活中心共同執行的「2026 GenAI Stars生成式AI百工百業應用選拔」，吸引產業、新創、學研共275組隊伍踴躍參賽，領域擴及19大產業，選出25支團隊晉級決審。歷經三個月的客製化實戰加速輔導，昨（13）日於資訊月數產署主題館舉辦「2026 GenAI Stars Pitch Day百工百業應用發表會暨頒獎典禮」，25組團隊向百位產官學研、創投展示生成式AI（GenAI）落地應用成果，並揭曉「金質獎」、「潛力之星獎」的得主。",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
+    {
+      "id": "ey:c8284ed9-08ba-44cb-8918-afeef394b25d",
+      "source_id": "ey",
+      "source": "行政院",
+      "kind": "news",
+      "category": "社會與公共政策",
+      "title": "總統盃街舞大賽展現澎湃能量 卓揆邀全民共舞 打造「健康台灣」",
+      "url": "https://www.ey.gov.tw/Page/9277F759E41CCD91/c8284ed9-08ba-44cb-8918-afeef394b25d",
+      "published_at": "2026-11-14T00:00:00+08:00",
+      "content_complete": true,
+      "reuse_license": "approved",
+      "license_name": "政府資料開放授權條款－第1版",
+      "license_url": "https://www.ey.gov.tw/Page/2EADDBFEDDB6357E",
+      "content_scope": "official_full_text",
+      "translation_status": "original_zh_hant",
+      "evidence_original": [
+        "行政院長卓榮泰今（14）日晚間前往總統府前廣場出席「2026全民運動賽事－總統盃街舞大賽」決賽閉幕式暨頒獎典禮時表示，過去3個月，街舞大賽共舉辦6場分區預賽，最終共有123組隊伍、567位選手站上全國決賽舞臺，感謝所有評審委員的辛勞，以及參賽選手的精采表現。卓院長期盼全體國人皆能養成運動習慣、促進自身健康，讓「健康台灣」成為國人生活的一部分。",
+        "卓院長說，今日現場有許多舞林高手，而主辦單位安排他與運動部李洋部長稍後也要跳舞，讓他相當緊張，前來會場的路上都在車上練舞。卓院長表示，有一部以街舞為主題的電視劇《紫禁之巔》，其中有一句經典臺詞是「要打，就去練舞室打！」，他也要向在場年輕朋友說：「要跳舞，就到總統府前面來跳！」",
+        "卓院長指出，在總統府前凱達格蘭大道舉辦年輕朋友喜愛的街舞大賽，正是臺灣走向多元開放的具體結果。早在30年前，時任臺北市長陳水扁前總統為了讓考完聯考的青年朋友能夠放鬆快樂，便在總統府前舉辦飆舞活動；同時，陳前總統認為應將這條道路開闢成屬於人民共有的場域，將空間還給年輕人和全體國人，因此在臺北市長任內也舉辦路名徵選活動，最後將這條道路更名為「凱達格蘭大道」。正因有此基礎，今日才能在一個更多元開放的時代中，看到許多年輕人願意前來展現精湛的舞技，讓總統盃街舞大賽更加熱鬧精采。",
+        "最後，卓院長表示，政府非常希望看到更多小朋友從小養成運動習慣、更多年輕人為了自身健康投入各項運動，以及更多年長者透過運動促進身體健康，讓賴清德總統一直積極推動的「健康台灣」理念，真正融入成為國人日常生活的一部分。卓院長也再次感謝所有參與街舞大賽的年輕朋友為社會帶來如此正向的啟發，並邀請大家一起開心跳舞。",
+        "致詞結束後，卓院長接受大會裁判長蕭裕璋致贈嘻哈風格棒球衣，並在舞者的引領下，與行政院李慧芝發言人、運動部李洋部長、全民運動署房瑞文署長、吳建遠副署長一同在臺上跳一段街舞手勢動作。隨後，卓院長依序頒發獎盃予排舞、Battle及霹靂舞等3種舞風各組得獎隊伍，並合影留念。包括吳沛憶立委也出席今日頒獎典禮。"
+      ],
+      "excerpt_original": "行政院長卓榮泰今（14）日晚間前往總統府前廣場出席「2026全民運動賽事－總統盃街舞大賽」決賽閉幕式暨頒獎典禮時表示，過去3個月，街舞大賽共舉辦6場分區預賽，最終共有123組隊伍、567位選手站上全國決賽舞臺，感謝所有評審委員的辛勞，以及參賽選手的精采表現。卓院長期盼全體國人皆能養成運動習慣、促進自身健康，讓「健康台灣」成為國人生活的一部分。",
       "verification": "publisher_domain_checked",
       "claim_verification": "not_independently_verified"
     },
@@ -1714,86 +1768,38 @@
       "published_at": "2023-09-21T21:55:21+00:00",
       "verification": "publisher_domain_checked",
       "claim_verification": "not_independently_verified"
-    },
-    {
-      "excerpt_original": "Christian Dior designed the iconic UN tour guide uniforms in the early 1980s. Prior to that, designers included Edith Head and, for the UN’s first male tour guides, Brooks Brothers. The guides got a fashion refresh in 1985 by Harvé Benard, then changed their uniforms, courtesy of Benneton, and Mondrian. Image: Groups audience: General Assembly 78 Live Blog",
-      "translation_zh_hant": null,
-      "evidence_original": [
-        "Christian Dior designed the iconic UN tour guide uniforms in the early 1980s. Prior to that, designers included Edith Head and, for the UN’s first male tour guides, Brooks Brothers. The guides got a fashion refresh in 1985 by Harvé Benard, then changed their uniforms, courtesy of Benneton, and Mondrian.",
-        "Image:",
-        "Groups audience:",
-        "General Assembly 78 Live Blog"
-      ],
-      "evidence_zh_hant": [],
-      "translation_status": "not_configured",
-      "content_scope": "publisher_feed_excerpt",
-      "content_complete": false,
-      "reuse_license": "not_confirmed",
-      "id": "un:3110233489",
-      "source_id": "un",
-      "source": "United Nations",
-      "category": "國際政治與全球趨勢",
-      "title": "UN tour guides",
-      "url": "https://www.un.org/en/card/209823",
-      "published_at": "2023-09-21T21:42:42+00:00",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
-    },
-    {
-      "excerpt_original": "Vice-President of China, Han Zheng, said in his speech to the GA said: \"China supports all efforts that are conducive to the peaceful resolution of the Ukraine crisis, and stands ready to continue playing a constructive role for the early attainment of peace.\" Image: Groups audience: General Assembly 78 Live Blog",
-      "translation_zh_hant": null,
-      "evidence_original": [
-        "Vice-President of China, Han Zheng, said in his speech to the GA said: \"China supports all efforts that are conducive to the peaceful resolution of the Ukraine crisis, and stands ready to continue playing a constructive role for the early attainment of peace.\"",
-        "Image:",
-        "Groups audience:",
-        "General Assembly 78 Live Blog"
-      ],
-      "evidence_zh_hant": [],
-      "translation_status": "not_configured",
-      "content_scope": "publisher_feed_excerpt",
-      "content_complete": false,
-      "reuse_license": "not_confirmed",
-      "id": "un:3462747399",
-      "source_id": "un",
-      "source": "United Nations",
-      "category": "國際政治與全球趨勢",
-      "title": "China",
-      "url": "https://www.un.org/en/card/209822",
-      "published_at": "2023-09-21T21:37:47+00:00",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
     }
   ],
   "sources": {
     "nasa": {
       "status": "ok",
       "accepted": 2,
-      "checked_at": "2026-11-14T10:36:53.299929+00:00"
+      "checked_at": "2026-11-15T00:51:54.400116+00:00"
     },
     "who": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-14T10:36:53.299929+00:00"
+      "checked_at": "2026-11-15T00:51:54.400116+00:00"
     },
     "un": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-14T10:36:53.299929+00:00"
+      "checked_at": "2026-11-15T00:51:54.400116+00:00"
     },
     "數位發展部": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-14T10:36:53.299929+00:00"
+      "checked_at": "2026-11-15T00:51:54.400116+00:00"
     },
     "數位產業署": {
       "status": "ok",
-      "accepted": 5,
-      "checked_at": "2026-11-14T10:36:53.299929+00:00"
+      "accepted": 6,
+      "checked_at": "2026-11-15T00:51:54.400116+00:00"
     },
     "行政院": {
       "status": "ok",
       "accepted": 7,
-      "checked_at": "2026-11-14T10:36:53.299929+00:00"
+      "checked_at": "2026-11-15T00:51:54.400116+00:00"
     }
   },
   "disclaimer": "Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed."
