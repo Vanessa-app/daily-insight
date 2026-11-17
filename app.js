@@ -300,9 +300,247 @@ function explore(items) {
  return {controls,content};
 }
 
+const openStaxCost = {
+ title:'選擇、機會成本與沉沒成本',
+ source:'OpenStax', language:'英文',
+ url:'https://openstax.org/books/principles-economics-3e/pages/2-1-how-individuals-make-choices-based-on-the-budget-constraint'
+};
+const whoResistance = {
+ title:'抗微生物藥物抗藥性概覽', source:'WHO', language:'英文',
+ url:'https://www.who.int/news-room/fact-sheets/detail/antimicrobial-resistance'
+};
+const taiwanResistance = {
+ title:'抗生素使用及抗藥性監測報告',source:'台灣疾管署',language:'繁中',
+ url:'https://www.cdc.gov.tw/Category/Page/tx7G1t-G3lyodZ8m8uoYMA'
+};
+const semiRule = {
+ title:'SEMI E187 半導體設備資安標準驗證制度', source:'數位產業署', language:'繁中',
+ url:'https://moda.gov.tw/ADI/news/bulletin-board/19284'
+};
+const imdBackground = {
+ title:'數位調查與應用計畫', source:'數位發展部', language:'繁中',
+ url:'https://moda.gov.tw/digital-affairs/digital-strategy/operations/41'
+};
+
+// Editorially checked supplements. An illustration is enabled only after
+// reading it on its own, checking its takeaway against the source, and QA.
+const readerSupplements = {
+ 'wiki:3711396': {
+  terms:[
+   ['抗生素抗藥性','細菌對特定抗生素的反應下降，原本能抑制它的藥物可能變得較難奏效。'],
+   ['多重抗藥性','同一菌株對多種抗菌藥物呈現抗藥性，可能使可選用的治療藥物變少。']
+  ],
+  source:whoResistance,
+  related:[
+   {...taiwanResistance, reason:'從台灣的監測報告了解抗生素使用與抗藥性如何被追蹤。'},
+   {...whoResistance, reason:'把細菌的抗生素抗藥性放到全球抗微生物藥物抗藥性的脈絡中。'},
+   {title:'世界抗生素週：防疫一體齊行動',source:'台灣疾管署',language:'繁中',
+    url:'https://www.cdc.gov.tw/Bulletin/Detail/2zXzowzH8aqg-ZSNRtViAw?typeid=9',
+    reason:'了解台灣如何向民眾宣導抗藥性防治。'}
+  ]
+ },
+ 'wiki:69319': {
+  related:[{...openStaxCost, reason:'用另一個生活案例比較機會成本與沉沒成本。'}],
+  diagram:'opportunity-cost'
+ },
+ 'wiki:174242': {
+  terms:[['沉沒成本','已經付出且無法收回的成本，例如一張不可退款、也不能轉售的票。'],
+   ['機會成本','做出選擇時，所放棄的最佳可行方案帶來的價值。']],
+  source:openStaxCost
+ },
+ 'wiki:1512891': {
+  terms:[['確認偏誤','較容易注意、相信或記住支持原本看法的資訊。'],
+   ['選擇性蒐集資訊','搜尋時偏向找支持原先看法的證據，可能因而漏掉相反資訊。']]
+ },
+ 'wiki:262983': {
+  terms:[['中性刺激','在建立連結之前，尚不會引發所觀察反應的刺激。'],
+   ['制約反應','學到刺激之間的連結後，由原先的中性刺激引發的反應。']]
+ },
+ 'wiki:6066875': {
+  terms:[['間隔效應','把學習分散在多次時段，通常比集中在一次更有利於長期記憶。'],
+   ['間隔重複','把複習安排在不同時間，並依記憶狀況調整下一次複習的間隔。']]
+ },
+ 'adi:21452': {
+  related:[{...semiRule, reason:'查閱臺灣如何安排半導體設備資安驗證。'}],
+  context:[
+   {label:'前情',date:'2026-03-24',text:'數位產業署公告驗證制度，由全國認證基金會擔任認證機構。',link:semiRule},
+   {label:'這次進展',date:'2026-11-13',text:'數位產業署在維也納的 SEMI 國際政策高峰會分享臺灣的制度與實務經驗。'},
+   {label:'接下來觀察',text:'可留意是否有海外設備商或驗證機構公布採用或合作安排。'}
+  ]
+ },
+ 'moda:21450': {
+  related:[{...imdBackground,reason:'了解數位發展部如何追蹤國際數位競爭力評比與指標。'}],
+  context:[
+   {label:'前情',date:'2017',text:'IMD 自 2017 年起發布世界數位競爭力評比，早期採知識、科技與未來整備度三個構面。',link:imdBackground},
+   {label:'這次進展',date:'2026-11-16',text:'數位發展部公布 2026 年結果。用新架構回算，臺灣 2025 年第 12，2026 年第 13。'},
+   {label:'接下來觀察',text:'比較排名時，可一起觀察各構面分數，以及下一次評比是否沿用相同指標。'}
+  ]
+ }
+};
+
+const readingThemes = [
+ {name:'地震規模、震度與災害', match:/地震規模|地震震度|海嘯.*形成|地震規模與災害/},
+ {name:'做選擇時的取捨', match:/^(機會成本|沉沒成本|比較優勢)$/},
+ {name:'資訊判斷與認知偏誤', match:/^(認知偏誤|確認偏誤|後見之明偏誤|支援選擇偏誤)$/},
+ {name:'推論與常見謬誤', match:/^(稻草人論證|訴諸人身|你也一樣謬誤|非形式邏輯|滑坡謬誤)$/},
+ {name:'住房負擔與租屋政策', match:/社會住宅與租屋政策|住房成本/},
+ {name:'細胞起源與演化', match:/^(共生體學說|內共生學說|遺傳漂變|粒線體|葉綠體)$/},
+ {name:'2026 資訊月與臺灣教育科技展', match:/115資訊月暨臺灣教育科技展|數發部數產署主題館開幕/, event:true},
+ {name:'SEMI E187 半導體設備資安制度', match:/SEMI\s*E187|數位產業署深耕歐洲.*半導體供應鏈資安/, event:true},
+ {name:'抗生素抗藥性與防治', match:/抗生素抗藥性|抗藥性監測|世界抗生素週/},
+ {name:'國家鐵道博物館', match:/國家鐵道博物館|國家鐵博/},
+ {name:'環境用藥與網購安全', match:/環境用藥.*(?:網購|電商|核准)|(?:網購|電商).*環境用藥/},
+ {name:'食品保存與冷凍食品', match:/冷凍食品|食物冷凍|冷凍保存/},
+ {name:'電子簽章與數位驗證', match:/電子簽章|數位簽章/},
+ {name:'碳費制度', match:/碳費費率|碳費制度/},
+ {name:'臺灣語言政策', match:/國家語言|原住民族語|客語政策/},
+ {name:'社會住宅與租屋政策', match:/社會住宅|(?<!公)包租代管/},
+ {name:'手機條碼與雲端發票', match:/雲端發票|統一發票兌獎/}
+];
+
+function sourcesForReader(article) {
+ const title = article.title || '';
+ const related = [];
+ const themes = readingThemes.filter(theme => theme.match.test(title));
+ // A direct topic match is required. Sharing a broad category is insufficient.
+ for (const candidate of homepageArticles(state.news)) {
+  if (candidate.url === article.url || candidate.title === title) continue;
+  const theme = themes.find(entry => entry.match.test(candidate.title || ''));
+  if (!theme) continue;
+  const onSite = candidate.content_scope !== 'media_headline';
+  related.push({
+   ...candidate, onSite, theme,
+   reason:theme.event ? `補充「${theme.name}」的另一則報導。`
+    : candidate.kind === 'knowledge' ? `深入了解「${theme.name}」的相關概念。`
+    : `查看「${theme.name}」在實際事件中的發展。`
+  });
+ }
+ return related.sort((a,b) => Number(b.onSite)-Number(a.onSite)
+   || Number(state.read.includes(a.url))-Number(state.read.includes(b.url)));
+}
+
+function readerLink(link, label, extraClass='') {
+ const url = safeUrl(link?.url);
+ if (!url) return '';
+ return `<a class="${extraClass}" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)} ↗</a>`;
+}
+
+function relatedReaderContent(related, editorial) {
+ const seen = new Set(), titles = new Set();
+ const full = related.filter(item => hasApprovedFullText(item) || isTextEdition(item));
+ const items = [...full, ...editorial, ...related]
+  .filter(item => {
+   const key = safeUrl(item.url);
+   if (!key || seen.has(key) || titles.has(item.title)) return false;
+   seen.add(key); titles.add(item.title); return true;
+  }).slice(0,3);
+ if (!items.length) return '';
+ return `<ul class="reader-related">${items.map(item => `<li>
+  ${item.onSite ? `<button class="reader-related-link" type="button" data-open="${esc(item.url)}">${esc(item.title)}</button>`
+    : readerLink(item, item.title, 'reader-related-link')}
+  <span class="reader-context-meta">${esc(item.source)} · ${esc(item.onSite
+    ? isTextEdition(item) ? '站內文字版' : hasApprovedFullText(item) ? '站內全文' : '站內摘要'
+    : (item.language ? item.language + ' · ' : '') + '原站閱讀')}</span>
+  <p>${esc(item.reason)}</p>
+ </li>`).join('')}</ul>`;
+}
+
+function reviewedCostDiagram(showExpand = true) {
+ return `<figure class="reader-diagram">
+  <p class="diagram-question">只剩 1 小時，三件事只能做一件。</p>
+  <ol class="diagram-options" aria-label="依你重視的程度排列">
+   <li><span>首選</span><strong>準備簡報</strong><small>你選了這項</small></li>
+   <li class="diagram-forgone"><span>次選</span><strong>練習英文</strong><small>放棄的最佳選項</small></li>
+   <li><span>第三</span><strong>看一集劇</strong></li>
+  </ol>
+  <figcaption>準備簡報的機會成本，是放棄「練習英文」會帶來的價值。</figcaption>
+  <details class="diagram-check">
+   <summary>換你想：如果選練英文？</summary>
+   <p>放棄的最佳選項變成「準備簡報」。機會成本也跟著換成準備簡報的價值。</p>
+  </details>
+  ${showExpand ? '<button type="button" class="diagram-expand" data-diagram-expand>放大圖解</button>' : ''}
+  <span class="reader-context-meta">${readerLink(openStaxCost,'概念來源：OpenStax（英文）')}</span>
+ </figure>`;
+}
+
+function relatedNewsContext(article, related) {
+ const reported = Date.parse(article.published_at);
+ if (!Number.isFinite(reported)) return [];
+ // Automatic context quotes only sourced headlines about an identified event.
+ const prior = related.filter(item => item.theme.event && item.kind !== 'knowledge'
+   && Date.parse(item.published_at) <= reported
+   && Date.parse(item.published_at) >= reported-14*86400000
+   && !/Yahoo/.test(item.source))
+  .sort((a,b) => Date.parse(a.published_at)-Date.parse(b.published_at))[0];
+ if (!prior) return [];
+ return [
+  {label:Date.parse(prior.published_at) === reported ? '同日報導' : '前情報導',
+   date:date(prior.published_at), text:prior.title, link:prior},
+  {label:'本篇報導',date:date(article.published_at),text:article.title,link:article}
+ ];
+}
+
+function contextRows(article, rows) {
+ return `<dl class="reader-context-rows">${rows.map(row => `<div>
+  <dt>${esc(row.label)}${row.date ? `<span class="reader-context-meta">${esc(/^\d{4}-\d{2}-\d{2}$/.test(row.date) ? date(row.date) : row.date)}</span>` : ''}</dt>
+  <dd>${esc(row.text)}${row.date ? `<span class="reader-context-meta">${readerLink(row.link || article,(row.link || article).source)}</span>` : ''}</dd>
+ </div>`).join('')}</dl>`;
+}
+
+function readerAside(title, content, side) {
+ if (!content) return '';
+ return `<aside class="reader-aside reader-aside-${side}" aria-label="${esc(title)}">
+  <details class="reader-aside-details">
+   <summary>${esc(title)}</summary>
+   <div class="reader-aside-inner"><h2>${esc(title)}</h2>${content}</div>
+  </details>
+ </aside>`;
+}
+
+function readerLayout(article) {
+ const supplement = readerSupplements[article.id] || {};
+ const related = sourcesForReader(article);
+ const left = readerAside('延伸閱讀',relatedReaderContent(related,supplement.related || []),'left');
+ let right = '';
+ let dialog = '';
+ if (article.kind === 'knowledge') {
+  if (supplement.diagram === 'opportunity-cost') {
+   const diagram = reviewedCostDiagram();
+   right = readerAside('圖解 · 機會成本',diagram,'right');
+   dialog = `<dialog class="reader-diagram-dialog" aria-labelledby="diagram-title">
+    <form method="dialog"><button class="btn" type="submit">關閉</button></form>
+    <h2 id="diagram-title">機會成本</h2>${reviewedCostDiagram(false)}
+   </dialog>`;
+  } else if (supplement.terms) {
+   const terms = `<dl class="reader-context-rows">${supplement.terms.map(([term,definition]) =>
+    `<div><dt>${esc(term)}</dt><dd>${esc(definition)}</dd></div>`).join('')}</dl>`;
+   const source = supplement.source
+    ? `<p class="reader-context-meta">${readerLink(supplement.source,supplement.source.source+'（'+supplement.source.language+'）')}</p>`
+    : '';
+   right = readerAside('文中術語',terms+source,'right');
+  }
+ } else {
+  const rows = supplement.context || relatedNewsContext(article, related);
+  if (rows.length) right = readerAside('新聞脈絡',contextRows(article,rows),'right');
+ }
+ return `<div class="reader-layout${left || right ? ' has-reader-asides' : ''}">
+  ${reader(article)}${right}${left}${dialog}
+ </div>`;
+}
+
+const readerWideScreen = window.matchMedia?.('(min-width: 1440px)');
+const readerMediumScreen = window.matchMedia?.('(min-width: 1200px)');
+function syncReaderAsides() {
+ document.querySelectorAll('.reader-aside-details').forEach(details => {
+  details.open = details.closest('.reader-aside-right')
+   ? Boolean(readerMediumScreen?.matches) : Boolean(readerWideScreen?.matches);
+ });
+}
+
 function render(){document.querySelector('#streak').textContent=`已讀 ${state.read.length} 篇`;document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===state.page));const main=document.querySelector('#main');const toolbar=document.querySelector('#explore-toolbar');const filterOffset=toolbar.dataset.page===state.page?(toolbar.querySelector('.explore-topics')?.scrollLeft||0):0;toolbar.innerHTML='';if(state.selected){const a=state.news.find(x=>x.url===state.selected);if(a){
  toolbar.innerHTML='<button type="button" class="back reader-back" data-back="1">← 返回探索</button>';
- main.innerHTML=reader(a);
+ main.innerHTML=readerLayout(a);
+ syncReaderAsides();
  return;
  }state.selected=null}const n=state.news;if(state.page==='news'||state.page==='knowledge'){
  const {controls, content}=explore(n);
@@ -314,7 +552,7 @@ function render(){document.querySelector('#streak').textContent=`已讀 ${state.
 else if(state.page==='saved'){const a=n.filter(x=>state.saved.includes(x.url));main.innerHTML=`<div class="sectionhead"><h2>我的收藏書架</h2></div>${a.length?`<div class="grid">${a.map(article).join('')}</div>`:'<div class="empty">尚未收藏文章。看到喜歡的主題時，按下「收藏」即可。</div>'}`}
 else if(state.page==='stats'){const aw=awards();main.innerHTML=`<div class="sectionhead"><h2>學習足跡</h2><button class="btn primary" data-challenges="1">開始知識挑戰</button></div><div class="grid"><div class="card"><div class="card-body"><div class="stat">${state.read.length}</div><p>已閱讀篇數</p></div></div><div class="card"><div class="card-body"><div class="stat">${state.saved.length}</div><p>收藏文章數</p></div></div></div><div class="badge-grid"><div class="badge-card">🏆 <strong>${aw.xp} XP</strong><small>知識經驗值</small></div><div class="badge-card">📖 <strong>${aw.completed} 篇</strong><small>挑戰完成</small></div><div class="badge-card">⭐ <strong>${aw.perfect} 篇</strong><small>滿分達成</small></div><div class="badge-card ${aw.completed>=1?'unlocked':'locked'}">🏅 <strong>初次探索</strong><small>完成首次挑戰</small></div><div class="badge-card ${aw.perfect>=3?'unlocked':'locked'}">🏅 <strong>理解達人</strong><small>三次滿分</small></div><div class="badge-card ${aw.completed>=5?'unlocked':'locked'}">🏅 <strong>閱讀冒險家</strong><small>完成五篇挑戰</small></div></div><div class="notice">紀錄保存在目前的瀏覽器，不會跨裝置同步。已閱讀不等於完成事實核查。</div>`}
 else main.innerHTML=`<div class="sectionhead"><h2>我們如何對待資訊</h2></div><div class="notice">來源包括政府機關、具編輯責任的可信媒體，以及開放授權百科。Yahoo 為新聞聚合平台，原始媒體及全文以原站標示為準；媒體報導不等於研究共識，百科也可能有錯。以不同來源互相核對。經核對授權的繁中內容可完整閱讀，並附原始發布頁與授權連結。官方知識專題經閱讀審核；百科文字版會檢查正文長度與段落，排除消歧義與公式依賴頁面，這項自動檢查不等於人工事實審查，原站附件或圖表只能作為補充。文章須先交代核心概念，再按讀者能理解的順序說明。表格資料須保留欄位與數值的對應，純欄位清單或發布規格不作為知識文章。網域核對不能證明所有主張正確；中文來源優先；英文資料未完成中文翻譯時不作一般推薦，翻譯可能因模型或資源限制失敗，不能保證完全準確。無摘要或無翻譯時明確標示，不捏造。完整轉載須確認授權。</div>`}
-document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.refresh){refreshContent(true)}else if(b.dataset.shelf){state.shelf=b.dataset.shelf;render()}else if(b.dataset.next){const a=state.news.find(x=>x.url===b.dataset.next);if(!state.read.includes(b.dataset.next))state.read.push(b.dataset.next);persist();const next=readingQueue(state.news,a?.kind==='knowledge'?'knowledge':'news')[0];state.selected=next?.url||null;state.mode='zh';render();window.scrollTo(0,0)}else if(b.dataset.challenges){state.page='knowledge';state.filter='有測驗';state.selected=null;render()}else if(b.dataset.page){state.page=b.dataset.page;state.filter='全部';state.selected=null;render()}else if(b.dataset.filter){state.filter=b.dataset.filter;render()}else if(b.dataset.open){explorationScroll=window.scrollY;state.selected=b.dataset.open;state.mode='zh';render();window.scrollTo(0,0)}else if(b.dataset.back){state.selected=null;render();window.scrollTo(0,explorationScroll)}else if(b.dataset.mode){state.mode=b.dataset.mode;render()}else if(b.dataset.save){state.saved=state.saved.includes(b.dataset.save)?state.saved.filter(x=>x!==b.dataset.save):[...state.saved,b.dataset.save];persist();render()}else if(b.dataset.quizReset){delete state.quizResults[b.dataset.quizReset];persist();render()}
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.refresh){refreshContent(true)}else if(b.dataset.shelf){state.shelf=b.dataset.shelf;render()}else if(b.dataset.next){const a=state.news.find(x=>x.url===b.dataset.next);if(!state.read.includes(b.dataset.next))state.read.push(b.dataset.next);persist();const next=readingQueue(state.news,a?.kind==='knowledge'?'knowledge':'news')[0];state.selected=next?.url||null;state.mode='zh';render();window.scrollTo(0,0)}else if(b.dataset.challenges){state.page='knowledge';state.filter='有測驗';state.selected=null;render()}else if(b.dataset.page){state.page=b.dataset.page;state.filter='全部';state.selected=null;render()}else if(b.dataset.filter){state.filter=b.dataset.filter;render()}else if(b.hasAttribute('data-diagram-expand')){document.querySelector('.reader-diagram-dialog')?.showModal?.()}else if(b.dataset.open){if(!state.selected)explorationScroll=window.scrollY;state.selected=b.dataset.open;state.mode='zh';render();window.scrollTo(0,0)}else if(b.dataset.back){state.selected=null;render();window.scrollTo(0,explorationScroll)}else if(b.dataset.mode){state.mode=b.dataset.mode;render()}else if(b.dataset.save){state.saved=state.saved.includes(b.dataset.save)?state.saved.filter(x=>x!==b.dataset.save):[...state.saved,b.dataset.save];persist();render()}else if(b.dataset.quizReset){delete state.quizResults[b.dataset.quizReset];persist();render()}
 else if(b.dataset.quizParagraph){
  const paragraph=document.getElementById('article-paragraph-'+b.dataset.quizParagraph);
  paragraph?.focus({preventScroll:true});
@@ -401,6 +639,8 @@ async function refreshContent(manual=false) {
  }
 }
 refreshContent();
+readerWideScreen?.addEventListener('change',syncReaderAsides);
+readerMediumScreen?.addEventListener('change',syncReaderAsides);
 setInterval(()=>{if(!document.hidden&&!state.selected)refreshContent()},5*60*1000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&Date.now()-lastRefresh>60000)refreshContent()});
 window.addEventListener('online',()=>refreshContent());

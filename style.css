@@ -45,3 +45,146 @@
 #explore-toolbar:has(.reader-back){max-width:830px;margin-inline:auto}
 .reader-back{display:block;min-height:44px;padding:8px 10px;margin-left:-10px;font-size:15px;font-weight:700}
 .reader{margin-top:20px}
+
+.reader-aside {
+ max-width: 830px;
+ margin: 12px auto;
+}
+.reader-aside-details {
+ border: 1px solid #e2e1d9;
+ border-radius: 12px;
+ background: #f4f2ea;
+}
+.reader-aside-details > summary {
+ padding: 13px 16px;
+ font-size: 14px;
+ font-weight: 700;
+ cursor: pointer;
+}
+.reader-aside-inner { padding: 4px 16px 16px; }
+.reader-aside-inner > h2 { display: none; }
+.reader-related { list-style: none; margin: 0; padding: 0; }
+.reader-related li + li, .reader-context-rows > div + div {
+ border-top: 1px solid #e2e1d9;
+ padding-top: 12px;
+ margin-top: 12px;
+}
+.reader-related-link {
+ font: inherit;
+ font-size: 14px;
+ font-weight: 700;
+ color: #294b40;
+ line-height: 1.5;
+}
+button.reader-related-link {
+ text-align: left;
+ border: 0;
+ background: none;
+ padding: 0;
+ cursor: pointer;
+ text-decoration: underline;
+ text-underline-offset: 3px;
+}
+.reader-context-meta {
+ display: block;
+ margin-top: 4px;
+ font-size: 12px;
+ color: #56635a;
+}
+.reader-context-meta a { color: #294b40; }
+.reader-related p, .reader-context-rows dd, .reader-diagram {
+ margin: 6px 0 0;
+ font-size: 13px;
+ line-height: 1.65;
+ overflow-wrap: anywhere;
+}
+.reader-context-rows { margin: 0; }
+.reader-context-rows dt { font-size: 14px; font-weight: 700; }
+
+.reader-diagram { max-width: 520px; }
+.diagram-question { font-weight: 700; margin: 0 0 10px; }
+.diagram-options { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 6px; }
+.diagram-options li {
+ display: grid;
+ grid-template-columns: minmax(2.5em, auto) 1fr;
+ gap: 1px 8px;
+ padding: 5px 8px;
+ border: 1px solid #dedfd5;
+ border-radius: 6px;
+ background: #fffdf8;
+}
+.diagram-options small { grid-column: 2; color: #324c41; }
+.diagram-options .diagram-forgone { border-color: #658070; background: #e4eee5; }
+.reader-diagram figcaption { font-weight: 700; }
+.diagram-check { margin-top: 10px; }
+.diagram-check summary { cursor: pointer; color: #294b40; }
+.diagram-check p { margin: 6px 0; }
+.diagram-expand {
+ font: inherit;
+ text-decoration: underline;
+ padding: 6px 0;
+ background: none;
+ color: #294b40;
+ border: 0;
+ cursor: pointer;
+}
+.reader-diagram-dialog {
+ width: min(520px, calc(100% - 36px));
+ max-height: 85vh;
+ padding: 22px;
+ background: #fffdf8;
+ color: #212b27;
+ border: 1px solid #d9dfd8;
+ border-radius: 14px;
+}
+.reader-diagram-dialog::backdrop { background: #182b226b; }
+.reader-diagram-dialog form { float: right; }
+.reader-diagram-dialog .reader-diagram { font-size: 16px; }
+.has-reader-asides > .reader { margin-bottom: 24px; }
+
+@media (min-width: 1200px) and (max-width: 1439px) {
+ .reader-layout:has(.reader-aside-right) {
+  display: grid;
+  grid-template-columns: minmax(0,830px) minmax(220px,250px);
+  grid-template-areas: "article context" "related .";
+  align-items: start;
+  justify-content: center;
+  column-gap: 24px;
+ }
+ .reader-layout:has(.reader-aside-right) > .reader {
+  grid-area: article;
+  min-width: 0;
+  width: 100%;
+ }
+ .reader-layout:has(.reader-aside-right) > .reader-aside-left { grid-area: related; width: 100%; }
+}
+@media (min-width: 1200px) {
+ .reader-aside-right { grid-area: context; width: 100%; margin: 20px 0 0; }
+ .reader-aside-right .reader-aside-details > summary { display: none; }
+ .reader-aside-right .reader-aside-inner { padding: 16px; }
+ .reader-aside-right .reader-aside-inner > h2 { display: block; font-size: 15px; margin: 0 0 12px; }
+}
+
+@media (min-width: 1440px) {
+ .reader-layout.has-reader-asides {
+  position: relative;
+  left: 50%;
+  width: min(1370px, calc(100vw - 64px));
+  transform: translateX(-50%);
+  display: grid;
+  align-items: start;
+  grid-template-columns: minmax(0,1fr) minmax(0,830px) minmax(0,1fr);
+  grid-template-areas: "related article context";
+  gap: 24px;
+ }
+ .reader-layout.has-reader-asides > .reader { grid-area: article; min-width: 0; width: 100%; }
+ .reader-aside-left { grid-area: related; }
+ .reader-aside-right { grid-area: context; }
+ .reader-aside { width: 100%; margin: 20px 0 0; }
+ .reader-aside-details > summary { display: none; }
+ .reader-aside-inner { padding: 16px; }
+ .reader-aside-inner > h2 { display: block; font-size: 15px; margin: 0 0 12px; }
+}
+@media (min-width: 1440px) and (min-height: 760px) {
+ .reader-aside-right { position: sticky; top: calc(110px + env(safe-area-inset-top, 0px)); }
+}
