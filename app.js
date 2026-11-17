@@ -390,9 +390,9 @@ const readerSupplements = {
 const carbonFeeGuide = {title:'臺灣碳費制度與施行時程',source:'環境部氣候變遷署',language:'繁中',
  url:'https://www.cca.gov.tw/affairs/carbon-fee-fund/2301.html',
  reason:'對照碳費適用對象、徵收時程、自主減量計畫與優惠費率。'};
-const railMuseumBrief = {title:'國家鐵道博物館設置條例草案說明',source:'行政院',language:'繁中',
- url:'https://www.ey.gov.tw/Page/4EC2394BE4EE9DD0/9fbbfd2d-2a52-4583-b9a5-b9711e9a00c7',
- reason:'閱讀草案的立法目的、博物館任務與規劃的組織架構。'};
+const railMuseumOpening = {title:'國家鐵道博物館第一階段開館',source:'中央社',language:'繁中',
+ url:'https://www.cna.com.tw/news/acul/202507300225.aspx',
+ reason:'從開館報導了解臺北機廠轉型歷程，以及第一階段開放的古蹟和展覽。'};
 const taxiDraft = {title:'網路預約叫車管理草案預告',source:'交通部',language:'繁中',
  url:'https://www.motc.gov.tw/ch/app/news_list/view?id=14&module=news&serno=f2444dd7-f8b3-446b-9346-4a2dfcaa2bf5',
  reason:'比對草案提出的平臺營運責任、乘客保障及駕駛接單規劃。'};
@@ -429,10 +429,10 @@ const prospectTheory = readingReference('展望理論原始論文','Econometrica
 
 Object.assign(readerSupplements,{
  'ey:eb1d2b2d-ef21-4e57-83fc-4d8765a4bfd5':{
-  related:[railMuseumBrief],
+  related:[railMuseumOpening],
   context:[
-   {label:'園區開放',date:'2025-07-31',text:'由臺北機廠轉型的國家鐵道博物館園區開始分階段開放。',link:railMuseumBrief},
-   {label:'草案送審',date:'2026-11-05',text:'行政院通過博物館設置條例草案，並將草案送立法院審議。',link:railMuseumBrief},
+   {label:'園區開放',date:'2025-07-31',text:'由臺北機廠轉型的國家鐵道博物館園區開始分階段開放。',link:railMuseumOpening},
+   {label:'草案送審',date:'2026-11-05',text:'行政院通過博物館設置條例草案，將函請立法院審議。'},
    {label:'接下來觀察',text:'可從立法院審議追蹤博物館的法定任務、組織設計與監督方式。'}
   ]
  },
