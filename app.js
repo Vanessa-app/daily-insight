@@ -487,13 +487,301 @@ function contextRows(article, rows) {
  </div>`).join('')}</dl>`;
 }
 
+// Reviewed one-sentence definitions. Alternate spellings are matched in the
+// actual article, and only the first occurrence of a concept is listed.
+const glossaryGroups = [
+ {
+  scope:/抗生素|微生物|醫療|生命科學|公共衛生/i,
+  source:{url:'https://www.cdc.gov/narms/glossary/',source:'美國 CDC 抗藥性詞彙表（英文）'},
+  terms:[
+   ['抗生素','能殺死細菌或阻止細菌生長的一類藥物。'],
+   ['抗生素抗藥性','細菌能抵抗原本用來對付它的抗生素，使藥物較難奏效。','抗藥性','抗藥'],
+   ['抗微生物藥物','對付微生物的藥物總稱，包括對付細菌的抗生素、抗病毒藥與抗黴菌藥。','抗微生物製劑'],
+   ['多重抗藥性','同一菌株對多類抗微生物藥物具有抗藥性，因此可選用的藥物可能變少。','MDR'],
+   ['病原體','能引起疾病的生物或感染因子，例如某些細菌、病毒或寄生蟲。','病原微生物','致病菌'],
+   ['菌株','同一種細菌中可個別辨識和研究的一個分支。'],
+   ['藥物敏感性','描述特定藥物對這株細菌是否仍有效。','感受性','藥物感受性'],
+   ['藥物敏感性試驗','在實驗室測試某株細菌對不同藥物的反應，協助判斷可能有效的選擇。','藥敏試驗','抗生素敏感性測試'],
+   ['廣效抗生素','能對多種不同細菌發揮作用的抗生素。','廣效'],
+   ['MIC','最低抑菌濃度，指在檢測條件下可以阻止細菌可見生長的最低藥物濃度。','最低抑菌濃度']
+  ]
+ },
+ {scope:/抗生素抗藥性/, terms:[
+   ['第一線藥物','針對特定疾病通常優先考慮使用的藥物。','第一線抗生素'],
+   ['二線藥物','第一線藥物不適用或效果不足時，醫師可能改用的替代藥物。','二線抗生素','第二線'],
+   ['選汰壓力','環境使某些個體比其他個體更容易存活或繁殖，久而久之會改變族群組成。','選擇壓力','選擇性壓力','自然選擇'],
+   ['基因突變','遺傳物質的序列發生改變，結果可能影響某項特徵，也可能沒有明顯影響。','突變'],
+   ['質體','有些細菌體內可獨立複製的小型 DNA 分子。','質粒'],
+   ['院內感染','接受醫療照護期間取得的感染，在開始照護時通常尚未發生。','醫療照護相關感染']
+ ]},
+ {scope:/醫療|生命科學|研究|科學方法|試驗/,terms:[
+   ['隨機分派','用機會決定參與者分到哪一組，讓各組在試驗開始時較能公平比較。','隨機分配'],
+   ['對照組','用來和接受研究處置的組別比較的組別，可接受標準處置、安慰劑或其他設計指定的條件。','控制組'],
+   ['安慰劑','外觀或施用方式與受測處置相近，但缺少研究要檢驗的特定有效成分或作用的對照。'],
+   ['雙盲','研究的兩方不知道受試者分組，通常指參與者與負責評估或施作的人。','雙盲試驗'],
+   ['混雜因子','同時與可能原因及研究結果有關，因而可能使兩者關係看起來比實際更強或更弱的因素。','混雜變數'],
+   ['統計顯著','在指定的模型和門檻下，觀察結果足以提供反對虛無假設的證據。','統計顯著性'],
+   ['樣本量','研究實際納入的觀察單位數量，例如參與者人數。','樣本數'],
+   ['等位基因','同一個基因在族群中可能存在的不同版本。'],
+   ['表觀遺傳','在 DNA 序列維持原樣時，細胞調控基因表現的方式及其變化。','表觀遺傳學'],
+   ['基因表現','細胞使用基因上的資訊產生 RNA 或蛋白質的過程。','基因表達'],
+   ['粒線體','多數真核細胞中負責把養分中的能量轉成細胞可用形式的構造。','線粒體'],
+   ['細胞凋亡','細胞依照內部訊號啟動的一種受控制死亡過程。','計畫性細胞死亡','程式性細胞死亡'],
+   ['表型','個體可觀察或可量測的特徵，通常同時受遺傳與環境影響。','表現型'],
+   ['基因型','個體在一個或多個基因位置所擁有的遺傳版本組合。'],
+   ['遺傳漂變','由於繁殖帶有隨機性，某種基因版本即使沒有優勢，也可能在族群中逐代變多或變少。','基因漂變']
+ ]},
+ {scope:/地震|海嘯/,source:{url:'https://scweb.cwa.gov.tw/zh-tw/guidance/faqdetail/26',source:'中央氣象署地震測報中心'},terms:[
+   ['地震規模','表示一次地震釋放能量大小的數值，同一場地震的規模不因觀測地點而異。','規模'],
+   ['震度','表示某個地點實際搖晃的強弱，因此同一場地震在各地的震度可能不同。'],
+   ['震源','地下開始破裂並引發地震的位置。'],
+   ['震央','震源垂直投影到地表的位置。'],
+   ['振幅','振動偏離平衡位置的最大程度。','震波振幅']
+ ]},
+ {scope:/生態|環境|生物多樣性|演化|碳循環|碳迴圈/,terms:[
+   ['生態系統','同一區域的生物與水、土壤、氣候等非生物環境彼此作用形成的系統。','生態系'],
+   ['棲息地','一種生物可以生活、取得資源並繁衍的地方。','棲地'],
+   ['生態位','一種生物在生態系中的生活方式，包括它如何取用資源、適應環境與其他生物互動。'],
+   ['食物網','多條食物鏈交織而成的取食關係。'],
+   ['營養級','生物在食物鏈中的位置，例如植物位於生產者層，吃植物的動物位於下一層。'],
+   ['生物累積','某物質被生物吸收後，若進入的速度比排出或分解快，就會在體內逐漸堆積。'],
+   ['物種豐富度','某個地點或群落包含的不同物種數量。'],
+   ['地方特有種','自然分布限於特定地區的物種。','特有種'],
+   ['光合作用','植物等生物利用光能，把二氧化碳等原料轉成可儲存能量的有機物。'],
+   ['初級生產','自營生物把環境中的能量轉成有機物的過程，構成許多食物網的基礎。']
+ ]},
+ {scope:/經濟|住房|租屋|成本|選擇/,terms:[
+   ['機會成本','做出選擇時，所放棄的最佳可行方案能帶來的價值。'],
+   ['沉沒成本','過去已經付出，目前無法收回的成本。'],
+   ['比較優勢','在生產某項物品時，放棄其他產出的代價比另一個人或地區低。'],
+   ['公共財','很難阻止未付費者使用，且一個人使用通常不會減少別人可用量的財或服務。','公共物品'],
+   ['資訊不對等','交易雙方掌握的相關資訊不同，使其中一方在判斷或議價時處於不利。','資訊不對稱'],
+   ['消費者物價指數','衡量一般家庭購買的一籃子商品與服務，其價格平均如何隨時間變動的指標。','CPI'],
+   ['權數','用來表達不同項目對總指標影響程度的比重。','權重'],
+   ['通貨膨脹','整體價格水準持續上漲，使相同金額通常買到較少商品與服務。','通膨'],
+   ['社會住宅','由政府興辦或利用民間住宅提供、以出租為主並依制度分配的住宅。','社宅'],
+   ['包租代管','由專業業者承租後轉租，或受房東委託處理招租、簽約與租屋管理。']
+ ]},
+ {scope:/心理|人類行為|學習|偏誤|思維/,terms:[
+   ['認知偏誤','人們在理解資訊或做判斷時，出現有規律的偏差。','認知偏差'],
+   ['確認偏誤','偏向尋找或相信支持原本看法的資訊，較少重視相反證據。','確認偏差','證實偏差'],
+   ['損失規避','同樣金額的損失與獲益相比，損失往往帶來更強烈的感受。'],
+   ['倖存者偏差','只觀察留下來或看得見的案例，忽略被淘汰的案例，因而誤判整體。','倖存者偏誤'],
+   ['間隔效應','把學習分散在多次時段，通常比集中在一次更有利於長期記憶。'],
+   ['間隔重複','在不同時間點重新回想所學內容，並逐步調整下次複習時間的做法。'],
+   ['中性刺激','在建立連結前，尚不會引發研究所關注反應的刺激。'],
+   ['制約刺激','經過學習後，原先中性的刺激本身就能引發特定反應。','條件刺激'],
+   ['制約反應','由學習得到的連結所引起的反應。','條件反射','條件反應'],
+   ['無條件刺激','未經學習就能自然引出特定反應的刺激。','非制約刺激','無制約刺激'],
+   ['無條件反應','不必經過學習，受到某個刺激時自然出現的反應。','非制約反應','無制約反應']
+ ]},
+ {scope:/邏輯|謬誤|論證|哲學|科學方法/,terms:[
+   ['前提','論證中拿來支持某個結論的理由或起始陳述。'],
+   ['結論','論證試圖用理由支持的主張。'],
+   ['演繹推理','如果推理形式有效，只要前提為真，結論就必定為真。','演繹論證'],
+   ['歸納推理','從觀察的例子整理出較一般的判斷，結論可以有理由支持但仍可能出錯。','歸納論證'],
+   ['反例','一個與普遍主張相矛盾的例子，可用來檢查該主張是否成立。'],
+   ['稻草人論證','把對方原本的觀點改成比較容易批評的版本，再反駁這個版本。','稻草人謬誤'],
+   ['滑坡謬誤','在缺少各環節證據時，斷言第一步必定一路導致嚴重後果。'],
+   ['人身攻擊','用個人身分或特質否定其主張，卻沒有處理主張本身的證據與理由。','訴諸人身'],
+   ['可證偽性','一個主張在原則上允許人們設計觀察或試驗，檢查它是否可能被推翻。','可否證性']
+ ]},
+ {scope:/科技|資訊|資安|加密|數位|程式|驗證/,terms:[
+   ['雜湊函式','把輸入資料轉成固定長度指紋的函式，常用來檢查資料有沒有改動。','雜湊函數','哈希函數'],
+   ['公開金鑰','加密系統中可以公開分享的一把金鑰，常用來驗證簽章或將資料加密給持有私鑰的人。','公鑰'],
+   ['私密金鑰','和公開金鑰配對、需妥善保密的一把金鑰，常用來簽章或解密。','私鑰','私有金鑰'],
+   ['多因素身分驗證','以兩種以上不同類型的證明確認身分，例如密碼加上手機或安全金鑰。','多因素身份驗證','雙因素驗證','多重身分驗證','MFA','2FA'],
+   ['數位簽章','用密碼學證明文件由持有相應金鑰的人簽署，並讓收件者檢查內容是否被改動。','數位簽名'],
+   ['社交工程','藉由利用人的信任或判斷習慣，誘使對方透露資訊或採取行動。','社會工程學'],
+   ['零日漏洞','一般指軟體供應商或使用者尚未有足夠時間因應或修補的安全弱點。','零時差漏洞'],
+   ['版本控制','記錄檔案每次修改及其時間、內容與作者，方便比較、協作和還原。','版本管理'],
+   ['異地備援','在不同地點準備可接手的資料或系統，以降低單一地點事故造成的停擺風險。']
+ ]},
+ {scope:/藝術|人文|歷史|語言|檔案/,terms:[
+   ['浮世繪','興盛於日本江戶時代、描繪當時城市生活與風景等題材的藝術，常以木版畫流傳。'],
+   ['印象派','十九世紀形成的藝術流派，常透過色彩與筆觸捕捉光線和景物的瞬間變化。','印象主義'],
+   ['文藝復興','歐洲部分地區重新重視古典文化並推動藝術、學術與思想轉變的一段歷史時期。'],
+   ['人文主義','把人的經驗、理性與能力視為研究和教育重心的一類思想取向。'],
+   ['透視法','在平面上用線條、大小與位置表現物體遠近和空間深度的方法。','線性透視'],
+   ['題跋','寫在書畫或文獻前後的短文，可記下創作背景、收藏經過或觀看心得。'],
+   ['典藏','機構對具保存價值的物件或文件進行有系統的保存、整理和管理。'],
+   ['國家檔案','經鑑定具有永久保存價值、由國家檔案主管機關接收管理的機關檔案。']
+ ]},
+ {scope:/心理|思維|人類行為|壓力/,terms:[
+   ['批判性思維','根據證據檢查一個主張的理由、假設和可能的反面解釋，再形成自己的判斷。','批判性思考'],
+   ['團體迷思','團體為了維持一致而忽略不同意見，因而降低判斷品質的現象。'],
+   ['巴納姆效應','人們容易把普遍適用的模糊描述當成只符合自己的個性分析。','巴納姆效果','佛瑞效果'],
+   ['生日數字效應','人們在部分任務中傾向偏好出現在自己生日日期中的數字。','生日數字效果'],
+   ['估計量','用樣本資料計算未知母體特徵的一個公式或規則。'],
+   ['估計量偏差','重複抽樣時，估計量的平均結果和要估計的真值之間的差。','估計量的偏誤','估計量的偏差'],
+   ['控制點','描述一個人傾向把結果歸因於自己的行動，還是運氣、他人等外在因素。','控制源'],
+   ['觀察者偏差','觀察者原有的期待可能影響自己記錄、解讀或判定看到的結果。'],
+   ['虛假平衡','把證據強弱差很多的兩種說法放在同等位置，讓讀者誤以為兩邊同樣可信。'],
+   ['自證預言','一個原本未必正確的期待影響了行為，反而讓期待的結果更容易出現。'],
+   ['空想性錯視','從隨機圖案或聲音中感覺到熟悉形象或訊息，例如把雲看成人臉。','空想性錯覺'],
+   ['冷處理','刻意減少話題的曝光、回應與宣傳，讓公眾注意力逐漸轉移。'],
+   ['姓名決定論','探討姓名與職業或生活選擇是否存在關聯的一種假說。'],
+   ['議題設定','媒體透過選擇報導哪些議題及報導份量，影響大眾認為哪些事情重要。'],
+   ['急性壓力反應','受到突發事件刺激後短時間內出現的情緒、身體或思考變化。','壓力反應'],
+   ['酒精使用疾患','飲酒模式持續造成明顯困擾或功能受損的一類健康問題。','酒精使用障礙','酒精成癮']
+ ]},
+ {scope:/藝術|歷史|人文|語言/,terms:[
+   ['語言相對論','主張人使用的語言可能影響他注意、分類或理解事物的方式。','沙皮爾-沃爾夫假說'],
+   ['包豪斯','德國在二十世紀初創辦的藝術與設計學校，強調結合設計、工藝與實作。','包浩斯','Bauhaus'],
+   ['絲綢之路','古代跨越歐亞等地、用於交換商品、技術與文化的多條商旅路線。','絲路'],
+   ['羅馬式美術','中世紀歐洲的藝術傳統，常見於教堂雕刻、壁畫與手抄本。','羅曼式美術'],
+   ['羅曼式建築','中世紀歐洲常見的一種建築風格，教堂多見厚牆、圓拱和較小窗戶。','羅馬式建築'],
+   ['洞穴壁畫','繪在洞穴岩壁或頂部的圖像，可提供研究史前生活與藝術的線索。','岩洞壁畫'],
+   ['媒體藝術','以影像、聲音、電腦等媒介或技術作為創作材料的藝術。','新媒體藝術','數位藝術'],
+   ['穴怪圖','歐洲裝飾藝術中常見把人物、動植物和奇幻想像重新組合的紋飾。','穴怪影象','穴怪圖像'],
+   ['國家語言','依臺灣《國家語言發展法》，指臺灣各固有族群使用的自然語言及臺灣手語。'],
+   ['語言復振','透過教學、媒體和公共使用等方式，讓日漸少用的語言重新有人學習和使用。','復振']
+ ]},
+ {scope:/環境|生態|氣候/,terms:[
+   ['城市承載力','在現有資源、技術和生活條件下，一座城市能長期支持的人口與活動規模。','城市負載力'],
+   ['副極地氣候','通常出現在較高緯度的氣候，特徵是冬季漫長寒冷、夏季短。','亞寒帶氣候'],
+   ['異域物種形成','同一族群因地理阻隔而分開演化，久後可能變成彼此難以交配繁殖的不同物種。','異域種化'],
+   ['物種形成','族群隨時間分化，最終成為不同物種的演化過程。','種化'],
+   ['物候學','研究開花、落葉或候鳥遷徙等週期性現象何時發生，以及它們如何隨環境改變。','物候'],
+   ['反文化','以生活方式、藝術或集體行動挑戰主流社會價值與規範的文化。','反文化運動'],
+   ['屍體腐敗','死亡後，微生物等逐步分解身體組織的過程。'],
+   ['分解者','把死亡生物或有機廢物分解成更簡單物質的生物，例如某些細菌和真菌。'],
+   ['灌溉','用人工方式將水送到農地，以補充作物生長所需的水分。']
+ ]},
+ {scope:/邏輯|謬誤|機率|推理|定義/,terms:[
+   ['謬誤','推理或論證中的漏洞，會讓結論看似有道理卻缺乏適當支持。'],
+   ['言詞謬誤','因詞語含糊或前後用法不同，導致推論不成立。'],
+   ['假合取','把選項說成必須整套接受或拒絕，卻忽略其中各項可以分開判斷。'],
+   ['定義謬誤','對詞語採用太窄、太廣或有偏向的定義，使後續推理建立在不合適的意思上。'],
+   ['條件機率','在已知某件事發生的前提下，另一件事會發生的機率。'],
+   ['賽局理論','研究不同參與者彼此影響時，各自如何選擇策略的學問。','博弈論'],
+   ['破窗謬論','只看見修復破壞帶來的支出，忽略同一筆資源原本可創造的其他價值。'],
+   ['說服性定義','用帶有褒貶的用語替一個詞下定義，藉此讓讀者更容易接受某種立場。']
+ ]},
+ {scope:/科技|資安|程式|MyData|數位/,terms:[
+   ['行政法人','依法律設立，承擔特定公共任務並有一定運作自主性的組織。'],
+   ['有線電視','透過實體線路而非空中廣播將電視訊號送到訂戶的一種服務。'],
+   ['混淆代理人問題','系統中的代辦程式誤把自己的權限用在未獲授權的請求上。','混淆代理問題'],
+   ['數位浮水印','把可辨識的資訊嵌入圖片、聲音或影像，方便標示來源或識別資料。'],
+   ['威脅模型','整理系統中值得保護的資產、可能威脅與風險的表示方式，用來規劃防護。','威脅模型分析'],
+   ['公共程式','政府開發且依規定釋出的程式原始碼，讓外界能檢視、重用或共同改進。'],
+   ['開放原始碼','以允許檢視、使用、修改與分享的授權提供程式原始碼。','開源'],
+   ['公民科技','以數位工具和開放協作改善公共服務或促進民眾參與的做法。'],
+   ['身分驗證','確認正在使用服務的人確實是其聲稱身分的程序。','身份驗證'],
+   ['自主同意','由本人了解資料用途與傳送對象，再決定是否允許分享資料。'],
+   ['警察刑事紀錄證明','俗稱良民證，由警察機關依規定核發，用來證明申請人的刑事紀錄情形。','良民證'],
+   ['MyData','讓民眾完成身分驗證與同意後，取得或傳送個人政府資料以辦理指定服務的平台。']
+ ]},
+ {scope:/食品|醫療|保健/,terms:[
+   ['冷鏈','在運送、儲存與販售的各個環節維持所需低溫的一套流程。'],
+   ['冷凍食品','用低溫使食物凍結，並須按標示條件運輸及保存的食品。'],
+   ['預防保健','在症狀出現前，以健康檢查、諮詢或其他措施提早發現與降低健康風險。'],
+   ['健康篩檢','在尚未出現明顯症狀的人群中，用檢查找出可能需要進一步評估的人。','篩檢'],
+   ['糞口傳染','病原從感染者排出的糞便污染手、食物或水，之後經另一個人的口進入體內。','糞口']
+ ]}
+];
+
+function knowledgeTextParts(article) {
+ return hasChinese(article) && article.translation_status !== 'original_zh_hant'
+  ? article.evidence_zh_hant : originalParts(article);
+}
+
+function findGlossaryWord(text, word) {
+ if (!/^[A-Za-z0-9-]+$/.test(word)) return text.indexOf(word);
+ const match = text.match(new RegExp('(^|[^A-Za-z0-9])'+word+'(?=$|[^A-Za-z0-9])','i'));
+ return match ? match.index + match[1].length : -1;
+}
+
+// An article can supply a new term only when its introduction explicitly
+// defines that term in a complete, short sentence.
+function sourceDefinition(article) {
+ const term = (article.title || '').trim();
+ if (!/^[\p{Script=Han}A-Za-z][\p{Script=Han}A-Za-z0-9·-]{1,23}$/u.test(term)) return null;
+ const lead = knowledgeTextParts(article).find(hasText)?.trim() || '';
+ if (!lead.startsWith(term)) return null;
+ const firstSentence = lead.match(/^[^。！？；\n]{8,140}。/)?.[0];
+ if (!firstSentence) return null;
+ const rest = firstSentence.slice(term.length)
+  .replace(/^(?:\s*[（(][^）)]{1,100}[）)])*[，,、\s]*/, '')
+  .replace(/^(?:(?:亦稱為?|又稱為?|或稱為?|也稱為?|也被稱為|亦作)[^。；]{1,45}?[，,]\s*)/, '');
+ if (!/^(?:通常指|泛指|係指|是指|指的是|指|是一種|是一個|是由|是一門|是在|是一項|為一種)/.test(rest)) return null;
+ const definition = rest.replace(/\s*\[\d+\]/g, '');
+ return {term, definition:term+definition, source:article, fromSource:true};
+}
+
+function definitionsInArticle(parts, article) {
+ const terms = [];
+ // A bilingual name plus explicit definition at the start of a sentence
+ // distinguishes a term from ordinary phrases that merely contain 「是」.
+ const definition = /^([\p{Script=Han}]{2,16})\s*[（(](?=[^）)]{0,70}[A-Za-z])[^）)]{2,74}[）)]\s*[，,]?\s*((?:係指|是指|指的是|指|是一種|是一個|是一門)[^。！？；]{4,110}。)$/u;
+ for (const paragraph of parts) {
+  for (const sentence of paragraph.match(/[^。！？\n]+。/g) || []) {
+   const match = sentence.trim().match(definition);
+   if (match) terms.push({term:match[1], definition:match[1]+match[2], source:article});
+  }
+ }
+ return terms;
+}
+
+function readerGlossary(article, supplement) {
+ const parts = knowledgeTextParts(article);
+ const text = parts.join('\n');
+ const title = article.title || '';
+ const position = term => findGlossaryWord(text, term);
+ const matches = new Map();
+ const covered = new Set();
+ function add(term, definition, source, aliases=[], fromSource=false) {
+  if (covered.has(term)) return;
+  const words = [term, ...aliases];
+  const found = words.map(word => ({word, index:position(word)})).filter(item => item.index >= 0)
+   .sort((a,b) => a.index-b.index || b.word.length-a.word.length);
+  if (!found.length) return;
+  matches.set(term,{term,definition,source,fromSource,index:found[0].index,
+   variant:found.some(item => item.word === term) ? null : found[0].word});
+  words.forEach(word => covered.add(word));
+ }
+ for (const [term,definition] of supplement.terms || []) add(term,definition,supplement.source);
+ for (const group of glossaryGroups) {
+  if (!group.scope.test([title,article.category,topicOf(article)].join(' '))) continue;
+  for (const [term, definition, ...aliases] of group.terms) add(term,definition,group.source,aliases);
+ }
+ for (const def of definitionsInArticle(parts,article)) {
+  add(def.term,def.definition,def.source,[],true);
+ }
+ for (const entry of [article,...state.news.filter(candidate => candidate.url !== article.url
+   && candidate.kind === 'knowledge' && topicOf(candidate) === topicOf(article)
+   && (hasApprovedFullText(candidate) || isTextEdition(candidate)) && hasChinese(candidate))]) {
+  const def = sourceDefinition(entry);
+  if (def) add(def.term,def.definition,def.source,[],true);
+ }
+ return [...matches.values()].sort((a,b) => a.index-b.index || b.term.length-a.term.length);
+}
+
+function glossaryContent(terms) {
+ if (!terms.length) return '';
+ return `<section class="reader-glossary" aria-label="術語解釋">
+  ${terms.length > 1 ? `<label class="glossary-filter">搜尋 ${terms.length} 個術語<input type="search" data-glossary-search placeholder="輸入關鍵字"></label>` : ''}
+  <dl class="reader-context-rows">${terms.map(item => `<div data-glossary-row>
+   <dt>${esc(item.term)}${item.variant ? ` <small>（文中：${esc(item.variant)}）</small>` : ''}</dt>
+   <dd>${esc(item.definition)}${item.source ? `<span class="reader-context-meta">${readerLink(item.source,item.fromSource?'定義來源｜'+item.source.title:item.source.source)}</span>` : ''}</dd>
+  </div>`).join('')}</dl>
+  <p class="glossary-no-results" hidden>找不到符合的術語。</p>
+ </section>`;
+}
+
+function filterReaderGlossary(input) {
+ const glossary = input.closest('.reader-glossary');
+ const query = input.value.trim().normalize('NFKC').toLocaleLowerCase('zh-TW');
+ const rows = [...glossary.querySelectorAll('[data-glossary-row]')];
+ for (const row of rows) row.hidden = !row.textContent.normalize('NFKC').toLocaleLowerCase('zh-TW').includes(query);
+ glossary.querySelector('.glossary-no-results').hidden = rows.some(row => !row.hidden);
+}
+
 function readerAside(title, content, side) {
  if (!content) return '';
  return `<aside class="reader-aside reader-aside-${side}" aria-label="${esc(title)}">
-  <details class="reader-aside-details">
-   <summary>${esc(title)}</summary>
-   <div class="reader-aside-inner"><h2>${esc(title)}</h2>${content}</div>
-  </details>
+  <button class="reader-float-button" type="button" data-reader-panel="${side}" aria-haspopup="dialog">${esc(title)}</button>
+  <div class="reader-aside-inner"><h2>${esc(title)}</h2><div class="reader-aside-content">${content}</div></div>
  </aside>`;
 }
 
@@ -502,45 +790,60 @@ function readerLayout(article) {
  const related = sourcesForReader(article);
  const left = readerAside('延伸閱讀',relatedReaderContent(related,supplement.related || []),'left');
  let right = '';
- let dialog = '';
+ let diagramDialog = '';
  if (article.kind === 'knowledge') {
+  const terms = glossaryContent(readerGlossary(article,supplement));
+  let diagram = '';
   if (supplement.diagram === 'opportunity-cost') {
-   const diagram = reviewedCostDiagram();
-   right = readerAside('圖解 · 機會成本',diagram,'right');
-   dialog = `<dialog class="reader-diagram-dialog" aria-labelledby="diagram-title">
+   diagram = `<section class="reader-panel-diagram"><h3>圖解 · 機會成本</h3>${reviewedCostDiagram()}</section>`;
+   diagramDialog = `<dialog class="reader-diagram-dialog" aria-labelledby="diagram-title">
     <form method="dialog"><button class="btn" type="submit">關閉</button></form>
     <h2 id="diagram-title">機會成本</h2>${reviewedCostDiagram(false)}
    </dialog>`;
-  } else if (supplement.terms) {
-   const terms = `<dl class="reader-context-rows">${supplement.terms.map(([term,definition]) =>
-    `<div><dt>${esc(term)}</dt><dd>${esc(definition)}</dd></div>`).join('')}</dl>`;
-   const source = supplement.source
-    ? `<p class="reader-context-meta">${readerLink(supplement.source,supplement.source.source+'（'+supplement.source.language+'）')}</p>`
-    : '';
-   right = readerAside('文中術語',terms+source,'right');
   }
+  right = readerAside(terms?'術語解釋':'圖解',diagram+terms,'right');
  } else {
-  const rows = supplement.context || relatedNewsContext(article, related);
+  const rows = supplement.context || relatedNewsContext(article,related);
   if (rows.length) right = readerAside('新聞脈絡',contextRows(article,rows),'right');
  }
+ const panelDialog = left || right ? `<dialog class="reader-panel-dialog" id="reader-panel-dialog" aria-labelledby="reader-panel-title">
+  <header class="reader-panel-header">
+   <h2 id="reader-panel-title"></h2>
+   <form method="dialog"><button class="btn" value="close" autofocus>關閉</button></form>
+  </header>
+  <div class="reader-panel-body"></div>
+ </dialog>` : '';
  return `<div class="reader-layout${left || right ? ' has-reader-asides' : ''}">
-  ${reader(article)}${right}${left}${dialog}
+  ${reader(article)}${right}${left}${panelDialog}${diagramDialog}
  </div>`;
 }
 
-const readerWideScreen = window.matchMedia?.('(min-width: 1440px)');
-const readerMediumScreen = window.matchMedia?.('(min-width: 1200px)');
-function syncReaderAsides() {
- document.querySelectorAll('.reader-aside-details').forEach(details => {
-  details.open = details.closest('.reader-aside-right')
-   ? Boolean(readerMediumScreen?.matches) : Boolean(readerWideScreen?.matches);
- });
+function openReaderPanel(trigger) {
+ const dialog = document.querySelector('.reader-panel-dialog');
+ const aside = trigger.closest('.reader-aside');
+ if (!dialog || !aside || dialog.open) return;
+ dialog.querySelector('h2').textContent = aside.getAttribute('aria-label');
+ const content = aside.querySelector('.reader-aside-content');
+ const clone = content.cloneNode(true);
+ const search = clone.querySelector('[data-glossary-search]');
+ if (search) {
+  search.value = '';
+  filterReaderGlossary(search);
+ }
+ const body = dialog.querySelector('.reader-panel-body');
+ body.replaceChildren(clone);
+ dialog.showModal();
+ body.scrollTop = 0;
 }
+
+document.addEventListener('input',event => {
+ if (event.target.matches('[data-glossary-search]')) filterReaderGlossary(event.target);
+});
+const readerDesktop = window.matchMedia?.('(min-width: 1200px)');
 
 function render(){document.querySelector('#streak').textContent=`已讀 ${state.read.length} 篇`;document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===state.page));const main=document.querySelector('#main');const toolbar=document.querySelector('#explore-toolbar');const filterOffset=toolbar.dataset.page===state.page?(toolbar.querySelector('.explore-topics')?.scrollLeft||0):0;toolbar.innerHTML='';if(state.selected){const a=state.news.find(x=>x.url===state.selected);if(a){
  toolbar.innerHTML='<button type="button" class="back reader-back" data-back="1">← 返回探索</button>';
  main.innerHTML=readerLayout(a);
- syncReaderAsides();
  return;
  }state.selected=null}const n=state.news;if(state.page==='news'||state.page==='knowledge'){
  const {controls, content}=explore(n);
@@ -552,7 +855,7 @@ function render(){document.querySelector('#streak').textContent=`已讀 ${state.
 else if(state.page==='saved'){const a=n.filter(x=>state.saved.includes(x.url));main.innerHTML=`<div class="sectionhead"><h2>我的收藏書架</h2></div>${a.length?`<div class="grid">${a.map(article).join('')}</div>`:'<div class="empty">尚未收藏文章。看到喜歡的主題時，按下「收藏」即可。</div>'}`}
 else if(state.page==='stats'){const aw=awards();main.innerHTML=`<div class="sectionhead"><h2>學習足跡</h2><button class="btn primary" data-challenges="1">開始知識挑戰</button></div><div class="grid"><div class="card"><div class="card-body"><div class="stat">${state.read.length}</div><p>已閱讀篇數</p></div></div><div class="card"><div class="card-body"><div class="stat">${state.saved.length}</div><p>收藏文章數</p></div></div></div><div class="badge-grid"><div class="badge-card">🏆 <strong>${aw.xp} XP</strong><small>知識經驗值</small></div><div class="badge-card">📖 <strong>${aw.completed} 篇</strong><small>挑戰完成</small></div><div class="badge-card">⭐ <strong>${aw.perfect} 篇</strong><small>滿分達成</small></div><div class="badge-card ${aw.completed>=1?'unlocked':'locked'}">🏅 <strong>初次探索</strong><small>完成首次挑戰</small></div><div class="badge-card ${aw.perfect>=3?'unlocked':'locked'}">🏅 <strong>理解達人</strong><small>三次滿分</small></div><div class="badge-card ${aw.completed>=5?'unlocked':'locked'}">🏅 <strong>閱讀冒險家</strong><small>完成五篇挑戰</small></div></div><div class="notice">紀錄保存在目前的瀏覽器，不會跨裝置同步。已閱讀不等於完成事實核查。</div>`}
 else main.innerHTML=`<div class="sectionhead"><h2>我們如何對待資訊</h2></div><div class="notice">來源包括政府機關、具編輯責任的可信媒體，以及開放授權百科。Yahoo 為新聞聚合平台，原始媒體及全文以原站標示為準；媒體報導不等於研究共識，百科也可能有錯。以不同來源互相核對。經核對授權的繁中內容可完整閱讀，並附原始發布頁與授權連結。官方知識專題經閱讀審核；百科文字版會檢查正文長度與段落，排除消歧義與公式依賴頁面，這項自動檢查不等於人工事實審查，原站附件或圖表只能作為補充。文章須先交代核心概念，再按讀者能理解的順序說明。表格資料須保留欄位與數值的對應，純欄位清單或發布規格不作為知識文章。網域核對不能證明所有主張正確；中文來源優先；英文資料未完成中文翻譯時不作一般推薦，翻譯可能因模型或資源限制失敗，不能保證完全準確。無摘要或無翻譯時明確標示，不捏造。完整轉載須確認授權。</div>`}
-document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.refresh){refreshContent(true)}else if(b.dataset.shelf){state.shelf=b.dataset.shelf;render()}else if(b.dataset.next){const a=state.news.find(x=>x.url===b.dataset.next);if(!state.read.includes(b.dataset.next))state.read.push(b.dataset.next);persist();const next=readingQueue(state.news,a?.kind==='knowledge'?'knowledge':'news')[0];state.selected=next?.url||null;state.mode='zh';render();window.scrollTo(0,0)}else if(b.dataset.challenges){state.page='knowledge';state.filter='有測驗';state.selected=null;render()}else if(b.dataset.page){state.page=b.dataset.page;state.filter='全部';state.selected=null;render()}else if(b.dataset.filter){state.filter=b.dataset.filter;render()}else if(b.hasAttribute('data-diagram-expand')){document.querySelector('.reader-diagram-dialog')?.showModal?.()}else if(b.dataset.open){if(!state.selected)explorationScroll=window.scrollY;state.selected=b.dataset.open;state.mode='zh';render();window.scrollTo(0,0)}else if(b.dataset.back){state.selected=null;render();window.scrollTo(0,explorationScroll)}else if(b.dataset.mode){state.mode=b.dataset.mode;render()}else if(b.dataset.save){state.saved=state.saved.includes(b.dataset.save)?state.saved.filter(x=>x!==b.dataset.save):[...state.saved,b.dataset.save];persist();render()}else if(b.dataset.quizReset){delete state.quizResults[b.dataset.quizReset];persist();render()}
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.refresh){refreshContent(true)}else if(b.dataset.shelf){state.shelf=b.dataset.shelf;render()}else if(b.dataset.next){const a=state.news.find(x=>x.url===b.dataset.next);if(!state.read.includes(b.dataset.next))state.read.push(b.dataset.next);persist();const next=readingQueue(state.news,a?.kind==='knowledge'?'knowledge':'news')[0];state.selected=next?.url||null;state.mode='zh';render();window.scrollTo(0,0)}else if(b.dataset.challenges){state.page='knowledge';state.filter='有測驗';state.selected=null;render()}else if(b.dataset.page){state.page=b.dataset.page;state.filter='全部';state.selected=null;render()}else if(b.dataset.filter){state.filter=b.dataset.filter;render()}else if(b.dataset.readerPanel){openReaderPanel(b)}else if(b.hasAttribute('data-diagram-expand')){document.querySelector('.reader-diagram-dialog')?.showModal?.()}else if(b.dataset.open){if(!state.selected)explorationScroll=window.scrollY;state.selected=b.dataset.open;state.mode='zh';render();window.scrollTo(0,0)}else if(b.dataset.back){state.selected=null;render();window.scrollTo(0,explorationScroll)}else if(b.dataset.mode){state.mode=b.dataset.mode;render()}else if(b.dataset.save){state.saved=state.saved.includes(b.dataset.save)?state.saved.filter(x=>x!==b.dataset.save):[...state.saved,b.dataset.save];persist();render()}else if(b.dataset.quizReset){delete state.quizResults[b.dataset.quizReset];persist();render()}
 else if(b.dataset.quizParagraph){
  const paragraph=document.getElementById('article-paragraph-'+b.dataset.quizParagraph);
  paragraph?.focus({preventScroll:true});
@@ -639,8 +942,9 @@ async function refreshContent(manual=false) {
  }
 }
 refreshContent();
-readerWideScreen?.addEventListener('change',syncReaderAsides);
-readerMediumScreen?.addEventListener('change',syncReaderAsides);
+readerDesktop?.addEventListener('change',event => {
+ if (event.matches) document.querySelector('.reader-panel-dialog[open]')?.close();
+});
 setInterval(()=>{if(!document.hidden&&!state.selected)refreshContent()},5*60*1000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&Date.now()-lastRefresh>60000)refreshContent()});
 window.addEventListener('online',()=>refreshContent());

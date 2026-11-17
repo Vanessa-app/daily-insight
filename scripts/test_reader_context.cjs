@@ -17,16 +17,26 @@ function layout(id) {
   return run('readerLayout(fixtures.find(a => a.id === articleId))');
 }
 const resistance = layout('wiki:3711396');
-assert.ok(resistance.includes('文中術語'));
+assert.ok(resistance.includes('術語解釋'));
 assert.ok(resistance.includes('https://www.who.int/'));
 assert.ok(resistance.includes('抗生素使用及抗藥性監測報告'));
 assert.ok(!resistance.includes('reader-diagram-dialog'));
+assert.ok(resistance.includes('data-reader-panel="left"'));
+assert.ok(resistance.includes('data-reader-panel="right"'));
+assert.ok(resistance.includes('reader-panel-dialog'));
+const terms = run('readerGlossary(fixtures.find(a => a.id === "wiki:3711396"),readerSupplements["wiki:3711396"])');
+assert.ok(terms.length >= 6);
+assert.ok(terms.some(item => item.term === '廣效抗生素'));
+assert.ok(terms.every(item => item.definition.endsWith('。')));
+assert.ok(terms.every((item,i) => !i || item.index >= terms[i-1].index));
+assert.ok(!terms.some(item => item.term === '地震規模'));
 
 const cost = layout('wiki:69319');
 assert.ok(cost.includes('讀後') || cost.includes('knowledge-quiz'));
 assert.equal((cost.match(/data-diagram-expand/g) || []).length, 1);
 assert.ok(cost.includes('放棄「練習英文」會帶來的價值'));
 assert.ok(cost.includes('沉沒成本'));
+assert.ok(cost.includes('data-glossary-search'));
 assert.ok(cost.includes('放棄的最佳選項變成「準備簡報」'));
 
 const report = {

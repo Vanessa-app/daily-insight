@@ -46,23 +46,17 @@
 .reader-back{display:block;min-height:44px;padding:8px 10px;margin-left:-10px;font-size:15px;font-weight:700}
 .reader{margin-top:20px}
 
-.reader-aside {
- max-width: 830px;
- margin: 12px auto;
-}
-.reader-aside-details {
+.reader-aside-inner {
  border: 1px solid #e2e1d9;
  border-radius: 12px;
  background: #f4f2ea;
+ padding: 18px;
 }
-.reader-aside-details > summary {
- padding: 13px 16px;
- font-size: 14px;
- font-weight: 700;
- cursor: pointer;
+.reader-aside-inner > h2, .reader-panel-header h2 {
+ font-size: 16px;
+ margin: 0 0 12px;
 }
-.reader-aside-inner { padding: 4px 16px 16px; }
-.reader-aside-inner > h2 { display: none; }
+.reader-float-button { display: none; }
 .reader-related { list-style: none; margin: 0; padding: 0; }
 .reader-related li + li, .reader-context-rows > div + div {
  border-top: 1px solid #e2e1d9;
@@ -142,49 +136,135 @@ button.reader-related-link {
 .reader-diagram-dialog .reader-diagram { font-size: 16px; }
 .has-reader-asides > .reader { margin-bottom: 24px; }
 
-@media (min-width: 1200px) and (max-width: 1439px) {
- .reader-layout:has(.reader-aside-right) {
-  display: grid;
-  grid-template-columns: minmax(0,830px) minmax(220px,250px);
-  grid-template-areas: "article context" "related .";
-  align-items: start;
-  justify-content: center;
-  column-gap: 24px;
- }
- .reader-layout:has(.reader-aside-right) > .reader {
-  grid-area: article;
-  min-width: 0;
-  width: 100%;
- }
- .reader-layout:has(.reader-aside-right) > .reader-aside-left { grid-area: related; width: 100%; }
+.reader-panel-diagram + .reader-glossary {
+ border-top: 1px solid #e2e1d9;
+ margin-top: 18px;
+ padding-top: 18px;
 }
-@media (min-width: 1200px) {
- .reader-aside-right { grid-area: context; width: 100%; margin: 20px 0 0; }
- .reader-aside-right .reader-aside-details > summary { display: none; }
- .reader-aside-right .reader-aside-inner { padding: 16px; }
- .reader-aside-right .reader-aside-inner > h2 { display: block; font-size: 15px; margin: 0 0 12px; }
+.reader-panel-diagram h3 { font-size: 15px; margin: 0 0 8px; }
+.glossary-filter {
+ display: grid;
+ gap: 6px;
+ margin-bottom: 15px;
+ font-size: 13px;
+ font-weight: 600;
+}
+.glossary-filter input {
+ width: 100%;
+ min-height: 40px;
+ padding: 7px 10px;
+ font: inherit;
+ font-size: 16px;
+ background: #fffdf8;
+ color: #212b27;
+ border: 1px solid #bdc8bf;
+ border-radius: 8px;
+}
+.reader-glossary dt small { color: #54645b; font-weight: 400; }
+.reader-panel-dialog {
+ position: fixed;
+ inset: auto 0 0;
+ width: min(620px, 100%);
+ max-width: 100%;
+ max-height: 82vh;
+ max-height: 82dvh;
+ margin: 0 auto;
+ padding: 0;
+ border: 1px solid #d9dfd8;
+ border-radius: 18px 18px 0 0;
+ background: #fffdf8;
+ color: #212b27;
+}
+.reader-panel-dialog[open] { display: flex; flex-direction: column; }
+.reader-panel-dialog::backdrop { background: #182b227d; }
+.reader-panel-header {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ gap: 12px;
+ padding: 10px 18px;
+ border-bottom: 1px solid #e2e1d9;
+ background: #f4f2ea;
+}
+.reader-panel-header h2 { margin: 0; }
+.reader-panel-header button { min-height: 44px; }
+.reader-panel-body {
+ overflow: auto;
+ overscroll-behavior: contain;
+ padding: 16px 18px calc(22px + env(safe-area-inset-bottom, 0px));
+}
+.reader-panel-body .reader-context-rows dd,
+.reader-panel-body .reader-related p { font-size: 15px; }
+body:has(.reader-panel-dialog[open], .reader-diagram-dialog[open]) { overflow: hidden; }
+
+@media (max-width: 1199px) {
+ .reader-aside-inner { display: none; }
+ .reader-layout.has-reader-asides { padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)); }
+ .reader-float-button {
+  display: inline-flex;
+  position: fixed;
+  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  z-index: 12;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid #628778;
+  border-radius: 24px;
+  background: #294b40;
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px #202b2633;
+  cursor: pointer;
+ }
+ .reader-aside-left .reader-float-button { left: max(12px, env(safe-area-inset-left, 0px)); }
+ .reader-aside-right .reader-float-button { right: max(12px, env(safe-area-inset-right, 0px)); }
 }
 
-@media (min-width: 1440px) {
- .reader-layout.has-reader-asides {
-  position: relative;
-  left: 50%;
-  width: min(1370px, calc(100vw - 64px));
-  transform: translateX(-50%);
-  display: grid;
-  align-items: start;
-  grid-template-columns: minmax(0,1fr) minmax(0,830px) minmax(0,1fr);
-  grid-template-areas: "related article context";
-  gap: 24px;
+@media (min-width: 1200px) {
+ .shell:has(.reader-layout.has-reader-asides) {
+  max-width: 1920px;
+  padding-inline: clamp(28px, 2.6vw, 56px);
  }
- .reader-layout.has-reader-asides > .reader { grid-area: article; min-width: 0; width: 100%; }
+ .reader-layout.has-reader-asides {
+  display: grid;
+  grid-template-columns: minmax(0, 890px);
+  grid-template-areas: "article";
+  align-items: start;
+  justify-content: center;
+  gap: clamp(18px, 1.45vw, 28px);
+ }
+ .reader-layout.has-reader-asides:has(.reader-aside-left) {
+  grid-template-columns: minmax(215px, 380px) minmax(0, 890px);
+  grid-template-areas: "related article";
+ }
+ .reader-layout.has-reader-asides:has(.reader-aside-right) {
+  grid-template-columns: minmax(0, 890px) minmax(215px, 380px);
+  grid-template-areas: "article context";
+ }
+ .reader-layout.has-reader-asides:has(.reader-aside-left):has(.reader-aside-right) {
+  grid-template-columns: minmax(215px, 1fr) minmax(0, 890px) minmax(215px, 1fr);
+  grid-template-areas: "related article context";
+ }
+ .reader-layout.has-reader-asides > .reader {
+  grid-area: article;
+  min-width: 0;
+  max-width: 890px;
+  width: 100%;
+ }
+ .reader-aside { width: 100%; min-width: 0; margin: 20px 0 0; }
  .reader-aside-left { grid-area: related; }
  .reader-aside-right { grid-area: context; }
- .reader-aside { width: 100%; margin: 20px 0 0; }
- .reader-aside-details > summary { display: none; }
- .reader-aside-inner { padding: 16px; }
- .reader-aside-inner > h2 { display: block; font-size: 15px; margin: 0 0 12px; }
+ .reader-aside-inner .reader-context-rows dd,
+ .reader-aside-inner .reader-related p { font-size: 14px; }
 }
-@media (min-width: 1440px) and (min-height: 760px) {
- .reader-aside-right { position: sticky; top: calc(110px + env(safe-area-inset-top, 0px)); }
+@media (min-width: 1200px) and (min-height: 700px) {
+ .reader-aside {
+  position: sticky;
+  top: calc(114px + env(safe-area-inset-top, 0px));
+  max-height: calc(100dvh - 130px - env(safe-area-inset-top, 0px));
+  overflow: auto;
+  scrollbar-width: thin;
+ }
 }
