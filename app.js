@@ -183,7 +183,14 @@ function quizData(a){
  return a.quiz_origin==='source_grounded_recall'&&a.quiz.every(q=>typeof q.supporting_quote==='string'&&q.supporting_quote.length>0&&originalParts(a)[q.paragraph-1]?.includes(q.supporting_quote)&&q.options[q.answer]===q.supporting_quote)?a.quiz:null;
 }
 function awards(){const r=Object.values(state.quizResults||{}),perfect=r.filter(x=>x.score===x.total).length;return {xp:r.reduce((s,x)=>s+x.score*20+10,0),completed:r.length,perfect}}
-function article(a){const saved=state.saved.includes(a.url),read=state.read.includes(a.url);return `<article class="card">${imageMarkup(a)}<div class="card-body"><div class="meta">${a.demo?'【原創示範】 ':''}${esc(a.category)} · ${esc(a.source)}${a.byline?` / ${esc(a.byline)}`:''} · ${a.kind==='knowledge'?'知識專題':esc(date(a.published_at))}</div><h3>${esc(a.title)}</h3>${quizData(a)?'<div class="meta">附知識挑戰</div>':''}${readingStatus(a)?`<div class="meta">${esc(readingStatus(a))}</div>`:""}<p>${esc(a.translation_zh_hant||a.excerpt_original||(isMedia(a)?'此篇採標題索引，請前往來源網站閱讀全文。':'來源目前沒有提供可展示的內文。'))}</p><div class="actions">${isMedia(a)&&a.content_scope==='media_headline'?`<a class="btn primary" href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">來源閱讀 ↗</a><button class="btn" data-read="${esc(a.url)}">${read?'✓ 已閱讀':'標記已讀'}</button>`:`<button class="btn primary" data-open="${esc(a.url)}">${isMedia(a)?'查看摘要 →':'開始閱讀 →'}</button>`}<button class="btn" data-save="${esc(a.url)}">${saved?'★ 已收藏':'☆ 收藏'}</button>${read?'<span class="meta">✓ 已閱讀</span>':''}</div></div></article>`}
+function hasHeadlineSupplements(article) {
+ const supplement = readerSupplements[article.id];
+ return Boolean(supplement?.context?.length || supplement?.related?.length
+   || reviewedNewsEvents.some(([,ids]) => ids.includes(article.id))
+   || reviewedReadingTopics.some(([,ids]) => ids.includes(article.id)));
+}
+
+function article(a){const saved=state.saved.includes(a.url),read=state.read.includes(a.url);return `<article class="card">${imageMarkup(a)}<div class="card-body"><div class="meta">${a.demo?'【原創示範】 ':''}${esc(a.category)} · ${esc(a.source)}${a.byline?` / ${esc(a.byline)}`:''} · ${a.kind==='knowledge'?'知識專題':esc(date(a.published_at))}</div><h3>${esc(a.title)}</h3>${quizData(a)?'<div class="meta">附知識挑戰</div>':''}${readingStatus(a)?`<div class="meta">${esc(readingStatus(a))}</div>`:""}<p>${esc(a.translation_zh_hant||a.excerpt_original||(isMedia(a)?'此篇採標題索引，請前往來源網站閱讀全文。':'來源目前沒有提供可展示的內文。'))}</p><div class="actions">${isMedia(a)&&a.content_scope==='media_headline'?`<a class="btn primary" href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">來源閱讀 ↗</a>${hasHeadlineSupplements(a)?`<button class="btn" data-open="${esc(a.url)}">查看延伸資訊</button>`:""}<button class="btn" data-read="${esc(a.url)}">${read?'✓ 已閱讀':'標記已讀'}</button>`:`<button class="btn primary" data-open="${esc(a.url)}">${isMedia(a)?'查看摘要 →':'開始閱讀 →'}</button>`}<button class="btn" data-save="${esc(a.url)}">${saved?'★ 已收藏':'☆ 收藏'}</button>${read?'<span class="meta">✓ 已閱讀</span>':''}</div></div></article>`}
 function reader(a){
  const parts=originalParts(a);
  const translations=Array.isArray(a.evidence_zh_hant)?a.evidence_zh_hant:[];
@@ -202,7 +209,9 @@ function reader(a){
      <div class="evidence-zh"><div class="kicker">繁體中文 · 段落 ${i+1}</div><p class="reader-text">${esc(translations[i])}</p></div>
      <div class="evidence-original"><div class="kicker">原始資料 · 段落 ${i+1}</div><p class="reader-text">${esc(part)}</p></div>
    </div>`;
- }).join(''):'<div class="notice">此官方來源沒有提供可用的內文。系統不會自行編造。</div>';
+ }).join(''):a.content_scope==='media_headline'
+  ? `<div class="notice">這篇新聞為標題索引。<a href="${esc(source)}" target="_blank" rel="noopener noreferrer">前往來源閱讀全文 ↗</a></div>`
+  : '<div class="notice">此官方來源沒有提供可用的內文。系統不會自行編造。</div>';
  const quiz=quizData(a), result=(state.quizResults||{})[a.id||a.url];
  const quizHtml=quiz?`<section class="quiz-panel" id="knowledge-quiz"><div class="kicker">LEARN & LEVEL UP</div><h3>🧠 閱讀後的知識挑戰</h3><p>${a.quiz_origin==='source_grounded_recall'?'本篇為自動原文核對題，用於重點回憶，尚非人工審核的深度理解測驗。':'題目取自本篇文章。'}提交後可核對答案、閱讀解說，並回到相關原文段落。</p>${result?`<div class="notice">🏆 已完成：${result.score}/${result.total} 題正確，獲得 ${result.score*20+10} XP。<button class="btn" data-quiz-reset="${esc(a.id||a.url)}">重新挑戰</button></div><div class="quiz-feedback">${quiz.map((q,i)=>{
  const choice = result.answers?.[i];
@@ -378,6 +387,272 @@ const readerSupplements = {
  }
 };
 
+const carbonFeeGuide = {title:'臺灣碳費制度與施行時程',source:'環境部氣候變遷署',language:'繁中',
+ url:'https://www.cca.gov.tw/affairs/carbon-fee-fund/2301.html',
+ reason:'對照碳費適用對象、徵收時程、自主減量計畫與優惠費率。'};
+const railMuseumBrief = {title:'國家鐵道博物館設置條例草案說明',source:'行政院',language:'繁中',
+ url:'https://www.ey.gov.tw/Page/4EC2394BE4EE9DD0/9fbbfd2d-2a52-4583-b9a5-b9711e9a00c7',
+ reason:'閱讀草案的立法目的、博物館任務與規劃的組織架構。'};
+const taxiDraft = {title:'網路預約叫車管理草案預告',source:'交通部',language:'繁中',
+ url:'https://www.motc.gov.tw/ch/app/news_list/view?id=14&module=news&serno=f2444dd7-f8b3-446b-9346-4a2dfcaa2bf5',
+ reason:'比對草案提出的平臺營運責任、乘客保障及駕駛接單規劃。'};
+const artemisBrief = {title:'NASA 的 Artemis 任務簡報',source:'NASA',language:'英文',
+ url:'https://www.nasa.gov/blogs/missions/2026/10/23/nasa-shares-artemis-acceleration-plans-for-moon-missions/',
+ reason:'分清 Artemis III 的低地球軌道測試及 Artemis IV 的登月目標。'};
+const archivesGuide = {title:'國家檔案資訊網操作指引',source:'國家發展委員會檔案管理局',language:'繁中',
+ url:'https://aa.archives.gov.tw/Home/PublishDetail?cnid=109779&pid=13',
+ reason:'用簡易或進階搜尋找到國家檔案目錄。'};
+const artTimeline = {title:'大都會藝術博物館藝術史年表',source:'大都會藝術博物館',language:'英文',
+ url:'https://www.metmuseum.org/essays/timeline-of-art-history',
+ reason:'用有年代與地區標示的館藏作品，對照藝術史教材的分期方式。'};
+const japonisme = {title:'日本藝術如何影響歐洲藝術',source:'大都會藝術博物館',language:'英文',
+ url:'https://www.metmuseum.org/essays/japonisme',
+ reason:'藉由實際館藏看浮世繪如何影響印象派及後印象派的主題與構圖。'};
+const gastroGuide = {title:'病毒性腸胃炎疾病介紹',source:'台灣疾管署',language:'繁中',
+ url:'https://www.cdc.gov.tw/En/Category/Page/sndL3ibQOtZXgLelyyteHQ',
+ reason:'對照諾羅病毒、輪狀病毒的流行情形與傳播方式。'};
+const alcoholGuide = {title:'過度飲酒的生理機制與後果',source:'美國國家酒精濫用與酒精中毒研究所',language:'英文',
+ url:'https://www.niaaa.nih.gov/about-niaaa/strategic-plan-fiscal-years-2024-2028/research-goals/goal-1-elucidate-biological-mechanisms-and-consequences-alcohol-misuse',
+ reason:'了解研究如何看待以飲酒因應壓力，以及這種做法與酒精使用問題的關聯。'};
+const thoughtExperimentGuide = {title:'思想實驗在科學和哲學中的用法',source:'史丹佛哲學百科',language:'英文',
+ url:'https://plato.stanford.edu/archives/sum2022/entries/thought-experiment/',
+ reason:'透過經典案例判斷思想實驗能回答什麼，以及哪些結論仍需要實際證據。'};
+
+// Each recommendation identifies what the reader can learn from its source.
+function readingReference(title, source, language, url, reason) {
+ return {title,source,language,url,reason};
+}
+
+const prospectTheory = readingReference('展望理論原始論文','Econometrica，UCLA 公開版','英文 PDF',
+ 'https://www.anderson.ucla.edu/faculty_pages/keith.chen/negot.%20papers/KahnemanTversky_ProsTheory79.pdf',
+ '閱讀作者如何用一系列選擇題觀察人們對得利和損失的不同反應。');
+
+Object.assign(readerSupplements,{
+ 'ey:eb1d2b2d-ef21-4e57-83fc-4d8765a4bfd5':{
+  related:[railMuseumBrief],
+  context:[
+   {label:'園區開放',date:'2025-07-31',text:'由臺北機廠轉型的國家鐵道博物館園區開始分階段開放。',link:railMuseumBrief},
+   {label:'草案送審',date:'2026-11-05',text:'行政院通過博物館設置條例草案，並將草案送立法院審議。',link:railMuseumBrief},
+   {label:'接下來觀察',text:'可從立法院審議追蹤博物館的法定任務、組織設計與監督方式。'}
+  ]
+ },
+ 'curated:env':{
+  related:[carbonFeeGuide],
+  context:[
+   {label:'開始計費',date:'2025-01-01',text:'臺灣碳費費率生效，2025 年排放量納入碳費計算，首次繳納安排在 2026 年。',link:carbonFeeGuide},
+   {label:'這次審議',date:'2026-11-02',text:'審議會比較一般費率及優惠費率的調整方案，要求補充資料後再審。'},
+   {label:'接下來觀察',text:'可查下一次審議的決議與公告，確認適用費率和生效時間。'}
+  ]
+ },
+ 'nasa:60000835':{
+  related:[artemisBrief],
+  context:[
+   {label:'公布任務規劃',date:'2026-10-23',text:'NASA 簡報說明 Artemis III 預計在 2027 年於低地球軌道測試關鍵系統。',link:artemisBrief},
+   {label:'更新登月時程',date:'2026-11-04',text:'NASA 整理加速規劃，將 Artemis IV 的登月任務目標訂在 2028 年。'},
+   {label:'接下來觀察',text:'可追蹤 Artemis III 測試進度與 Artemis IV 的正式任務更新。'}
+  ]
+ },
+ 'ey:3e1ca979-057e-4b00-81be-3d061228db6e':{
+  context:[
+   {label:'協定簽署',date:'2021',text:'臺灣與韓國完成租稅協定的異地簽署，協定自 2024 年適用。'},
+   {label:'這次修正',date:'2026-11-12',text:'行政院備查修正協議，主要更新韓國主管機關名稱。'}
+  ]
+ },
+ 'ey:15b1a3a9-8715-46a3-9a37-0e793d927592':{
+  context:[
+   {label:'核定計畫',date:'2020 年 6 月',text:'行政院核定五股交流道增設匝道改善工程。'},
+   {label:'匝道通車',date:'2026-11-11',text:'新增與改善的匝道完工通車，另有新五路拓寬工程仍在施工。'}
+  ]
+ },
+ 'ey:a7b879bd-bf74-4fde-9c8a-5a98c6889dcc':{
+  context:[
+   {label:'首段通車',date:'2005',text:'八卦山隧道完工後，台 19 線以東到草屯的路段先通車。'},
+   {label:'延伸段通車',date:'2026-11-07',text:'台 19 線以西的延伸段通車，向西銜接台 61 線。'}
+  ]
+ },
+ 'ey:a06fa469-f8de-4831-9bcf-6e599f9d3ba2':{
+  context:[
+   {label:'既有工程',date:'2020',text:'蘇花改全線通車，先改善蘇澳至東澳、南澳至和平、和中至大清水三段。'},
+   {label:'新工程動土',date:'2026-11-04',text:'蘇花安東澳至南澳段啟動第一標工程，後續可追蹤各標段施工進度。'}
+  ]
+ },
+ 'moda:21234':{
+  context:[
+   {label:'示範站完工',date:'2026 年 6 月',text:'嘉太變電所的高抗災基地臺完工，電信業者設置第二傳輸路由。'},
+   {label:'訪查成果',date:'2026-11-03',text:'數發部訪查電力、傳輸及結構，並說明基地臺在兩次颱風期間持續提供服務。'}
+  ]
+ },
+ 'moda:21226':{
+  context:[
+   {label:'規格通報',date:'2026-10-30',text:'數發部接獲通報，部分已簽發的網站憑證，其序號的有效亂數長度低於標準要求。'},
+   {label:'督促換發',date:'2026-11-02',text:'數發部說明已督促 TWCA 產製合規的新憑證，並通知各機關更換。'}
+  ]
+ },
+ 'moda:21142':{
+  context:[
+   {label:'建置語料庫',date:'2025 年底',text:'數發部推出臺灣主權 AI 訓練語料庫，初期以政府語料為主。'},
+   {label:'跨部會座談',date:'2026-10-16',text:'數發部、文化部與智慧局邀內容權利人和 AI 業者交換授權與權益保護意見。'},
+   {label:'接下來觀察',text:'可關注後續徵集辦法如何處理自願授權、使用範圍和費用。'}
+  ]
+ },
+ 'library:archive':{related:[archivesGuide]},
+ 'wiki:6983700':{related:[artTimeline]},
+ 'wiki:5622':{related:[artTimeline]},
+ 'wiki:154555':{related:[japonisme]},
+ 'wiki:18302':{related:[japonisme]},
+ 'library:gastro':{related:[gastroGuide]},
+ 'library:alcohol':{
+  related:[alcoholGuide],
+  terms:[
+   ['酒癮','難以控制飲酒，即使飲酒已造成健康、工作或家庭困擾，仍可能持續喝酒。'],
+   ['家庭治療','讓家庭成員參與治療，協助調整互動方式並建立可持續的支持。']
+  ]
+ },
+ 'library:stress':{related:[readingReference('突發事件後的壓力調適','美國物質濫用與心理健康服務署','英文',
+  'https://www.samhsa.gov/mental-health/disaster-preparedness/coping-tips','對照事件後常見的心理反應，以及不同階段可採取的照顧方式。')]},
+ 'library:lang':{related:[readingReference('國家語言發展法','全國法規資料庫','繁中',
+  'https://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=H0170143','查看國家語言的法律定義以及教育、傳承和公共服務的規定。')]},
+ 'wiki:276979':{related:[readingReference('公共財與搭便車問題','OpenStax《經濟學原理》','英文',
+  'https://openstax.org/books/principles-economics-2e/pages/13-3-public-goods','用具體案例區分非排他性與非競爭性，理解公共財為何難以由市場單獨供給。')]},
+ 'wiki:1176897':{source:prospectTheory,related:[prospectTheory],terms:[
+  ['損失規避','和同等大小的收益相比，人們往往更在意損失給自己帶來的影響。','損失迴避','損失趨避','損失厭惡'],
+  ['展望理論','描述人在風險下如何以某個參考點判斷得失，並對機率給予不同於客觀數值的權重。','前景理論'],
+  ['參考點','人用來判斷一個結果算收益還是損失的比較基準。']
+ ]},
+ 'wiki:12252':{related:[readingReference('亞里斯多德的倫理學','史丹佛哲學百科','英文',
+  'https://plato.stanford.edu/entries/aristotle-ethics/','循著幸福、品格和實踐智慧理解德性倫理學。')]},
+ 'wiki:196075':{related:[readingReference('細胞凋亡與發育','OpenStax《生物學概念》','英文',
+  'https://openstax.org/books/concepts-biology/pages/17-key-terms','對照凋亡、細胞分化與胚胎發育等概念。')]},
+ 'wiki:1784149':{related:[readingReference('什麼是群體免疫','世界衛生組織','英文',
+  'https://www.who.int/news-room/questions-and-answers/item/herd-immunity-lockdowns-and-COVID-19','理解群體免疫如何間接保護他人，以及免疫比例如何隨疾病特性改變。')]},
+ 'wiki:5595393':{related:[readingReference('1960 至 1970 年代的反文化運動','牛津研究百科','英文',
+  'https://academic.oup.com/edited-volume/61644/chapter-abstract/539885250','從公開摘要理解運動的歷史背景和影響。')]},
+ 'wiki:34459':{related:[readingReference('絲綢之路如何連接不同文明','UNESCO','英文',
+  'https://www.unesco.org/en/silk-roads/about-silk-roads','對照陸路與海路如何傳遞商品、技術及文化。')]},
+ 'wiki:504859':{related:[readingReference('東方主義與十九世紀藝術','大都會藝術博物館','英文',
+  'https://www.metmuseum.org/essays/orientalism-in-nineteenth-century-art','從博物館藏品辨認歐洲藝術如何描繪所謂的東方。')]},
+ 'wiki:538379':{related:[readingReference('龐培古物與「秘密展室」','那不勒斯國立考古博物館','英文',
+  'https://www.museoarcheologiconapoli.it/en/portfolio-item/secret-room/','了解文中提到的古羅馬藏品在近代如何受到限制保存與展示。')]},
+ 'wiki:8818339':{related:[readingReference('動物的交配系統','Wiley 生命科學百科','英文',
+  'https://onlinelibrary.wiley.com/doi/10.1002/9780470015902.a0022553','從公開摘要比較不同交配系統如何描述個體的配對及交配行為。')]},
+ 'wiki:9592055':{related:[readingReference('《女史箴圖》卷上的題跋與印章','大英博物館','英文',
+  'https://www.britishmuseum.org/collection/image/901936001','在實際館藏作品上觀察後人加寫的題跋如何成為流傳紀錄。')]},
+ 'wiki:265218':{related:[thoughtExperimentGuide]}
+});
+
+for (const id of ["ltn-life:1237a713a3415e0b", "yahoo-lifestyle:4661365ce120c73e"]) {
+ readerSupplements[id] = {
+  related:[taxiDraft],
+  context:[
+   {label:'草案預告',date:'2026-10-22',text:'交通部提出計程車客運服務業修正草案，將網路預約叫車平臺的營運責任納入規範。',link:taxiDraft},
+   {label:'本次報導',text:'根據本篇來源，修正規定於 11 月 19 日起施行，業者有一年時間取得營業執照。',useArticleDate:true}
+  ]
+ };
+}
+
+// Reviewed collections use stable article IDs so future headlines cannot be grouped by a coincidental keyword.
+const reviewedNewsEvents = [
+ ["網路叫車平台納管", ["ltn-life:1237a713a3415e0b", "yahoo-lifestyle:4661365ce120c73e"]],
+ ["AI 語料授權與著作權政策", ["moda:21142", "ltn-politics:fc6e855ea863f673"]],
+ ["松山機場遷建政見", ["ltn-politics:172f78cad7e6bfa2", "ltn-politics:f8b80354b6d27bf1", "ltn-politics:fbb16960cc4a2cd1", "ltn-politics:0a4fd6106588cac6"]],
+ ["台股震盪、融資與護盤報導", ["ltn-business:22e4fec9f82e5012", "ltn-business:61f7f3a98203e1e2", "ltn-business:48fe5fbe51d8053d", "ltn-business:57e4073f10345938", "yahoo-finance:9f6b443f6d022627", "ltn-business:70b852c4fa1d9d67", "yahoo-finance:b08a8e126d1d7262", "ltn-business:dbd03b5ed2370543"]],
+ ["2026 年度青奧台灣隊返國", ["ltn-sports:43afbfe85f485bb0", "yahoo-sports:94ec87a82e99a147", "yahoo-sports:09d8c2e020b142d1"]],
+ ["2026 年亞冠賽台灣隊與南韓隊交手", ["ltn-sports:2246b2c8ce4fdbdf", "ltn-sports:1dcb008a8b97e61d", "ltn-sports:63866ca15d836ad6", "ltn-sports:06232a391b14f341"]],
+ ["李洋參與選舉車掃後的行政中立討論", ["ltn-politics:618d80769d347951", "ltn-politics:602f4c0bc942f1e1"]],
+ ["翡翠水庫光電設置討論", ["ltn-politics:f8b80354b6d27bf1", "ltn-business:c0931fdda60952e9", "ltn-politics:71c797cdacc5659d"]],
+ ["育兒減時與職代津貼", ["ltn-business:92f2f468266abc6e", "yahoo-lifestyle:7f8f22d1228b9979"]],
+ ["輝達季度持股申報", ["ltn-business:e6a0306ee798f35c", "yahoo-finance:efa04cade8f8df7b", "yahoo-finance:ac8017791e7c14ef"]],
+ ["黃仁勳的輝達職務變動與公開回應", ["ltn-business:52863b7a553d4b6a", "ltn-business:0179731d57a51345", "ltn-business:7b2f76ecf49c8f96", "ltn-business:343fd2140c196812", "ltn-world:e9e80734a3d772db", "yahoo-finance:51674a1756e68c1a", "yahoo-finance:eabd0971d014d1e1", "ltn-world:cfd9e5858133bc16", "yahoo-finance:82280d2582ac1534", "yahoo-finance:95f645ac2b809a98", "yahoo-finance:9379300f5f0dae6a", "ltn-business:42947610e89ab5b4"]],
+ ["台北 101 點燈聲援黃仁勳", ["ltn-politics:81eccc18af348dec", "yahoo-lifestyle:51ea4d5ae1a7a1a5", "ltn-business:2bb824fb4eb6c81d", "ltn-business:cedb55475f33b034"]],
+ ["美國先進 AI 算力出口管制", ["ltn-world:182be4dcee102cb2", "ltn-business:100ae1b192cf90c0", "ltn-world:d416eb5e55d6d1d7", "yahoo-finance:c8812798d5af36b8", "yahoo-finance:2fd5ead994851a4d", "yahoo-finance:2a683e203515274d", "ltn-world:35e0ff65345ea2f6"]],
+ ["2026 APEC 與美中俄領袖會談規劃", ["ltn-world:3b113548fc5c9804", "yahoo-finance:75a19015174954dd", "ltn-world:dc4209cac431bafe", "ltn-world:41feeb93209523d2", "ltn-world:12938780e7c17014", "ltn-world:30c04eef121dcb6f", "ltn-world:ff651f1defb623f0", "ltn-world:9802ae2b527a1fa1"]],
+ ["2026 年 11 月 19 日前後冷空氣", ["ltn-life:17837f3363fbddec", "ltn-life:a117432a100405e1", "yahoo-lifestyle:48b023815b4ee174", "yahoo-lifestyle:ab8b821968e9097f", "yahoo-lifestyle:e297183809709670", "yahoo-lifestyle:a2d46030b97c1b5b", "yahoo-lifestyle:9ba4ec32e40a3591", "ltn-life:da16ef5af6e6bdd9"]],
+ ["台中林皇宮停業與婚宴受影響", ["ltn-life:60e94eb65fce8f6b", "yahoo-lifestyle:63921dbf58664644", "yahoo-lifestyle:9cf73e3f2f413b72"]],
+ ["仁愛國中午餐食安事件", ["ltn-life:5dfe6952e8607a42", "ltn-life:2a286ca0e43ab302"]],
+ ["普發兩萬元提案的立院討論", ["ltn-politics:7a1fadfe132fc035", "ltn-politics:f7f83e869604fdf2", "ltn-politics:d64dff4fe2f68cb2"]],
+ ["2027 美國棒球名人堂候選名單", ["ltn-sports:b05acd13cb9913dd", "yahoo-sports:850fceb054b32d80"]],
+ ["2026 年網球年終賽艾卡拉茲對蒂亞弗", ["ltn-sports:518e5f43ce3a3763", "yahoo-sports:b01f5f136ec1361c", "ltn-sports:f5964beed433d10b"]],
+ ["魔術對塞爾提克一役", ["ltn-sports:a14bb45f86e606ea", "yahoo-sports:513fd119ed514cfc"]],
+ ["廣島球團前球員與煙彈風波", ["ltn-sports:369eb2bc1edc37c8", "yahoo-sports:0c6612b57111f224"]],
+ ["冬盟邱立璿對日職聯隊投球", ["ltn-sports:ac5248560d57ba13", "ltn-sports:c6a0554b45ce9a54"]],
+ ["2026 年兒科住院醫師招收", ["yahoo-health:15dc271c2c0c2b5b", "yahoo-lifestyle:1ff85fc0812bce8a"]],
+ ["2026 年森林護管員甄試", ["ltn-life:df36b6c1338dee16", "ltn-life:1e62689c5f522b68"]],
+ ["台中 16 個公民團體選前訴求", ["ltn-politics:698eef77dd352075", "ltn-politics:8c3fdf72035883fd"]],
+ ["台北市社工座談取消爭議", ["ltn-politics:995f2a1b75797d5b", "ltn-politics:f890f9d8c1fa8d9d"]],
+ ["2026 年台北市長選舉封關民調", ["ltn-politics:214bff83ba169fce", "ltn-politics:a51926bf0f5babea", "ltn-politics:41fbf491b7ba2030", "ltn-politics:41b2622a7ddcddf1"]],
+ ["蔣萬安選前之夜與柯文哲站台安排", ["ltn-politics:f145e08d84b5dcce", "ltn-politics:329e612849e10f65", "ltn-politics:864755630b3d185b", "ltn-politics:30139c67190b846e", "ltn-politics:603d40f45d01fecc"]],
+ ["旺矽與漢測的矽光子布局", ["ltn-business:948337728ca43ebb", "ltn-business:a780568a40a0701a", "ltn-business:a49206e71692d668"]],
+ ["2026 年亞太股市半導體賣壓", ["ltn-business:9fb15b13c7ba9a1b", "ltn-business:e11e711edc3907ad", "yahoo-finance:bd2d4365ba33840b", "ltn-business:c566d81e41aa673d", "ltn-business:a3b557cfe092add6"]],
+ ["臺灣半導體設備資安標準赴歐交流", ["adi:21452", "ltn-business:840f8f5a0b92caa4"]],
+ ["觀光雙輪方案及國旅補助延長", ["ey:c81e8f01-4e9a-49f6-be89-36159c050384", "yahoo-technology:c0478a8c60da72cb"]],
+];
+
+const reviewedReadingTopics = [
+ ["地震的觀測與災害判讀", ["knowledge:quake", "knowledge:quake2", "curated:eq36", "library:tsunami", "ltn-life:0461dedf45c43297", "ltn-life:a2c6ea7fcde001c6"]],
+ ["冷凍食品與冷藏保存", ["knowledge:food", "yahoo-lifestyle:33920e7c518712ba"]],
+ ["感染性腸胃炎的傳播與預防", ["library:gastro", "ltn-life:5dfe6952e8607a42", "ltn-life:2a286ca0e43ab302", "yahoo-health:07a9937c4df974b5"]],
+ ["醫療研究的比較方法", ["wiki:268050", "wiki:1048831", "wiki:9350690", "wiki:5665054", "wiki:8123487"]],
+ ["政府資料授權與線上申辦", ["library:mydata", "moda:21078"]],
+ ["社會住宅與居住負擔", ["library:housing", "library:cpi", "moda:21078"]],
+ ["機會成本與資源配置", ["wiki:69319", "wiki:174242", "wiki:530888", "wiki:7686564"]],
+ ["行為經濟學與決策", ["wiki:1176897", "wiki:6988071", "wiki:7179170", "wiki:2998143"]],
+ ["記憶與學習", ["wiki:262983", "wiki:6066875", "wiki:7615098"]],
+ ["證據如何支持科學推論", ["wiki:265218", "wiki:38594", "wiki:427871", "wiki:893357"]],
+ ["人如何被語言與框架影響", ["wiki:328749", "wiki:2998133", "wiki:2998143", "wiki:686505"]],
+ ["藝術史的風格與分期", ["wiki:6983700", "wiki:5622", "wiki:8633463", "wiki:20344", "wiki:6679001"]],
+ ["羅馬式藝術與建築", ["wiki:1301067", "wiki:590366", "wiki:19159"]],
+ ["視覺藝術與新媒材", ["wiki:20114", "wiki:5316768", "wiki:5622"]],
+ ["跨文化接觸與藝術流通", ["wiki:154555", "wiki:18302", "wiki:34459", "wiki:504859"]],
+ ["洞穴藝術與圖像紀錄", ["wiki:109603", "wiki:1549872", "wiki:611166"]],
+ ["史料查證與文化保存", ["library:archive", "wiki:3043439", "wiki:8674660", "ey:eb1d2b2d-ef21-4e57-83fc-4d8765a4bfd5"]],
+ ["族群遺傳與物種形成", ["wiki:1058905", "wiki:148129", "wiki:1517531", "wiki:235282", "wiki:1287455"]],
+ ["環境、基因與生物演化", ["wiki:328845", "wiki:8651778", "wiki:235282"]],
+ ["內共生與物種互惠", ["wiki:132312", "wiki:115456"]],
+ ["如何測量與保育生物多樣性", ["wiki:225481", "wiki:976495", "wiki:339957", "wiki:7968028", "wiki:7967293", "wiki:211417", "wiki:51834"]],
+ ["生態棲地與物種適應", ["wiki:557786", "wiki:3909011", "wiki:135153", "wiki:6339319", "wiki:847712", "wiki:7967866", "wiki:131050"]],
+ ["生態位、物種互動與食物網", ["wiki:48330", "wiki:115456", "wiki:115442", "wiki:593101", "wiki:131050", "wiki:9112513", "wiki:230932"]],
+ ["能量流動與物質循環", ["wiki:361801", "wiki:835122", "wiki:6907881", "wiki:7884004", "wiki:544037", "wiki:151581", "wiki:1011731"]],
+ ["地景與生態調查方法", ["wiki:9495542", "wiki:7968911", "wiki:1613200", "wiki:216424", "wiki:5719542", "wiki:7307618", "wiki:1260045"]],
+ ["棲地品質如何影響物種選擇", ["wiki:7965268", "wiki:847712", "wiki:7967866", "wiki:7967293"]],
+ ["人類活動與環境永續", ["wiki:6331045", "wiki:7639737", "wiki:1641164", "wiki:7963776", "wiki:309892", "wiki:336347", "wiki:29876"]],
+ ["降水、地形與水資源", ["wiki:209823", "wiki:371710", "wiki:309892", "wiki:336347"]],
+ ["人為或封閉的生態環境", ["wiki:579734", "wiki:835122", "wiki:7963776", "wiki:230932"]],
+ ["極端環境與未知微生物", ["wiki:135153", "wiki:6339319", "wiki:7884004", "wiki:3182293"]],
+ ["污染在生態系中累積", ["wiki:1295869", "wiki:151581", "ltn-life:bbcc0da81f964425"]],
+ ["數位身分驗證與憑證", ["wiki:133681", "wiki:5416739", "wiki:345276", "wiki:754555", "adi:21252", "moda:21226"]],
+ ["社交工程與資安防護", ["wiki:3477276", "wiki:16768", "wiki:9037503", "wiki:9510362", "wiki:3830104", "wiki:9498385", "wiki:2943698"]],
+ ["網路安全事件與防護",["wiki:4087369","wiki:9037503","wiki:16768"]],
+ ["地下棲地與物種適應",["wiki:9033928","wiki:847712","wiki:7967866"]],
+ ["漏洞通報與修補治理", ["wiki:4482573", "wiki:5394451", "wiki:7137902", "wiki:3458476", "wiki:1440868"]],
+ ["公共數位服務與數位韌性", ["library:tech", "wiki:100892", "wiki:7428926", "wiki:3458476", "wiki:1414152", "moda:21234", "adi:21104"]],
+ ["事後判斷與選擇性取樣", ["wiki:1512891", "wiki:5416618", "wiki:3014095", "wiki:3043439", "wiki:2980313", "wiki:7615098"]],
+ ["從模糊線索看出模式", ["wiki:6355357", "wiki:537977", "wiki:6101291", "wiki:5540313", "wiki:5666947"]],
+ ["印象如何影響對人的評價", ["wiki:1737303", "wiki:464317", "wiki:7083050", "wiki:6339319", "wiki:6395167", "wiki:399061"]],
+ ["社會期待與歸因", ["wiki:1040979", "wiki:1220462", "wiki:5372438", "wiki:8669487", "wiki:1182059"]],
+ ["團體壓力與社會知覺", ["wiki:1040979", "wiki:7055751", "wiki:5372438", "wiki:553937", "wiki:241006", "wiki:6339319"]],
+ ["媒體呈現與議題判斷", ["wiki:7559698", "wiki:7615202", "wiki:2998133", "wiki:2998143", "wiki:7410241", "wiki:686505"]],
+ ["認知偏誤與思考習慣", ["wiki:1194763", "wiki:7179170", "wiki:8603124", "wiki:1695367", "wiki:6253734", "wiki:3815273"]],
+ ["論證結構與推理入門", ["library:logic", "wiki:710125", "wiki:167926", "wiki:3040997", "wiki:8021120"]],
+ ["類比、樣本與因果判斷", ["wiki:721613", "wiki:3052286", "wiki:3043623", "wiki:3042214", "wiki:3044820", "wiki:7686564"]],
+ ["轉移話題與離題論證", ["wiki:3041365", "wiki:336589", "wiki:3041034", "wiki:2829438", "wiki:3041936", "wiki:3044370", "wiki:70716", "wiki:1619758"]],
+ ["偷換概念與操弄定義", ["wiki:3050961", "wiki:3045338", "wiki:3944452", "wiki:1566425", "wiki:3041391", "wiki:3041031", "wiki:7121404"]],
+ ["形式推理的有效性", ["library:logic", "wiki:3041695", "wiki:3041324", "wiki:3041557", "wiki:3041723"]],
+ ["假兩難與二分法", ["wiki:92219", "wiki:6510067", "wiki:3044089", "wiki:3043142", "wiki:7410241"]],
+ ["情感訴求與恐懼", ["wiki:70716", "wiki:1619758", "wiki:74330", "wiki:3042900"]],
+ ["條件機率與選擇偏差", ["wiki:3014095", "wiki:443079", "wiki:135557"]],
+ ["線上交易如何降低資訊落差", ["ey:6fbb449f-ff98-4e02-9133-bff21db15033", "adi:21446", "curated:env2", "wiki:242261"]],
+ ["中小企業轉型與創新育成", ["adi:21444", "adi:21430", "ey:1ada6479-77ae-4da3-b912-84af5f3eda80", "ey:008fe836-d6f6-4636-8805-2d8066f35e97", "ey:2e50c1f3-7a72-49d1-8795-0868b814a667", "adi:21110", "ltn-life:379f37dad061d6f3"]],
+ ["數位科技的教學與體驗", ["ey:2bf5da95-69d8-49ba-9a19-53a611672d0b", "adi:21432", "adi:21104", "ltn-life:12f9ce090a7a00a5", "yahoo-lifestyle:9fb40fc03b8f563a"]],
+ ["選務安全與疏運", ["ey:ce11120b-83d3-4d4d-9340-cca8c5c51415", "ey:a08549b5-0783-46c4-bb1d-22d8f6fb7184", "ltn-life:62c3752258650b2e", "ltn-politics:6765b88e01a63f3d"]],
+ ["反毒的檢驗與跨部會協作", ["ey:daf51ed4-4237-415b-89d6-7bc2ea2aed56", "ey:c464a954-14fe-455d-bb90-69726cd5f921"]],
+ ["海巡任務與人力保障", ["ey:6e44d303-bf53-4e75-9264-c0cc8fedf7d6", "ey:d6716352-809b-48b5-a600-da100e7c5de0"]],
+ ["台灣衛星產業的供應鏈", ["adi:21280", "yahoo-finance:cb3155e844501ade"]],
+ ["智慧農業的資料與設備應用", ["ey:b1d9bf7a-04f1-4242-b8fa-bb5fafb8cdce", "moda:21064", "ltn-life:3d837bfdf82f2ca6"]],
+ ["電價與能源成本", ["ltn-business:c812ae92931834a1", "yahoo-lifestyle:c398ecccf4e4ba6a"]],
+ ["醫療人力與照護服務", ["curated:hpa", "ey:e1dc1a32-20ed-4956-821b-2964eec44250", "yahoo-health:15dc271c2c0c2b5b", "yahoo-lifestyle:1ff85fc0812bce8a"]],
+ ["亞太區域峰會與雙邊會談", ["ltn-world:f6d3deb84aa82011", "ltn-world:06b48f929c26795b", "ltn-world:c017b257bc7520fd", "yahoo-finance:75a19015174954dd", "ltn-world:dc4209cac431bafe", "ltn-world:41feeb93209523d2", "ltn-world:12938780e7c17014", "ltn-world:30c04eef121dcb6f", "yahoo-finance:f710e0f224f403db", "ltn-world:ff651f1defb623f0", "ltn-world:9802ae2b527a1fa1"]],
+];
+
 const readingThemes = [
  {name:'地震規模、震度與災害', match:/地震規模|地震震度|海嘯.*形成|地震規模與災害/},
  {name:'做選擇時的取捨', match:/^(機會成本|沉沒成本|比較優勢)$/},
@@ -400,23 +675,34 @@ const readingThemes = [
 
 function sourcesForReader(article) {
  const title = article.title || '';
- const related = [];
  const themes = readingThemes.filter(theme => theme.match.test(title));
- // A direct topic match is required. Sharing a broad category is insufficient.
+ const events = reviewedNewsEvents.filter(([,ids]) => ids.includes(article.id));
+ const topics = reviewedReadingTopics.filter(([,ids]) => ids.includes(article.id));
+ const text = article.kind === 'knowledge' ? glossaryPassages(article).join('\n') : '';
+ const related = [];
  for (const candidate of homepageArticles(state.news)) {
-  if (candidate.url === article.url || candidate.title === title) continue;
-  const theme = themes.find(entry => entry.match.test(candidate.title || ''));
-  if (!theme) continue;
+  if (candidate.url === article.url || !candidate.title || candidate.title === title) continue;
+  const event = events.find(([,ids]) => ids.includes(candidate.id));
+  const topic = topics.find(([,ids]) => ids.includes(candidate.id));
+  const theme = themes.find(entry => entry.match.test(candidate.title));
+  const citedConcept = candidate.kind === 'knowledge' && /^[\p{Script=Han}]{4,14}$/u.test(candidate.title)
+   && (findGlossaryWord(title, candidate.title) >= 0
+    || text.split(candidate.title).length >= 3);
+  if (!event && !topic && !theme && !citedConcept) continue;
   const onSite = candidate.content_scope !== 'media_headline';
+  const name = event?.[0] || topic?.[0] || theme?.name;
+  const sameEvent = Boolean(event || theme?.event);
   related.push({
-   ...candidate, onSite, theme,
-   reason:theme.event ? `補充「${theme.name}」的另一則報導。`
-    : candidate.kind === 'knowledge' ? `深入了解「${theme.name}」的相關概念。`
-    : `查看「${theme.name}」在實際事件中的發展。`
+   ...candidate, onSite, sameEvent,
+   relevance:event ? 4 : topic ? 3 : theme ? 2 : 1,
+   reason:sameEvent ? `對照「${name}」的另一則報導。`
+    : name ? `從${candidate.kind === 'knowledge' ? '相關概念' : '實際案例'}延伸了解${name}。`
+    : `深入閱讀本文提到的「${candidate.title}」。`
   });
  }
- return related.sort((a,b) => Number(b.onSite)-Number(a.onSite)
-   || Number(state.read.includes(a.url))-Number(state.read.includes(b.url)));
+ return related.sort((a,b) => Number(state.read.includes(a.url))-Number(state.read.includes(b.url))
+   || b.relevance-a.relevance || Number(b.onSite)-Number(a.onSite)
+   || (Date.parse(b.published_at)-Date.parse(a.published_at) || 0));
 }
 
 function readerLink(link, label, extraClass='') {
@@ -425,15 +711,19 @@ function readerLink(link, label, extraClass='') {
  return `<a class="${extraClass}" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)} ↗</a>`;
 }
 
-function relatedReaderContent(related, editorial) {
+function relatedReaderItems(related, editorial) {
  const seen = new Set(), titles = new Set();
  const full = related.filter(item => hasApprovedFullText(item) || isTextEdition(item));
- const items = [...full, ...editorial, ...related]
+ return [...editorial, ...full, ...related]
   .filter(item => {
    const key = safeUrl(item.url);
    if (!key || seen.has(key) || titles.has(item.title)) return false;
    seen.add(key); titles.add(item.title); return true;
   }).slice(0,3);
+}
+
+function relatedReaderContent(related, editorial) {
+ const items = relatedReaderItems(related, editorial);
  if (!items.length) return '';
  return `<ul class="reader-related">${items.map(item => `<li>
   ${item.onSite ? `<button class="reader-related-link" type="button" data-open="${esc(item.url)}">${esc(item.title)}</button>`
@@ -466,30 +756,137 @@ function reviewedCostDiagram(showExpand = true) {
 function relatedNewsContext(article, related) {
  const reported = Date.parse(article.published_at);
  if (!Number.isFinite(reported)) return [];
- // Automatic context quotes only sourced headlines about an identified event.
- const prior = related.filter(item => item.theme.event && item.kind !== 'knowledge'
-   && Date.parse(item.published_at) <= reported
-   && Date.parse(item.published_at) >= reported-14*86400000
-   && !/Yahoo/.test(item.source))
-  .sort((a,b) => Date.parse(a.published_at)-Date.parse(b.published_at))[0];
- if (!prior) return [];
+ const day = date(article.published_at);
+ const links = related.filter(item => item.sameEvent && item.kind === 'news'
+   && Math.abs(Date.parse(item.published_at)-reported) <= 14*86400000
+   && safeUrl(item.url));
+ const linksByDate = [...links].sort((a,b) => Date.parse(a.published_at)-Date.parse(b.published_at));
+ const previous = linksByDate.find(item => Date.parse(item.published_at) < reported && date(item.published_at) !== day);
+ const next = linksByDate.find(item => Date.parse(item.published_at) > reported && date(item.published_at) !== day);
+ const sameDay = links.find(item => date(item.published_at) === day && item.source !== article.source)
+   || links.find(item => date(item.published_at) === day);
+ const row = (label, item) => ({label,date:date(item.published_at),text:item.title,link:item});
+ if (!previous && !next && !sameDay) return [];
  return [
-  {label:Date.parse(prior.published_at) === reported ? '同日報導' : '前情報導',
-   date:date(prior.published_at), text:prior.title, link:prior},
-  {label:'本篇報導',date:date(article.published_at),text:article.title,link:article}
+  ...(previous ? [row('前情報導',previous)] : []),
+  row('本篇報導',article),
+  ...(sameDay && (!previous || !next) ? [row('同日相關報導',sameDay)] : []),
+  ...(next ? [row('後續報導',next)] : [])
  ];
 }
 
 function contextRows(article, rows) {
- return `<dl class="reader-context-rows">${rows.map(row => `<div>
-  <dt>${esc(row.label)}${row.date ? `<span class="reader-context-meta">${esc(/^\d{4}-\d{2}-\d{2}$/.test(row.date) ? date(row.date) : row.date)}</span>` : ''}</dt>
-  <dd>${esc(row.text)}${row.date ? `<span class="reader-context-meta">${readerLink(row.link || article,(row.link || article).source)}</span>` : ''}</dd>
- </div>`).join('')}</dl>`;
+ return `<dl class="reader-context-rows">${rows.map(row => {
+ const published = row.useArticleDate ? date(article.published_at) : row.date;
+ return `<div>
+  <dt>${esc(row.label)}${published ? `<span class="reader-context-meta">${esc(/^\d{4}-\d{2}-\d{2}$/.test(published) ? date(published) : published)}</span>` : ''}</dt>
+  <dd>${esc(row.text)}${published ? `<span class="reader-context-meta">${readerLink(row.link || article,(row.link || article).source)}</span>` : ''}</dd>
+ </div>`;
+ }).join('')}</dl>`;
 }
 
 // Reviewed one-sentence definitions. Alternate spellings are matched in the
 // actual article, and only the first occurrence of a concept is listed.
 const glossaryGroups = [
+ {scope:/地震|海嘯|地球科學/,terms:[
+  ['震源','地底岩層開始破裂並釋放地震波的位置。'],
+  ['震央','地表上位於震源正上方的地點。'],
+  ['震源深度','從地表到地震破裂起點的垂直距離。'],
+  ['矩震級','根據斷層破裂面積、位移量和岩石性質估計地震大小的量尺。','矩震級規模'],
+  ['液化','地震搖晃使飽含水分的鬆散土壤暫時失去原有承載力的現象。','土壤液化'],
+  ['海嘯','大量海水因海底地震、山崩等事件突然位移而形成的一系列長波。']
+ ]},
+ {scope:/環境|生命科學|生態|地球科學/,terms:[
+  ['物種豐富度','一定區域內出現的物種數量。'],
+  ['物種均勻度','衡量群落中各物種的個體數彼此有多接近。','均勻度'],
+  ['優勢種','在群落中數量、覆蓋範圍或生態影響特別大的物種。'],
+  ['指標物種','其出現、數量或健康狀況可以反映環境條件的物種。','指標種'],
+  ['原生物種','因自然演化或擴散而出現在某地的物種。','原生種'],
+  ['入侵種','被引入原有分布範圍之外，並對當地環境、生物或人類活動造成影響的物種。','入侵物種'],
+  ['特有種','自然分布侷限在特定地理範圍的物種。'],
+  ['棲地破碎化','連續棲地被道路、開發或其他阻隔切成更小而隔離的區塊。','棲息地破碎化'],
+  ['群落','在同一區域生活並互相作用的不同物種族群。','生物群落'],
+  ['生物量','某一區域或某個生態層級中，生物體有機物質的總量。'],
+  ['營養級','生物在食物鏈中的位置，例如生產者、初級消費者或次級消費者。','營養階層'],
+  ['食物網','由多條互相交錯的食物鏈組成的能量與物質傳遞關係。'],
+  ['優養化','水中氮、磷等養分過多，使藻類快速增生，並可能導致水中缺氧的過程。','富營養化'],
+  ['固碳','把空氣或水中的無機碳轉為有機物的過程。','碳固定'],
+  ['碳匯','吸收的碳在一定時間內多於釋放量的系統，例如持續蓄積碳的森林。'],
+  ['分布區','一個物種自然出現的地理範圍。','分布範圍'],
+  ['生殖隔離','不同族群之間因行為、時間或生理等差異而難以交配或產生可繁殖後代。'],
+  ['基因流','基因因個體或配子移動及繁殖而在族群之間傳遞。','基因交流'],
+  ['族群瓶頸','族群規模短時間大幅減少，使原本的遺傳變異可能隨之流失。','瓶頸效應'],
+  ['雜交','來自不同遺傳背景的生物交配並產生後代。'],
+  ['共演化','彼此互動的物種對對方造成選擇壓力，因而相互影響演化。','共同演化'],
+  ['內共生','一種生物長期生活在另一種生物體內的共生關係。'],
+  ['生物放大','某些不易分解或排出的物質，隨生物在食物鏈的位置升高而出現更高濃度。'],
+  ['生態演替','一地的物種組成和群落結構隨時間逐步改變的過程。','演替']
+ ]},
+ {scope:/心理|偏誤|實驗|研究|醫療|安慰劑|科學方法/,terms:[
+  ['負增強','當某行為能移除令人不舒服的刺激，使該行為之後更常出現。','負強化'],
+  ['操作制約','行為因它帶來的後果而逐漸變得更常或更少出現的學習方式。','操作性制約'],
+  ['外在效度','研究結果能延伸到其他人群、情境或時間的程度。'],
+  ['內在效度','研究結果中的變化有多大把握可歸因於研究所測試的因素。'],
+  ['隨機分派','用隨機程序將參與者分到不同研究組，以減少組間初始差異帶來的影響。','隨機分配'],
+  ['樣本偏差','取樣方式讓某些人或資料容易被選中，使樣本不易代表目標群體。','抽樣偏差','取樣偏差'],
+  ['隨機抽樣','從目標群體依隨機程序挑選樣本，讓抽樣機率可事先界定。'],
+  ['混淆因子','同時與待研究的原因及結果有關，可能扭曲兩者關係的因素。','混雜因子','混雜變項'],
+  ['統計顯著性','在指定模型與假設下，觀察到的差異達到了預先設定的統計門檻。','統計顯著'],
+  ['效應量','用數字表示差異或關聯的大小。','效果量'],
+  ['自我歸因','人利用內在特質或外在情境解釋自己為何有某種行為或結果。'],
+  ['內隱聯想','人未必察覺，卻會自動把某一類事物和特定特質或評價連在一起。'],
+  ['情緒調節','影響自己何時產生情緒、感受多強，以及如何表達情緒的過程。'],
+  ['壓力反應','面對威脅或壓力時出現的身體、情緒或行為變化。'],
+  ['酒精依賴','即使飲酒已造成生活困擾，仍很難控制飲酒，酒量下降時也可能出現戒斷。'],
+  ['戒斷症狀','身體已習慣某種物質後，在減量或停止使用時出現的不適。','戒斷'],
+  ['酒精使用障礙','飲酒行為長期難以控制並造成生活功能受損或明顯困擾的臨床狀況。']
+ ]},
+ {scope:/藝術|歷史|美術|建築/,terms:[
+  ['舊石器時代','以打製石器為辨識特徵的人類史前時期，起訖年代因地區而異。'],
+  ['圖像學','研究藝術作品中的圖像、符號和主題如何傳達文化意涵。'],
+  ['藝術史','透過作品、史料與創作背景研究藝術形式及其歷史變化的學科。'],
+  ['透視法','用線條、比例或明暗等方式，在平面表現物體深度與遠近。'],
+  ['木刻版畫','在木板雕刻圖像，將墨轉印到紙張等表面所形成的作品。','木版畫'],
+  ['後印象派','對印象派有所承繼又各自發展的藝術家及作品的概稱，常見對色彩、結構或表現方式的探索。','後印象主義'],
+  ['壁畫','直接製作於牆壁或天花板等建築表面的圖像。'],
+  ['彩繪玻璃','用有色玻璃拼組圖樣、文字或場景的裝飾工藝。'],
+  ['拱頂','用拱形結構覆蓋室內空間的建築頂部。'],
+  ['維多利亞時代','英國維多利亞女王在位的 1837 到 1901 年。'],
+  ['浮世繪','日本江戶時代興盛的繪畫與版畫，常見題材包括城市生活、演員及風景。']
+ ]},
+ {scope:/科技|資安|程式|數位|加密|身分/,terms:[
+  ['雙因素驗證','用兩種不同類型的證明確認身分，例如密碼與實體安全金鑰。','雙重驗證','兩因素驗證'],
+  ['私鑰','非對稱密碼系統中由持有人保密的金鑰，可依用途用於簽署或解密。','私密金鑰'],
+  ['公開金鑰','與私鑰成對並可公開分享的金鑰，可依用途驗證簽章或加密資料。','公鑰'],
+  ['數位憑證','由發行機構簽發、將個人、機構或網站的身分與一把公開金鑰連結的電子文件。'],
+  ['雜湊碰撞','兩筆不同輸入經同一雜湊函式處理後，得到相同輸出。'],
+  ['最小權限原則','讓每個帳號或程式只取得完成指定工作所需的權限。','最小權限'],
+  ['權限提升','帳號或程式取得比它原先擁有的層級更高的權限。','提升權限'],
+  ['風險評估','辨識威脅，再衡量事件發生的可能性與造成的影響。'],
+  ['災難復原','服務或資料受重大故障影響後，依計畫回復關鍵功能和資料的過程。','災害復原']
+ ]},
+ {scope:/邏輯|推理|謬誤|哲學|人文/,terms:[
+  ['前提','在一段論證中用來支持結論的陳述。'],
+  ['演繹論證','如果推理有效，只要各前提為真，結論也必須為真的論證。','演繹推理'],
+  ['歸納推理','根據觀察到的案例推估較一般的結論，結論的可靠性取決於證據。','歸納論證'],
+  ['充分條件','只要條件成立，就足以使另一個結果成立。'],
+  ['必要條件','某項結果成立時必定要具備的條件。'],
+  ['反例','一個足以顯示某項普遍主張有例外的個案。'],
+  ['循環論證','用必須先接受結論的理由來支持結論，因此缺乏獨立的論證基礎。','循環推理'],
+  ['外延','一個概念實際涵蓋的對象集合。'],
+  ['內涵','決定哪些對象符合一個概念的特徵或條件。'],
+  ['等價','在指定的條件下，兩個命題具有相同的真假結果，因而可互相推出。','邏輯等價']
+ ]},
+ {scope:/商業|經濟|住房|成本/,terms:[
+  ['公共財','難以排除他人使用，且多一人使用通常不減少其他人可使用程度的財貨。','公共物品'],
+  ['搭便車','在未負擔相應成本的情況下，享受他人出資或付出所帶來的利益。','免費搭車'],
+  ['非排他性','一項財貨供應後，很難排除未付費者使用。','非排除性'],
+  ['非競爭性','多一個人使用某項財貨時，其他人可使用的程度通常不會降低。','非敵對性'],
+  ['逆向選擇','交易前一方資訊較少，可能使高風險或低品質的選項更容易留下來。'],
+  ['道德風險','在風險由他人分擔時，當事人的行為可能因而改變並承擔更多風險。'],
+  ['消費者物價指數','用有代表性的消費品與服務組合追蹤家庭消費價格變動的指標。','CPI'],
+  ['權重','某項價格納入整體指標時所占的比重。']
+ ]},
  {
   scope:/抗生素|微生物|醫療|生命科學|公共衛生/i,
   source:{url:'https://www.cdc.gov/narms/glossary/',source:'美國 CDC 抗藥性詞彙表（英文）'},
@@ -686,6 +1083,12 @@ function knowledgeTextParts(article) {
   ? article.evidence_zh_hant : originalParts(article);
 }
 
+function glossaryPassages(article) {
+ const parts = knowledgeTextParts(article);
+ const end = parts.findIndex(part => /^=+\s*(?:參考|外部連結|延伸閱讀|腳註|註釋|注釋)/.test(part.trim()));
+ return end < 0 ? parts : parts.slice(0,end);
+}
+
 function findGlossaryWord(text, word) {
  if (!/^[A-Za-z0-9-]+$/.test(word)) return text.indexOf(word);
  const match = text.match(new RegExp('(^|[^A-Za-z0-9])'+word+'(?=$|[^A-Za-z0-9])','i'));
@@ -724,7 +1127,7 @@ function definitionsInArticle(parts, article) {
 }
 
 function readerGlossary(article, supplement) {
- const parts = knowledgeTextParts(article);
+ const parts = glossaryPassages(article);
  const text = parts.join('\n');
  const title = article.title || '';
  const position = term => findGlossaryWord(text, term);
