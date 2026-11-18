@@ -1,7 +1,34 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-17T10:56:40.643955+00:00",
+  "updated_at": "2026-11-18T01:00:17.814339+00:00",
   "items": [
+    {
+      "image_url": "https://images-assets.nasa.gov/image/EMU_CHIP_GLOVE_DYE_L2/EMU_CHIP_GLOVE_DYE_L2~large.jpg",
+      "image_rights": "unverified",
+      "image_credit": "NASA",
+      "quiz_reviewed": false,
+      "quiz": [],
+      "excerpt_original": "The NASA Space Biology Program within the Biological and Physical Sciences (BPS) Division investigates how living systems respond across the full spectrum of biological organization to advance understanding of how living systems respond to the unique stressors of space exploration—including microgravity, ionizing radiation, low magnetic fields, and elevated CO₂. As NASA prepares for long-duration deep […]",
+      "translation_zh_hant": null,
+      "evidence_original": [
+        "The NASA Space Biology Program within the Biological and Physical Sciences (BPS) Division investigates how living systems respond across the full spectrum of biological organization to advance understanding of how living systems respond to the unique stressors of space exploration—including microgravity, ionizing radiation, low magnetic fields, and elevated CO₂. As NASA prepares for long-duration deep […]"
+      ],
+      "evidence_zh_hant": [],
+      "translation_status": "translation_not_requested",
+      "content_scope": "publisher_feed_excerpt",
+      "extraction_status": "not_attempted",
+      "content_complete": false,
+      "reuse_license": "not_confirmed",
+      "id": "nasa:1660699974",
+      "source_id": "nasa",
+      "source": "NASA",
+      "category": "AI與科技",
+      "title": "BPS Digital AVATAR Challenge",
+      "url": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/center-of-excellence-for-collaborative-innovation-coeci/bps-digital-avatar-challenge/",
+      "published_at": "2026-11-17T20:39:38+00:00",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
     {
       "id": "ey:bd9aa504-ece8-4da5-998a-917aaa66130c",
       "source_id": "ey",
@@ -1617,65 +1644,38 @@
       "excerpt_original": "「2026臺灣科普環島列車」今（19）日自臺北車站正式啟航，行政院吳誠文政務委員、數位發展部部長林宜敬等貴賓齊聚開幕典禮，為為期6天的全臺科學之旅揭開序幕。數位發展部今年持續響應參與，將基礎通訊科技帶進科普列車車廂，透過4項貼近日常生活的互動實驗，帶領國小學童從動手操作認識訊息傳遞、人機互動、感測控制及通訊安全等概念，在體驗中建立對數位科技的基礎認識。",
       "verification": "publisher_domain_checked",
       "claim_verification": "not_independently_verified"
-    },
-    {
-      "id": "moda:21078",
-      "source_id": "moda",
-      "source": "數位發展部",
-      "kind": "news",
-      "category": "AI與科技",
-      "title": "數發部MyData讓社宅申請更便利！免跑機關一次備妥資料",
-      "url": "https://moda.gov.tw/press/press-releases/21078",
-      "published_at": "2026-10-15T03:20:48+08:00",
-      "content_complete": true,
-      "reuse_license": "approved",
-      "license_name": "CC0 1.0",
-      "license_url": "https://moda.gov.tw/announcement/publicdeclare/951",
-      "content_scope": "official_full_text",
-      "translation_status": "original_zh_hant",
-      "evidence_original": [
-        "想申請社會住宅，卻擔心準備資料費時又繁瑣？透過數位發展部「個人化資料自主運用（MyData）平臺」，即可線上取得申請所需資料，省去請假、準備紙本及往返機關的時間。目前內政部國家住宅及都市更新中心，以及臺北市、新北市、桃園市、臺中市和臺南市，皆已介接MyData平臺提供社會住宅申請服務，民眾可依各地社宅招租期程及需求多加運用。",
-        "在臺北市從事餐飲業的呂先生日前想申請社宅，依規定需準備的資料包含戶政事務所的「全戶戶籍謄本」、國稅局的「全國財產稅總歸戶財產查詢清單」、「最近一年綜合所得稅各類所得資料清單」......等多項資料。由於呂先生工作繁忙，平時難以特別請假前往各單位申辦資料，他想起過去曾使用過數發部的MyData平臺，對線上申辦的便利性留下深刻印象，因此這次申請臺北市社會住宅時，呂先生也透過MyData取得申請所需資料。過程中遇到的操作問題，也在洽詢MyData客服確認操作方式後，順利完成申請。",
-        "呂先生表示：「平常餐飲工作比較忙，休息時間又不多，很難特別請假跑不同機關準備戶籍、財產及所得資料，透過MyData就能線上取得申請需要的資料，讓我在截止日前完成申辦，省下不少時間，也讓申請社宅方便很多。」",
-        "數發部表示，民眾申請社會住宅時，依不同身分及資格條件，需檢附戶籍、財產、所得或相關資格證明等6至8項個人資料。過去民眾需分別向戶政、財稅、社政及勞保等各機關分別申請，現在透過MyData平臺，民眾只要完成身分驗證及自主同意，即可線上取得並提供申辦所需資料，不必再為準備不同證明文件往返各機關。",
-        "數發部表示，MyData平臺透過跨機關資料整合與民眾自主同意機制，在兼顧個資安全與隱私保護的前提下，協助民眾運用政府機關已持有的個人資料，讓民眾申辦政府服務時，不必再自行奔波於不同機關準備證明文件。數發部將持續推動各政府機關、國營事業及金融機構擴展MyData平臺服務應用，串聯更多跨機關資料與服務，進一步提升公共服務的數位化與便利性。",
-        "便利生活從MyData開始，更多便民服務請上MyData平臺：https://mydata.nat.gov.tw。"
-      ],
-      "excerpt_original": "想申請社會住宅，卻擔心準備資料費時又繁瑣？透過數位發展部「個人化資料自主運用（MyData）平臺」，即可線上取得申請所需資料，省去請假、準備紙本及往返機關的時間。目前內政部國家住宅及都市更新中心，以及臺北市、新北市、桃園市、臺中市和臺南市，皆已介接MyData平臺提供社會住宅申請服務，民眾可依各地社宅招租期程及需求多加運用。",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
     }
   ],
   "sources": {
     "nasa": {
       "status": "ok",
-      "accepted": 0,
-      "checked_at": "2026-11-17T10:56:40.643955+00:00"
+      "accepted": 1,
+      "checked_at": "2026-11-18T01:00:17.814339+00:00"
     },
     "who": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-17T10:56:40.643955+00:00"
+      "checked_at": "2026-11-18T01:00:17.814339+00:00"
     },
     "un": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-17T10:56:40.643955+00:00"
+      "checked_at": "2026-11-18T01:00:17.814339+00:00"
     },
     "數位發展部": {
       "status": "ok",
       "accepted": 4,
-      "checked_at": "2026-11-17T10:56:40.643955+00:00"
+      "checked_at": "2026-11-18T01:00:17.814339+00:00"
     },
     "數位產業署": {
       "status": "ok",
       "accepted": 6,
-      "checked_at": "2026-11-17T10:56:40.643955+00:00"
+      "checked_at": "2026-11-18T01:00:17.814339+00:00"
     },
     "行政院": {
       "status": "ok",
       "accepted": 8,
-      "checked_at": "2026-11-17T10:56:40.643955+00:00"
+      "checked_at": "2026-11-18T01:00:17.814339+00:00"
     }
   },
   "disclaimer": "Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed."
