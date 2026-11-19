@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Daily Insight 3.0｜第五階段驗收預覽（非正式）</title>
+  <link rel="stylesheet" href="../style.css?v=trends3-stage5">
+  <style>
+    .preview-ribbon{background:#fff1d8;color:#805020;padding:13px 20px;border:1px solid #e9d4ad;border-radius:12px;margin:18px 0;font-size:14px;line-height:1.8}
+    .preview-nav-only{display:inline-flex;align-items:center;min-height:44px;cursor:default!important}
+    .preview-ribbon strong{color:#653e1c}
+  </style>
+  <script>
+    // Isolated demo data. This page never contacts or modifies the live data feed.
+    const DEMO_EVENTS = [
+      {
+        id:'demo-stage5-semiconductor',aliases:[],title:'【示範事件】某晶片業者公布先進封裝產能規劃',
+        primary_topic:'semiconductors',related_topics:['technology_ai','business_management'],importance_score:7,
+        importance_factors:{topical:3,impact:1,recency:2,sources:1},status:'developing',
+        first_seen_at:'2026-11-19T01:00:00Z',updated_at:'2026-11-19T03:00:00Z',
+        source_count:3,facts:[],watchpoint:'檢視後續官方公告與實際產能進度。',
+        independently_verified:false,evidence_status:'primary_source_available',origin_priority:'primary_source',
+        articles:[
+          {title:'【示範】晶片業者發布先進封裝產能計畫',source:'示範官方發布者',source_type:'official',content_access:'licensed_full_text',source_group:'demo-official',source_domain:'official.example',url:'https://official.example/plan',published_at:'2026-11-19T01:00:00Z'},
+          {title:'【示範】晶片業者發布先進封裝產能計畫',source:'示範媒體甲',source_type:'media',content_access:'headline_only',source_group:'demo-media-1',source_domain:'media-one.example',url:'https://media-one.example/plan',published_at:'2026-11-19T02:00:00Z'},
+          {title:'【示範】晶片業者新產能規劃與供應鏈觀察',source:'示範媒體乙',source_type:'media',content_access:'excerpt',source_group:'demo-media-2',source_domain:'media-two.example',url:'https://media-two.example/plan',published_at:'2026-11-19T03:00:00Z'}
+        ],
+        headline_groups:[
+          {headline:'【示範】晶片業者發布先進封裝產能計畫',article_urls:['https://official.example/plan','https://media-one.example/plan'],source_groups:['demo-official','demo-media-1'],status:'similar_headline_only',independently_verified:false},
+          {headline:'【示範】晶片業者新產能規劃與供應鏈觀察',article_urls:['https://media-two.example/plan'],source_groups:['demo-media-2'],status:'similar_headline_only',independently_verified:false}
+        ]
+      }
+    ];
+    DEMO_EVENTS[0].article_urls = DEMO_EVENTS[0].articles.map(item=>item.url);
+    const DEMO_DATA = {
+      './data/trends.json':{schema_version:1,generated_at:'2026-11-19T04:00:00Z',method:'demo_only',topics:[
+        {id:'technology_ai',label:'科技與 AI'}, {id:'semiconductors',label:'半導體產業'},
+        {id:'global_finance',label:'全球經濟與金融'}, {id:'business_management',label:'企業經營與管理'},
+        {id:'politics_policy',label:'國際政治與政策'}, {id:'consumer_lifestyle',label:'生活與消費趨勢'}
+      ],events:DEMO_EVENTS},
+      './data/trend-history.json':{schema_version:1,days:[{date:'2026-11-19',total_events:1,topic_counts:{semiconductors:1},top_event_ids:['demo-stage5-semiconductor']}]},
+      './data/source-health.json':{schema_version:1,generated_at:'2026-11-19T04:00:00Z',links:{
+        'https://official.example/plan':{status:'available',http_status:200,checked_at:'2026-11-19T03:30:00Z'},
+        'https://media-one.example/plan':{status:'unknown',http_status:403,checked_at:'2026-11-19T03:30:00Z'}
+      }}
+    };
+    const originalFetch = window.fetch.bind(window);
+    window.fetch = async function(resource, options) {
+      const key = String(resource);
+      if (Object.prototype.hasOwnProperty.call(DEMO_DATA,key)) {
+        return {ok:true,status:200,json:async()=>DEMO_DATA[key]};
+      }
+      return originalFetch(resource,options);
+    };
+    function render() {
+      if (window.DailyTrends) document.getElementById('main').innerHTML = window.DailyTrends.render([]);
+    }
+    document.addEventListener('DOMContentLoaded', render);
+    document.addEventListener('click', event=>{
+      if(event.target.closest('a[href*=".example/"]')){
+        event.preventDefault();
+        window.alert('此連結僅用於展示畫面，並非真實新聞網址。');
+      }
+    });
+  </script>
+  <script src="../trends.js?v=trends3-stage5" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="mast">
+      <div class="brand"><span class="brandmark">✳</span><div><div class="eyebrow">CURIOUS MINDS · DAILY EDITION</div><h1>Daily <em>Insight.</em></h1></div></div>
+      <div class="header-right">READ · LEARN · GROW</div>
+    </header>
+    <div class="preview-ribbon" role="status"><strong>第五階段驗收預覽｜非正式網站</strong>　操作資料均為示範，沒有真實新聞查證結果。本頁不連接正式站資料，也不會發布修改。</div>
+    <div class="site-toolbar"><nav aria-label="主選單（示意）">
+      <span class="tab active preview-nav-only">趨勢情報 <span class="nav-new">3.0</span></span>
+      <span class="tab preview-nav-only">新聞</span><span class="tab preview-nav-only">知識</span>
+      <span class="tab preview-nav-only">收藏書架</span><span class="tab preview-nav-only">學習足跡</span><span class="tab preview-nav-only">來源準則</span>
+    </nav></div>
+    <main id="main"><p>正在載入第五階段示範事件…</p></main>
+    <footer>Daily Insight 3.0｜第五階段非正式操作預覽。來源、時間、健康檢查結果皆為示意。</footer>
+  </div>
+</body>
+</html>

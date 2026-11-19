@@ -14,12 +14,15 @@ import pathlib
 import re
 import tempfile
 import os
-from urllib.parse import urlsplit
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
+
+from source_quality import metadata, source_type
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data'
 NOW = dt.datetime.now(dt.timezone.utc)
 MAX_AGE_DAYS = 21
+MAX_CLUSTER_SPAN_DAYS = 10
 
 TOPICS = [
     ('technology_ai', '科技與 AI', ('人工智慧', '生成式', 'ai', 'llm', '模型', '算力', '雲端', '資安', 'cyber', 'robot', '機器人', '數位', '科技', '軟體', 'nvidia', 'openai', 'google', 'microsoft', '衛星', '太空')), 
@@ -66,6 +69,16 @@ def safe_url(url):
         return False
 
 
+def canonical_url(url):
+    """Remove tracking parameters for deduplication, retaining the original link."""
+    parts = urlsplit(url)
+    params = [(key, value) for key, value in parse_qsl(parts.query, keep_blank_values=True)
+              if key.lower() not in {'fbclid', 'gclid', 'mc_cid', 'mc_eid'}
+              and not key.lower().startswith('utm_')]
+    return urlunsplit((parts.scheme.lower(), parts.netloc.lower(),
+                      parts.path.rstrip('/') or '/', urlencode(params), ''))
+
+
 def timestamp(value):
     if not value:
         return None
@@ -108,6 +121,15 @@ def grams(title):
 def similar(a, b):
     if a['topic'] != b['topic']:
         return False
+    if abs((a['date'] - b['date']).total_seconds()) > MAX_CLUSTER_SPAN_DAYS * 86400:
+        return False
+    # Distinct named English organizations are a guard against a common headline
+    # template conflating different companies. Generic industry words are ignored.
+    generic = {'ai', 'gpu', 'hbm', 'chip', 'chips', 'fed', 'llm', 'api'}
+    named_a = set(re.findall(r'[a-z][a-z0-9-]{2,}', a['article']['title'].lower())) - generic
+    named_b = set(re.findall(r'[a-z][a-z0-9-]{2,}', b['article']['title'].lower())) - generic
+    if named_a and named_b and not named_a.intersection(named_b):
+        return False
     shared = a['grams'] & b['grams']
     union = a['grams'] | b['grams']
     return len(shared) >= 3 and bool(union) and len(shared) / len(union) >= .38
@@ -116,9 +138,31 @@ def similar(a, b):
 def load_previous():
     try:
         previous = json.loads((DATA / 'trends.json').read_text(encoding='utf-8'))
-        return {url: event['id'] for event in previous.get('events', []) for url in event.get('article_urls', [])}
+        return {url: {'id': event['id'], 'aliases': event.get('aliases', [])}
+                for event in previous.get('events', []) for url in event.get('article_urls', [])}
     except (OSError, KeyError, ValueError, TypeError):
         return {}
+
+
+def headline_groups(articles):
+    """Group similar *titles*, without making factual correctness claims."""
+    groups = []
+    for article in articles:
+        tokens = grams(article['title'])
+        matching = next((group for group in groups
+                         if len(tokens & group['tokens']) >= 3
+                         and len(tokens & group['tokens']) / max(1, len(tokens | group['tokens'])) >= .42), None)
+        if matching is None:
+            groups.append({'tokens': tokens, 'representative_title': article['title'], 'articles': [article]})
+        else:
+            matching['articles'].append(article)
+    return [{
+        'headline': group['representative_title'],
+        'article_urls': [a['url'] for a in group['articles']],
+        'source_groups': sorted({a['source_group'] for a in group['articles']}),
+        'status': 'similar_headline_only',
+        'independently_verified': False,
+    } for group in groups]
 
 
 def build_events(articles, now=NOW, previous=None):
@@ -129,14 +173,17 @@ def build_events(articles, now=NOW, previous=None):
     for a in articles:
         url, title = a.get('url'), str(a.get('title') or '').strip()
         published = timestamp(a.get('published_at'))
-        if a.get('kind') == 'knowledge' or not title or not safe_url(url) or url in seen:
+        if a.get('kind') == 'knowledge' or not title or not safe_url(url):
+            continue
+        canonical = canonical_url(url)
+        if canonical in seen:
             continue
         # Sports match scores or country names are not by themselves policy signals.
         if a.get('category') == '運動與健康':
             continue
         if not published or not cutoff <= published <= now + dt.timedelta(days=1):
             continue
-        seen.add(url)
+        seen.add(canonical)
         scores = topic_scores(a)
         top = sorted(scores, key=lambda k: (-scores[k], list(TOPIC_LABELS).index(k)))
         if scores[top[0]] == 0:
@@ -154,34 +201,46 @@ def build_events(articles, now=NOW, previous=None):
             matching.append(candidate)
     events = []
     for group in clusters:
-        best = max(group, key=lambda x: (x['score'], x['article'].get('source_kind') != 'media', x['date']))
+        best = max(group, key=lambda x: (x['score'], source_type(x['article']) == 'official', x['date']))
         latest = max(x['date'] for x in group)
         earliest = min(x['date'] for x in group)
         articles_by_date = sorted(group, key=lambda x: x['date'])
         urls = [x['article']['url'] for x in articles_by_date]
-        reused = next((previous[url] for url in urls if url in previous), None)
-        event_id = reused or 'trend-' + hashlib.sha256(urls[0].encode()).hexdigest()[:14]
-        sources = {str(x['article'].get('source') or '來源未標示') for x in group}
+        prior = [previous[url] for url in urls if url in previous]
+        prior_ids = [x.get('id') if isinstance(x, dict) else x for x in prior]
+        id_counts = collections.Counter(x for x in prior_ids if isinstance(x, str))
+        reused = sorted(id_counts, key=lambda key: (-id_counts[key], key))[0] if id_counts else None
+        event_id = reused or 'trend-' + hashlib.sha256(canonical_url(urls[0]).encode()).hexdigest()[:14]
+        aliases = sorted(({x for x in prior_ids if isinstance(x, str)} |
+                         {alias for item in prior if isinstance(item, dict)
+                          for alias in item.get('aliases', []) if isinstance(alias, str)}) - {event_id})
+        sources = {metadata(x['article'])['source_group'] for x in group}
         topical = min(3, best['score'] // 4)
         impact = min(3, sum(word in best['article']['title'].lower() for word in IMPACT_WORDS))
         recency = 2 if (now - latest).total_seconds() <= 2 * 86400 else 1 if (now - latest).days <= 7 else 0
         evidence = 2 if len(sources) >= 2 else 1 if sources else 0
         score = min(10, topical + impact + recency + evidence)
-        evidence_items = [{'title': x['article']['title'], 'url': x['article']['url'],
-                           'source': x['article'].get('source') or '來源未標示',
-                           'published_at': x['date'].isoformat()}
-                          for x in articles_by_date]
+        evidence_items = [{
+            'title': x['article']['title'], 'url': x['article']['url'],
+            'source': x['article'].get('source') or '來源未標示',
+            'published_at': x['date'].isoformat(),
+            **metadata(x['article']),
+        } for x in articles_by_date]
+        is_primary = any(a['source_type'] == 'official' for a in evidence_items)
         events.append({
-            'id': event_id, 'title': best['article']['title'], 'primary_topic': best['topic'],
+            'id': event_id, 'aliases': aliases, 'title': best['article']['title'], 'primary_topic': best['topic'],
             'related_topics': sorted({key for x in group for key in x['related']}),
             'importance_score': score, 'importance_factors': {'topical': topical, 'impact': impact, 'recency': recency, 'sources': evidence},
             'status': 'developing' if len(group) > 1 else 'new',
             'first_seen_at': earliest.isoformat(), 'updated_at': latest.isoformat(),
             'article_urls': urls, 'source_count': len(sources), 'articles': evidence_items,
+            'headline_groups': headline_groups(evidence_items),
+            'evidence_status': 'primary_source_available' if is_primary else 'media_reports_only',
+            'independently_verified': False,
             'facts': [],  # No machine-authored factual assertions without evidence review.
             'watchpoint': WATCHPOINTS[best['topic']],
             'interpretation_label': '觀察方向，非已證實結論或投資建議',
-            'origin_priority': 'primary_source' if any(x['article'].get('source_kind') != 'media' for x in group) else 'media_index',
+            'origin_priority': 'primary_source' if is_primary else 'media_index',
         })
     return sorted(events, key=lambda e: (-e['importance_score'], e['origin_priority'] != 'primary_source', -timestamp(e['updated_at']).timestamp(), e['id']))
 
@@ -204,7 +263,9 @@ def update_history(events, now=NOW):
     day = now.astimezone(dt.timezone(dt.timedelta(hours=8))).date().isoformat()
     counts = collections.Counter(e['primary_topic'] for e in events)
     snapshot = {'date': day, 'total_events': len(events), 'topic_counts': {key: counts[key] for key in TOPIC_LABELS},
-                'top_event_ids': [e['id'] for e in events[:8]]}
+                'top_event_ids': [e['id'] for e in events[:8]],
+                'event_ids': [e['id'] for e in events],
+                'indexed_article_count': sum(len(e.get('articles', [])) for e in events)}
     days = [entry for entry in history if isinstance(entry, dict) and entry.get('date') != day]
     days.append(snapshot)
     days = sorted(days, key=lambda x: x['date'])[-180:]
@@ -215,8 +276,8 @@ def update_history(events, now=NOW):
 def main():
     articles = read_items('news.json') + read_items('catalog.json') + read_items('taiwan.json')
     events = build_events(articles, previous=load_previous())
-    output = {'schema_version': 1, 'generated_at': NOW.isoformat(), 'method': 'explainable_rules_no_ai',
-              'disclaimer': '主題歸類與重要性是規則式排序，並非獨立事實查核；原始來源請見各事件。',
+    output = {'schema_version': 1, 'generated_at': NOW.isoformat(), 'method': 'explainable_source_comparison_no_ai',
+              'disclaimer': '事件合併及標題相似度是規則式推論；有官方來源也不等於已獨立查核，請參考原始連結。',
               'topics': [{'id': key, 'label': label} for key, label, _ in TOPICS], 'events': events[:180]}
     write_json(DATA / 'trends.json', output)
     days = update_history(output['events'])
