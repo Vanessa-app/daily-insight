@@ -1248,7 +1248,11 @@ function render(){document.querySelector('#streak').textContent=`已讀 ${state.
  toolbar.innerHTML='<button type="button" class="back reader-back" data-back="1">← 返回探索</button>';
  main.innerHTML=readerLayout(a);
  return;
- }state.selected=null}const n=state.news;if(state.page==='news'||state.page==='knowledge'){
+ }state.selected=null}const n=state.news;if(state.page==='trends'){
+  toolbar.dataset.page='trends';
+  main.innerHTML=window.DailyTrends ? window.DailyTrends.render(n) : '<div class="notice">趨勢情報中心尚未載入。</div>';
+ }
+ else if(state.page==='news'||state.page==='knowledge'){
  const {controls, content}=explore(n);
  toolbar.dataset.page=state.page;
  toolbar.innerHTML=controls;

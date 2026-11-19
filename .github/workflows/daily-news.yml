@@ -8,6 +8,7 @@ on:
       - '.github/workflows/daily-news.yml'
       - 'scripts/update_news.py'
       - 'scripts/update_catalog.py'
+      - 'scripts/update_trends.py'
       - 'catalog_sources.json'
       - 'sources.json'
       - 'requirements.txt'
@@ -39,14 +40,19 @@ jobs:
         id: catalog
         continue-on-error: true
         run: python -u scripts/update_catalog.py
+      - name: Build source-linked trend intelligence and daily snapshots
+        id: trends
+        continue-on-error: true
+        run: python scripts/update_trends.py
       - name: Save available content and expose failures
         if: always()
         env:
           OFFICIAL_OUTCOME: ${{ steps.official.outcome }}
           CATALOG_OUTCOME: ${{ steps.catalog.outcome }}
+          TRENDS_OUTCOME: ${{ steps.trends.outcome }}
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/news.json data/catalog.json
+          git add data/news.json data/catalog.json data/trends.json data/trend-history.json
           if ! git diff --cached --quiet; then git commit -m 'Refresh news and grow knowledge catalog'; git push; fi
-          if [ "$OFFICIAL_OUTCOME" != success ] || [ "$CATALOG_OUTCOME" != success ]; then exit 1; fi
+          if [ "$OFFICIAL_OUTCOME" != success ] || [ "$CATALOG_OUTCOME" != success ] || [ "$TRENDS_OUTCOME" != success ]; then exit 1; fi
