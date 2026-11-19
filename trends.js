@@ -204,9 +204,29 @@
     if (event) return header()+detail(event,news);
     return header() + (currentTab==='deep'?deepAnalysis():currentTab==='watch'?watch():currentTab==='reports'?reports():currentTab==='network'?network():overview()) + (announcement?`<p class="trend-announcement" role="status">${escapeHtml(announcement)}</p>`:'');
   }
+  function switchTab(id, button) {
+    const oldTabs = button.closest?.('.trend-tabs');
+    const wasPinned = oldTabs?.getBoundingClientRect?.().top <= 1;
+    const oldHorizontalScroll = oldTabs?.scrollLeft || 0;
+    currentTab = id; selectedEvent = null; selectedTopic = 'all'; repaint();
+    const tabs = document.querySelector('.trend-tabs');
+    if (!tabs) return;
+    tabs.scrollLeft = oldHorizontalScroll;
+    const active = tabs.querySelector?.('.trend-tab.active');
+    if (active) {
+      const activeLeft = tabs.scrollLeft + active.getBoundingClientRect().left - tabs.getBoundingClientRect().left;
+      if (activeLeft < tabs.scrollLeft) tabs.scrollLeft = activeLeft;
+      else if (activeLeft + active.offsetWidth > tabs.scrollLeft + tabs.clientWidth)
+        tabs.scrollLeft = activeLeft + active.offsetWidth - tabs.clientWidth;
+    }
+    if (wasPinned && tabs.nextElementSibling?.getBoundingClientRect) {
+      const contentTop = tabs.nextElementSibling.getBoundingClientRect().top;
+      window.scrollTo(0, Math.max(0, window.scrollY + contentTop - tabs.getBoundingClientRect().height - 10));
+    }
+  }
   document.addEventListener('click',event=>{
     const b=event.target.closest('button'); if(!b) return;
-    if(b.dataset.trendTab){currentTab=b.dataset.trendTab;selectedEvent=null;selectedTopic='all';repaint();}
+    if(b.dataset.trendTab){switchTab(b.dataset.trendTab,b);}
     else if(b.dataset.trendTopic){selectedTopic=b.dataset.trendTopic;currentTab=currentTab==='network'?'deep':currentTab;selectedEvent=null;repaint();}
     else if(b.dataset.trendDetail){selectedEvent=b.dataset.trendDetail;preferences.viewed[selectedEvent]=new Date().toISOString();persist();repaint();window.scrollTo(0,0);}
     else if(b.hasAttribute('data-trend-close')){selectedEvent=null;repaint();window.scrollTo(0,0);}
