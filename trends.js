@@ -28,7 +28,7 @@
   }
   const preferences = readPrefs();
   let data = null, history = null, loading = false, error = '', currentTab = 'overview', selectedTopic = 'all', selectedEvent = null, showOnlyWatched = false;
-  let announcement = '', initialized = false;
+  let announcement = '', initialized = false, lastFetchedAt = 0;
   function persist() { try { localStorage.setItem(PREF_KEY, JSON.stringify(preferences)); } catch { announcement = '瀏覽器未允許儲存偏好，設定可能無法保留。'; } }
   function repaint() { if (typeof render === 'function' && document.querySelector('[data-page="trends"]')?.classList.contains('active')) render(); }
   function topics() { return data?.topics?.length ? data.topics : TOPIC_FALLBACK; }
@@ -67,6 +67,7 @@
       const past = results[1].status === 'fulfilled' ? results[1].value : null;
       if (past && past.schema_version === 1 && Array.isArray(past.days)) history = past;
     } catch { if (!data) error = '趨勢資料無法使用。'; }
+    lastFetchedAt = Date.now();
     loading = false; repaint();
   }
   function initialize() {
@@ -184,6 +185,7 @@
   }
   function renderPage(news) {
     initialize();
+    if (initialized && !loading && Date.now() - lastFetchedAt > 5*60*1000) refresh();
     if (!data) return header() + `<div class="notice">${escapeHtml(error || (loading?'正在建立趨勢情報畫面…':'尚未取得趨勢資料。'))}<button type="button" class="btn" data-trend-refresh>重新讀取</button></div>`;
     const event = selectedEvent && eventList().find(e=>e.id===selectedEvent);
     if (event) return header()+detail(event,news);
