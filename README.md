@@ -1,5 +1,20 @@
 # Daily Insight
 
+## Daily Insight 2.0 智慧趨勢情報中心
+
+新增「趨勢情報」分頁，整合四階段能力，沿用本專案的 GitHub Pages 網址與既有新聞、知識、收藏、測驗、閱讀進度：
+
+1. **趨勢基礎中心：** 六大領域、事件卡片、來源對應與新聞去重。
+2. **脈絡與影響檢視：** 事件時間線、關聯知識、來源與排序依據；觀察方向不等同已核實事實。
+3. **個人化關注：** 主題偏好、關注清單、站內未讀更新提示；只保存在當前瀏覽器，不發送背景通知。
+4. **週月回顧及主題關聯：** 以每日快照生成資料涵蓋率、領域事件存量圖及跨領域關聯；資料不足時不顯示虛構增減率。
+
+趨勢資料由 `python scripts/update_trends.py` 從既有 `data/news.json`、`data/catalog.json`、`data/taiwan.json` 建立 `data/trends.json` 與 `data/trend-history.json`。使用規則式分類及重要性排序，**沒有外部付費 API、生成式 AI 事實摘要或額外爬文**。兩個新檔案完全獨立於原始文章；新功能故障不應阻擋新聞及知識。
+
+趨勢歷史自此功能開始累積，最多保留 180 天，每天保留最近一次快照；週月報告需顯示資料涵蓋天數。來源數量不代表獨立查證；原文與來源的授權限制維持不變。原有排程不變，仍為台灣時間 08:00、13:00、18:00，於原內容更新後產生趨勢索引。
+
+開發驗證：`python scripts/update_trends.py`、`node scripts/test_trend_frontend.cjs`、`node --check trends.js`、`python -m unittest discover -s scripts -p 'test_*.py'`，以及下方既有測試。請先在非正式分支完成審核再合併，避免未經確認修改正式網站。
+
 [開啟 Daily Insight](https://vanessa-app.github.io/daily-insight/)
 
 - iPhone：Safari → 分享 → 加入主畫面。
