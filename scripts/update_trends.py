@@ -23,11 +23,11 @@ MAX_AGE_DAYS = 21
 
 TOPICS = [
     ('technology_ai', '科技與 AI', ('人工智慧', '生成式', 'ai', 'llm', '模型', '算力', '雲端', '資安', 'cyber', 'robot', '機器人', '數位', '科技', '軟體', 'nvidia', 'openai', 'google', 'microsoft', '衛星', '太空')), 
-    ('semiconductors', '半導體產業', ('半導體', '晶片', '晶圓', '先進製程', '封裝', '台積電', 'tsmc', 'gpu', 'hbm', '記憶體', '矽光子', '設備', 'asml', 'chip', 'nvidia', '供應鏈')), 
-    ('global_finance', '全球經濟與金融', ('利率', '央行', '聯準會', 'fed', '通膨', 'inflation', '匯率', '金融', '經濟', '股市', '就業', 'gdp', '債券', '貨幣', '投資', '貿易', '財政')), 
+    ('semiconductors', '半導體產業', ('半導體', '晶片', '晶圓', '先進製程', '封裝', '台積電', 'tsmc', 'gpu', 'hbm', '記憶體', '矽光子', 'asml', 'chip', 'nvidia')),
+    ('global_finance', '全球經濟與金融', ('利率', '央行', '聯準會', 'fed', '通膨', 'inflation', '匯率', '金融', '經濟', '股市', '台股', '就業', 'gdp', '債券', '貨幣', '貿易', '財政')),
     ('business_management', '企業經營與管理', ('企業', '公司', '營運', '策略', '管理', '轉型', '財報', '獲利', '董事會', '併購', 'ceo', '供應鏈', '商業', '人力', '治理', '新創', '創業')), 
     ('politics_policy', '國際政治與政策', ('國際', '政府', '政策', '法案', '立法', '關稅', '外交', '國安', '美國', '中國', '歐盟', 'apec', '地緣', '總統', '國會', '制裁', '協定', '貿易', '選舉')), 
-    ('consumer_lifestyle', '生活與消費趨勢', ('消費', '零售', '生活', '電商', '旅遊', '食品', '健康', '醫療', '教育', '住宅', '交通', '服務', '永續', '便利', '購物', '旅館', '行動支付')), 
+    ('consumer_lifestyle', '生活與消費趨勢', ('消費', '零售', '生活', '電商', '旅遊', '食品', '健康', '醫療', '住宅', '交通', '購物', '旅館', '行動支付', '網購', '物價', '民生')),
 ]
 TOPIC_LABELS = {item[0]: item[1] for item in TOPICS}
 CATEGORY_BOOSTS = {
@@ -37,6 +37,7 @@ CATEGORY_BOOSTS = {
     '社會與公共政策': 'politics_policy', '日常生活與實用技能': 'consumer_lifestyle',
     '醫療與健康': 'consumer_lifestyle', '食品與生活': 'consumer_lifestyle',
 }
+BROAD_TERMS = {'科技', '數位', '國際', '公司', '企業', '健康', '經濟', '美國', '中國', '服務', '管理', '商業'}
 IMPACT_WORDS = ('重大', '全球', '首次', '政策', '法案', '投資', '突破', '升級', '國際', '轉型', '影響', '供應鏈', '創新', '創紀錄', 'official', 'announces')
 EVENT_WORDS = ('宣布', '公布', '推出', '發布', '通過', '調整', '合作', '上線', 'invest', 'launch', 'announce', 'approve', 'release', '升級', '簽署', '開幕', '修正')
 WATCHPOINTS = {
@@ -80,7 +81,13 @@ def topic_scores(article):
     category = str(article.get('category', ''))
     scores = {}
     for key, _label, terms in TOPICS:
-        score = sum(3 if term in title else 0 for term in terms)
+        matched_terms = [term for term in terms if term in title]
+        matches = len(matched_terms)
+        # A broad news category without a title-level subject match is not a trend.
+        if not matches or (matches == 1 and matched_terms[0] in BROAD_TERMS and CATEGORY_BOOSTS.get(category) != key):
+            scores[key] = 0
+            continue
+        score = matches * 3
         if CATEGORY_BOOSTS.get(category) == key:
             score += 2
         if key == 'semiconductors' and any(x in title for x in ('半導體', '晶片', '晶圓', '台積電', 'tsmc', '封裝')):
@@ -124,6 +131,9 @@ def build_events(articles, now=NOW, previous=None):
         published = timestamp(a.get('published_at'))
         if a.get('kind') == 'knowledge' or not title or not safe_url(url) or url in seen:
             continue
+        # Sports match scores or country names are not by themselves policy signals.
+        if a.get('category') == '運動與健康':
+            continue
         if not published or not cutoff <= published <= now + dt.timedelta(days=1):
             continue
         seen.add(url)
@@ -144,7 +154,7 @@ def build_events(articles, now=NOW, previous=None):
             matching.append(candidate)
     events = []
     for group in clusters:
-        best = max(group, key=lambda x: (x['score'], x['date']))
+        best = max(group, key=lambda x: (x['score'], x['article'].get('source_kind') != 'media', x['date']))
         latest = max(x['date'] for x in group)
         earliest = min(x['date'] for x in group)
         articles_by_date = sorted(group, key=lambda x: x['date'])
@@ -171,8 +181,9 @@ def build_events(articles, now=NOW, previous=None):
             'facts': [],  # No machine-authored factual assertions without evidence review.
             'watchpoint': WATCHPOINTS[best['topic']],
             'interpretation_label': '觀察方向，非已證實結論或投資建議',
+            'origin_priority': 'primary_source' if any(x['article'].get('source_kind') != 'media' for x in group) else 'media_index',
         })
-    return sorted(events, key=lambda e: (-e['importance_score'], -timestamp(e['updated_at']).timestamp(), e['id']))
+    return sorted(events, key=lambda e: (-e['importance_score'], e['origin_priority'] != 'primary_source', -timestamp(e['updated_at']).timestamp(), e['id']))
 
 
 def write_json(path, value):

@@ -43,6 +43,14 @@ class TrendIndexTests(unittest.TestCase):
         self.assertEqual(len(result), 1)
         self.assertEqual(result[0]['source_count'], 1)
 
+    def test_generic_category_does_not_create_false_lifestyle_trend(self):
+        article = self.item('https://example.org/campus', '台大將與THE合辦創新與影響力峰會', category='日常生活與實用技能')
+        self.assertEqual(trends.build_events([article], self.now), [])
+
+    def test_weak_technology_word_in_business_gossip_not_a_trend(self):
+        article = self.item('https://example.org/gossip', '名人傳聞引起科技股話題', category='商業與經濟')
+        self.assertEqual(trends.build_events([article], self.now), [])
+
     def test_stable_event_identifier_for_same_article(self):
         a = self.item('https://example.org/a', '科技 AI 模型推出應用')
         event = trends.build_events([a], self.now)[0]

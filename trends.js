@@ -129,8 +129,21 @@
   }
   function relatedKnowledge(e,news) {
     const categories = {technology_ai:['科技與工程','AI與科技'],semiconductors:['科技與工程','AI與科技'],global_finance:['商業與經濟'],business_management:['商業與經濟','心理學與人類行為'],politics_policy:['社會與公共政策','國際與全球趨勢'],consumer_lifestyle:['日常生活與實用技能','醫療與健康']};
-    const matching = news.filter(a=>a.kind==='knowledge' && categories[e.primary_topic]?.includes(a.category)).slice(0,4);
-    return matching.length?`<ul class="trend-related">${matching.map(a=>`<li><button type="button" data-open="${escapeHtml(a.url)}">${escapeHtml(a.title)}</button><small>${escapeHtml(a.category)}</small></li>`).join('')}</ul>`:'<p>目前尚無可直接連結的背景知識文章。</p>';
+    const concepts = [
+      ['人工智慧','ai','機器學習','生成式'],['資安','資訊安全','網路安全','身份驗證','身分驗證'],
+      ['半導體','晶片','晶圓','積體電路','封裝'],['通膨','物價','消費者物價'],
+      ['利率','央行','貨幣政策'],['匯率','外匯','貨幣'],['股票','股市','金融市場','台股'],
+      ['供應鏈','產業鏈'],['氣候','環境','永續'],['消費','零售','網購','電子商務'],
+      ['政治','選舉','民主','政府'],['法律','法案','法規','政策'],['心理','人力','管理']
+    ];
+    const related = news.filter(a=>a.kind==='knowledge' && categories[e.primary_topic]?.includes(a.category))
+      .map(a=>{
+        const eventTitle=e.title.toLowerCase(), articleTitle=a.title.toLowerCase();
+        const matches=concepts.filter(group=>group.some(term=>eventTitle.includes(term)) && group.some(term=>articleTitle.includes(term))).length;
+        const exact=articleTitle.length>=3 && eventTitle.includes(articleTitle) ? 2 : 0;
+        return {a, relevance:matches+exact};
+      }).filter(x=>x.relevance>0).sort((a,b)=>b.relevance-a.relevance).slice(0,3).map(x=>x.a);
+    return related.length?`<ul class="trend-related">${related.map(a=>`<li><button type="button" data-open="${escapeHtml(a.url)}">${escapeHtml(a.title)}</button><small>${escapeHtml(a.category)}</small></li>`).join('')}</ul>`:'<p>目前知識館藏沒有足夠貼近此事件的專題，因此不提供可能誤導的推薦。可前往「知識」分頁探索完整館藏。</p>';
   }
   function deepAnalysis() {
     const filtered = selectedEvents();
