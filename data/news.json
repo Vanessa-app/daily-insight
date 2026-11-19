@@ -1,7 +1,88 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-18T10:57:43.293906+00:00",
+  "updated_at": "2026-11-19T00:59:56.148593+00:00",
   "items": [
+    {
+      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/ksc-20260411-ph-nrg01-0009large.jpg",
+      "image_rights": "unverified",
+      "image_credit": "NASA",
+      "quiz_reviewed": false,
+      "quiz": [],
+      "excerpt_original": "NASA, Northrop Grumman, and SpaceX are targeting no earlier than 10:47 a.m. EST, Sunday, Nov. 29, for the next launch delivering science investigations, supplies, and equipment to the International Space Station. The agency also will hold a prelaunch media teleconference on Monday, Nov. 23. Filled with approximately 11,000 pounds of cargo, the Northrop Grumman Cygnus […]",
+      "translation_zh_hant": null,
+      "evidence_original": [
+        "NASA, Northrop Grumman, and SpaceX are targeting no earlier than 10:47 a.m. EST, Sunday, Nov. 29, for the next launch delivering science investigations, supplies, and equipment to the International Space Station. The agency also will hold a prelaunch media teleconference on Monday, Nov. 23. Filled with approximately 11,000 pounds of cargo, the Northrop Grumman Cygnus […]"
+      ],
+      "evidence_zh_hant": [],
+      "translation_status": "translation_not_requested",
+      "content_scope": "publisher_feed_excerpt",
+      "extraction_status": "not_attempted",
+      "content_complete": false,
+      "reuse_license": "not_confirmed",
+      "id": "nasa:754658202",
+      "source_id": "nasa",
+      "source": "NASA",
+      "category": "AI與科技",
+      "title": "NASA Sets Coverage for Northrop Grumman CRS-25 Launch, Prelaunch",
+      "url": "https://www.nasa.gov/news-release/nasa-sets-coverage-for-northrop-grumman-crs-25-launch-prelaunch/",
+      "published_at": "2026-11-18T22:19:17+00:00",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
+    {
+      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/mafeap-holidays.jpeg",
+      "image_rights": "unverified",
+      "image_credit": "NASA",
+      "quiz_reviewed": false,
+      "quiz": [],
+      "excerpt_original": "Holidays are often a fun break during a busy year – a long weekend here and there is an event many of us can get behind. However, when a short holiday break turns into a full holiday season, we know that this is a different “ball game”. Everyone has stress about something – some people […]",
+      "translation_zh_hant": null,
+      "evidence_original": [
+        "Holidays are often a fun break during a busy year – a long weekend here and there is an event many of us can get behind. However, when a short holiday break turns into a full holiday season, we know that this is a different “ball game”. Everyone has stress about something – some people […]"
+      ],
+      "evidence_zh_hant": [],
+      "translation_status": "translation_not_requested",
+      "content_scope": "publisher_feed_excerpt",
+      "extraction_status": "not_attempted",
+      "content_complete": false,
+      "reuse_license": "not_confirmed",
+      "id": "nasa:946642479",
+      "source_id": "nasa",
+      "source": "NASA",
+      "category": "AI與科技",
+      "title": "MAF EAP – Holidays – How to manage the BAH HUMBUG that tries to sneak in",
+      "url": "https://www.nasa.gov/centers-and-facilities/michoud/maf-eap/maf-eap-holidays-how-to-manage-the-bah-humbug-that-tries-to-sneak-in/",
+      "published_at": "2026-11-18T18:58:27+00:00",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
+    {
+      "image_url": "https://www.nasa.gov/wp-content/uploads/2023/03/hall-thruster.jpg",
+      "image_rights": "unverified",
+      "image_credit": "NASA",
+      "quiz_reviewed": false,
+      "quiz": [],
+      "excerpt_original": "NASA launched a new competition inviting U.S. companies to produce prototypes of mid-power Hall effect thrusters – a type of electric propulsion system considered crucial for future space operations and exploration. Hall effect thrusters use an electric field to accelerate a propellant gas, producing efficient thrust for long-duration missions. Used for propelling satellites and deep […]",
+      "translation_zh_hant": null,
+      "evidence_original": [
+        "NASA launched a new competition inviting U.S. companies to produce prototypes of mid-power Hall effect thrusters – a type of electric propulsion system considered crucial for future space operations and exploration. Hall effect thrusters use an electric field to accelerate a propellant gas, producing efficient thrust for long-duration missions. Used for propelling satellites and deep […]"
+      ],
+      "evidence_zh_hant": [],
+      "translation_status": "translation_not_requested",
+      "content_scope": "publisher_feed_excerpt",
+      "extraction_status": "not_attempted",
+      "content_complete": false,
+      "reuse_license": "not_confirmed",
+      "id": "nasa:2901774226",
+      "source_id": "nasa",
+      "source": "NASA",
+      "category": "AI與科技",
+      "title": "NASA Announces Mid-Power Electric Rocket Challenge for US Companies",
+      "url": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/nasa-announces-mid-power-electric-rocket-challenge-for-us-companies/",
+      "published_at": "2026-11-18T18:12:32+00:00",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
     {
       "id": "ey:e425f55c-4435-41cf-8e17-16412c780e51",
       "source_id": "ey",
@@ -1558,121 +1639,38 @@
       "excerpt_original": "行政院卓榮泰院長今（4）日出席「台9線蘇花公路安全提升計畫（蘇花安）東澳南澳段隧道新建工程」動土祈福典禮時表示，今天動土的A1標是蘇花安工程的第一標，也是里程碑。該工程將許多山區道路截彎取直，縮短行車時間，同時也降低高低落差，大幅提升行車安全，並避開地質敏感區，降低災害阻斷公路的風險。未來完工後，除了滿足東部觀光、產業及國人醫療轉診等民生需求外，另配合國5銜接「台9線蘇花公路山區路段改善計畫」工程（蘇花改）計畫，將大幅縮短臺北與花蓮間的行車時間，進一步強化東部整體交通運輸服務量能。",
       "verification": "publisher_domain_checked",
       "claim_verification": "not_independently_verified"
-    },
-    {
-      "id": "moda:21234",
-      "source_id": "moda",
-      "source": "數位發展部",
-      "kind": "news",
-      "category": "AI與科技",
-      "title": "數發部訪查首座結合變電所高抗災基地臺　持續強化通訊網路韌性",
-      "url": "https://moda.gov.tw/press/press-releases/21234",
-      "published_at": "2026-11-03T09:29:16+08:00",
-      "content_complete": true,
-      "reuse_license": "approved",
-      "license_name": "CC0 1.0",
-      "license_url": "https://moda.gov.tw/announcement/publicdeclare/951",
-      "content_scope": "official_full_text",
-      "translation_status": "original_zh_hant",
-      "evidence_original": [
-        "數位發展部林宜敬部長於3日前往嘉義縣嘉太變電所，實地訪查全臺首座結合台電變電所建置的高抗災基地臺，了解通訊韌性建設成果。這座高抗災基地臺於今(115)年6月完工，歷經巴威及薔琵颱風的風雨考驗，皆穩定運作，持續提供行動通訊服務。訪查期間，數發部也與嘉義縣長翁章梁、蔡易餘委員辦公室就嘉義縣的通訊網路建設現況交換意見，讓政策貼近地方需要。",
-        "林部長表示，依據過往天然災害經驗，行動基地臺失效的主因，以電力中斷為主，其次為光纜中斷。為有效改善基地臺於災害期間的脆弱環節，提升行動通訊網路的持續運作能力，數發部透過補助計畫，攜手電信業者加速強化通訊網路設施的抗災及備援韌性。",
-        "林部長指出，位於嘉義縣太保市的嘉太變電所高抗災基地臺，是全台第1座結合台電變電所建置的示範據點，同時具備電力、傳輸和結構三方面的韌性。在電力方面，運用變電所穩定供電的優勢，降低基地臺因停電而中斷服務的風險；在傳輸方面，3家電信業者均建置雷射光傳輸設備，作為基地臺的第二傳輸路由，降低單一路徑中斷對通訊服務的影響；在結構方面，基地臺設施的耐風能力提升至可承受15級強風，確保颱風來襲時能依然穩固。",
-        "數發部說明，為確保災時持續提供民眾可靠的行動通訊服務，112至114年度已透過前瞻計畫，補助電信業者完成建置或優化93臺高抗災基地臺，皆具72小時備援電力、第二傳輸路由或抗15級風鐵塔；同時增購或優化55臺行動基地臺車，並購置107臺、促請業者自購840臺移動式發電機，以機動強化通訊韌性，縮短災區通訊恢復的時間。此外，數發部也補助電信業者於山區、離島完成46對微波系統建設，提升基地臺後傳網路韌性。",
-        "數發部表示，115至118年度將持續透過「強化政府關鍵節點及偏鄉通訊網路數位韌性計畫」，鼓勵電信業者於偏鄉、離島、易成孤島地區及災區等，加速建置高抗災基地臺，並擴充偏鄉、離島微波容量，以及優化衛星行動基地臺車。",
-        "通訊網路建設，不僅是為了提供民眾日常生活所需的優質上網環境，更重要的是在天然災害發生時，仍能維持基本且可靠的通訊服務，確保民眾與外界聯繫的管道不中斷。未來，數發部將透過公私協力及跨部會合作，持續打造多元且韌性的通訊系統。"
-      ],
-      "excerpt_original": "數位發展部林宜敬部長於3日前往嘉義縣嘉太變電所，實地訪查全臺首座結合台電變電所建置的高抗災基地臺，了解通訊韌性建設成果。這座高抗災基地臺於今(115)年6月完工，歷經巴威及薔琵颱風的風雨考驗，皆穩定運作，持續提供行動通訊服務。訪查期間，數發部也與嘉義縣長翁章梁、蔡易餘委員辦公室就嘉義縣的通訊網路建設現況交換意見，讓政策貼近地方需要。",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
-    },
-    {
-      "id": "moda:21226",
-      "source_id": "moda",
-      "source": "數位發展部",
-      "kind": "news",
-      "category": "AI與科技",
-      "title": "數發部已督促TWCA完成產製符合標準新憑證 籲各機關儘速更新",
-      "url": "https://moda.gov.tw/press/press-releases/21226",
-      "published_at": "2026-11-02T13:52:10+08:00",
-      "content_complete": true,
-      "reuse_license": "approved",
-      "license_name": "CC0 1.0",
-      "license_url": "https://moda.gov.tw/announcement/publicdeclare/951",
-      "content_scope": "official_full_text",
-      "translation_status": "original_zh_hant",
-      "evidence_original": [
-        "國際社群Bugzilla於10月30日通報，臺灣網路認證公司（TWCA）所核發的部分憑證中的「序號隨機亂數長度（Serial Number Entropy）」，未達國際標準規範 64 bits 以上密碼學安全亂數要求。TWCA雖將憑證序號長度設計為128 bits，但實際僅首尾各 12 bits 為有效隨機數、中間皆填補為定值，實際隨機亂數僅 24 bits。",
-        "數位發展部於10月30日接獲通報之後，已立即要求業者於兩日內產製符合規定的新憑證，並同步啟動跨機關聯繫通知作業，加速各機關完成憑證更換，避免影響網站正常瀏覽。",
-        "數發部說明，TLS憑證（Transport Layer Security Certificate）用於建立安全通訊，TWCA所核發的網站TLS憑證，除了提供個民間作為網站憑證之外，也經由數發部採購提供各政府機關申請使用。經盤點，本次事件共涉及962個政府機關、9,772張網站憑證，若相關網站未於11月6日前完成憑證更新，民眾瀏覽時可能出現安全性警示訊息。",
-        "在數發部要求之下，TWCA已於11月1日完成政府機關9,772張TLS憑證重新產製，新憑證符合國際標準所要求的序號隨機亂數長度。並透過主動補發機制，由系統直接以電子郵件將新憑證檔寄送予原申請機關承辦人。數發部同步啟動資訊主管聯繫機制，請各機關資訊主管協助督促並啟動更新憑證作業。截至11月2日晚間，已有926張憑證完成更新，數發部將持續追蹤，確保所有機關盡速完成更新。",
-        "數發部表示，雖然此事目前並未造成具體資安危害，仍籲請各機關及其他TWCA憑證的使用者，盡速於11月6日前完成憑證更新作業，避免影響網站正常瀏覽。為進一步確保憑證服務安全，數發部已委託獨立第三方專業機構，後續針對TWCA進行深入檢測，全面檢視相關憑證產製及管理機制，並將依檢測結果要求TWCA改善，確保憑證的服務合規與安全。另將針對違約情事進行調查，並依約罰款及求償。"
-      ],
-      "excerpt_original": "國際社群Bugzilla於10月30日通報，臺灣網路認證公司（TWCA）所核發的部分憑證中的「序號隨機亂數長度（Serial Number Entropy）」，未達國際標準規範 64 bits 以上密碼學安全亂數要求。TWCA雖將憑證序號長度設計為128 bits，但實際僅首尾各 12 bits 為有效隨機數、中間皆填補為定值，實際隨機亂數僅 24 bits。",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
-    },
-    {
-      "id": "moda:21142",
-      "source_id": "moda",
-      "source": "數位發展部",
-      "kind": "news",
-      "category": "AI與科技",
-      "title": "推動AI創新與著作權保護 三部會共邀內容與AI業者召開交流會議",
-      "url": "https://moda.gov.tw/press/press-releases/21142",
-      "published_at": "2026-10-22T07:55:07+08:00",
-      "content_complete": true,
-      "reuse_license": "approved",
-      "license_name": "CC0 1.0",
-      "license_url": "https://moda.gov.tw/announcement/publicdeclare/951",
-      "content_scope": "official_full_text",
-      "translation_status": "original_zh_hant",
-      "evidence_original": [
-        "為因應AI發展對資料流通與創新利用需求，並同時兼顧內容產業的著作權益，數位發展部、文化部與經濟部智慧財產局於本（10）月16日首度共同召開權利人意見交流會議，邀集國內內容產業代表與公協會、AI應用端業者，以及相關領域專家等，就AI發展與著作權保護相關議題交換意見。期盼藉由利害關係人之間的討論交流，以及跨部會合作與產業對話，作為後續政策推動與法制研議的重要參考。",
-        "本次交流會議由數發部侯宜秀政務次長、文化部徐宜君常務次長，與智慧局廖承威局長共同主持，聽取內容端與使用端的實務經驗及關切議題，就AI訓練所需資料的利用與授權、著作權益保障、優質語料的整備與產業合作等議題進行交流。",
-        "數發部說明，AI研發業者需要大量高品質語料，內容創作者則關切作品的利用情形與合理回饋；如何兼顧雙方需求，是政府推動資料治理的重要課題。為尋求AI 創新與著作權保護的衡平發展，智慧局與數發部分別研訂《生成式人工智慧著作權指引》草案與《促進資料創新利用發展條例》草案，期盼透過本次會議的溝通，作為後續政策研議與滾動調整的基礎。",
-        "文化部徐次長表示，文化內容創作者與使用者其實有共同的目標，尋求能夠創新利用並確保創作者權益、維持創作動能的共好機制。文化部長期支援國內文化內容創作，期待透過跨部會與產業持續對話，進一步討論內容創作者參與AI發展的合作方式，讓臺灣在地文化與多元觀點在AI浪潮下能持續被理解、被看見。",
-        "智慧局廖局長表示，AI所涉及的著作權議題，國際間仍在持續探索與討論，需要透過內容創作者與使用者的雙向溝通，尋求衡平發展，並為雙方協商建立基礎。智慧局將持續聽取各界意見，與相關部會共同研議兼顧AI創新及著作權保護的可行作法。",
-        "數發部侯次長指出，發展臺灣主權AI的關鍵在於「模型可換、資料可控」，讓模型能隨技術演進彈性替換，資料則由我國自主掌控。數發部推動的資創條例草案中，以系統化、制度化促進資料開放、共享及再利用，建立適當授權條款，並同步積極促進民間優質語料數位化及AI應用、推動AI業者建立使用報酬給付機制，以逐步打造AI發展與權利人共榮的雙贏生態。",
-        "侯次長表示，期盼與各界充分溝通、共同探索可行的合作路徑，以達到兩大目標：一是結合資料治理，協助各領域主權AI發展、透過各部會促進社會及產業各領域善用AI；二是協助臺灣文化內容產業達成AI時代的轉型需求，同時讓臺灣的文化與觀點能在AI的世界持續被看見與被理解。",
-        "數發部去（114）年底推出臺灣主權AI訓練語料庫，以廣納高品質正體中文語料，初期以中央及地方政府語料為主，截至今年10月中旬已累積達33億Tokens，近期推動募集自願授權的民間語料。侯次長強調，主權語料庫不會強制要求民間必須無償提供語料，政府優先從自身做起，將政府資訊轉為AI可讀、可用的資料，並以不涉及個資、已取得授權的資料優先開放共享，同時持續提升資料品質；行政院也鼓勵各部會編列相關預算擴大徵集臺灣多元語料，為臺灣AI應用發展奠定基礎。",
-        "侯次長表示，內容產業與AI業者都是未來產業生態系的重要參與者，政府有責任主動開啟討論，促進彼此理解，讓合作有機會向前推進。本次會議是持續溝通的起點，數發部、文化部與經濟部將彙整各界意見，與相關部會持續合作，釐清各界關切議題，審慎研議後續政策與法制方向，共同尋求兼顧AI創新與著作權保護的發展路徑。"
-      ],
-      "excerpt_original": "為因應AI發展對資料流通與創新利用需求，並同時兼顧內容產業的著作權益，數位發展部、文化部與經濟部智慧財產局於本（10）月16日首度共同召開權利人意見交流會議，邀集國內內容產業代表與公協會、AI應用端業者，以及相關領域專家等，就AI發展與著作權保護相關議題交換意見。期盼藉由利害關係人之間的討論交流，以及跨部會合作與產業對話，作為後續政策推動與法制研議的重要參考。",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
     }
   ],
   "sources": {
     "nasa": {
       "status": "ok",
-      "accepted": 0,
-      "checked_at": "2026-11-18T10:57:43.293906+00:00"
+      "accepted": 3,
+      "checked_at": "2026-11-19T00:59:56.148593+00:00"
     },
     "who": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-18T10:57:43.293906+00:00"
+      "checked_at": "2026-11-19T00:59:56.148593+00:00"
     },
     "un": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-18T10:57:43.293906+00:00"
+      "checked_at": "2026-11-19T00:59:56.148593+00:00"
     },
     "數位發展部": {
       "status": "ok",
       "accepted": 4,
-      "checked_at": "2026-11-18T10:57:43.293906+00:00"
+      "checked_at": "2026-11-19T00:59:56.148593+00:00"
     },
     "數位產業署": {
       "status": "ok",
       "accepted": 6,
-      "checked_at": "2026-11-18T10:57:43.293906+00:00"
+      "checked_at": "2026-11-19T00:59:56.148593+00:00"
     },
     "行政院": {
       "status": "ok",
       "accepted": 7,
-      "checked_at": "2026-11-18T10:57:43.293906+00:00"
+      "checked_at": "2026-11-19T00:59:56.148593+00:00"
     }
   },
   "disclaimer": "Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed."
