@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-19T10:56:09.896873+00:00",
+  "updated_at": "2026-11-19T11:26:33.449914+00:00",
   "items": [
     {
       "id": "ey:b846bc30-a95b-44e2-ac42-25652271cd3c",
@@ -1663,32 +1663,32 @@
     "nasa": {
       "status": "ok",
       "accepted": 1,
-      "checked_at": "2026-11-19T10:56:09.896873+00:00"
+      "checked_at": "2026-11-19T11:26:33.449914+00:00"
     },
     "who": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-19T10:56:09.896873+00:00"
+      "checked_at": "2026-11-19T11:26:33.449914+00:00"
     },
     "un": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-19T10:56:09.896873+00:00"
+      "checked_at": "2026-11-19T11:26:33.449914+00:00"
     },
     "數位發展部": {
       "status": "ok",
       "accepted": 4,
-      "checked_at": "2026-11-19T10:56:09.896873+00:00"
+      "checked_at": "2026-11-19T11:26:33.449914+00:00"
     },
     "數位產業署": {
       "status": "ok",
       "accepted": 6,
-      "checked_at": "2026-11-19T10:56:09.896873+00:00"
+      "checked_at": "2026-11-19T11:26:33.449914+00:00"
     },
     "行政院": {
       "status": "ok",
       "accepted": 6,
-      "checked_at": "2026-11-19T10:56:09.896873+00:00"
+      "checked_at": "2026-11-19T11:26:33.449914+00:00"
     }
   },
   "disclaimer": "Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed."

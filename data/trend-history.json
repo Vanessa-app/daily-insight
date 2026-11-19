@@ -3,24 +3,24 @@
   "days": [
     {
       "date": "2026-11-19",
-      "total_events": 127,
+      "total_events": 116,
       "topic_counts": {
-        "technology_ai": 27,
-        "semiconductors": 10,
-        "global_finance": 20,
+        "technology_ai": 26,
+        "semiconductors": 8,
+        "global_finance": 15,
         "business_management": 11,
-        "politics_policy": 40,
-        "consumer_lifestyle": 19
+        "politics_policy": 39,
+        "consumer_lifestyle": 17
       },
       "top_event_ids": [
         "trend-eb783336f1c581",
+        "trend-324975124615a7",
         "trend-5a3698a61b9923",
         "trend-65ef0c7c2975b3",
-        "trend-23ea73e1f71a71",
-        "trend-092ad7c6a58253",
         "trend-18d903652270fc",
         "trend-3a439ac770a2f1",
-        "trend-e542838699ff4b"
+        "trend-e542838699ff4b",
+        "trend-0458cfcdcd5843"
       ]
     }
   ]
