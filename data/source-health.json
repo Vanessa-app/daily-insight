@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-20T05:58:38.109638+00:00",
+  "generated_at": "2026-11-20T06:03:17.696412+00:00",
   "method": "bounded_head_checks_no_article_download",
   "checked_this_run": 12,
   "links": {
@@ -8,11 +8,6 @@
       "status": "unknown",
       "http_status": 403,
       "checked_at": "2026-11-20T00:05:25.353519+00:00"
-    },
-    "https://ec.ltn.com.tw/article/breakingnews/5646793": {
-      "status": "unknown",
-      "http_status": 403,
-      "checked_at": "2026-11-20T00:55:44.776007+00:00"
     },
     "https://ec.ltn.com.tw/article/breakingnews/5646813": {
       "status": "unknown",
@@ -113,6 +108,66 @@
       "status": "available",
       "http_status": 200,
       "checked_at": "2026-11-20T05:58:32.293989+00:00"
+    },
+    "https://moda.gov.tw/ADI/news/latest-news/21270": {
+      "status": "available",
+      "http_status": 200,
+      "checked_at": "2026-11-20T06:03:15.970015+00:00"
+    },
+    "https://moda.gov.tw/ADI/news/latest-news/21280": {
+      "status": "available",
+      "http_status": 200,
+      "checked_at": "2026-11-20T06:03:15.970015+00:00"
+    },
+    "https://moda.gov.tw/ADI/news/latest-news/21430": {
+      "status": "available",
+      "http_status": 200,
+      "checked_at": "2026-11-20T06:03:15.970015+00:00"
+    },
+    "https://moda.gov.tw/ADI/news/latest-news/21432": {
+      "status": "available",
+      "http_status": 200,
+      "checked_at": "2026-11-20T06:03:15.970015+00:00"
+    },
+    "https://moda.gov.tw/ADI/news/latest-news/21444": {
+      "status": "available",
+      "http_status": 200,
+      "checked_at": "2026-11-20T06:03:15.970015+00:00"
+    },
+    "https://moda.gov.tw/ADI/news/latest-news/21446": {
+      "status": "available",
+      "http_status": 200,
+      "checked_at": "2026-11-20T06:03:15.970015+00:00"
+    },
+    "https://moda.gov.tw/ADI/news/latest-news/21452": {
+      "status": "available",
+      "http_status": 200,
+      "checked_at": "2026-11-20T06:03:15.970015+00:00"
+    },
+    "https://moda.gov.tw/press/press-releases/21450": {
+      "status": "available",
+      "http_status": 200,
+      "checked_at": "2026-11-20T06:03:15.970015+00:00"
+    },
+    "https://moda.gov.tw/press/press-releases/21474": {
+      "status": "available",
+      "http_status": 200,
+      "checked_at": "2026-11-20T06:03:15.970015+00:00"
+    },
+    "https://news.ltn.com.tw/news/art/breakingnews/5646847": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-20T06:03:15.970015+00:00"
+    },
+    "https://news.ltn.com.tw/news/art/breakingnews/5647491": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-20T06:03:15.970015+00:00"
+    },
+    "https://news.ltn.com.tw/news/life/breakingnews/5646694": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-20T06:03:15.970015+00:00"
     }
   }
 }

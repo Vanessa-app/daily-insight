@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-20T05:58:32.156170+00:00",
+  "generated_at": "2026-11-20T06:03:15.857274+00:00",
   "method": "explainable_source_comparison_no_ai",
   "disclaimer": "事件合併及標題相似度是規則式推論；有官方來源也不等於已獨立查核，請參考原始連結。",
   "topics": [
@@ -752,6 +752,60 @@
           ],
           "source_groups": [
             "ltn-business"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "供應鏈合作、製程與產能進度及需求變化",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-55d894d08ed977",
+      "aliases": [],
+      "title": "台股收盤／台積電重摔100元！台股崩2393點史上第3慘　櫃買狂瀉7.72%",
+      "primary_topic": "semiconductors",
+      "related_topics": [
+        "global_finance"
+      ],
+      "importance_score": 5,
+      "importance_factors": {
+        "topical": 2,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-19T21:49:00+00:00",
+      "updated_at": "2026-11-19T21:49:00+00:00",
+      "article_urls": [
+        "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E6%94%B6%E7%9B%A4-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E9%87%8D%E6%91%94100%E5%85%83-%E5%8F%B0%E8%82%A1%E5%B4%A92393%E9%BB%9E%E5%8F%B2%E4%B8%8A%E7%AC%AC3%E6%85%98-%E6%AB%83%E8%B2%B7%E7%8B%82%E7%80%897-72-054900965.html"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "台股收盤／台積電重摔100元！台股崩2393點史上第3慘　櫃買狂瀉7.72%",
+          "url": "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E6%94%B6%E7%9B%A4-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E9%87%8D%E6%91%94100%E5%85%83-%E5%8F%B0%E8%82%A1%E5%B4%A92393%E9%BB%9E%E5%8F%B2%E4%B8%8A%E7%AC%AC3%E6%85%98-%E6%AB%83%E8%B2%B7%E7%8B%82%E7%80%897-72-054900965.html",
+          "source": "Yahoo奇摩新聞",
+          "published_at": "2026-11-19T21:49:00+00:00",
+          "source_type": "media",
+          "content_access": "headline_only",
+          "source_group": "yahoo-finance",
+          "source_domain": "tw.news.yahoo.com"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "台股收盤／台積電重摔100元！台股崩2393點史上第3慘　櫃買狂瀉7.72%",
+          "article_urls": [
+            "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E6%94%B6%E7%9B%A4-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E9%87%8D%E6%91%94100%E5%85%83-%E5%8F%B0%E8%82%A1%E5%B4%A92393%E9%BB%9E%E5%8F%B2%E4%B8%8A%E7%AC%AC3%E6%85%98-%E6%AB%83%E8%B2%B7%E7%8B%82%E7%80%897-72-054900965.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
           ],
           "status": "similar_headline_only",
           "independently_verified": false
@@ -2486,6 +2540,214 @@
           ],
           "source_groups": [
             "ltn-business"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "後續公布的官方指標與政策決議",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-eeb3f522863ce0",
+      "aliases": [],
+      "title": "和碩供應商大會逾千家夥伴參與，今年「伺服器元年」，深化供應鏈合作",
+      "primary_topic": "business_management",
+      "related_topics": [],
+      "importance_score": 4,
+      "importance_factors": {
+        "topical": 0,
+        "impact": 1,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-19T21:48:28+00:00",
+      "updated_at": "2026-11-19T21:48:28+00:00",
+      "article_urls": [
+        "https://tw.stock.yahoo.com/news/%E5%92%8C%E7%A2%A9%E4%BE%9B%E6%87%89%E5%95%86%E5%A4%A7%E6%9C%83%E9%80%BE%E5%8D%83%E5%AE%B6%E5%A4%A5%E4%BC%B4%E5%8F%83%E8%88%87-%E4%BB%8A%E5%B9%B4-%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%85%83%E5%B9%B4-%E6%B7%B1%E5%8C%96%E4%BE%9B%E6%87%89%E9%8F%88%E5%90%88%E4%BD%9C-054828528.html"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "和碩供應商大會逾千家夥伴參與，今年「伺服器元年」，深化供應鏈合作",
+          "url": "https://tw.stock.yahoo.com/news/%E5%92%8C%E7%A2%A9%E4%BE%9B%E6%87%89%E5%95%86%E5%A4%A7%E6%9C%83%E9%80%BE%E5%8D%83%E5%AE%B6%E5%A4%A5%E4%BC%B4%E5%8F%83%E8%88%87-%E4%BB%8A%E5%B9%B4-%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%85%83%E5%B9%B4-%E6%B7%B1%E5%8C%96%E4%BE%9B%E6%87%89%E9%8F%88%E5%90%88%E4%BD%9C-054828528.html",
+          "source": "Yahoo奇摩新聞",
+          "published_at": "2026-11-19T21:48:28+00:00",
+          "source_type": "media",
+          "content_access": "headline_only",
+          "source_group": "yahoo-finance",
+          "source_domain": "tw.stock.yahoo.com"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "和碩供應商大會逾千家夥伴參與，今年「伺服器元年」，深化供應鏈合作",
+          "article_urls": [
+            "https://tw.stock.yahoo.com/news/%E5%92%8C%E7%A2%A9%E4%BE%9B%E6%87%89%E5%95%86%E5%A4%A7%E6%9C%83%E9%80%BE%E5%8D%83%E5%AE%B6%E5%A4%A5%E4%BC%B4%E5%8F%83%E8%88%87-%E4%BB%8A%E5%B9%B4-%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%85%83%E5%B9%B4-%E6%B7%B1%E5%8C%96%E4%BE%9B%E6%87%89%E9%8F%88%E5%90%88%E4%BD%9C-054828528.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "企業後續公告、執行進度與可衡量成果",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-a08554aa0f08dc",
+      "aliases": [],
+      "title": "美銀指美債將獲避險需求支撐，預估2年期殖利率年底升至5%",
+      "primary_topic": "global_finance",
+      "related_topics": [],
+      "importance_score": 4,
+      "importance_factors": {
+        "topical": 1,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-19T21:45:55+00:00",
+      "updated_at": "2026-11-19T21:45:55+00:00",
+      "article_urls": [
+        "https://tw.stock.yahoo.com/news/%E7%BE%8E%E9%8A%80%E6%8C%87%E7%BE%8E%E5%82%B5%E5%B0%87%E7%8D%B2%E9%81%BF%E9%9A%AA%E9%9C%80%E6%B1%82%E6%94%AF%E6%92%90-%E9%A0%90%E4%BC%B02%E5%B9%B4%E6%9C%9F%E6%AE%96%E5%88%A9%E7%8E%87%E5%B9%B4%E5%BA%95%E5%8D%87%E8%87%B35-054555823.html"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "美銀指美債將獲避險需求支撐，預估2年期殖利率年底升至5%",
+          "url": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E9%8A%80%E6%8C%87%E7%BE%8E%E5%82%B5%E5%B0%87%E7%8D%B2%E9%81%BF%E9%9A%AA%E9%9C%80%E6%B1%82%E6%94%AF%E6%92%90-%E9%A0%90%E4%BC%B02%E5%B9%B4%E6%9C%9F%E6%AE%96%E5%88%A9%E7%8E%87%E5%B9%B4%E5%BA%95%E5%8D%87%E8%87%B35-054555823.html",
+          "source": "Yahoo奇摩新聞",
+          "published_at": "2026-11-19T21:45:55+00:00",
+          "source_type": "media",
+          "content_access": "headline_only",
+          "source_group": "yahoo-finance",
+          "source_domain": "tw.stock.yahoo.com"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "美銀指美債將獲避險需求支撐，預估2年期殖利率年底升至5%",
+          "article_urls": [
+            "https://tw.stock.yahoo.com/news/%E7%BE%8E%E9%8A%80%E6%8C%87%E7%BE%8E%E5%82%B5%E5%B0%87%E7%8D%B2%E9%81%BF%E9%9A%AA%E9%9C%80%E6%B1%82%E6%94%AF%E6%92%90-%E9%A0%90%E4%BC%B02%E5%B9%B4%E6%9C%9F%E6%AE%96%E5%88%A9%E7%8E%87%E5%B9%B4%E5%BA%95%E5%8D%87%E8%87%B35-054555823.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "後續公布的官方指標與政策決議",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-c07dc0ff215bb9",
+      "aliases": [],
+      "title": "台股再崩2393點收36033點　史上第3大收盤跌點",
+      "primary_topic": "global_finance",
+      "related_topics": [],
+      "importance_score": 4,
+      "importance_factors": {
+        "topical": 1,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-19T21:45:02+00:00",
+      "updated_at": "2026-11-19T21:45:02+00:00",
+      "article_urls": [
+        "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E5%86%8D%E5%B4%A92393%E9%BB%9E%E6%94%B636033%E9%BB%9E-%E5%8F%B2%E4%B8%8A%E7%AC%AC3%E5%A4%A7%E6%94%B6%E7%9B%A4%E8%B7%8C%E9%BB%9E-054502614.html"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "台股再崩2393點收36033點　史上第3大收盤跌點",
+          "url": "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E5%86%8D%E5%B4%A92393%E9%BB%9E%E6%94%B636033%E9%BB%9E-%E5%8F%B2%E4%B8%8A%E7%AC%AC3%E5%A4%A7%E6%94%B6%E7%9B%A4%E8%B7%8C%E9%BB%9E-054502614.html",
+          "source": "Yahoo奇摩新聞",
+          "published_at": "2026-11-19T21:45:02+00:00",
+          "source_type": "media",
+          "content_access": "headline_only",
+          "source_group": "yahoo-finance",
+          "source_domain": "tw.news.yahoo.com"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "台股再崩2393點收36033點　史上第3大收盤跌點",
+          "article_urls": [
+            "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E5%86%8D%E5%B4%A92393%E9%BB%9E%E6%94%B636033%E9%BB%9E-%E5%8F%B2%E4%B8%8A%E7%AC%AC3%E5%A4%A7%E6%94%B6%E7%9B%A4%E8%B7%8C%E9%BB%9E-054502614.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "後續公布的官方指標與政策決議",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-bf21ab761f6c1a",
+      "aliases": [],
+      "title": "台股開低走低　跌2393.60點",
+      "primary_topic": "global_finance",
+      "related_topics": [],
+      "importance_score": 4,
+      "importance_factors": {
+        "topical": 1,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-19T21:45:00+00:00",
+      "updated_at": "2026-11-19T21:45:00+00:00",
+      "article_urls": [
+        "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E9%96%8B%E4%BD%8E%E8%B5%B0%E4%BD%8E-%E8%B7%8C2393-60%E9%BB%9E-054500940.html"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "台股開低走低　跌2393.60點",
+          "url": "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E9%96%8B%E4%BD%8E%E8%B5%B0%E4%BD%8E-%E8%B7%8C2393-60%E9%BB%9E-054500940.html",
+          "source": "Yahoo奇摩新聞",
+          "published_at": "2026-11-19T21:45:00+00:00",
+          "source_type": "media",
+          "content_access": "headline_only",
+          "source_group": "yahoo-finance",
+          "source_domain": "tw.news.yahoo.com"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "台股開低走低　跌2393.60點",
+          "article_urls": [
+            "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E9%96%8B%E4%BD%8E%E8%B5%B0%E4%BD%8E-%E8%B7%8C2393-60%E9%BB%9E-054500940.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
           ],
           "status": "similar_headline_only",
           "independently_verified": false
@@ -6551,58 +6813,6 @@
       "independently_verified": false,
       "facts": [],
       "watchpoint": "後續產品實際應用、技術能力及官方更新",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-fe1bb3aad33092",
-      "aliases": [],
-      "title": "54歲辭職轉行！她「靠ChatGPT助攻」從零創業 半年拚出月營收33萬",
-      "primary_topic": "business_management",
-      "related_topics": [],
-      "importance_score": 3,
-      "importance_factors": {
-        "topical": 0,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-19T10:49:49+00:00",
-      "updated_at": "2026-11-19T10:49:49+00:00",
-      "article_urls": [
-        "https://ec.ltn.com.tw/article/breakingnews/5646793"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "54歲辭職轉行！她「靠ChatGPT助攻」從零創業 半年拚出月營收33萬",
-          "url": "https://ec.ltn.com.tw/article/breakingnews/5646793",
-          "source": "自由時報",
-          "published_at": "2026-11-19T10:49:49+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-business",
-          "source_domain": "ec.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "54歲辭職轉行！她「靠ChatGPT助攻」從零創業 半年拚出月營收33萬",
-          "article_urls": [
-            "https://ec.ltn.com.tw/article/breakingnews/5646793"
-          ],
-          "source_groups": [
-            "ltn-business"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "企業後續公告、執行進度與可衡量成果",
       "interpretation_label": "觀察方向，非已證實結論或投資建議",
       "origin_priority": "media_index"
     },

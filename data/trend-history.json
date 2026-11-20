@@ -26,11 +26,11 @@
     },
     {
       "date": "2026-11-20",
-      "total_events": 135,
+      "total_events": 139,
       "topic_counts": {
         "technology_ai": 34,
-        "semiconductors": 11,
-        "global_finance": 33,
+        "semiconductors": 12,
+        "global_finance": 36,
         "business_management": 10,
         "politics_policy": 25,
         "consumer_lifestyle": 22
@@ -60,6 +60,7 @@
         "trend-feb2e451da5db0",
         "trend-85f7c0fb7bacae",
         "trend-a7d11951e453ca",
+        "trend-55d894d08ed977",
         "trend-4f8689149c2b5c",
         "trend-5cab0a2afe1eba",
         "trend-19ee2b3e7d752e",
@@ -93,6 +94,10 @@
         "trend-0ab594e38573ac",
         "trend-0110207a061f44",
         "trend-d1f19f2d43a74d",
+        "trend-eeb3f522863ce0",
+        "trend-a08554aa0f08dc",
+        "trend-c07dc0ff215bb9",
+        "trend-bf21ab761f6c1a",
         "trend-8759cc82b7ce46",
         "trend-7d9646ccc3849b",
         "trend-8060182934b214",
@@ -171,7 +176,6 @@
         "trend-d95ae8b9bf30af",
         "trend-9fcfa05f73859e",
         "trend-c186c9251fdaf4",
-        "trend-fe1bb3aad33092",
         "trend-1e99ba31a93a7d",
         "trend-7ec5d9e8b95030",
         "trend-fc0636397d3d60",
@@ -182,9 +186,9 @@
         "trend-b728b8424c5862",
         "trend-df4a23ba01156a"
       ],
-      "indexed_article_count": 136,
+      "indexed_article_count": 140,
       "observation_version": 1,
-      "observed_at": "2026-11-20T06:01:18.024046+00:00",
+      "observed_at": "2026-11-20T06:03:15.857274+00:00",
       "closed": false,
       "baseline": true,
       "event_stats": [
@@ -800,6 +804,19 @@
           ]
         },
         {
+          "id": "trend-55d894d08ed977",
+          "aliases": [],
+          "title": "台股收盤／台積電重摔100元！台股崩2393點史上第3慘　櫃買狂瀉7.72%",
+          "primary_topic": "semiconductors",
+          "article_keys": [
+            "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E6%94%B6%E7%9B%A4-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E9%87%8D%E6%91%94100%E5%85%83-%E5%8F%B0%E8%82%A1%E5%B4%A92393%E9%BB%9E%E5%8F%B2%E4%B8%8A%E7%AC%AC3%E6%85%98-%E6%AB%83%E8%B2%B7%E7%8B%82%E7%80%897-72-054900965.html"
+          ],
+          "new_article_keys": null,
+          "source_groups": [
+            "yahoo-finance"
+          ]
+        },
+        {
           "id": "trend-584baf3491794d",
           "aliases": [],
           "title": "為何祭第二波限空令？金管會:穩定台股 抑制空頭",
@@ -1216,6 +1233,19 @@
           ]
         },
         {
+          "id": "trend-a08554aa0f08dc",
+          "aliases": [],
+          "title": "美銀指美債將獲避險需求支撐，預估2年期殖利率年底升至5%",
+          "primary_topic": "global_finance",
+          "article_keys": [
+            "https://tw.stock.yahoo.com/news/%E7%BE%8E%E9%8A%80%E6%8C%87%E7%BE%8E%E5%82%B5%E5%B0%87%E7%8D%B2%E9%81%BF%E9%9A%AA%E9%9C%80%E6%B1%82%E6%94%AF%E6%92%90-%E9%A0%90%E4%BC%B02%E5%B9%B4%E6%9C%9F%E6%AE%96%E5%88%A9%E7%8E%87%E5%B9%B4%E5%BA%95%E5%8D%87%E8%87%B35-054555823.html"
+          ],
+          "new_article_keys": null,
+          "source_groups": [
+            "yahoo-finance"
+          ]
+        },
+        {
           "id": "trend-a2f9882254f68b",
           "aliases": [],
           "title": "AI熱潮衝擊企業氣候承諾　Meta重新評估2030淨零目標",
@@ -1517,6 +1547,32 @@
           ]
         },
         {
+          "id": "trend-bf21ab761f6c1a",
+          "aliases": [],
+          "title": "台股開低走低　跌2393.60點",
+          "primary_topic": "global_finance",
+          "article_keys": [
+            "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E9%96%8B%E4%BD%8E%E8%B5%B0%E4%BD%8E-%E8%B7%8C2393-60%E9%BB%9E-054500940.html"
+          ],
+          "new_article_keys": null,
+          "source_groups": [
+            "yahoo-finance"
+          ]
+        },
+        {
+          "id": "trend-c07dc0ff215bb9",
+          "aliases": [],
+          "title": "台股再崩2393點收36033點　史上第3大收盤跌點",
+          "primary_topic": "global_finance",
+          "article_keys": [
+            "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E5%86%8D%E5%B4%A92393%E9%BB%9E%E6%94%B636033%E9%BB%9E-%E5%8F%B2%E4%B8%8A%E7%AC%AC3%E5%A4%A7%E6%94%B6%E7%9B%A4%E8%B7%8C%E9%BB%9E-054502614.html"
+          ],
+          "new_article_keys": null,
+          "source_groups": [
+            "yahoo-finance"
+          ]
+        },
+        {
           "id": "trend-c186c9251fdaf4",
           "aliases": [],
           "title": "內政部每日遭15萬次網攻  劉世芳：導入AI聯防確保服務穩定",
@@ -1809,6 +1865,19 @@
           "primary_topic": "politics_policy",
           "article_keys": [
             "https://tw.stock.yahoo.com/news/%E9%BB%83%E5%BE%AA%E8%B2%A1%E7%A8%B1%E6%96%B0%E5%8A%A0%E5%9D%A1-%E4%B8%AD%E5%9C%8B%E9%87%9D%E5%B0%8D%E8%87%AA%E7%94%B1%E8%B2%BF%E6%98%93%E5%8D%94%E5%AE%9A%E5%8D%87%E7%B4%9A%E9%80%B2%E8%A1%8C%E8%AB%87%E5%88%A4-%E6%B6%B5%E8%93%8B%E6%95%B8%E4%BD%8D%E7%B6%93%E6%BF%9F-053613697.html"
+          ],
+          "new_article_keys": null,
+          "source_groups": [
+            "yahoo-finance"
+          ]
+        },
+        {
+          "id": "trend-eeb3f522863ce0",
+          "aliases": [],
+          "title": "和碩供應商大會逾千家夥伴參與，今年「伺服器元年」，深化供應鏈合作",
+          "primary_topic": "business_management",
+          "article_keys": [
+            "https://tw.stock.yahoo.com/news/%E5%92%8C%E7%A2%A9%E4%BE%9B%E6%87%89%E5%95%86%E5%A4%A7%E6%9C%83%E9%80%BE%E5%8D%83%E5%AE%B6%E5%A4%A5%E4%BC%B4%E5%8F%83%E8%88%87-%E4%BB%8A%E5%B9%B4-%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%85%83%E5%B9%B4-%E6%B7%B1%E5%8C%96%E4%BE%9B%E6%87%89%E9%8F%88%E5%90%88%E4%BD%9C-054828528.html"
           ],
           "new_article_keys": null,
           "source_groups": [
