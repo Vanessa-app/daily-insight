@@ -444,3 +444,13 @@ body:has(.reader-panel-dialog[open], .reader-diagram-dialog[open]) { overflow: h
  .learning-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
  .learning-actions .btn{min-width:0;padding:11px 10px}
 }
+
+/* Give each glossary term a distinct header and a separate explanation body. */
+.learning-glossary{gap:20px;align-items:start}
+.learning-glossary>[data-learning-term]{padding:0;margin:0;background:#fffdf8;border:1px solid #dce4da;border-radius:14px;overflow:hidden}
+.learning-glossary>[data-learning-term]>dt{padding:16px 20px;margin:0;background:#e7efe7;border-bottom:1px solid #cbd9cd;color:#254f40;font-size:20px;font-weight:700;line-height:1.5}
+.learning-glossary>[data-learning-term]>dd{padding:18px 20px;margin:0;font-size:16px;line-height:1.85;color:#26352e}
+.learning-glossary .learning-term-definition{margin:0 0 18px}
+.learning-term-context{padding-top:13px;border-top:1px solid #e7e9df}
+.learning-term-context .trend-text-btn{font-size:14px;line-height:1.6;text-align:left}
+.learning-term-context .learning-source{margin:8px 0 0}

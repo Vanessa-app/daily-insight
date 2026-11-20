@@ -135,7 +135,7 @@
     return `<article class="trend-event-card ${compact?'compact':''}"><div class="trend-event-top"><span class="trend-topic-label" style="color:${TOPIC_COLORS[topicIndex(e.primary_topic)]}">${TOPIC_ICON[topicIndex(e.primary_topic)]} ${escapeHtml(topicName(e.primary_topic))}</span>${badge(e)}</div>
       <h3><button type="button" data-trend-detail="${escapeHtml(e.id)}">${escapeHtml(e.title)}</button></h3>
       <p>已整合 ${e.articles?.length || 0} 篇相關報導、${e.source_count || 0} 個來源${firstHand?`；包含 ${firstHand} 篇官方來源`:''}。可查看報導主張、來源差異與檢查結果。</p>
-      <div class="trend-event-bottom"><span>${formatDate(e.updated_at)} 更新 ${unseen?'<b class="trend-unread">有新進展</b>':''}</span><div><button type="button" data-personal-pin="${escapeHtml(e.id)}" aria-pressed="${isPinned(e)}" class="trend-text-btn">${isPinned(e)?'◆ 已置頂':'◇ 置頂'}</button><button type="button" data-trend-watch="${escapeHtml(e.id)}" aria-pressed="${watched}" class="trend-text-btn">${watched?'★ 已關注':'☆ 關注'}</button><button type="button" class="trend-text-btn" data-trend-detail="${escapeHtml(e.id)}">檢視脈絡</button><button type="button" class="trend-text-btn trend-progress-link" data-trend-progress="${escapeHtml(e.id)}">進展紀錄 →</button></div></div></article>`;
+      <div class="trend-event-bottom"><span>${formatDate(e.updated_at)} 更新 ${unseen?'<b class="trend-unread">有新進展</b>':''}</span><div><button type="button" data-personal-pin="${escapeHtml(e.id)}" aria-pressed="${isPinned(e)}" class="trend-text-btn">${isPinned(e)?'◆ 已置頂':'◇ 置頂'}</button><button type="button" data-trend-watch="${escapeHtml(e.id)}" aria-pressed="${watched}" class="trend-text-btn">${watched?'★ 已關注':'☆ 關注'}</button><button type="button" class="trend-text-btn" data-trend-detail="${escapeHtml(e.id)}">檢視脈絡</button><button type="button" class="trend-text-btn trend-progress-link" data-trend-progress="${escapeHtml(e.id)}">進展紀錄 →</button><button type="button" class="trend-text-btn" data-trend-importance="${escapeHtml(e.id)}">為什麼重要</button></div></div></article>`;
   }
   function overview() {
     const filtered = selectedEvents().filter(e=>selectedTopic!=='all'||!preferences.layout.hidden.includes(e.primary_topic));
@@ -352,7 +352,7 @@
         <div class="trend-event-top"><span class="trend-topic-label">${escapeHtml(topicName(e.primary_topic))}</span><span class="trend-impact">${escapeHtml(eventStatus(e))}</span></div>
         <h3><button type="button" data-trend-progress="${escapeHtml(e.id)}">${escapeHtml(e.title)}</button></h3>
         <p>${e.articles?.length||0} 筆來源紀錄 · 最近更新 ${formatDate(e.updated_at)}</p>
-        <button type="button" class="btn primary" data-trend-progress="${escapeHtml(e.id)}">查看進展紀錄 →</button>
+        <div class="trend-inline-actions"><button type="button" class="btn primary" data-trend-progress="${escapeHtml(e.id)}">查看進展紀錄 →</button><button type="button" class="btn" data-trend-importance="${escapeHtml(e.id)}">為什麼重要</button></div>
       </article>`).join('') || '<div class="empty">這個範圍目前沒有事件，請切換主題或到「我的關注」調整領域。</div>'}</div>
     </section>`;
   }
@@ -426,7 +426,7 @@
       catch(err){backupError=err.message;repaint();}
     }
     else if(b.dataset.trendTopic){selectedTopic=b.dataset.trendTopic;currentTab=currentTab==='network'?'deep':currentTab;selectedEvent=null;repaint();}
-    else if(b.dataset.trendDetail||b.dataset.trendProgress){selectedEvent=b.dataset.trendDetail||b.dataset.trendProgress;detailPane=b.dataset.trendProgress?'progress':'evidence';const e=eventList().find(x=>x.id===selectedEvent);compareLeft=e?.articles?.[0]?.url||'';compareRight=e?.articles?.[1]?.url||compareLeft;preferences.viewed[selectedEvent]=new Date().toISOString();persist();repaint();window.scrollTo(0,0);}
+    else if(b.dataset.trendDetail||b.dataset.trendProgress||b.dataset.trendImportance){selectedEvent=b.dataset.trendDetail||b.dataset.trendProgress||b.dataset.trendImportance;detailPane=b.dataset.trendImportance?'importance':b.dataset.trendProgress?'progress':'evidence';const e=eventList().find(x=>x.id===selectedEvent);compareLeft=e?.articles?.[0]?.url||'';compareRight=e?.articles?.[1]?.url||compareLeft;preferences.viewed[selectedEvent]=new Date().toISOString();persist();repaint();window.scrollTo(0,0);}
     else if(b.dataset.trendPane){detailPane=b.dataset.trendPane;repaint();}
     else if(b.hasAttribute('data-trend-close')){selectedEvent=null;repaint();window.scrollTo(0,0);}
     else if(b.dataset.trendWatch){const id=b.dataset.trendWatch;const e=eventList().find(x=>x.id===id);if(!e)return;const ids=eventIds(e);preferences.watched=isWatched(e)?preferences.watched.filter(x=>!ids.includes(x)):[...preferences.watched.filter(x=>!ids.includes(x)),id];persist();repaint();}

@@ -70,7 +70,7 @@ html=(ROOT/'index.html').read_text()
 html=re.sub(r'<link[^>]+>', '', html)
 html=re.sub(r'<script src=[^>]+></script>','',html)
 html=html.replace('</head>','<style>'+css+'</style><style>.preview-note{background:#fbefd5;border:1px solid #dcc69c;padding:16px 20px;border-radius:12px;margin-bottom:18px;line-height:1.7}.preview-note p{margin:5px 0}.preview-note strong{font-size:17px}</style></head>')
-html=html.replace('<main id="main">','<aside class="preview-note"><strong>第七階段 · 智慧閱讀與知識成長 · 驗收預覽 v1.1</strong><p id="preview-note">此頁使用虛構新聞、示範教材與測驗紀錄。可操作每日選讀、事件重要性、術語搜尋及錯題回看。</p><p>操作記錄只保留在此頁暫存，重新開啟會重置。</p></aside><main id="main">')
+html=html.replace('<main id="main">','<aside class="preview-note"><strong>第七階段 · 智慧閱讀與知識成長 · 驗收預覽 v1.2</strong><p id="preview-note">此頁使用虛構新聞、示範教材與測驗紀錄。可操作每日選讀、事件重要性、術語搜尋及錯題回看。</p><p>操作記錄只保留在此頁暫存，重新開啟會重置。</p></aside><main id="main">')
 html=html.replace('<footer>Daily Insight 3.0.1 ·','<footer>第七階段驗收預覽 ·')
 html=html.replace('<title>Daily Insight · 每日新知與趨勢情報</title>','<title>Daily Insight 3.0 第七階段驗收預覽</title>')
 modules=[setup]

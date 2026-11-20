@@ -117,8 +117,8 @@
     return `<section class="learning-section"><div class="trend-section-title"><h3>術語與背景</h3><span>${entries.size} 個詞</span></div>
       <label class="glossary-filter">搜尋術語<input type="search" data-learning-search placeholder="例如：機會成本、基因、前提"></label>
       <p class="trend-muted">依知識館藏正文出現的術語提供一句話解釋，可開啟相關文章查看上下文。</p>
-      <dl class="reader-context-rows learning-glossary">${[...entries.values()].sort((a,b)=>a.term.localeCompare(b.term,'zh-Hant')).map(term=>`<div data-learning-term><dt>${escape(term.term)}</dt><dd><p>${escape(term.definition)}</p>
-      <button type="button" class="trend-text-btn" data-open="${escape(term.article.url)}">文章背景 · ${escape(term.article.title)}</button>${term.source?`<span class="learning-source">${sourceLink(term.source)}</span>`:''}</dd></div>`).join('')}</dl>
+      <dl class="reader-context-rows learning-glossary">${[...entries.values()].sort((a,b)=>a.term.localeCompare(b.term,'zh-Hant')).map(term=>`<div data-learning-term><dt>${escape(term.term)}</dt><dd><p class="learning-term-definition">${escape(term.definition)}</p>
+      <div class="learning-term-context"><button type="button" class="trend-text-btn" data-open="${escape(term.article.url)}">文章背景 · ${escape(term.article.title)}</button>${term.source?`<span class="learning-source">${sourceLink(term.source)}</span>`:''}</div></dd></div>`).join('')}</dl>
       <p class="learning-search-empty" hidden>找不到符合的術語，請調整關鍵字。</p></section>`;
   }
   function reviewHtml(articles,results,getQuiz) {
