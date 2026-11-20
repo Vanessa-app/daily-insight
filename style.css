@@ -404,3 +404,12 @@ body:has(.reader-panel-dialog[open], .reader-diagram-dialog[open]) { overflow: h
  .trend-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow-x:visible}
  .trend-tab{min-width:0;padding:10px 5px;text-align:center;white-space:normal}
 }
+
+.learning-section{margin-top:18px}.learning-digest{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.learning-digest .trend-detail-panel{margin:0}.learning-section h4{font-size:21px;line-height:1.55;margin:10px 0}
+.learning-section blockquote{margin:12px 0;padding-left:16px;border-left:3px solid #749a89;line-height:1.9}
+.learning-label,.learning-source{font-size:14px;color:#506d61}.learning-source{display:block;margin:12px 0}.learning-source a{color:#285b4d;text-underline-offset:3px}
+.learning-glossary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}.learning-glossary p{margin:0 0 8px}
+.learning-review{margin-top:18px}.learning-review details{padding:12px;background:#eef2ec;border-radius:8px}.learning-review summary{cursor:pointer;font-weight:600}
+.learning-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}.learning-importance h5{font-size:16px;margin-bottom:8px}
+@media(max-width:700px){.learning-digest,.learning-glossary{grid-template-columns:1fr}.learning-actions .btn{flex:1}}

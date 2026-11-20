@@ -103,7 +103,7 @@ setImmediate(()=>{(async()=>{
   assert.deepEqual(JSON.parse(storage.get('daily-insight-v1.8')).read,['old-read','new-read']);
   assert.equal(JSON.parse(storage.get('daily-insight-v1.8')).quizResults.old.score,1);
   assert.equal(JSON.parse(storage.get('daily-insight-trends-v2')).watched.includes('event-old'),true);
-  assert.match(fs.readFileSync('index.html','utf8'),/personal-data\.js\?v=trends3-stage6-entries2/);
-  assert.match(fs.readFileSync('sw.js','utf8'),/personal-data\.js\?v=trends3-stage6-entries2/);
+  assert.match(fs.readFileSync('index.html','utf8'),/personal-data\.js\?v=trends3-stage7/);
+  assert.match(fs.readFileSync('sw.js','utf8'),/personal-data\.js\?v=trends3-stage7/);
   console.log('Passed: stage6 live UI wiring, layout, watch terms, event status, guarded import and original records');
 })().catch(e=>{console.error(e);process.exitCode=1;});});

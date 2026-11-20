@@ -36,6 +36,7 @@
   }
   const preferences = readPrefs();
   let data = null, history = null, sourceHealth = null, loading = false, error = '', currentTab = 'overview', selectedTopic = 'all', selectedEvent = null, showOnlyWatched = false;
+  let learningMode = 'digest';
   let detailPane = 'evidence', compareLeft = '', compareRight = '';
   let customizeLayout = false, backupOpen = false, backupDraft = null, backupError = '', editingTerm = null;
   let announcement = '', initialized = false, lastFetchedAt = 0;
@@ -115,7 +116,7 @@
     const alerts = newUpdates().length;
     return `<section class="trend-hero"><div><p class="trend-eyebrow">DAILY INSIGHT 3.0 · SOURCE INTELLIGENCE</p><h2>智慧趨勢情報中心<span class="trend-hero-star"> ✳</span></h2><p>從日常新聞看見變化脈絡，六大領域同步掌握。整合來源並比對報導差異，所有事件皆可回溯原文。</p></div><div class="trend-hero-meta"><span>情報更新</span><strong>${data ? formatDate(data.generated_at) : '準備中'}</strong><small>規則式來源對照，非 AI 事實查核</small></div></section>
       <div class="trend-tabs" role="group" aria-label="智慧趨勢功能">
-      ${[['overview','趨勢總覽'],['progress','事件進展'],['backup','資料備份'],['deep','脈絡分析'],['watch','我的關注'],['reports','週月報告'],['network','主題關聯']].map(([id,label])=>`<button type="button" class="trend-tab ${currentTab === id ? 'active' : ''}" data-trend-tab="${id}" aria-pressed="${currentTab === id}">${label}${id === 'watch' && alerts ? `<b class="trend-dot">${alerts}</b>` : ''}</button>`).join('')}</div>`;
+      ${[['overview','趨勢總覽'],['progress','事件進展'],['backup','資料備份'],['learning','閱讀與複習'],['deep','脈絡分析'],['watch','我的關注'],['reports','週月報告'],['network','主題關聯']].map(([id,label])=>`<button type="button" class="trend-tab ${currentTab === id ? 'active' : ''}" data-trend-tab="${id}" aria-pressed="${currentTab === id}">${label}${id === 'watch' && alerts ? `<b class="trend-dot">${alerts}</b>` : ''}</button>`).join('')}</div>`;
   }
   function topicFilters() {
     return `<div class="trend-topic-filters" role="group" aria-label="篩選主題"><button type="button" class="trend-chip ${selectedTopic==='all'?'active':''}" data-trend-topic="all" aria-pressed="${selectedTopic==='all'}">全部主題</button>${topics().map((t,i)=>`<button type="button" class="trend-chip ${selectedTopic===t.id?'active':''}" data-trend-topic="${escapeHtml(t.id)}" aria-pressed="${selectedTopic===t.id}"><span style="color:${TOPIC_COLORS[i]}">${TOPIC_ICON[i]}</span> ${escapeHtml(t.label)}</button>`).join('')}</div>`;
@@ -208,9 +209,9 @@
       <p class="trend-caution">來源並排功能只呈現既有索引中可合法展示的文字，並不自動產生未經證實的差異結論。</p></section>`;
   }
   function investigation(e, reading) {
-    const panes = [['evidence','證據對照'],['progress','事件進展'],['compare','並排比較'],['quality','來源品質']];
+    const panes = [['evidence','證據對照'],['importance','為什麼重要'],['progress','事件進展'],['compare','並排比較'],['quality','來源品質']];
     return `<div class="trend-investigation"><div class="trend-pane-tabs" role="group" aria-label="事件查證功能">${panes.map(([id,label])=>`<button type="button" data-trend-pane="${id}" class="trend-pane-tab ${detailPane===id?'active':''}" aria-pressed="${detailPane===id}">${label}</button>`).join('')}</div>
-      ${detailPane==='progress'?progressPanel(e,[...(e.articles||[])].sort((a,b)=>new Date(a.published_at)-new Date(b.published_at))):detailPane==='quality'?qualityPanel(e):detailPane==='compare'?comparePanel(e):evidencePanel(e,reading)}</div>`;
+      ${detailPane==='importance'?(window.DailyLearning?.importanceHtml(e)||'<p>閱讀模組尚未載入。</p>'):detailPane==='progress'?progressPanel(e,[...(e.articles||[])].sort((a,b)=>new Date(a.published_at)-new Date(b.published_at))):detailPane==='quality'?qualityPanel(e):detailPane==='compare'?comparePanel(e):evidencePanel(e,reading)}</div>`;
   }
   function eventStatus(e) {
     const chosen=eventIds(e).map(id=>preferences.eventStates[id]).find(x=>['新事件','持續發展','待確認','已結束'].includes(x));
@@ -355,9 +356,21 @@
       </article>`).join('') || '<div class="empty">這個範圍目前沒有事件，請切換主題或到「我的關注」調整領域。</div>'}</div>
     </section>`;
   }
+  function learningPage(news) {
+    const learning = window.DailyLearning;
+    if (!learning) return '<div class="notice">閱讀模組目前無法載入，請重新整理。</div>';
+    const results = typeof state === 'object' ? state.quizResults : {};
+    const validArticles = typeof homepageArticles === 'function' ? homepageArticles(news) : news;
+    const glossary = article => typeof readerGlossary === 'function'
+      ? readerGlossary(article,typeof readerSupplements === 'object' ? readerSupplements[article.id] || {} : {}) : [];
+    const quiz = article => typeof quizData === 'function' ? quizData(article) : null;
+    return `<section class="learning-home"><div class="trend-pane-tabs" role="group" aria-label="閱讀與複習功能">${[['digest','每日五分鐘'],['glossary','術語與背景'],['review','錯題複習']].map(([id,label])=>`<button type="button" class="trend-pane-tab ${learningMode===id?'active':''}" data-learning-mode="${id}" aria-pressed="${learningMode===id}">${label}</button>`).join('')}</div>
+      ${learningMode==='glossary'?learning.glossaryHtml(validArticles,glossary):learningMode==='review'?learning.reviewHtml(validArticles,results,quiz):learning.digestHtml(validArticles)}</section>`;
+  }
   function renderPage(news) {
     initialize();
     if (initialized && !loading && Date.now() - lastFetchedAt > 5*60*1000) refresh();
+    if (currentTab==='learning') return header()+learningPage(news);
     if (currentTab==='backup') return header()+backupPage();
     if (!data) return header() + `<div class="notice">${escapeHtml(error || (loading?'正在建立趨勢情報畫面…':'尚未取得趨勢資料。'))}<button type="button" class="btn" data-trend-refresh>重新讀取</button></div>`;
     const event = selectedEvent && eventList().find(e=>e.id===selectedEvent);
@@ -387,6 +400,7 @@
   document.addEventListener('click',event=>{
     const b=event.target.closest('button'); if(!b) return;
     if(b.dataset.trendTab){switchTab(b.dataset.trendTab,b);}
+    else if(b.dataset.learningMode){learningMode=b.dataset.learningMode;currentTab='learning';selectedEvent=null;repaint();}
     else if(b.hasAttribute('data-personal-customize')){customizeLayout=!customizeLayout;repaint();}
     else if(b.dataset.personalMove){const i=preferences.layout.order.indexOf(b.dataset.personalMove),j=i+(b.dataset.direction==='up'?-1:1);if(i>=0&&j>=0&&j<preferences.layout.order.length){[preferences.layout.order[i],preferences.layout.order[j]]=[preferences.layout.order[j],preferences.layout.order[i]];persist();repaint();}}
     else if(b.hasAttribute('data-personal-reset')){preferences.layout=defaultLayout();persist();repaint();}
@@ -419,6 +433,14 @@
     else if(b.dataset.trendPeriod){preferences.reportPeriod=b.dataset.trendPeriod;persist();repaint();}
     else if(b.hasAttribute('data-trend-copy')){const value=reportText();if(navigator.clipboard?.writeText) navigator.clipboard.writeText(value).then(()=>{announcement='報告摘要已複製。';repaint();}).catch(()=>{announcement='無法複製，請確認瀏覽器權限。';repaint();});else {announcement='此瀏覽器不支援直接複製。';repaint();}}
     else if(b.hasAttribute('data-trend-refresh'))refresh();
+  });
+  document.addEventListener('input',event=>{
+    if (!event.target.matches('[data-learning-search]')) return;
+    const section=event.target.closest('.learning-section');
+    const query=event.target.value.trim().normalize('NFKC').toLocaleLowerCase('zh-TW');
+    const rows=[...section.querySelectorAll('[data-learning-term]')];
+    for (const row of rows) row.hidden=!row.textContent.normalize('NFKC').toLocaleLowerCase('zh-TW').includes(query);
+    section.querySelector('.learning-search-empty').hidden=rows.some(row=>!row.hidden);
   });
   document.addEventListener('change',event=>{
     const input=event.target;
