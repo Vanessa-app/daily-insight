@@ -397,3 +397,10 @@ body:has(.reader-panel-dialog[open], .reader-diagram-dialog[open]) { overflow: h
 .trend-personal-confirm input{accent-color:#285644;width:18px;height:18px;flex:none}
 @media(max-width:850px){.trend-personal-two,.trend-backup-grid{grid-template-columns:1fr}}
 @media(max-width:600px){.trend-personal-row{align-items:flex-start;flex-wrap:wrap}.trend-personal-actions{width:100%;justify-content:flex-end}.trend-personal-form{grid-template-columns:1fr}.trend-personal-wide{grid-column:auto}.trend-backup-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.trend-personal-form .trend-personal-actions{justify-content:flex-start}}
+
+/* Keep the two data and progress entry points visible on narrow screens. */
+.trend-progress-link{color:#285b4d;font-weight:700}
+@media(max-width:600px){
+ .trend-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow-x:visible}
+ .trend-tab{min-width:0;padding:10px 5px;text-align:center;white-space:normal}
+}

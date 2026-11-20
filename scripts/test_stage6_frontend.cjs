@@ -69,12 +69,24 @@ setImmediate(()=>{(async()=>{
 
   button({trendDetail:'event-new'});
   let detail=ui.render([]);
+  assert.match(detail,/data-trend-pane="progress"/);
+  button({trendPane:'progress'});
+  detail=ui.render([]);
   assert.match(detail,/B4 · 事件進展紀錄/);
   assert.match(detail,/官方／原始發布者資料/);
   assert.match(detail,/沒有新消息不會自動改成/);
   change('select[data-personal-status]',{dataset:{personalStatus:'event-new'},value:'已結束'});
   assert.equal(JSON.parse(storage.get('daily-insight-trends-v2')).eventStates['event-new'],'已結束');
   button({},['data-trend-close']);
+  button({trendTab:'progress'});
+  assert.match(ui.render([]),/查看進展紀錄 →/);
+  button({trendProgress:'event-new'});
+  assert.match(ui.render([]),/B4 · 事件進展紀錄/);
+  assert.match(ui.render([]),/返回事件進展/);
+  button({trendTab:'backup'});
+  assert.match(ui.render([]),/D3 · 資料備份與安全匯入/);
+  button({},['data-personal-backup-close']);
+  assert.match(ui.render([]),/六大情報領域/);
   button({trendTab:'watch'});
   button({},['data-personal-backup']);
   assert.match(ui.render([]),/D3 · 資料備份與安全匯入/);
@@ -91,7 +103,7 @@ setImmediate(()=>{(async()=>{
   assert.deepEqual(JSON.parse(storage.get('daily-insight-v1.8')).read,['old-read','new-read']);
   assert.equal(JSON.parse(storage.get('daily-insight-v1.8')).quizResults.old.score,1);
   assert.equal(JSON.parse(storage.get('daily-insight-trends-v2')).watched.includes('event-old'),true);
-  assert.match(fs.readFileSync('index.html','utf8'),/personal-data\.js\?v=trends3-stage6/);
-  assert.match(fs.readFileSync('sw.js','utf8'),/personal-data\.js\?v=trends3-stage6/);
+  assert.match(fs.readFileSync('index.html','utf8'),/personal-data\.js\?v=trends3-stage6-entries2/);
+  assert.match(fs.readFileSync('sw.js','utf8'),/personal-data\.js\?v=trends3-stage6-entries2/);
   console.log('Passed: stage6 live UI wiring, layout, watch terms, event status, guarded import and original records');
 })().catch(e=>{console.error(e);process.exitCode=1;});});

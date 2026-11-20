@@ -115,7 +115,7 @@
     const alerts = newUpdates().length;
     return `<section class="trend-hero"><div><p class="trend-eyebrow">DAILY INSIGHT 3.0 · SOURCE INTELLIGENCE</p><h2>智慧趨勢情報中心<span class="trend-hero-star"> ✳</span></h2><p>從日常新聞看見變化脈絡，六大領域同步掌握。整合來源並比對報導差異，所有事件皆可回溯原文。</p></div><div class="trend-hero-meta"><span>情報更新</span><strong>${data ? formatDate(data.generated_at) : '準備中'}</strong><small>規則式來源對照，非 AI 事實查核</small></div></section>
       <div class="trend-tabs" role="group" aria-label="智慧趨勢功能">
-      ${[['overview','趨勢總覽'],['deep','脈絡分析'],['watch','我的關注'],['reports','週月報告'],['network','主題關聯']].map(([id,label])=>`<button type="button" class="trend-tab ${currentTab === id ? 'active' : ''}" data-trend-tab="${id}" aria-pressed="${currentTab === id}">${label}${id === 'watch' && alerts ? `<b class="trend-dot">${alerts}</b>` : ''}</button>`).join('')}</div>`;
+      ${[['overview','趨勢總覽'],['progress','事件進展'],['backup','資料備份'],['deep','脈絡分析'],['watch','我的關注'],['reports','週月報告'],['network','主題關聯']].map(([id,label])=>`<button type="button" class="trend-tab ${currentTab === id ? 'active' : ''}" data-trend-tab="${id}" aria-pressed="${currentTab === id}">${label}${id === 'watch' && alerts ? `<b class="trend-dot">${alerts}</b>` : ''}</button>`).join('')}</div>`;
   }
   function topicFilters() {
     return `<div class="trend-topic-filters" role="group" aria-label="篩選主題"><button type="button" class="trend-chip ${selectedTopic==='all'?'active':''}" data-trend-topic="all" aria-pressed="${selectedTopic==='all'}">全部主題</button>${topics().map((t,i)=>`<button type="button" class="trend-chip ${selectedTopic===t.id?'active':''}" data-trend-topic="${escapeHtml(t.id)}" aria-pressed="${selectedTopic===t.id}"><span style="color:${TOPIC_COLORS[i]}">${TOPIC_ICON[i]}</span> ${escapeHtml(t.label)}</button>`).join('')}</div>`;
@@ -134,7 +134,7 @@
     return `<article class="trend-event-card ${compact?'compact':''}"><div class="trend-event-top"><span class="trend-topic-label" style="color:${TOPIC_COLORS[topicIndex(e.primary_topic)]}">${TOPIC_ICON[topicIndex(e.primary_topic)]} ${escapeHtml(topicName(e.primary_topic))}</span>${badge(e)}</div>
       <h3><button type="button" data-trend-detail="${escapeHtml(e.id)}">${escapeHtml(e.title)}</button></h3>
       <p>已整合 ${e.articles?.length || 0} 篇相關報導、${e.source_count || 0} 個來源${firstHand?`；包含 ${firstHand} 篇官方來源`:''}。可查看報導主張、來源差異與檢查結果。</p>
-      <div class="trend-event-bottom"><span>${formatDate(e.updated_at)} 更新 ${unseen?'<b class="trend-unread">有新進展</b>':''}</span><div><button type="button" data-personal-pin="${escapeHtml(e.id)}" aria-pressed="${isPinned(e)}" class="trend-text-btn">${isPinned(e)?'◆ 已置頂':'◇ 置頂'}</button><button type="button" data-trend-watch="${escapeHtml(e.id)}" aria-pressed="${watched}" class="trend-text-btn">${watched?'★ 已關注':'☆ 關注'}</button><button type="button" class="trend-text-btn" data-trend-detail="${escapeHtml(e.id)}">檢視脈絡</button></div></div></article>`;
+      <div class="trend-event-bottom"><span>${formatDate(e.updated_at)} 更新 ${unseen?'<b class="trend-unread">有新進展</b>':''}</span><div><button type="button" data-personal-pin="${escapeHtml(e.id)}" aria-pressed="${isPinned(e)}" class="trend-text-btn">${isPinned(e)?'◆ 已置頂':'◇ 置頂'}</button><button type="button" data-trend-watch="${escapeHtml(e.id)}" aria-pressed="${watched}" class="trend-text-btn">${watched?'★ 已關注':'☆ 關注'}</button><button type="button" class="trend-text-btn" data-trend-detail="${escapeHtml(e.id)}">檢視脈絡</button><button type="button" class="trend-text-btn trend-progress-link" data-trend-progress="${escapeHtml(e.id)}">進展紀錄 →</button></div></div></article>`;
   }
   function overview() {
     const filtered = selectedEvents().filter(e=>selectedTopic!=='all'||!preferences.layout.hidden.includes(e.primary_topic));
@@ -208,9 +208,9 @@
       <p class="trend-caution">來源並排功能只呈現既有索引中可合法展示的文字，並不自動產生未經證實的差異結論。</p></section>`;
   }
   function investigation(e, reading) {
-    const panes = [['evidence','證據對照'],['compare','並排比較'],['quality','來源品質']];
+    const panes = [['evidence','證據對照'],['progress','事件進展'],['compare','並排比較'],['quality','來源品質']];
     return `<div class="trend-investigation"><div class="trend-pane-tabs" role="group" aria-label="事件查證功能">${panes.map(([id,label])=>`<button type="button" data-trend-pane="${id}" class="trend-pane-tab ${detailPane===id?'active':''}" aria-pressed="${detailPane===id}">${label}</button>`).join('')}</div>
-      ${detailPane==='quality'?qualityPanel(e):detailPane==='compare'?comparePanel(e):evidencePanel(e,reading)}</div>`;
+      ${detailPane==='progress'?progressPanel(e,[...(e.articles||[])].sort((a,b)=>new Date(a.published_at)-new Date(b.published_at))):detailPane==='quality'?qualityPanel(e):detailPane==='compare'?comparePanel(e):evidencePanel(e,reading)}</div>`;
   }
   function eventStatus(e) {
     const chosen=eventIds(e).map(id=>preferences.eventStates[id]).find(x=>['新事件','持續發展','待確認','已結束'].includes(x));
@@ -232,11 +232,10 @@
   }
   function detail(e, news) {
     const watched = isWatched(e);
-    const sorted = [...(e.articles||[])].sort((a,b)=>new Date(a.published_at)-new Date(b.published_at));
     const reading = articleMatches(e,news);
-    return `<section class="trend-detail"><button type="button" class="trend-back" data-trend-close>← 返回${currentTab==='deep'?'脈絡分析':'情報總覽'}</button>
+    return `<section class="trend-detail"><button type="button" class="trend-back" data-trend-close>← 返回${currentTab==='deep'?'脈絡分析':currentTab==='progress'?'事件進展':currentTab==='watch'?'我的關注':'情報總覽'}</button>
       <div class="trend-detail-heading"><span class="trend-topic-label">${escapeHtml(topicName(e.primary_topic))}</span>${badge(e)}<h3>${escapeHtml(e.title)}</h3><div class="trend-detail-meta">首次資料 ${formatDate(e.first_seen_at)}　最近更新 ${formatDate(e.updated_at)}　${e.source_count} 個來源</div><button type="button" class="btn" data-trend-watch="${escapeHtml(e.id)}">${watched?'★ 取消關注':'☆ 加入我的關注'}</button></div>
-      ${investigation(e,reading)}<div class="trend-detail-grid">${progressPanel(e,sorted)}
+      ${investigation(e,reading)}<div class="trend-detail-grid">
       <section class="trend-detail-panel"><h4>觀察方向</h4><p>${escapeHtml(e.watchpoint || '持續追蹤原始來源後續資料。')}</p><p class="trend-caution">這是主題觀察提示，不是個別事件的已證實影響，也不是對未來的預測。</p><h4>分類與排序依據</h4><ul class="trend-small-list"><li>主題符合度：${Number(e.importance_factors?.topical||0)} / 3</li><li>事件影響用語：${Number(e.importance_factors?.impact||0)} / 3</li><li>更新時效：${Number(e.importance_factors?.recency||0)} / 2</li><li>來源數量：${Number(e.importance_factors?.sources||0)} / 2</li></ul></section>
       <section class="trend-detail-panel"><h4>關聯知識</h4>${relatedKnowledge(e,news)}<p class="trend-caution">僅提供背景延伸閱讀，並非事件已完成事實核查。</p></section></div></section>`;
   }
@@ -288,7 +287,7 @@
     const summary=counts?`<div class="trend-backup-stats">${Object.entries(counts).map(([k,v])=>`<div><strong>${v}</strong><span>${labels[k]}</span></div>`).join('')}</div>`:'';
     const check=backupDraft?`<section class="trend-backup-preview"><h4>匯入前檢查結果 · 版本 ${engine.VERSION}</h4><div class="trend-backup-table"><div><strong>資料類別</strong><strong>匯入筆數</strong><strong>新增</strong><strong>略過重複</strong></div>${Object.keys(backupDraft.added).map(k=>`<div><span>${labels[k]}</span><span>${backupDraft.imported[k]}</span><span>${backupDraft.added[k]}</span><span>${backupDraft.skipped[k]}</span></div>`).join('')}</div><p class="trend-caution">相同識別碼或相同企業名稱不覆寫現有設定。既有主題排序、隱藏設定、閱讀測驗結果以目前瀏覽器為優先。</p>
       <label class="trend-personal-confirm"><input type="checkbox" id="trend-backup-approve"> 我確認只合併新資料，且了解完成後需要重新載入頁面。</label><button type="button" class="btn primary" data-personal-import-apply>確認安全合併</button></section>`:'';
-    return `<section class="trend-overview"><div class="trend-section-title"><h3>D3 · 資料備份與安全匯入</h3><button type="button" class="btn" data-personal-backup-close>返回我的關注</button></div>
+    return `<section class="trend-overview"><div class="trend-section-title"><h3>D3 · 資料備份與安全匯入</h3><button type="button" class="btn" data-personal-backup-close>${currentTab==='backup'?'返回趨勢總覽':'返回我的關注'}</button></div>
       <p class="trend-muted">只在目前裝置操作，不上傳新聞閱讀紀錄、關注設定或 JSON 到伺服器。匯出可轉移到你自己的其他裝置；匯入前必須檢查。</p><div class="trend-backup-grid"><section class="trend-detail-panel"><h4>匯出完整個人資料</h4>${summary}${problem?`<p class="trend-caution">${escapeHtml(problem)}</p>`:'<button type="button" class="btn primary" data-personal-export>下載 JSON 備份</button>'}<p class="trend-footnote">包含原有已讀、收藏、測驗，以及趨勢關注、觀測清單、事件進展與版面設定。</p></section>
       <section class="trend-detail-panel"><h4>選擇 JSON 備份</h4><label class="trend-personal-field">選擇檔案（上限 2 MB）<input id="trend-import-file" type="file" accept=".json,application/json"></label><p class="trend-muted">先檢查格式版本、筆數與衝突；未經確認不寫入任何紀錄。</p><button type="button" class="btn" data-personal-import-reset>清除匯入預覽</button>${backupError?`<p class="trend-caution" role="alert">${escapeHtml(backupError)}</p>`:''}</section></div>${check}</section>`;
   }
@@ -343,13 +342,27 @@
     return `<section class="trend-network"><div class="trend-section-title"><h3>跨領域知識關聯</h3><span>依事件的多重主題標籤產生</span></div><p class="trend-muted">例如半導體與 AI、金融與政策同時出現在事件標籤中時，建立主題關聯。這不是因果關係或人工專家知識圖譜。</p><div class="trend-network-topics">${topics().map((t,i)=>`<button type="button" data-trend-topic="${escapeHtml(t.id)}" class="trend-network-node" style="--node:${TOPIC_COLORS[i]}">${TOPIC_ICON[i]} ${escapeHtml(t.label)}</button>`).join('')}</div>
       <section class="trend-detail-panel"><h4>主要跨主題連結</h4>${links.length?`<ul class="trend-links">${links.map(l=>`<li><span>${escapeHtml(topicName(l.nodes[0]))}</span><span class="trend-link-line"></span><span>${escapeHtml(topicName(l.nodes[1]))}</span><strong>${l.count} 事件</strong></li>`).join('')}</ul>`:'<div class="empty">目前沒有足夠的跨主題資料。</div>'}</section><p class="trend-footnote">點選上方主題，可切換至事件脈絡分析進一步閱讀來源。</p></section>`;
   }
+  function progressPage() {
+    const events = selectedEvents().sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at));
+    return `<section class="trend-progress-page"><div class="trend-section-title"><h3>事件進展紀錄</h3><span>${events.length} 個事件</span></div>
+      <p class="trend-muted">選擇事件查看按時間排列的來源紀錄，並設定追蹤狀態。</p>
+      ${topicFilters()}
+      <div class="trend-event-list">${events.map(e=>`<article class="trend-event-card">
+        <div class="trend-event-top"><span class="trend-topic-label">${escapeHtml(topicName(e.primary_topic))}</span><span class="trend-impact">${escapeHtml(eventStatus(e))}</span></div>
+        <h3><button type="button" data-trend-progress="${escapeHtml(e.id)}">${escapeHtml(e.title)}</button></h3>
+        <p>${e.articles?.length||0} 筆來源紀錄 · 最近更新 ${formatDate(e.updated_at)}</p>
+        <button type="button" class="btn primary" data-trend-progress="${escapeHtml(e.id)}">查看進展紀錄 →</button>
+      </article>`).join('') || '<div class="empty">這個範圍目前沒有事件，請切換主題或到「我的關注」調整領域。</div>'}</div>
+    </section>`;
+  }
   function renderPage(news) {
     initialize();
     if (initialized && !loading && Date.now() - lastFetchedAt > 5*60*1000) refresh();
+    if (currentTab==='backup') return header()+backupPage();
     if (!data) return header() + `<div class="notice">${escapeHtml(error || (loading?'正在建立趨勢情報畫面…':'尚未取得趨勢資料。'))}<button type="button" class="btn" data-trend-refresh>重新讀取</button></div>`;
     const event = selectedEvent && eventList().find(e=>e.id===selectedEvent);
     if (event) return header()+detail(event,news);
-    return header() + (currentTab==='deep'?deepAnalysis():currentTab==='watch'?watch():currentTab==='reports'?reports():currentTab==='network'?network():overview()) + (announcement?`<p class="trend-announcement" role="status">${escapeHtml(announcement)}</p>`:'');
+    return header() + (currentTab==='progress'?progressPage():currentTab==='deep'?deepAnalysis():currentTab==='watch'?watch():currentTab==='reports'?reports():currentTab==='network'?network():overview()) + (announcement?`<p class="trend-announcement" role="status">${escapeHtml(announcement)}</p>`:'');
   }
   function switchTab(id, button) {
     const oldTabs = button.closest?.('.trend-tabs');
@@ -382,7 +395,7 @@
     else if(b.dataset.personalToggle){const t=preferences.watchTerms.find(x=>x.id===b.dataset.personalToggle);if(t){t.enabled=!t.enabled;persist();repaint();}}
     else if(b.hasAttribute('data-personal-cancel-edit')){editingTerm=null;repaint();}
     else if(b.hasAttribute('data-personal-backup')){backupOpen=true;backupError='';backupDraft=null;repaint();}
-    else if(b.hasAttribute('data-personal-backup-close')){backupOpen=false;backupDraft=null;backupError='';repaint();}
+    else if(b.hasAttribute('data-personal-backup-close')){backupOpen=false;backupDraft=null;backupError='';if(currentTab==='backup')currentTab='overview';repaint();}
     else if(b.hasAttribute('data-personal-import-reset')){backupDraft=null;backupError='';repaint();}
     else if(b.hasAttribute('data-personal-export')){
       try {
@@ -399,7 +412,7 @@
       catch(err){backupError=err.message;repaint();}
     }
     else if(b.dataset.trendTopic){selectedTopic=b.dataset.trendTopic;currentTab=currentTab==='network'?'deep':currentTab;selectedEvent=null;repaint();}
-    else if(b.dataset.trendDetail){selectedEvent=b.dataset.trendDetail;detailPane='evidence';const e=eventList().find(x=>x.id===selectedEvent);compareLeft=e?.articles?.[0]?.url||'';compareRight=e?.articles?.[1]?.url||compareLeft;preferences.viewed[selectedEvent]=new Date().toISOString();persist();repaint();window.scrollTo(0,0);}
+    else if(b.dataset.trendDetail||b.dataset.trendProgress){selectedEvent=b.dataset.trendDetail||b.dataset.trendProgress;detailPane=b.dataset.trendProgress?'progress':'evidence';const e=eventList().find(x=>x.id===selectedEvent);compareLeft=e?.articles?.[0]?.url||'';compareRight=e?.articles?.[1]?.url||compareLeft;preferences.viewed[selectedEvent]=new Date().toISOString();persist();repaint();window.scrollTo(0,0);}
     else if(b.dataset.trendPane){detailPane=b.dataset.trendPane;repaint();}
     else if(b.hasAttribute('data-trend-close')){selectedEvent=null;repaint();window.scrollTo(0,0);}
     else if(b.dataset.trendWatch){const id=b.dataset.trendWatch;const e=eventList().find(x=>x.id===id);if(!e)return;const ids=eventIds(e);preferences.watched=isWatched(e)?preferences.watched.filter(x=>!ids.includes(x)):[...preferences.watched.filter(x=>!ids.includes(x)),id];persist();repaint();}
