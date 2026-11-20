@@ -78,7 +78,7 @@
     }
     const topics = uniqueStrings(value.topics ?? TOPICS, 6, 40);
     if (topics.some(x => !TOPICS.includes(x))) throw new Error('領域偏好不符。');
-    const reportPeriod = value.reportPeriod === '30' ? '30' : '7';
+    const reportPeriod = ['7','30','90'].includes(value.reportPeriod) ? value.reportPeriod : '7';
     return {topics,watched:uniqueStrings(value.watched ?? [],10000),viewed,reportPeriod,
       lastVisit:validDate(value.lastVisit)?value.lastVisit:null,
       watchTerms:terms,layout:{order:[...order,...TOPICS.filter(x=>!order.includes(x))],hidden,pinned},eventStates:statuses};
