@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-20T06:03:17.696412+00:00",
+  "generated_at": "2026-11-20T10:56:49.013747+00:00",
   "method": "bounded_head_checks_no_article_download",
   "checked_this_run": 12,
   "links": {
@@ -8,11 +8,6 @@
       "status": "unknown",
       "http_status": 403,
       "checked_at": "2026-11-20T00:05:25.353519+00:00"
-    },
-    "https://ec.ltn.com.tw/article/breakingnews/5646813": {
-      "status": "unknown",
-      "http_status": 403,
-      "checked_at": "2026-11-20T00:55:44.776007+00:00"
     },
     "https://ec.ltn.com.tw/article/breakingnews/5646914": {
       "status": "unknown",
@@ -78,6 +73,66 @@
       "status": "unknown",
       "http_status": 403,
       "checked_at": "2026-11-20T05:58:32.293989+00:00"
+    },
+    "https://ec.ltn.com.tw/article/breakingnews/5647700": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-20T10:56:44.072851+00:00"
+    },
+    "https://ec.ltn.com.tw/article/breakingnews/5647725": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-20T10:56:44.072851+00:00"
+    },
+    "https://ec.ltn.com.tw/article/breakingnews/5647746": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-20T10:56:44.072851+00:00"
+    },
+    "https://ec.ltn.com.tw/article/breakingnews/5647773": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-20T10:56:44.072851+00:00"
+    },
+    "https://ec.ltn.com.tw/article/breakingnews/5647774": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-20T10:56:44.072851+00:00"
+    },
+    "https://ec.ltn.com.tw/article/breakingnews/5647785": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-20T10:56:44.072851+00:00"
+    },
+    "https://ec.ltn.com.tw/article/breakingnews/5647801": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-20T10:56:44.072851+00:00"
+    },
+    "https://ec.ltn.com.tw/article/breakingnews/5647850": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-20T10:56:44.072851+00:00"
+    },
+    "https://ec.ltn.com.tw/article/breakingnews/5647896": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-20T10:56:44.072851+00:00"
+    },
+    "https://ec.ltn.com.tw/article/breakingnews/5647900": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-20T10:56:44.072851+00:00"
+    },
+    "https://ec.ltn.com.tw/article/breakingnews/5647912": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-20T10:56:44.072851+00:00"
+    },
+    "https://ec.ltn.com.tw/article/breakingnews/5647917": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-20T10:56:44.072851+00:00"
     },
     "https://ec.ltn.com.tw/article/paper/1779122": {
       "status": "unknown",
@@ -154,17 +209,7 @@
       "http_status": 200,
       "checked_at": "2026-11-20T06:03:15.970015+00:00"
     },
-    "https://news.ltn.com.tw/news/art/breakingnews/5646847": {
-      "status": "unknown",
-      "http_status": 403,
-      "checked_at": "2026-11-20T06:03:15.970015+00:00"
-    },
     "https://news.ltn.com.tw/news/art/breakingnews/5647491": {
-      "status": "unknown",
-      "http_status": 403,
-      "checked_at": "2026-11-20T06:03:15.970015+00:00"
-    },
-    "https://news.ltn.com.tw/news/life/breakingnews/5646694": {
       "status": "unknown",
       "http_status": 403,
       "checked_at": "2026-11-20T06:03:15.970015+00:00"
