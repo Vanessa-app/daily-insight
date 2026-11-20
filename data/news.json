@@ -1,7 +1,88 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-19T11:26:33.449914+00:00",
+  "updated_at": "2026-11-20T00:04:51.297744+00:00",
   "items": [
+    {
+      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/ttt-publicinputonlife-2026.png",
+      "image_rights": "unverified",
+      "image_credit": "NASA",
+      "quiz_reviewed": false,
+      "quiz": [],
+      "excerpt_original": "NASA’s Transformational Tools and Technologies (TTT) is gathering public perspectives on life today and how the world may change by 2075. This challenge asks for conceptual ideas about life in 2075 across four challenge topics. Ideas should explore how future aviation or aerospace systems could: Ideas should be conceptual rather than technical. Award: $20,000 in […]",
+      "translation_zh_hant": null,
+      "evidence_original": [
+        "NASA’s Transformational Tools and Technologies (TTT) is gathering public perspectives on life today and how the world may change by 2075. This challenge asks for conceptual ideas about life in 2075 across four challenge topics. Ideas should explore how future aviation or aerospace systems could: Ideas should be conceptual rather than technical. Award: $20,000 in […]"
+      ],
+      "evidence_zh_hant": [],
+      "translation_status": "translation_not_requested",
+      "content_scope": "publisher_feed_excerpt",
+      "extraction_status": "not_attempted",
+      "content_complete": false,
+      "reuse_license": "not_confirmed",
+      "id": "nasa:1266551345",
+      "source_id": "nasa",
+      "source": "NASA",
+      "category": "AI與科技",
+      "title": "Challenge: Public Input on Life and the World in 2075",
+      "url": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/center-of-excellence-for-collaborative-innovation-coeci/challenge-public-input-on-life-and-the-world-in-2075/",
+      "published_at": "2026-11-19T19:34:20+00:00",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
+    {
+      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/iss075e0267074orig.jpg",
+      "image_rights": "unverified",
+      "image_credit": "NASA",
+      "quiz_reviewed": false,
+      "quiz": [],
+      "excerpt_original": "An astronaut on the International Space Station captured this photograph of Lake Pelku (near center) as the station orbited above Asia. The International Space Station serves as a unique platform for observing Earth with both hands-on and automated equipment. Station crew members have produced hundreds of thousands of images. These images record phenomena in real […]",
+      "translation_zh_hant": null,
+      "evidence_original": [
+        "An astronaut on the International Space Station captured this photograph of Lake Pelku (near center) as the station orbited above Asia. The International Space Station serves as a unique platform for observing Earth with both hands-on and automated equipment. Station crew members have produced hundreds of thousands of images. These images record phenomena in real […]"
+      ],
+      "evidence_zh_hant": [],
+      "translation_status": "translation_not_requested",
+      "content_scope": "publisher_feed_excerpt",
+      "extraction_status": "not_attempted",
+      "content_complete": false,
+      "reuse_license": "not_confirmed",
+      "id": "nasa:1155190308",
+      "source_id": "nasa",
+      "source": "NASA",
+      "category": "AI與科技",
+      "title": "Lake Pelku",
+      "url": "https://www.nasa.gov/image-article/lake-pelku/",
+      "published_at": "2026-11-19T15:32:39+00:00",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
+    {
+      "id": "moda:21474",
+      "source_id": "moda",
+      "source": "數位發展部",
+      "kind": "news",
+      "category": "AI與科技",
+      "title": "數發部推動綠色軟體 助臺灣軟體業化永續為實質商機",
+      "url": "https://moda.gov.tw/press/press-releases/21474",
+      "published_at": "2026-11-19T03:40:58+08:00",
+      "content_complete": true,
+      "reuse_license": "approved",
+      "license_name": "CC0 1.0",
+      "license_url": "https://moda.gov.tw/announcement/publicdeclare/951",
+      "content_scope": "official_full_text",
+      "translation_status": "original_zh_hant",
+      "evidence_original": [
+        "數位發展部為落實國家「綠色數位雙軸轉型」政策、響應全球淨零碳排趨勢與國際供應鏈對永續採購的需求，積極推動臺灣軟體產業綠色升級，今年首度啟動「自願性綠色軟體輔導試辦計畫 」，協助國內軟體業者降低產品能耗、導入碳排量測，同時攜手產官學界共同發布《綠色軟體宣言》，助攻臺灣軟體產業進軍綠色商機。",
+        "數發部17日舉辦「115年綠色軟體成果發表會」，以「開創綠色軟體、建構永續數位」為主題，展現9家企業、共18項軟體產品參與綠色軟體輔導試辦計畫的成果。數發部林宜敬部長指出，今年首度推出計畫，協助業者計算軟體產品碳排量，透過具體數據符合客戶的永續採購需求，成功拓展訂單。證明綠色軟體不只是落實環境永續的工具，更能幫助企業提升競爭力。",
+        "數發部也攜手中華民國資訊軟體商業同業公會與台灣經濟研究院共同發布《綠色軟體宣言》，在國際綠色軟體基金會（Green Software Foundation, GSF）的見證下，倡議將永續與效能、安全、成本及無障礙並列為軟體開發核心價值，凝聚產官學界推動綠色軟體的共識。",
+        "數發部說明，本次試辦計畫協助業者依循國際軟體碳強度（Software Carbon Intensity, SCI）規範，透過軟體架構及優化演算法，量化服務及產品碳排數據，將永續要求融入產品開發。",
+        "例如網擎資訊在本次計畫輔導下，成功量化並揭露雲端郵件服務的碳排數據，對接國際客戶的永續採購標準，進一步拓展海外及企業訂單；宥爵智能科技建立對AI應用服務的碳排計算能力，以「碳治理」的理念開發AI新產品，開拓新市場。",
+        "數發部表示，未來將持續擴大輔導規模，並推動自願性綠色軟體標章機制，協助業者提升產品價值及拓展市場。期盼透過產官學與國際組織的緊密合作，引領臺灣軟體產業邁向永續發展的新局。"
+      ],
+      "excerpt_original": "數位發展部為落實國家「綠色數位雙軸轉型」政策、響應全球淨零碳排趨勢與國際供應鏈對永續採購的需求，積極推動臺灣軟體產業綠色升級，今年首度啟動「自願性綠色軟體輔導試辦計畫 」，協助國內軟體業者降低產品能耗、導入碳排量測，同時攜手產官學界共同發布《綠色軟體宣言》，助攻臺灣軟體產業進軍綠色商機。",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
     {
       "id": "ey:b846bc30-a95b-44e2-ac42-25652271cd3c",
       "source_id": "ey",
@@ -1594,101 +1675,38 @@
       "excerpt_original": "行政院長卓榮泰今（5）日於行政院會聽取交通部「觀光雙輪驅動方案執行情形」報告後表示，觀光產業是展現國家軟實力及在地文化的關鍵基礎，交通部觀光署透過「觀光雙輪驅動方案」，推動「平日國旅優惠」及「強化國際觀光動能」，行政院更投入33.3億元經費，引導國人平日深度旅遊，並吸引高消費國際客重遊臺灣，預估可帶來440萬人次旅遊、創造374億元觀光產值。",
       "verification": "publisher_domain_checked",
       "claim_verification": "not_independently_verified"
-    },
-    {
-      "excerpt_original": "In an update on Oct. 23, NASA Administrator Jared Isaacman and other agency leaders shared the agency’s path to returning Americans to the lunar surface in 2028. Agency leadership provided updates on the previously announced acceleration plans for the Artemis program, advancing toward the agency’s Artemis III test flight in 2027 and Artemis IV Moon […]",
-      "translation_zh_hant": null,
-      "evidence_original": [
-        "In an update on Oct. 23, NASA Administrator Jared Isaacman and other agency leaders shared the agency’s path to returning Americans to the lunar surface in 2028. Agency leadership provided updates on the previously announced acceleration plans for the Artemis program, advancing toward the agency’s Artemis III test flight in 2027 and Artemis IV Moon […]"
-      ],
-      "evidence_zh_hant": [],
-      "translation_status": "not_configured",
-      "content_scope": "publisher_feed_excerpt",
-      "content_complete": false,
-      "reuse_license": "not_confirmed",
-      "id": "nasa:60000835",
-      "source_id": "nasa",
-      "source": "NASA",
-      "category": "AI與科技",
-      "title": "NASA Shares Plans to Accelerate Artemis, Return to Moon",
-      "url": "https://www.nasa.gov/missions/artemis/nasa-shares-plans-to-accelerate-artemis-return-to-moon/",
-      "published_at": "2026-11-04T21:04:10+00:00",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
-    },
-    {
-      "excerpt_original": "NASA selected three companies on Wednesday to perform work to develop Ka-band space relay capability concepts that are compatible with current missions in space, ensuring service continuity for existing spacecraft without requiring modifications to their onboard systems. Through this work, NASA will aim to acquire end-to-end solutions that include space, ground, launch, operations, and integration […]",
-      "translation_zh_hant": null,
-      "evidence_original": [
-        "NASA selected three companies on Wednesday to perform work to develop Ka-band space relay capability concepts that are compatible with current missions in space, ensuring service continuity for existing spacecraft without requiring modifications to their onboard systems. Through this work, NASA will aim to acquire end-to-end solutions that include space, ground, launch, operations, and integration […]"
-      ],
-      "evidence_zh_hant": [],
-      "translation_status": "not_configured",
-      "content_scope": "publisher_feed_excerpt",
-      "content_complete": false,
-      "reuse_license": "not_confirmed",
-      "id": "nasa:3618438085",
-      "source_id": "nasa",
-      "source": "NASA",
-      "category": "AI與科技",
-      "title": "NASA Announces Ka-Band Satellite Relay Awards for Space Communications",
-      "url": "https://www.nasa.gov/news-release/nasa-announces-ka-band-satellite-relay-awards-for-space-communications/",
-      "published_at": "2026-11-04T18:00:02+00:00",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
-    },
-    {
-      "excerpt_original": "NASA successfully demonstrated technology designed to help spacecraft autonomously navigate to safe landing sites on the Moon and on other planets. An Alta-X drone equipped with the agency’s Safe and Precise Landing – Integrated Capabilities Evolution (SPLICE) guidance, navigation, and control payload completed simulated lunar descent and landing maneuvers Aug. 27. The flight took place […]",
-      "translation_zh_hant": null,
-      "evidence_original": [
-        "NASA successfully demonstrated technology designed to help spacecraft autonomously navigate to safe landing sites on the Moon and on other planets. An Alta-X drone equipped with the agency’s Safe and Precise Landing – Integrated Capabilities Evolution (SPLICE) guidance, navigation, and control payload completed simulated lunar descent and landing maneuvers Aug. 27. The flight took place […]"
-      ],
-      "evidence_zh_hant": [],
-      "translation_status": "not_configured",
-      "content_scope": "publisher_feed_excerpt",
-      "content_complete": false,
-      "reuse_license": "not_confirmed",
-      "id": "nasa:3653654061",
-      "source_id": "nasa",
-      "source": "NASA",
-      "category": "AI與科技",
-      "title": "NASA Navigation Experiment Shows Promise for Planetary Landings",
-      "url": "https://www.nasa.gov/centers-and-facilities/armstrong/nasa-navigation-experiment-shows-promise-for-planetary-landings/",
-      "published_at": "2026-11-04T16:52:43+00:00",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
     }
   ],
   "sources": {
     "nasa": {
       "status": "ok",
-      "accepted": 1,
-      "checked_at": "2026-11-19T11:26:33.449914+00:00"
+      "accepted": 2,
+      "checked_at": "2026-11-20T00:04:51.297744+00:00"
     },
     "who": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-19T11:26:33.449914+00:00"
+      "checked_at": "2026-11-20T00:04:51.297744+00:00"
     },
     "un": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-19T11:26:33.449914+00:00"
+      "checked_at": "2026-11-20T00:04:51.297744+00:00"
     },
     "數位發展部": {
       "status": "ok",
-      "accepted": 4,
-      "checked_at": "2026-11-19T11:26:33.449914+00:00"
+      "accepted": 5,
+      "checked_at": "2026-11-20T00:04:51.297744+00:00"
     },
     "數位產業署": {
       "status": "ok",
       "accepted": 6,
-      "checked_at": "2026-11-19T11:26:33.449914+00:00"
+      "checked_at": "2026-11-20T00:04:51.297744+00:00"
     },
     "行政院": {
       "status": "ok",
       "accepted": 6,
-      "checked_at": "2026-11-19T11:26:33.449914+00:00"
+      "checked_at": "2026-11-20T00:04:51.297744+00:00"
     }
   },
   "disclaimer": "Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed."
