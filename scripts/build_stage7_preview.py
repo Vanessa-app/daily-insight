@@ -65,12 +65,12 @@ window.fetch=async path=>({ok:true,json:async()=>String(path).includes('trend-hi
 document.addEventListener('click',event=>{const link=event.target.closest('a');if(link){event.preventDefault();document.getElementById('preview-note').textContent='這是虛構示範來源。正式版會連結原始文章；此頁示範不開啟外部連結。';}},true);
 '''
 setup=setup.replace('__SEED__',json.dumps(seed,ensure_ascii=False)).replace('__ARTICLES__',json.dumps(articles,ensure_ascii=False)).replace('__TRENDS__',json.dumps({'schema_version':1,'topics':topics,'events':[event],'generated_at':'2026-11-20T00:00:00Z'},ensure_ascii=False))
-css=re.sub(r'^@import url\([^;]+;', '',(ROOT/'style.css').read_text(),count=1)
+css=re.sub(r'^\s*@import\s+url\([^)]*\)\s*;', '',(ROOT/'style.css').read_text(),count=1)
 html=(ROOT/'index.html').read_text()
 html=re.sub(r'<link[^>]+>', '', html)
 html=re.sub(r'<script src=[^>]+></script>','',html)
 html=html.replace('</head>','<style>'+css+'</style><style>.preview-note{background:#fbefd5;border:1px solid #dcc69c;padding:16px 20px;border-radius:12px;margin-bottom:18px;line-height:1.7}.preview-note p{margin:5px 0}.preview-note strong{font-size:17px}</style></head>')
-html=html.replace('<main id="main">','<aside class="preview-note"><strong>第七階段 · 智慧閱讀與知識成長 · 驗收預覽</strong><p id="preview-note">此頁使用虛構新聞、示範教材與測驗紀錄。可操作每日選讀、事件重要性、術語搜尋及錯題回看。</p><p>操作記錄只保留在此頁暫存，重新開啟會重置。</p></aside><main id="main">')
+html=html.replace('<main id="main">','<aside class="preview-note"><strong>第七階段 · 智慧閱讀與知識成長 · 驗收預覽 v1.1</strong><p id="preview-note">此頁使用虛構新聞、示範教材與測驗紀錄。可操作每日選讀、事件重要性、術語搜尋及錯題回看。</p><p>操作記錄只保留在此頁暫存，重新開啟會重置。</p></aside><main id="main">')
 html=html.replace('<footer>Daily Insight 3.0.1 ·','<footer>第七階段驗收預覽 ·')
 html=html.replace('<title>Daily Insight · 每日新知與趨勢情報</title>','<title>Daily Insight 3.0 第七階段驗收預覽</title>')
 modules=[setup]

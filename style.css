@@ -413,3 +413,34 @@ body:has(.reader-panel-dialog[open], .reader-diagram-dialog[open]) { overflow: h
 .learning-review{margin-top:18px}.learning-review details{padding:12px;background:#eef2ec;border-radius:8px}.learning-review summary{cursor:pointer;font-weight:600}
 .learning-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}.learning-importance h5{font-size:16px;margin-bottom:8px}
 @media(max-width:700px){.learning-digest,.learning-glossary{grid-template-columns:1fr}.learning-actions .btn{flex:1}}
+
+/* Reading actions share a clear hierarchy and comfortable pointer targets. */
+.learning-home .btn{
+ display:inline-flex;align-items:center;justify-content:center;gap:8px;
+ min-height:44px;padding:11px 18px;border:1px solid #cbd7ce;border-radius:12px;
+ background:#f1f5ef;color:#294b40;
+ font-family:inherit;font-size:14px;font-weight:600;line-height:1.4;
+ transition:background .16s ease,border-color .16s ease,box-shadow .16s ease;
+}
+.learning-home .btn.primary{background:#294b40;border-color:#294b40;color:#fffdf8;box-shadow:0 2px 5px #294b4014}
+.learning-home .btn:hover{background:#e5ede5;border-color:#8fa894}
+.learning-home .btn.primary:hover{background:#1f3e34;border-color:#1f3e34;box-shadow:0 3px 8px #294b4024}
+.learning-home .btn:focus-visible,.learning-review summary:focus-visible{outline:3px solid #b47c44;outline-offset:3px}
+.learning-digest .trend-detail-panel{display:flex;flex-direction:column}
+.learning-card-actions{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:auto;padding-top:18px;border-top:1px solid #e7e9df}
+.learning-card-actions .learning-source{margin:0;line-height:1.6;overflow-wrap:anywhere}
+.learning-card-actions .btn{flex-shrink:0;min-width:116px}
+.learning-actions{padding-top:18px;margin-top:20px;border-top:1px solid #e7e9df;gap:12px}
+.learning-actions .btn{min-width:150px}
+.learning-review details{padding:0;border:1px solid #e1e8df;background:#f1f5ef;border-radius:12px}
+.learning-review summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 18px;list-style:none;font-size:14px;color:#294b40;border-radius:12px}
+.learning-review summary::-webkit-details-marker{display:none}
+.learning-review summary::after{content:'+';font-size:22px;font-weight:400;line-height:1}
+.learning-review details[open] summary::after{content:'−'}
+.learning-review details>p{padding:0 18px;margin:8px 0 16px}
+@media(max-width:700px){
+ .learning-card-actions{align-items:stretch;flex-direction:column;gap:12px}
+ .learning-card-actions .btn{width:100%}
+ .learning-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .learning-actions .btn{min-width:0;padding:11px 10px}
+}

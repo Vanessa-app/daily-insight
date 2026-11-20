@@ -97,7 +97,7 @@
       ${!data.newsCount?'<p class="notice">目前沒有最近七日內可全文閱讀並提供中文的新聞；以下提供知識選讀。</p>':''}
       ${data.entries.length?`<div class="learning-digest">${data.entries.map(item=>`<article class="trend-detail-panel"><span class="trend-topic-label">${escape(item.article.kind==='knowledge'?'知識 · '+item.article.category:'新聞 · '+day(item.article.published_at))}</span><h4>${escape(item.article.title)}</h4>
         <p class="learning-label">來源節錄${item.article.translation_status==='original_zh_hant'?'':' · 中文譯文'}</p><blockquote>${escape(item.text)}</blockquote>
-        <div class="learning-source">${sourceLink(item.article)}</div><button type="button" class="btn" data-open="${escape(item.article.url)}" data-review-paragraph="${item.paragraph}">閱讀完整文章及對應段落</button></article>`).join('')}</div>`:'<div class="empty">目前沒有符合全文與中文條件的文章。</div>'}</section>`;
+        <div class="learning-card-actions"><div class="learning-source">${sourceLink(item.article)}</div><button type="button" class="btn primary" data-open="${escape(item.article.url)}" data-review-paragraph="${item.paragraph}">閱讀全文</button></div></article>`).join('')}</div>`:'<div class="empty">目前沒有符合全文與中文條件的文章。</div>'}</section>`;
   }
   function importanceHtml(event) {
     const data=importance(event);
@@ -127,7 +127,7 @@
       <p class="trend-muted">從已完成測驗中找出答錯的題目，核對解說後回看原文，再由文章內重新挑戰。</p>
       ${data.items.length?data.items.map(item=>`<article class="trend-detail-panel learning-review"><span class="trend-topic-label">${escape(item.article.title)}</span><h4>${escape(item.question.question)}</h4>
       <p>你的答案 · ${escape(item.question.options[item.chosen])}</p><details><summary>查看正確答案與解說</summary><p><strong>${escape(item.question.options[item.question.answer])}</strong></p><p>${escape(item.question.explanation)}</p></details>
-      <div class="learning-actions"><button type="button" class="btn" data-open="${escape(item.article.url)}" ${item.paragraph?`data-review-paragraph="${item.paragraph}"`:''}>${item.paragraph?'回看原文第 '+item.paragraph+' 段':'回看完整文章'}</button><button type="button" class="btn" data-open="${escape(item.article.url)}" data-review-quiz>前往文章測驗</button></div></article>`).join(''):'<div class="empty">目前沒有可辨識的錯題。完成知識文章測驗後，可在這裡複習。</div>'}
+      <div class="learning-actions"><button type="button" class="btn primary" data-open="${escape(item.article.url)}" ${item.paragraph?`data-review-paragraph="${item.paragraph}"`:''}>${item.paragraph?'回看原文第 '+item.paragraph+' 段':'回看完整文章'}</button><button type="button" class="btn" data-open="${escape(item.article.url)}" data-review-quiz>前往測驗</button></div></article>`).join(''):'<div class="empty">目前沒有可辨識的錯題。完成知識文章測驗後，可在這裡複習。</div>'}
       ${data.unavailable.length?`<p class="notice">${data.unavailable.length} 份既有測驗缺少逐題答案，或對應文章目前無法使用，暫時無法建立錯題清單。</p>`:''}</section>`;
   }
   return {textParts,excerpt,digest,importance,reviews,digestHtml,importanceHtml,glossaryHtml,reviewHtml};
