@@ -9,6 +9,8 @@ on:
       - 'scripts/update_news.py'
       - 'scripts/update_catalog.py'
       - 'scripts/update_trends.py'
+      - 'scripts/source_quality.py'
+      - 'scripts/check_source_health.py'
       - 'catalog_sources.json'
       - 'sources.json'
       - 'requirements.txt'
@@ -44,15 +46,20 @@ jobs:
         id: trends
         continue-on-error: true
         run: python scripts/update_trends.py
+      - name: Check a bounded sample of indexed source links
+        id: source_health
+        continue-on-error: true
+        run: python scripts/check_source_health.py
       - name: Save available content and expose failures
         if: always()
         env:
           OFFICIAL_OUTCOME: ${{ steps.official.outcome }}
           CATALOG_OUTCOME: ${{ steps.catalog.outcome }}
           TRENDS_OUTCOME: ${{ steps.trends.outcome }}
+          SOURCE_HEALTH_OUTCOME: ${{ steps.source_health.outcome }}
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/news.json data/catalog.json data/trends.json data/trend-history.json
+          git add data/news.json data/catalog.json data/trends.json data/trend-history.json data/source-health.json
           if ! git diff --cached --quiet; then git commit -m 'Refresh news and grow knowledge catalog'; git push; fi
-          if [ "$OFFICIAL_OUTCOME" != success ] || [ "$CATALOG_OUTCOME" != success ] || [ "$TRENDS_OUTCOME" != success ]; then exit 1; fi
+          if [ "$OFFICIAL_OUTCOME" != success ] || [ "$CATALOG_OUTCOME" != success ] || [ "$TRENDS_OUTCOME" != success ] || [ "$SOURCE_HEALTH_OUTCOME" != success ]; then exit 1; fi

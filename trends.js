@@ -1,4 +1,4 @@
-/* Daily Insight 2.0: independent, source-grounded trend intelligence center. */
+/* Daily Insight 3.0 stage 5: source-grounded event comparison, no AI verification. */
 (() => {
   'use strict';
   const PREF_KEY = 'daily-insight-trends-v2';
@@ -27,7 +27,8 @@
     } catch { return defaultPrefs(); }
   }
   const preferences = readPrefs();
-  let data = null, history = null, loading = false, error = '', currentTab = 'overview', selectedTopic = 'all', selectedEvent = null, showOnlyWatched = false;
+  let data = null, history = null, sourceHealth = null, loading = false, error = '', currentTab = 'overview', selectedTopic = 'all', selectedEvent = null, showOnlyWatched = false;
+  let detailPane = 'evidence', compareLeft = '', compareRight = '';
   let announcement = '', initialized = false, lastFetchedAt = 0;
   function persist() { try { localStorage.setItem(PREF_KEY, JSON.stringify(preferences)); } catch { announcement = '瀏覽器未允許儲存偏好，設定可能無法保留。'; } }
   function repaint() { if (typeof render === 'function' && document.querySelector('[data-page="trends"]')?.classList.contains('active')) render(); }
@@ -35,11 +36,14 @@
   function topicName(id) { return topics().find(x => x.id === id)?.label || '未分類'; }
   function topicIndex(id) { return Math.max(0, DEFAULT_TOPICS.indexOf(id)); }
   function eventList() { return Array.isArray(data?.events) ? data.events : []; }
+  function eventIds(e) { return [e.id, ...(Array.isArray(e.aliases) ? e.aliases : [])]; }
+  function isWatched(e) { return eventIds(e).some(id => preferences.watched.includes(id)); }
+  function seenAt(e) { return eventIds(e).map(id=>preferences.viewed[id]).filter(Boolean).sort().pop(); }
   function selectedEvents() {
     return eventList().filter(e => (selectedTopic === 'all' || e.primary_topic === selectedTopic || e.related_topics?.includes(selectedTopic)) &&
-      (!showOnlyWatched || preferences.watched.includes(e.id)) && preferences.topics.includes(e.primary_topic));
+      (!showOnlyWatched || isWatched(e)) && preferences.topics.includes(e.primary_topic));
   }
-  function newUpdates() { return eventList().filter(e => preferences.watched.includes(e.id) && (!preferences.viewed[e.id] || new Date(e.updated_at) > new Date(preferences.viewed[e.id]))); }
+  function newUpdates() { return eventList().filter(e => isWatched(e) && (!seenAt(e) || new Date(e.updated_at) > new Date(seenAt(e)))); }
   function importance(score) { return score >= 8 ? '高度關注' : score >= 5 ? '值得注意' : '一般觀察'; }
   function badge(e) { return `<span class="trend-impact ${e.importance_score >= 8 ? 'high' : e.importance_score >= 5 ? 'mid' : ''}">${importance(e.importance_score)}</span>`; }
   function externalLink(article) {
@@ -60,12 +64,14 @@
     if (loading) return;
     loading = true; error = '';
     try {
-      const results = await Promise.allSettled([fetchJson('./data/trends.json'),fetchJson('./data/trend-history.json')]);
+      const results = await Promise.allSettled([fetchJson('./data/trends.json'),fetchJson('./data/trend-history.json'),fetchJson('./data/source-health.json')]);
       const fresh = results[0].status === 'fulfilled' ? results[0].value : null;
       if (fresh && fresh.schema_version === 1 && Array.isArray(fresh.events) && Array.isArray(fresh.topics)) data = fresh;
       else if (!data) error = '趨勢資料暫時無法讀取；新聞與知識分頁仍可正常使用。';
       const past = results[1].status === 'fulfilled' ? results[1].value : null;
       if (past && past.schema_version === 1 && Array.isArray(past.days)) history = past;
+      const checked = results[2].status === 'fulfilled' ? results[2].value : null;
+      if (checked && checked.schema_version === 1 && checked.links && typeof checked.links === 'object') sourceHealth = checked;
     } catch { if (!data) error = '趨勢資料無法使用。'; }
     lastFetchedAt = Date.now();
     loading = false; repaint();
@@ -78,7 +84,7 @@
   }
   function header() {
     const alerts = newUpdates().length;
-    return `<section class="trend-hero"><div><p class="trend-eyebrow">DAILY INSIGHT 2.0 · TREND INTELLIGENCE</p><h2>智慧趨勢情報中心<span class="trend-hero-star"> ✳</span></h2><p>從日常新聞看見變化脈絡，六大領域同步掌握。所有事件均可回溯來源。</p></div><div class="trend-hero-meta"><span>情報更新</span><strong>${data ? formatDate(data.generated_at) : '準備中'}</strong><small>既有資料規則式整理，非即時 AI 查證</small></div></section>
+    return `<section class="trend-hero"><div><p class="trend-eyebrow">DAILY INSIGHT 3.0 · SOURCE INTELLIGENCE</p><h2>智慧趨勢情報中心<span class="trend-hero-star"> ✳</span></h2><p>從日常新聞看見變化脈絡，六大領域同步掌握。整合來源並比對報導差異，所有事件皆可回溯原文。</p></div><div class="trend-hero-meta"><span>情報更新</span><strong>${data ? formatDate(data.generated_at) : '準備中'}</strong><small>規則式來源對照，非 AI 事實查核</small></div></section>
       <div class="trend-tabs" role="group" aria-label="智慧趨勢功能">
       ${[['overview','趨勢總覽'],['deep','脈絡分析'],['watch','我的關注'],['reports','週月報告'],['network','主題關聯']].map(([id,label])=>`<button type="button" class="trend-tab ${currentTab === id ? 'active' : ''}" data-trend-tab="${id}" aria-pressed="${currentTab === id}">${label}${id === 'watch' && alerts ? `<b class="trend-dot">${alerts}</b>` : ''}</button>`).join('')}</div>`;
   }
@@ -90,11 +96,12 @@
     return `<div class="trend-topic-grid">${topics().map((t,i)=>`<button type="button" class="trend-topic-card" data-trend-topic="${escapeHtml(t.id)}"><span class="trend-topic-symbol" style="background:${TOPIC_COLORS[i]}17;color:${TOPIC_COLORS[i]}">${TOPIC_ICON[i]}</span><span>${escapeHtml(t.label)}</span><strong>${counts[t.id]||0} <small>個事件</small></strong></button>`).join('')}</div>`;
   }
   function eventCard(e, compact=false) {
-    const watched = preferences.watched.includes(e.id);
+    const watched = isWatched(e);
     const unseen = newUpdates().some(x=>x.id===e.id);
+    const firstHand = (e.articles||[]).filter(x=>x.source_type==='official').length;
     return `<article class="trend-event-card ${compact?'compact':''}"><div class="trend-event-top"><span class="trend-topic-label" style="color:${TOPIC_COLORS[topicIndex(e.primary_topic)]}">${TOPIC_ICON[topicIndex(e.primary_topic)]} ${escapeHtml(topicName(e.primary_topic))}</span>${badge(e)}</div>
       <h3><button type="button" data-trend-detail="${escapeHtml(e.id)}">${escapeHtml(e.title)}</button></h3>
-      <p>已收錄 ${e.articles?.length || 0} 篇關聯報導，來自 ${e.source_count || 0} 個來源；點開可查看事件時間線與資料依據。</p>
+      <p>已整合 ${e.articles?.length || 0} 篇相關報導、${e.source_count || 0} 個來源${firstHand?`；包含 ${firstHand} 篇官方來源`:''}。可查看報導主張、來源差異與檢查結果。</p>
       <div class="trend-event-bottom"><span>${formatDate(e.updated_at)} 更新 ${unseen?'<b class="trend-unread">有新進展</b>':''}</span><div><button type="button" data-trend-watch="${escapeHtml(e.id)}" aria-pressed="${watched}" class="trend-text-btn">${watched?'★ 已關注':'☆ 關注'}</button><button type="button" class="trend-text-btn" data-trend-detail="${escapeHtml(e.id)}">檢視脈絡</button></div></div></article>`;
   }
   function overview() {
@@ -110,20 +117,66 @@
       ${methodNotice()}</section>`;
   }
   function methodNotice() {
-    return '<p class="trend-footnote">重要性分數依主題符合度、標題訊號、時效與來源數量計算，不等於事實可信度。多家媒體引用同一資訊，亦不代表獨立證實。自動分類與文字連結可能有誤，請以原始來源為準。</p>';
+    return '<p class="trend-footnote">事件整合、重要性分數及標題相似度採可檢查的規則式方法，不代表事實可信度。官方來源的存在、多家媒體的共同用語或連結可用，都不等於本站已獨立證實；請以原始資料核對。</p>';
   }
   function articleMatches(e, news) {
     const present = new Map(news.map(a=>[a.url,a]));
     return (e.articles||[]).map(a=>({a, readable:present.has(a.url)}));
   }
+  function sourceTypeName(article) {
+    return ({official:'官方／原始發布者',publisher:'發布者摘要',media:'媒體報導',other:'其他來源'})[article.source_type] || '來源類型待分類';
+  }
+  function accessName(article) {
+    return ({licensed_full_text:'授權完整內容',excerpt:'來源摘要',headline_only:'標題索引'})[article.content_access] || '內容範圍未標示';
+  }
+  function linkState(article) {
+    const info = sourceHealth?.links?.[article.url];
+    const date = info?.checked_at ? `（檢查時間 ${formatDate(info.checked_at)}）` : '';
+    if (info?.status === 'available') return `<span class="trend-link-status good">連結有回應${date}</span>`;
+    if (info?.status === 'not_found') return `<span class="trend-link-status bad">伺服器回報 404／410${date}</span>`;
+    if (info?.checked_at) return `<span class="trend-link-status pending">暫無法確認${date}</span>`;
+    return '<span class="trend-link-status pending">尚未進行連結檢查</span>';
+  }
+  function evidencePanel(e, reading) {
+    const official = (e.articles||[]).filter(a=>a.source_type==='official');
+    const groups = Array.isArray(e.headline_groups) ? e.headline_groups : [];
+    return `<section class="trend-detail-panel trend-investigation-panel"><h4>A2 · 標題主張與證據對照</h4>
+      <div class="trend-proof-summary"><span class="trend-proof-pill ${official.length?'has-primary':'pending'}">${official.length?'有官方／原始發布者來源':'目前僅有媒體或其他來源'}</span><span class="trend-proof-pill pending">未經本站獨立事實查核</span></div>
+      <p>以下依原始新聞標題整理共同焦點與不同表述。標題可幫助找到資訊來源，但不能單憑標題推論事實已獲證實、亦不能自動判定說法互相矛盾。</p>
+      <div class="trend-claim-groups">${groups.length?groups.map((group,i)=>`<div class="trend-claim-row"><div class="trend-claim-label">${group.article_urls?.length>1?'標題表述相近':'個別報導角度'} · ${i+1}</div><strong>${escapeHtml(group.headline)}</strong><small>${group.article_urls?.length||0} 篇報導 · ${group.source_groups?.length||0} 個來源群組</small><div class="trend-claim-links">${(e.articles||[]).filter(a=>group.article_urls?.includes(a.url)).map(a=>externalLink(a)).join('')}</div></div>`).join(''):'<div class="empty">舊資料尚無標題對照索引，請直接檢視下方來源列表。</div>'}</div>
+      <p class="trend-caution">「標題相近」代表文字層面的相似，不是經獨立查證的共同事實；若要確認數字、時間或因果關係，請核對各篇原始資料。</p>
+      <h4>來源證據清單</h4><ul class="trend-evidence">${reading.map(({a,readable})=>`<li><div><strong>${escapeHtml(a.title)}</strong><small>${escapeHtml(a.source)} · ${formatDate(a.published_at)} · ${escapeHtml(sourceTypeName(a))}</small></div><div class="trend-inline-actions">${readable?`<button type="button" class="trend-text-btn" data-open="${escapeHtml(a.url)}">站內閱讀</button>`:''}${externalLink(a)}</div></li>`).join('')}</ul></section>`;
+  }
+  function qualityPanel(e) {
+    const articles = e.articles||[];
+    return `<section class="trend-detail-panel trend-investigation-panel"><h4>A4 · 來源品質檢核</h4><p>來源類型與授權範圍來自現有館藏欄位。連結狀態為定期、少量的 HTTP HEAD 回應檢查；無法連線、封鎖機器請求等情況一律標示「無法確認」，不判斷內容真偽。</p>
+      <div class="trend-quality-list">${articles.map(a=>`<article class="trend-quality-item"><div><strong>${escapeHtml(a.source)}</strong><small>${escapeHtml(a.source_domain||'來源網域未明')} · ${formatDate(a.published_at)}</small></div><div class="trend-quality-badges"><span>${escapeHtml(sourceTypeName(a))}</span><span>${escapeHtml(accessName(a))}</span>${linkState(a)}</div><div class="trend-quality-link">${externalLink(a)}</div></article>`).join('')}</div>
+      <p class="trend-footnote">來源檢查只測試連結是否有回應，不下載外站全文；無權重製的內容仍以標題、允許的摘要及外部連結呈現。</p></section>`;
+  }
+  function comparePanel(e) {
+    const articles = e.articles||[];
+    if (articles.length < 2) return '<section class="trend-detail-panel trend-investigation-panel"><h4>D1 · 新聞並排比較</h4><div class="empty">目前只有一篇相關報導，需至少兩篇才能比較。</div></section>';
+    const left = articles.find(a=>a.url===compareLeft)||articles[0];
+    const right = articles.find(a=>a.url===compareRight)||articles.find(a=>a.url!==left.url)||articles[1];
+    const options = selected => articles.map((a,i)=>`<option value="${escapeHtml(a.url)}" ${a.url===selected.url?'selected':''}>${escapeHtml(a.source)} · ${i+1}</option>`).join('');
+    const same = left.url === right.url;
+    const column = (a,side)=>`<div class="trend-compare-column"><label for="trend-compare-${side}">${side==='left'?'左側':'右側'}來源</label><select id="trend-compare-${side}" data-trend-compare="${side}">${options(a)}</select><div class="trend-compare-content"><strong>${escapeHtml(a.title)}</strong><div class="trend-compare-meta">${escapeHtml(a.source)} · ${formatDate(a.published_at)}</div><p>${escapeHtml(sourceTypeName(a))} · ${escapeHtml(accessName(a))}</p><div>${linkState(a)}</div>${externalLink(a)}</div></div>`;
+    return `<section class="trend-detail-panel trend-investigation-panel"><h4>D1 · 新聞並排比較</h4><p>選擇兩則報導比較標題、發布時間、資料類型及原文。手機版會改為上下排列，避免壓縮文字。</p><div class="trend-compare-grid">${column(left,'left')}${column(right,'right')}</div>
+      <div class="trend-compare-assessment">${same?'目前選到同一篇文章，請在其中一側切換來源。':left.title===right.title?'兩篇標題完全相同；可能是轉載或共同稿源，仍須核對內文。':'兩篇標題的描述不同，這不表示其事實互相矛盾；請依原始報導核對。'}</div>
+      <p class="trend-caution">來源並排功能只呈現既有索引中可合法展示的文字，並不自動產生未經證實的差異結論。</p></section>`;
+  }
+  function investigation(e, reading) {
+    const panes = [['evidence','證據對照'],['compare','並排比較'],['quality','來源品質']];
+    return `<div class="trend-investigation"><div class="trend-pane-tabs" role="group" aria-label="事件查證功能">${panes.map(([id,label])=>`<button type="button" data-trend-pane="${id}" class="trend-pane-tab ${detailPane===id?'active':''}" aria-pressed="${detailPane===id}">${label}</button>`).join('')}</div>
+      ${detailPane==='quality'?qualityPanel(e):detailPane==='compare'?comparePanel(e):evidencePanel(e,reading)}</div>`;
+  }
   function detail(e, news) {
-    const watched = preferences.watched.includes(e.id);
+    const watched = isWatched(e);
     const sorted = [...(e.articles||[])].sort((a,b)=>new Date(a.published_at)-new Date(b.published_at));
     const reading = articleMatches(e,news);
     return `<section class="trend-detail"><button type="button" class="trend-back" data-trend-close>← 返回${currentTab==='deep'?'脈絡分析':'情報總覽'}</button>
       <div class="trend-detail-heading"><span class="trend-topic-label">${escapeHtml(topicName(e.primary_topic))}</span>${badge(e)}<h3>${escapeHtml(e.title)}</h3><div class="trend-detail-meta">首次資料 ${formatDate(e.first_seen_at)}　最近更新 ${formatDate(e.updated_at)}　${e.source_count} 個來源</div><button type="button" class="btn" data-trend-watch="${escapeHtml(e.id)}">${watched?'★ 取消關注':'☆ 加入我的關注'}</button></div>
-      <div class="trend-detail-grid"><section class="trend-detail-panel"><h4>已知資訊及證據</h4><p>目前索引的來源標題如下。這些是來源的報導主張，並非本站已獨立核實的結論。</p><ul class="trend-evidence">${reading.map(({a,readable})=>`<li><div><strong>${escapeHtml(a.title)}</strong><small>${escapeHtml(a.source)} · ${formatDate(a.published_at)}</small></div><div class="trend-inline-actions">${readable?`<button type="button" class="trend-text-btn" data-open="${escapeHtml(a.url)}">站內閱讀</button>`:''}${externalLink(a)}</div></li>`).join('')}</ul></section>
-      <section class="trend-detail-panel"><h4>事件發展時間線</h4><ol class="trend-timeline">${sorted.map(a=>`<li><time>${formatDate(a.published_at)}</time><span>${escapeHtml(a.title)}</span><small>${escapeHtml(a.source)}</small></li>`).join('')}</ol></section>
+      ${investigation(e,reading)}<div class="trend-detail-grid"><section class="trend-detail-panel"><h4>事件發展時間線</h4><ol class="trend-timeline">${sorted.map(a=>`<li><time>${formatDate(a.published_at)}</time><span>${escapeHtml(a.title)}</span><small>${escapeHtml(a.source)}</small></li>`).join('')}</ol></section>
       <section class="trend-detail-panel"><h4>觀察方向</h4><p>${escapeHtml(e.watchpoint || '持續追蹤原始來源後續資料。')}</p><p class="trend-caution">這是主題觀察提示，不是個別事件的已證實影響，也不是對未來的預測。</p><h4>分類與排序依據</h4><ul class="trend-small-list"><li>主題符合度：${Number(e.importance_factors?.topical||0)} / 3</li><li>事件影響用語：${Number(e.importance_factors?.impact||0)} / 3</li><li>更新時效：${Number(e.importance_factors?.recency||0)} / 2</li><li>來源數量：${Number(e.importance_factors?.sources||0)} / 2</li></ul></section>
       <section class="trend-detail-panel"><h4>關聯知識</h4>${relatedKnowledge(e,news)}<p class="trend-caution">僅提供背景延伸閱讀，並非事件已完成事實核查。</p></section></div></section>`;
   }
@@ -150,7 +203,7 @@
     return `<section class="trend-overview"><div class="trend-section-title"><h3>事件脈絡與來源檢視</h3><span>${filtered.length} 個事件</span></div>${topicFilters()}<p class="trend-muted">選取事件以查看原始報導、時間線、排序依據與關聯知識；不將來源標題視為獨立查核結論。</p><div class="trend-event-list">${filtered.length ? filtered.slice(0,48).map(e=>eventCard(e,true)).join('') : '<div class="empty">目前沒有符合條件的事件。</div>'}</div></section>`;
   }
   function watch() {
-    const watched = eventList().filter(e=>preferences.watched.includes(e.id));
+    const watched = eventList().filter(isWatched);
     const updates = newUpdates();
     return `<section class="trend-watch"><div class="trend-section-title"><h3>我的情報關注</h3><span>設定僅儲存於目前的瀏覽器</span></div><div class="trend-summary-cards"><div><strong>${watched.length}</strong><span>持續關注</span></div><div><strong>${updates.length}</strong><span>尚未查看的更新</span></div></div>
       <section class="trend-detail-panel"><h4>關注的六大領域</h4><p class="trend-muted">取消勾選的主題將暫時從情報首頁及脈絡分析篩選中隱藏，不會刪除資料。</p><div class="trend-preference-grid">${topics().map(t=>`<label><input type="checkbox" data-trend-pref="${escapeHtml(t.id)}" ${preferences.topics.includes(t.id)?'checked':''}> ${escapeHtml(t.label)}</label>`).join('')}</div></section>
@@ -228,15 +281,21 @@
     const b=event.target.closest('button'); if(!b) return;
     if(b.dataset.trendTab){switchTab(b.dataset.trendTab,b);}
     else if(b.dataset.trendTopic){selectedTopic=b.dataset.trendTopic;currentTab=currentTab==='network'?'deep':currentTab;selectedEvent=null;repaint();}
-    else if(b.dataset.trendDetail){selectedEvent=b.dataset.trendDetail;preferences.viewed[selectedEvent]=new Date().toISOString();persist();repaint();window.scrollTo(0,0);}
+    else if(b.dataset.trendDetail){selectedEvent=b.dataset.trendDetail;detailPane='evidence';const e=eventList().find(x=>x.id===selectedEvent);compareLeft=e?.articles?.[0]?.url||'';compareRight=e?.articles?.[1]?.url||compareLeft;preferences.viewed[selectedEvent]=new Date().toISOString();persist();repaint();window.scrollTo(0,0);}
+    else if(b.dataset.trendPane){detailPane=b.dataset.trendPane;repaint();}
     else if(b.hasAttribute('data-trend-close')){selectedEvent=null;repaint();window.scrollTo(0,0);}
-    else if(b.dataset.trendWatch){const id=b.dataset.trendWatch;preferences.watched=preferences.watched.includes(id)?preferences.watched.filter(x=>x!==id):[...preferences.watched,id];persist();repaint();}
+    else if(b.dataset.trendWatch){const id=b.dataset.trendWatch;const e=eventList().find(x=>x.id===id);if(!e)return;const ids=eventIds(e);preferences.watched=isWatched(e)?preferences.watched.filter(x=>!ids.includes(x)):[...preferences.watched.filter(x=>!ids.includes(x)),id];persist();repaint();}
     else if(b.dataset.trendPeriod){preferences.reportPeriod=b.dataset.trendPeriod;persist();repaint();}
     else if(b.hasAttribute('data-trend-copy')){const value=reportText();if(navigator.clipboard?.writeText) navigator.clipboard.writeText(value).then(()=>{announcement='報告摘要已複製。';repaint();}).catch(()=>{announcement='無法複製，請確認瀏覽器權限。';repaint();});else {announcement='此瀏覽器不支援直接複製。';repaint();}}
     else if(b.hasAttribute('data-trend-refresh'))refresh();
   });
   document.addEventListener('change',event=>{
     const input=event.target;
+    if(input.matches('select[data-trend-compare]')){
+      if(input.dataset.trendCompare==='left')compareLeft=input.value;
+      else compareRight=input.value;
+      repaint();return;
+    }
     if(!input.matches('input[data-trend-pref]'))return;
     const id=input.dataset.trendPref;
     preferences.topics=input.checked?[...new Set([...preferences.topics,id])]:preferences.topics.filter(x=>x!==id);

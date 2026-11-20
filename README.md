@@ -1,5 +1,33 @@
 # Daily Insight
 
+## Daily Insight 3.0 第五階段（獨立分支審核中，尚未發布）
+
+本次擴充只在 `feature/daily-insight-v3-stage5` 開發分支實作，正式站與 `main` 不變。沿用原六大主選單、五個趨勢子分頁、閱讀與測驗資料以及原定 08:00、13:00、18:00（臺灣時間）GitHub Actions 排程。
+
+- **A1 多來源事件整合：**改善追蹤參數去重、事件分群時間範圍與部分公司名稱防誤合併，儲存來源群組及舊事件 ID 別名，降低改版後關注紀錄中斷。
+- **A4 來源品質：**依原始館藏欄位顯示來源類型與授權範圍；新增有上限的 HEAD 連結檢查，單次最多 12 個網址。只有 HTTP 404/410 才標示「找不到」，403、405、超時等均屬「無法確認」。不擷取網頁正文。
+- **A2 標題主張與證據對照：**顯示原始發布者、各來源標題、相似標題群及原始連結。此為文字關聯與來源對照，**不是獨立事實查核或矛盾判定**；`facts` 保持空陣列。
+- **D1 新聞並排比較：**可選兩篇報導比較標題、來源、時間、授權可讀範圍及連結；手機版改為上下排列。若事件只有一篇，明示目前無法比較。
+
+不新增付費 API、生成式事實摘要、第三方全文爬取或推播。新檔 `data/source-health.json` 為可缺省的附加索引；缺少時原有新聞、知識、趨勢仍可使用。`data/trend-history.json` 只在原格式上新增事件 ID 與索引篇數欄位，為往後歷史趨勢分析累積可信資料，不回填不存在的歷史。
+
+**非正式操作預覽：**`preview/stage5.html`，或直接開啟無需伺服器的 `preview/stage5-standalone.html`。使用明確標示的虛構資料，並攔截示範連結；與正式網站資料完全隔離。重新產生單檔預覽：`python scripts/build_stage5_preview.py`。
+
+**驗收指令：**
+
+```bash
+python -m pip install -r requirements.txt
+python -m unittest discover -s scripts -p 'test_*.py'
+node scripts/test_trend_frontend.cjs
+node scripts/test_stage5_frontend.cjs
+node scripts/test_reader_context.cjs
+node scripts/test_reading_queue.cjs
+node scripts/test_article_loading.cjs
+node --check trends.js
+```
+
+此分支的改動及示範資料均須經使用者確認後，才可考慮合併至 `main` 或更新正式網站。
+
 ## Daily Insight 2.0 智慧趨勢情報中心
 
 新增「趨勢情報」分頁，整合四階段能力，沿用本專案的 GitHub Pages 網址與既有新聞、知識、收藏、測驗、閱讀進度：

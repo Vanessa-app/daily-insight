@@ -1,4 +1,4 @@
-const CACHE='daily-insight-v2-trends-1';const ASSETS=['./','./index.html','./style.css?v=trends2','./trends.js?v=trends2','./app.js?v=trends2','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png','./data/news.json','./data/taiwan.json','./data/catalog.json','./art/preventive-checkup.webp'];
+const CACHE='daily-insight-v3-stage5-1';const ASSETS=['./','./index.html','./style.css?v=trends3-stage5','./trends.js?v=trends3-stage5','./app.js?v=trends3-stage5','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png','./data/news.json','./data/taiwan.json','./data/catalog.json','./art/preventive-checkup.webp'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS.map(path=>new Request(path,{cache:'reload'})))).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith("daily-insight-")&&k!==CACHE).map(k=>caches.delete(k))))));
 self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;const u=new URL(e.request.url);if(u.origin!==self.location.origin)return;
@@ -9,7 +9,7 @@ self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;const u=new
    }).catch(()=>caches.open(CACHE).then(cache=>cache.match('./index.html'))));
    return;
  }
- const dataPath = ['/data/news.json','/data/taiwan.json','/data/catalog.json','/data/trends.json','/data/trend-history.json']
+ const dataPath = ['/data/news.json','/data/taiwan.json','/data/catalog.json','/data/trends.json','/data/trend-history.json','/data/source-health.json']
    .some(path => u.pathname.endsWith(path));
  if (dataPath) {
    const key = u.origin + u.pathname;
