@@ -1,8 +1,37 @@
 # Daily Insight
 
-## Daily Insight 3.0 第五階段（獨立分支審核中，尚未發布）
+## Daily Insight 3.0 第六階段（非正式功能分支，待驗收）
 
-本次擴充只在 `feature/daily-insight-v3-stage5` 開發分支實作，正式站與 `main` 不變。沿用原六大主選單、五個趨勢子分頁、閱讀與測驗資料以及原定 08:00、13:00、18:00（臺灣時間）GitHub Actions 排程。
+此分支 `feature/daily-insight-v3-stage6` 已依使用者確認的第六階段介面開發，**未合併 `main`、未發布**。現有六大主選單、五個情報子分頁，以及新聞、知識、閱讀紀錄、測驗、每日 08:00／13:00／18:00（台灣時間）排程不變。
+
+- **D3 個人資料備份／匯入：**新增獨立的 `personal-data.js`，以版本化 JSON 匯出原有已讀、收藏、測驗、趨勢關注、企業與關鍵字、事件進展、首頁配置。匯入在本機檢查格式與 2 MB 上限，先預覽類別數量、新增筆數及重複筆數，勾選確認後才合併；原有測驗和事件狀態不覆寫，儲存失敗嘗試還原原資料。全程不傳至伺服器。匯入完成需重新載入頁面。
+- **B1 企業／關鍵字觀測：**新增、編輯、停用與重新啟用；設定別名、同義詞及跨領域觀測範圍。只對本站既有事件及來源標題進行字詞比對，不跨來源自動證實事件。
+- **B4 事件進展紀錄：**事件詳情顯示帶來源的首次收錄、官方資料、修正／澄清標題訊號及後續報導；手動選擇「新事件、持續發展、待確認、已結束」，沒有新消息不自動結案。
+- **B3 個人情報首頁：**依偏好排序六大領域、隱藏與恢復、置頂追蹤事件；原有事件分類、脈絡分析與已關注清單仍可使用。個人設定儲存於現有 `daily-insight-trends-v2`，不修改既有讀者儲存鍵。
+
+**第六階段功能驗收頁：**`preview/stage6-acceptance.html`，由 `python scripts/build_stage6_acceptance.py` 生成；使用此分支真實的 `trends.js`、`personal-data.js`、`style.css`，但替換為虛構事件及記憶體儲存，不會讀寫正式內容、發送網路請求或啟用付費服務。先前純 UI 原型保留於 `preview/stage6-standalone.html`。
+
+驗收：
+
+```bash
+python -m unittest discover -s scripts -p 'test_*.py'
+node scripts/test_stage6_data.cjs
+node scripts/test_stage6_frontend.cjs
+node scripts/test_stage6_preview.cjs
+node scripts/test_stage5_frontend.cjs
+node scripts/test_trend_frontend.cjs
+node scripts/test_reader_context.cjs
+node scripts/test_reading_queue.cjs
+node scripts/test_article_loading.cjs
+node --check personal-data.js
+node --check trends.js
+```
+
+第六階段需使用者明確驗收後才能考慮正式發布。不得自行合併 `main` 或啟用付費服務。
+
+## Daily Insight 3.0 第五階段（2026-11-20 已正式發布）
+
+第五階段已在 2026-11-20 經使用者驗收後發布。沿用原六大主選單、五個趨勢子分頁、閱讀與測驗資料以及原定 08:00、13:00、18:00（臺灣時間）GitHub Actions 排程。
 
 - **A1 多來源事件整合：**改善追蹤參數去重、事件分群時間範圍與部分公司名稱防誤合併，儲存來源群組及舊事件 ID 別名，降低改版後關注紀錄中斷。
 - **A4 來源品質：**依原始館藏欄位顯示來源類型與授權範圍；新增有上限的 HEAD 連結檢查，單次最多 12 個網址。只有 HTTP 404/410 才標示「找不到」，403、405、超時等均屬「無法確認」。不擷取網頁正文。

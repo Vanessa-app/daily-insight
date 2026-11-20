@@ -359,3 +359,41 @@ body:has(.reader-panel-dialog[open], .reader-diagram-dialog[open]) { overflow: h
 .trend-compare-content strong{font-size:17px;line-height:1.7;color:#2a4b3e;overflow-wrap:anywhere}.trend-compare-content p{margin:0}.trend-compare-content a{margin-top:auto}
 .trend-compare-meta{font-size:13px;color:#65796b}.trend-compare-assessment{padding:14px 16px;background:#edf2e9;border-radius:10px;font-size:14px;line-height:1.8;color:#3d5d4b}
 @media(max-width:700px){.trend-compare-grid,.trend-claim-groups,.trend-quality-item{grid-template-columns:1fr}.trend-compare-content{min-height:0}.trend-quality-link{grid-column:auto}}
+
+/* Daily Insight 3.0 stage 6 — personal dashboard, watch terms, progress and backup. */
+.trend-personal-layout{max-width:800px}
+.trend-personal-row{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:13px 0;border-bottom:1px solid #e3e8df;min-width:0}
+.trend-personal-row:last-of-type{border-bottom:0}
+.trend-personal-row label{font-size:15px;font-weight:700;line-height:1.6;display:flex;align-items:center;gap:8px}
+.trend-personal-row input{accent-color:#315d4b;width:18px;height:18px}
+.trend-personal-row strong{font-size:16px;color:#2b4939;overflow-wrap:anywhere}
+.trend-personal-row small{display:block;color:#637667;line-height:1.75;font-size:13px;margin-top:5px;overflow-wrap:anywhere}
+.trend-personal-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;flex:none}
+.trend-personal-actions>button:not(.btn){background:#fffdf8;border:1px solid #ccd8cc;border-radius:8px;min-width:40px;min-height:40px;color:#305844;font-size:18px;cursor:pointer}
+.trend-personal-actions button:disabled{opacity:.4;cursor:default}
+.trend-personal-two,.trend-backup-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.trend-personal-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.trend-personal-field{display:grid;gap:7px;font-weight:700;font-size:14px;color:#375b48;min-width:0}
+.trend-personal-field input,.trend-personal-field select{width:100%;min-width:0;min-height:44px;border:1px solid #c2d1c4;border-radius:9px;background:#fff;color:#253b30;padding:9px 12px;font:inherit;font-size:16px}
+.trend-personal-field input[type=file]{line-height:1.7;max-width:100%}
+.trend-personal-wide{grid-column:1/-1}
+.trend-personal-form fieldset{border:1px solid #e0e6dd;border-radius:11px;padding:14px;min-width:0}
+.trend-personal-form legend{font-weight:700;color:#365b47;font-size:14px;padding:0 4px}
+.trend-personal-form .trend-personal-actions{justify-content:flex-start}
+.trend-progress-panel .trend-section-title{margin-top:0}
+.trend-progress-panel .trend-section-title h4{margin:0}
+.trend-progress-panel .trend-personal-field{margin-bottom:20px;max-width:350px}
+.trend-progress-panel .trend-timeline strong{display:block;color:#315e4b;margin:3px 0}
+.trend-progress-panel .trend-source-link{display:block;margin-top:6px}
+.trend-backup-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:18px 0}
+.trend-backup-stats>div{display:grid;gap:3px;background:#edf2e9;padding:13px;border-radius:10px}
+.trend-backup-stats strong{font-size:22px;color:#2d5d47}.trend-backup-stats span{font-size:13px;color:#677869}
+.trend-backup-preview{background:#fffdf8;border:1px solid #dbe4d9;border-radius:14px;padding:22px;margin:20px 0}
+.trend-backup-preview h4{font-size:20px;color:#284e3d;margin-top:0}
+.trend-backup-table{overflow:auto;margin:16px 0}
+.trend-backup-table>div{min-width:350px;display:grid;grid-template-columns:1.3fr repeat(3,minmax(55px,.7fr));gap:10px;border-bottom:1px solid #e3e8df;padding:11px 4px;font-size:14px}
+.trend-backup-table>div:first-child{background:#eff3ed;font-weight:700;border-radius:9px}
+.trend-personal-confirm{display:flex;align-items:center;gap:10px;font-size:14px;line-height:1.7;margin:18px 0}
+.trend-personal-confirm input{accent-color:#285644;width:18px;height:18px;flex:none}
+@media(max-width:850px){.trend-personal-two,.trend-backup-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.trend-personal-row{align-items:flex-start;flex-wrap:wrap}.trend-personal-actions{width:100%;justify-content:flex-end}.trend-personal-form{grid-template-columns:1fr}.trend-personal-wide{grid-column:auto}.trend-backup-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.trend-personal-form .trend-personal-actions{justify-content:flex-start}}

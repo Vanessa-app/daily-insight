@@ -1,4 +1,4 @@
-/* Daily Insight 3.0 stage 5: source-grounded event comparison, no AI verification. */
+/* Daily Insight 3.0 stages 5–6: sourced intelligence and local personalization. */
 (() => {
   'use strict';
   const PREF_KEY = 'daily-insight-trends-v2';
@@ -14,7 +14,8 @@
   const safeUrl = value => { try { const u = new URL(value); return u.protocol === 'https:' ? u.href : null; } catch { return null; } };
   const formatDate = value => { const d = new Date(value); return Number.isNaN(d.getTime()) ? '時間不明' : new Intl.DateTimeFormat('zh-TW',{timeZone:'Asia/Taipei',month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(d); };
   const formatDay = value => { const d = new Date(value); return Number.isNaN(d.getTime()) ? '日期不明' : new Intl.DateTimeFormat('zh-TW',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(d); };
-  const defaultPrefs = () => ({topics:[...DEFAULT_TOPICS], watched:[], viewed:{}, reportPeriod:'7', lastVisit:null});
+  const defaultLayout = () => ({order:[...DEFAULT_TOPICS],hidden:[],pinned:[]});
+  const defaultPrefs = () => ({topics:[...DEFAULT_TOPICS], watched:[], viewed:{}, reportPeriod:'7', lastVisit:null,watchTerms:[],layout:defaultLayout(),eventStates:{}});
   function readPrefs() {
     try {
       const saved = JSON.parse(localStorage.getItem(PREF_KEY) || '{}');
@@ -22,13 +23,21 @@
         ...defaultPrefs(), ...saved,
         topics: Array.isArray(saved.topics) ? saved.topics.filter(x => DEFAULT_TOPICS.includes(x)) : [...DEFAULT_TOPICS],
         watched: Array.isArray(saved.watched) ? saved.watched.filter(x => typeof x === 'string') : [],
-        viewed: saved.viewed && typeof saved.viewed === 'object' && !Array.isArray(saved.viewed) ? saved.viewed : {}
+        viewed: saved.viewed && typeof saved.viewed === 'object' && !Array.isArray(saved.viewed) ? saved.viewed : {},
+        watchTerms: Array.isArray(saved.watchTerms) ? saved.watchTerms.filter(x=>x&&typeof x.id==='string'&&typeof x.name==='string'&&['company','keyword'].includes(x.type)) : [],
+        layout: {
+          order: [...new Set([...(Array.isArray(saved.layout?.order)?saved.layout.order:[]).filter(x=>DEFAULT_TOPICS.includes(x)),...DEFAULT_TOPICS])],
+          hidden: Array.isArray(saved.layout?.hidden)?saved.layout.hidden.filter(x=>DEFAULT_TOPICS.includes(x)):[],
+          pinned: Array.isArray(saved.layout?.pinned)?saved.layout.pinned.filter(x=>typeof x==='string'):[]
+        },
+        eventStates: saved.eventStates && typeof saved.eventStates==='object' && !Array.isArray(saved.eventStates) ? saved.eventStates : {}
       };
     } catch { return defaultPrefs(); }
   }
   const preferences = readPrefs();
   let data = null, history = null, sourceHealth = null, loading = false, error = '', currentTab = 'overview', selectedTopic = 'all', selectedEvent = null, showOnlyWatched = false;
   let detailPane = 'evidence', compareLeft = '', compareRight = '';
+  let customizeLayout = false, backupOpen = false, backupDraft = null, backupError = '', editingTerm = null;
   let announcement = '', initialized = false, lastFetchedAt = 0;
   function persist() { try { localStorage.setItem(PREF_KEY, JSON.stringify(preferences)); } catch { announcement = '瀏覽器未允許儲存偏好，設定可能無法保留。'; } }
   function repaint() { if (typeof render === 'function' && document.querySelector('[data-page="trends"]')?.classList.contains('active')) render(); }
@@ -38,6 +47,26 @@
   function eventList() { return Array.isArray(data?.events) ? data.events : []; }
   function eventIds(e) { return [e.id, ...(Array.isArray(e.aliases) ? e.aliases : [])]; }
   function isWatched(e) { return eventIds(e).some(id => preferences.watched.includes(id)); }
+  function isPinned(e) { return eventIds(e).some(id=>preferences.layout.pinned.includes(id)); }
+  function watchTerms() { return preferences.watchTerms.filter(x=>x.enabled!==false); }
+  function termMatches(term, headline) {
+    const normalized = String(headline||'').toLocaleLowerCase('zh-TW');
+    return [term.name,...(term.aliases||[])].some(word=>{
+      const needle=String(word||'').trim().toLocaleLowerCase('zh-TW');
+      if ([...needle].length<2) return false;
+      // Short Latin abbreviations must match a whole token, not a substring of another company.
+      if (/^[a-z0-9-]+$/.test(needle)) return new RegExp(`(^|[^a-z0-9])${needle.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}($|[^a-z0-9])`,'i').test(normalized);
+      return normalized.includes(needle);
+    });
+  }
+  function termMatchesEvent(term,e) {
+    return (!term.topics?.length || term.topics.includes(e.primary_topic) || e.related_topics?.some(t=>term.topics.includes(t))) &&
+      [e.title,...(e.articles||[]).map(a=>a.title)].some(x=>termMatches(term,x));
+  }
+  function matchedEvents() {
+    const terms=watchTerms();
+    return terms.length?eventList().filter(e=>terms.some(t=>termMatchesEvent(t,e))):[];
+  }
   function seenAt(e) { return eventIds(e).map(id=>preferences.viewed[id]).filter(Boolean).sort().pop(); }
   function selectedEvents() {
     return eventList().filter(e => (selectedTopic === 'all' || e.primary_topic === selectedTopic || e.related_topics?.includes(selectedTopic)) &&
@@ -93,7 +122,10 @@
   }
   function topicCards() {
     const counts = Object.fromEntries(topics().map(t=>[t.id,eventList().filter(e=>e.primary_topic===t.id).length]));
-    return `<div class="trend-topic-grid">${topics().map((t,i)=>`<button type="button" class="trend-topic-card" data-trend-topic="${escapeHtml(t.id)}"><span class="trend-topic-symbol" style="background:${TOPIC_COLORS[i]}17;color:${TOPIC_COLORS[i]}">${TOPIC_ICON[i]}</span><span>${escapeHtml(t.label)}</span><strong>${counts[t.id]||0} <small>個事件</small></strong></button>`).join('')}</div>`;
+    return `<div class="trend-topic-grid">${preferences.layout.order.filter(id=>!preferences.layout.hidden.includes(id)).map(id=>{
+      const t=topics().find(x=>x.id===id);if(!t)return '';
+      const i=topicIndex(id);return `<button type="button" class="trend-topic-card" data-trend-topic="${escapeHtml(t.id)}"><span class="trend-topic-symbol" style="background:${TOPIC_COLORS[i]}17;color:${TOPIC_COLORS[i]}">${TOPIC_ICON[i]}</span><span>${escapeHtml(t.label)}</span><strong>${counts[t.id]||0} <small>個事件</small></strong></button>`;
+    }).join('')||'<div class="empty">目前已隱藏所有領域，請透過「自訂首頁」重新顯示。</div>'}</div>`;
   }
   function eventCard(e, compact=false) {
     const watched = isWatched(e);
@@ -102,19 +134,29 @@
     return `<article class="trend-event-card ${compact?'compact':''}"><div class="trend-event-top"><span class="trend-topic-label" style="color:${TOPIC_COLORS[topicIndex(e.primary_topic)]}">${TOPIC_ICON[topicIndex(e.primary_topic)]} ${escapeHtml(topicName(e.primary_topic))}</span>${badge(e)}</div>
       <h3><button type="button" data-trend-detail="${escapeHtml(e.id)}">${escapeHtml(e.title)}</button></h3>
       <p>已整合 ${e.articles?.length || 0} 篇相關報導、${e.source_count || 0} 個來源${firstHand?`；包含 ${firstHand} 篇官方來源`:''}。可查看報導主張、來源差異與檢查結果。</p>
-      <div class="trend-event-bottom"><span>${formatDate(e.updated_at)} 更新 ${unseen?'<b class="trend-unread">有新進展</b>':''}</span><div><button type="button" data-trend-watch="${escapeHtml(e.id)}" aria-pressed="${watched}" class="trend-text-btn">${watched?'★ 已關注':'☆ 關注'}</button><button type="button" class="trend-text-btn" data-trend-detail="${escapeHtml(e.id)}">檢視脈絡</button></div></div></article>`;
+      <div class="trend-event-bottom"><span>${formatDate(e.updated_at)} 更新 ${unseen?'<b class="trend-unread">有新進展</b>':''}</span><div><button type="button" data-personal-pin="${escapeHtml(e.id)}" aria-pressed="${isPinned(e)}" class="trend-text-btn">${isPinned(e)?'◆ 已置頂':'◇ 置頂'}</button><button type="button" data-trend-watch="${escapeHtml(e.id)}" aria-pressed="${watched}" class="trend-text-btn">${watched?'★ 已關注':'☆ 關注'}</button><button type="button" class="trend-text-btn" data-trend-detail="${escapeHtml(e.id)}">檢視脈絡</button></div></div></article>`;
   }
   function overview() {
-    const filtered = selectedEvents();
+    const filtered = selectedEvents().filter(e=>selectedTopic!=='all'||!preferences.layout.hidden.includes(e.primary_topic));
     const featured = selectedTopic==='all'
-      ? topics().map(t=>filtered.find(e=>e.primary_topic===t.id)).filter(Boolean)
+      ? preferences.layout.order.filter(id=>!preferences.layout.hidden.includes(id)).map(id=>filtered.find(e=>e.primary_topic===id)).filter(Boolean)
       : [];
     const top = [...new Map([...featured,...filtered].map(e=>[e.id,e])).values()].slice(0,12);
-    return `<section class="trend-overview"><div class="trend-section-title"><h3>六大情報領域</h3><span>主題為規則式分類，可回溯原文</span></div>${topicCards()}
+    const pinned=eventList().filter(isPinned);
+    return `<section class="trend-overview"><div class="trend-section-title"><h3>B3 · 個人情報首頁</h3><button type="button" class="btn" data-personal-customize>${customizeLayout?'完成設定':'自訂首頁'}</button></div>
+      <p class="trend-muted">保留原有六大領域與事件索引，依你的排序、隱藏及置頂設定顯示。設定只保存在目前瀏覽器。</p>
+      ${customizeLayout?layoutControls():''}
+      ${pinned.length?`<div class="trend-section-title"><h3>置頂追蹤事件</h3><span>${pinned.length} 個事件</span></div><div class="trend-event-list">${pinned.slice(0,6).map(e=>eventCard(e,true)).join('')}</div>`:''}
+      <div class="trend-section-title"><h3>六大情報領域</h3><span>主題為規則式分類，可回溯原文</span></div>${topicCards()}
       <div class="trend-section-title"><h3>重要事件追蹤</h3><span>按重要程度與近期資料整理</span></div>${topicFilters()}
       <div class="trend-event-list">${top.length ? top.map(e=>eventCard(e)).join('') : '<div class="empty">此主題目前沒有符合條件的事件。請切換其他主題。</div>'}</div>
       ${filtered.length>12?`<p class="trend-footnote">顯示 ${top.length} / ${filtered.length} 個事件；更多內容可至「脈絡分析」查看。</p>`:''}
       ${methodNotice()}</section>`;
+  }
+  function layoutControls() {
+    return `<section class="trend-detail-panel trend-personal-layout"><h4>B3 · 首頁模組配置</h4><p>調整優先順序，或暫時隱藏某個領域。不會刪除領域、文章或追蹤紀錄。</p>
+      ${preferences.layout.order.map((id,i)=>`<div class="trend-personal-row"><label><input type="checkbox" data-personal-show="${id}" ${preferences.layout.hidden.includes(id)?'':'checked'}> ${escapeHtml(topicName(id))}</label><span class="trend-personal-actions"><button type="button" data-personal-move="${id}" data-direction="up" ${i===0?'disabled':''} aria-label="上移 ${escapeHtml(topicName(id))}">↑</button><button type="button" data-personal-move="${id}" data-direction="down" ${i===preferences.layout.order.length-1?'disabled':''} aria-label="下移 ${escapeHtml(topicName(id))}">↓</button></span></div>`).join('')}
+      <button type="button" class="btn" data-personal-reset>恢復六大領域預設排列</button></section>`;
   }
   function methodNotice() {
     return '<p class="trend-footnote">事件整合、重要性分數及標題相似度採可檢查的規則式方法，不代表事實可信度。官方來源的存在、多家媒體的共同用語或連結可用，都不等於本站已獨立證實；請以原始資料核對。</p>';
@@ -170,13 +212,31 @@
     return `<div class="trend-investigation"><div class="trend-pane-tabs" role="group" aria-label="事件查證功能">${panes.map(([id,label])=>`<button type="button" data-trend-pane="${id}" class="trend-pane-tab ${detailPane===id?'active':''}" aria-pressed="${detailPane===id}">${label}</button>`).join('')}</div>
       ${detailPane==='quality'?qualityPanel(e):detailPane==='compare'?comparePanel(e):evidencePanel(e,reading)}</div>`;
   }
+  function eventStatus(e) {
+    const chosen=eventIds(e).map(id=>preferences.eventStates[id]).find(x=>['新事件','持續發展','待確認','已結束'].includes(x));
+    if (chosen) return chosen;
+    if ((e.articles||[]).length>1) return '持續發展';
+    const elapsed=Date.now()-Date.parse(e.first_seen_at||e.updated_at);
+    return elapsed>=0&&elapsed<48*3600000?'新事件':'待確認';
+  }
+  function progressLabel(article,index) {
+    if (/更正|修正|澄清|勘誤/.test(article.title||'')) return '內容修正／澄清（標題訊號）';
+    if (article.source_type==='official') return /回應|回覆|聲明/.test(article.title||'')?'官方回應（標題訊號）':'官方／原始發布者資料';
+    return index===0?'初次收錄':'後續消息';
+  }
+  function progressPanel(e, sorted) {
+    return `<section class="trend-detail-panel trend-progress-panel"><div class="trend-section-title"><h4>B4 · 事件進展紀錄</h4><span>${sorted.length} 筆來源紀錄</span></div>
+      <label class="trend-personal-field">追蹤狀態 <select data-personal-status="${escapeHtml(e.id)}">${['新事件','持續發展','待確認','已結束'].map(s=>`<option value="${s}" ${eventStatus(e)===s?'selected':''}>${s}</option>`).join('')}</select></label>
+      <ol class="trend-timeline">${sorted.map((a,i)=>`<li><time>${formatDate(a.published_at)}</time><strong>${escapeHtml(progressLabel(a,i))}</strong><span>${escapeHtml(a.title)}</span><small>${escapeHtml(a.source)}</small>${externalLink(a)}</li>`).join('')}</ol>
+      <p class="trend-caution">進展類型依標題與來源資料規則式整理，不代表內容已獨立查證。沒有新消息不會自動改成「已結束」；狀態可由你手動調整，新的來源仍會保留。</p></section>`;
+  }
   function detail(e, news) {
     const watched = isWatched(e);
     const sorted = [...(e.articles||[])].sort((a,b)=>new Date(a.published_at)-new Date(b.published_at));
     const reading = articleMatches(e,news);
     return `<section class="trend-detail"><button type="button" class="trend-back" data-trend-close>← 返回${currentTab==='deep'?'脈絡分析':'情報總覽'}</button>
       <div class="trend-detail-heading"><span class="trend-topic-label">${escapeHtml(topicName(e.primary_topic))}</span>${badge(e)}<h3>${escapeHtml(e.title)}</h3><div class="trend-detail-meta">首次資料 ${formatDate(e.first_seen_at)}　最近更新 ${formatDate(e.updated_at)}　${e.source_count} 個來源</div><button type="button" class="btn" data-trend-watch="${escapeHtml(e.id)}">${watched?'★ 取消關注':'☆ 加入我的關注'}</button></div>
-      ${investigation(e,reading)}<div class="trend-detail-grid"><section class="trend-detail-panel"><h4>事件發展時間線</h4><ol class="trend-timeline">${sorted.map(a=>`<li><time>${formatDate(a.published_at)}</time><span>${escapeHtml(a.title)}</span><small>${escapeHtml(a.source)}</small></li>`).join('')}</ol></section>
+      ${investigation(e,reading)}<div class="trend-detail-grid">${progressPanel(e,sorted)}
       <section class="trend-detail-panel"><h4>觀察方向</h4><p>${escapeHtml(e.watchpoint || '持續追蹤原始來源後續資料。')}</p><p class="trend-caution">這是主題觀察提示，不是個別事件的已證實影響，也不是對未來的預測。</p><h4>分類與排序依據</h4><ul class="trend-small-list"><li>主題符合度：${Number(e.importance_factors?.topical||0)} / 3</li><li>事件影響用語：${Number(e.importance_factors?.impact||0)} / 3</li><li>更新時效：${Number(e.importance_factors?.recency||0)} / 2</li><li>來源數量：${Number(e.importance_factors?.sources||0)} / 2</li></ul></section>
       <section class="trend-detail-panel"><h4>關聯知識</h4>${relatedKnowledge(e,news)}<p class="trend-caution">僅提供背景延伸閱讀，並非事件已完成事實核查。</p></section></div></section>`;
   }
@@ -202,11 +262,45 @@
     const filtered = selectedEvents();
     return `<section class="trend-overview"><div class="trend-section-title"><h3>事件脈絡與來源檢視</h3><span>${filtered.length} 個事件</span></div>${topicFilters()}<p class="trend-muted">選取事件以查看原始報導、時間線、排序依據與關聯知識；不將來源標題視為獨立查核結論。</p><div class="trend-event-list">${filtered.length ? filtered.slice(0,48).map(e=>eventCard(e,true)).join('') : '<div class="empty">目前沒有符合條件的事件。</div>'}</div></section>`;
   }
+  function watchTermForm() {
+    const editing=preferences.watchTerms.find(x=>x.id===editingTerm);
+    return `<section class="trend-detail-panel"><h4>B1 · ${editing?'編輯':'新增'}企業／關鍵字</h4>
+      <form id="trend-term-form" class="trend-personal-form">
+        <label class="trend-personal-field">追蹤類型<select name="type"><option value="company" ${editing?.type==='company'?'selected':''}>企業</option><option value="keyword" ${editing?.type==='keyword'?'selected':''}>關鍵字</option></select></label>
+        <label class="trend-personal-field">名稱<input name="name" type="text" required minlength="2" maxlength="80" value="${escapeHtml(editing?.name||'')}" placeholder="例如：先進封裝"></label>
+        <label class="trend-personal-field trend-personal-wide">別名／同義詞（逗號分隔，最多 15 個）<input name="aliases" type="text" maxlength="800" value="${escapeHtml((editing?.aliases||[]).join(', '))}" placeholder="英文名稱、縮寫或常見別稱"></label>
+        <fieldset class="trend-personal-wide"><legend>觀測領域（不勾選代表跨所有領域）</legend><div class="trend-preference-grid">${topics().map(t=>`<label><input type="checkbox" name="topic" value="${t.id}" ${editing?.topics?.includes(t.id)?'checked':''}> ${escapeHtml(t.label)}</label>`).join('')}</div></fieldset>
+        <div class="trend-personal-actions trend-personal-wide"><button type="submit" class="btn primary">${editing?'儲存變更':'加入觀測清單'}</button>${editing?'<button type="button" class="btn" data-personal-cancel-edit>取消編輯</button>':''}</div>
+      </form><p class="trend-footnote">僅搜尋本站已有來源的標題，不抓取外站全文。關鍵字命中不代表事件已查證；不同企業不會因縮寫相似而合併。</p></section>`;
+  }
+  function termList() {
+    const list=preferences.watchTerms;
+    return `<section class="trend-detail-panel"><h4>企業與關鍵字觀測清單 · ${list.filter(x=>x.enabled).length} 項啟用</h4>
+      ${list.length?list.map(t=>`<div class="trend-personal-row"><div><strong>${escapeHtml(t.name)}</strong><small>${t.type==='company'?'企業':'關鍵字'} · ${t.topics?.length?t.topics.map(topicName).map(escapeHtml).join('、'):'跨所有領域'}<br>別名：${escapeHtml((t.aliases||[]).join('、')||'無')} · ${t.enabled?'追蹤中':'已停用'}</small></div><span class="trend-personal-actions"><button type="button" class="btn" data-personal-edit="${escapeHtml(t.id)}">編輯</button><button type="button" class="btn" data-personal-toggle="${escapeHtml(t.id)}">${t.enabled?'停用':'啟用'}</button></span></div>`).join(''):'<div class="empty">尚未新增觀測項目。先輸入公司名稱或關鍵字即可開始。</div>'}</section>`;
+  }
+  function backupPage() {
+    const engine=window.DailyInsightBackup;
+    if (!engine) return '<section class="trend-detail-panel"><h4>資料管理暫時無法使用</h4><p>備份模組尚未載入；現有閱讀和關注功能不受影響。</p></section>';
+    let counts=null, problem='';
+    try { const local=engine.readCurrent(localStorage);counts={read:local.reader.read.length,saved:local.reader.saved.length,quizzes:Object.keys(local.reader.quizResults).length,terms:local.trends.watchTerms.length,watched:local.trends.watched.length}; }
+    catch(err){problem=err.message;}
+    const labels={read:'已讀',saved:'收藏',quizzes:'測驗',watched:'關注事件',terms:'企業／關鍵字',pinned:'置頂事件',states:'進展狀態'};
+    const summary=counts?`<div class="trend-backup-stats">${Object.entries(counts).map(([k,v])=>`<div><strong>${v}</strong><span>${labels[k]}</span></div>`).join('')}</div>`:'';
+    const check=backupDraft?`<section class="trend-backup-preview"><h4>匯入前檢查結果 · 版本 ${engine.VERSION}</h4><div class="trend-backup-table"><div><strong>資料類別</strong><strong>匯入筆數</strong><strong>新增</strong><strong>略過重複</strong></div>${Object.keys(backupDraft.added).map(k=>`<div><span>${labels[k]}</span><span>${backupDraft.imported[k]}</span><span>${backupDraft.added[k]}</span><span>${backupDraft.skipped[k]}</span></div>`).join('')}</div><p class="trend-caution">相同識別碼或相同企業名稱不覆寫現有設定。既有主題排序、隱藏設定、閱讀測驗結果以目前瀏覽器為優先。</p>
+      <label class="trend-personal-confirm"><input type="checkbox" id="trend-backup-approve"> 我確認只合併新資料，且了解完成後需要重新載入頁面。</label><button type="button" class="btn primary" data-personal-import-apply>確認安全合併</button></section>`:'';
+    return `<section class="trend-overview"><div class="trend-section-title"><h3>D3 · 資料備份與安全匯入</h3><button type="button" class="btn" data-personal-backup-close>返回我的關注</button></div>
+      <p class="trend-muted">只在目前裝置操作，不上傳新聞閱讀紀錄、關注設定或 JSON 到伺服器。匯出可轉移到你自己的其他裝置；匯入前必須檢查。</p><div class="trend-backup-grid"><section class="trend-detail-panel"><h4>匯出完整個人資料</h4>${summary}${problem?`<p class="trend-caution">${escapeHtml(problem)}</p>`:'<button type="button" class="btn primary" data-personal-export>下載 JSON 備份</button>'}<p class="trend-footnote">包含原有已讀、收藏、測驗，以及趨勢關注、觀測清單、事件進展與版面設定。</p></section>
+      <section class="trend-detail-panel"><h4>選擇 JSON 備份</h4><label class="trend-personal-field">選擇檔案（上限 2 MB）<input id="trend-import-file" type="file" accept=".json,application/json"></label><p class="trend-muted">先檢查格式版本、筆數與衝突；未經確認不寫入任何紀錄。</p><button type="button" class="btn" data-personal-import-reset>清除匯入預覽</button>${backupError?`<p class="trend-caution" role="alert">${escapeHtml(backupError)}</p>`:''}</section></div>${check}</section>`;
+  }
   function watch() {
     const watched = eventList().filter(isWatched);
     const updates = newUpdates();
-    return `<section class="trend-watch"><div class="trend-section-title"><h3>我的情報關注</h3><span>設定僅儲存於目前的瀏覽器</span></div><div class="trend-summary-cards"><div><strong>${watched.length}</strong><span>持續關注</span></div><div><strong>${updates.length}</strong><span>尚未查看的更新</span></div></div>
+    const matched=matchedEvents();
+    if(backupOpen)return backupPage();
+    return `<section class="trend-watch"><div class="trend-section-title"><h3>我的情報關注</h3><button type="button" class="btn" data-personal-backup>D3 · 資料匯出／匯入</button></div><div class="trend-summary-cards"><div><strong>${watched.length}</strong><span>持續關注</span></div><div><strong>${updates.length}</strong><span>尚未查看的更新</span></div><div><strong>${watchTerms().length}</strong><span>企業／關鍵字觀測</span></div></div>
       <section class="trend-detail-panel"><h4>關注的六大領域</h4><p class="trend-muted">取消勾選的主題將暫時從情報首頁及脈絡分析篩選中隱藏，不會刪除資料。</p><div class="trend-preference-grid">${topics().map(t=>`<label><input type="checkbox" data-trend-pref="${escapeHtml(t.id)}" ${preferences.topics.includes(t.id)?'checked':''}> ${escapeHtml(t.label)}</label>`).join('')}</div></section>
+      <div class="trend-section-title"><h3>B1 · 企業與關鍵字觀測</h3><span>支援同義詞、停用與跨領域</span></div><div class="trend-personal-two">${watchTermForm()}${termList()}</div>
+      <div class="trend-section-title"><h3>符合觀測字詞的事件</h3><span>${matched.length} 個文字命中</span></div>${matched.length?`<div class="trend-event-list">${matched.slice(0,12).map(e=>eventCard(e,true)).join('')}</div>`:'<div class="empty">目前沒有符合觀測字詞的既有事件。這不代表沒有相關新聞，請調整同義詞或主題範圍。</div>'}
       <div class="trend-section-title"><h3>站內更新提醒</h3><span>非推播、Email 或手機通知</span></div>${updates.length?`<div class="trend-event-list">${updates.map(e=>eventCard(e,true)).join('')}</div>`:'<div class="empty">目前沒有未讀的關注更新。關注事件後，如事件資料更新會在這裡標示。</div>'}
       <div class="trend-section-title"><h3>已關注事件</h3></div>${watched.length?`<div class="trend-event-list">${watched.map(e=>eventCard(e,true)).join('')}</div>`:'<div class="empty">尚未關注事件。到「趨勢總覽」點選 ☆ 關注，即可建立清單。</div>'}
       <p class="trend-footnote">本階段採免費的站內提醒機制；只有開啟網站取得最新資料時才會更新提示，不會在背景向裝置發送訊息，也不會讀取其他裝置的偏好。</p></section>`;
@@ -226,7 +320,7 @@
   }
   function reportText() {
     const r = reportData(preferences.reportPeriod);
-    return `Daily Insight 2.0｜${r.period} 天趨勢回顧\n資料涵蓋 ${r.coverage} / ${r.period} 天；每日事件存量，非新增事件件數。\n` + r.leading.map(x=>`${x.label}：${x.value}（各日事件數加總）`).join('\n') + '\n此為規則式分類摘要；原始內容與來源請回網站核對。';
+    return `Daily Insight 3.0｜${r.period} 天趨勢回顧\n資料涵蓋 ${r.coverage} / ${r.period} 天；每日事件存量，非新增事件件數。\n` + r.leading.map(x=>`${x.label}：${x.value}（各日事件數加總）`).join('\n') + '\n此為規則式分類摘要；原始內容與來源請回網站核對。';
   }
   function reports() {
     const r = reportData(preferences.reportPeriod);
@@ -261,7 +355,7 @@
     const oldTabs = button.closest?.('.trend-tabs');
     const wasPinned = oldTabs?.getBoundingClientRect?.().top <= 1;
     const oldHorizontalScroll = oldTabs?.scrollLeft || 0;
-    currentTab = id; selectedEvent = null; selectedTopic = 'all'; repaint();
+    currentTab = id; selectedEvent = null; selectedTopic = 'all'; backupOpen=false; editingTerm=null; repaint();
     const tabs = document.querySelector('.trend-tabs');
     if (!tabs) return;
     tabs.scrollLeft = oldHorizontalScroll;
@@ -280,6 +374,30 @@
   document.addEventListener('click',event=>{
     const b=event.target.closest('button'); if(!b) return;
     if(b.dataset.trendTab){switchTab(b.dataset.trendTab,b);}
+    else if(b.hasAttribute('data-personal-customize')){customizeLayout=!customizeLayout;repaint();}
+    else if(b.dataset.personalMove){const i=preferences.layout.order.indexOf(b.dataset.personalMove),j=i+(b.dataset.direction==='up'?-1:1);if(i>=0&&j>=0&&j<preferences.layout.order.length){[preferences.layout.order[i],preferences.layout.order[j]]=[preferences.layout.order[j],preferences.layout.order[i]];persist();repaint();}}
+    else if(b.hasAttribute('data-personal-reset')){preferences.layout=defaultLayout();persist();repaint();}
+    else if(b.dataset.personalPin){const e=eventList().find(x=>x.id===b.dataset.personalPin);if(!e)return;const ids=eventIds(e);preferences.layout.pinned=isPinned(e)?preferences.layout.pinned.filter(x=>!ids.includes(x)):[...preferences.layout.pinned.filter(x=>!ids.includes(x)),e.id];persist();repaint();}
+    else if(b.dataset.personalEdit){editingTerm=b.dataset.personalEdit;repaint();}
+    else if(b.dataset.personalToggle){const t=preferences.watchTerms.find(x=>x.id===b.dataset.personalToggle);if(t){t.enabled=!t.enabled;persist();repaint();}}
+    else if(b.hasAttribute('data-personal-cancel-edit')){editingTerm=null;repaint();}
+    else if(b.hasAttribute('data-personal-backup')){backupOpen=true;backupError='';backupDraft=null;repaint();}
+    else if(b.hasAttribute('data-personal-backup-close')){backupOpen=false;backupDraft=null;backupError='';repaint();}
+    else if(b.hasAttribute('data-personal-import-reset')){backupDraft=null;backupError='';repaint();}
+    else if(b.hasAttribute('data-personal-export')){
+      try {
+        const json=JSON.stringify(window.DailyInsightBackup.createExport(localStorage),null,2);
+        const blob=new Blob([json],{type:'application/json'}),url=URL.createObjectURL(blob),anchor=document.createElement('a');
+        anchor.href=url;anchor.download='daily-insight-personal-backup.json';anchor.click();
+        setTimeout(()=>URL.revokeObjectURL(url),1000);
+      }catch(err){backupError='無法建立備份：'+err.message;repaint();}
+    }
+    else if(b.hasAttribute('data-personal-import-apply')){
+      if(!backupDraft)return;
+      if(!document.getElementById('trend-backup-approve')?.checked){backupError='請先核對筆數與衝突並勾選確認。';repaint();return;}
+      try {window.DailyInsightBackup.applyImport(localStorage,backupDraft.data);window.location.reload();}
+      catch(err){backupError=err.message;repaint();}
+    }
     else if(b.dataset.trendTopic){selectedTopic=b.dataset.trendTopic;currentTab=currentTab==='network'?'deep':currentTab;selectedEvent=null;repaint();}
     else if(b.dataset.trendDetail){selectedEvent=b.dataset.trendDetail;detailPane='evidence';const e=eventList().find(x=>x.id===selectedEvent);compareLeft=e?.articles?.[0]?.url||'';compareRight=e?.articles?.[1]?.url||compareLeft;preferences.viewed[selectedEvent]=new Date().toISOString();persist();repaint();window.scrollTo(0,0);}
     else if(b.dataset.trendPane){detailPane=b.dataset.trendPane;repaint();}
@@ -291,6 +409,18 @@
   });
   document.addEventListener('change',event=>{
     const input=event.target;
+    if(input.matches('input[data-personal-show]')){const id=input.dataset.personalShow;preferences.layout.hidden=input.checked?preferences.layout.hidden.filter(x=>x!==id):[...new Set([...preferences.layout.hidden,id])];persist();repaint();return;}
+    if(input.matches('select[data-personal-status]')){const id=input.dataset.personalStatus;const allowed=window.DailyInsightBackup?.STATUSES||['新事件','持續發展','待確認','已結束'];if(allowed.includes(input.value)){preferences.eventStates[id]=input.value;persist();repaint();}return;}
+    if(input.matches('input#trend-import-file')){
+      const file=input.files?.[0];if(!file)return;
+      backupDraft=null;backupError='';
+      if(file.size>2*1024*1024){backupError='備份檔案超過 2 MB 上限。';repaint();return;}
+      file.text().then(raw=>{
+        const parsed=window.DailyInsightBackup.parseImport(raw);
+        backupDraft={data:parsed,...window.DailyInsightBackup.previewMerge(localStorage,parsed)};
+        backupError='';repaint();
+      }).catch(err=>{backupDraft=null;backupError='無法預覽匯入檔案：'+err.message;repaint();});return;
+    }
     if(input.matches('select[data-trend-compare]')){
       if(input.dataset.trendCompare==='left')compareLeft=input.value;
       else compareRight=input.value;
@@ -300,6 +430,20 @@
     const id=input.dataset.trendPref;
     preferences.topics=input.checked?[...new Set([...preferences.topics,id])]:preferences.topics.filter(x=>x!==id);
     persist();repaint();
+  });
+  document.addEventListener('submit',event=>{
+    const form=event.target;
+    if(form.id!=='trend-term-form')return;
+    event.preventDefault();
+    const type=form.elements.type.value,name=form.elements.name.value.trim(),aliases=form.elements.aliases.value.split(/[,，、;；\n]/).map(x=>x.trim()).filter(Boolean),selected=[...form.querySelectorAll('input[name="topic"]:checked')].map(x=>x.value);
+    if(!['company','keyword'].includes(type)||[...name].length<2||name.length>80||aliases.length>15||aliases.some(x=>x.length>80)||selected.some(x=>!DEFAULT_TOPICS.includes(x))){announcement='請檢查名稱、別名及觀測主題。';repaint();return;}
+    const duplicate=preferences.watchTerms.some(x=>x.id!==editingTerm&&x.type===type&&x.name.toLocaleLowerCase('zh-TW')===name.toLocaleLowerCase('zh-TW'));
+    if(duplicate){announcement='此企業或關鍵字已在清單中，可直接編輯或重新啟用。';repaint();return;}
+    const item={type,name,aliases:[...new Set(aliases)],topics:[...new Set(selected)],enabled:true};
+    if(editingTerm){const x=preferences.watchTerms.find(x=>x.id===editingTerm);if(x)Object.assign(x,item);editingTerm=null;}
+    else if(preferences.watchTerms.length<500){item.id='term-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7);preferences.watchTerms.push(item);}
+    else {announcement='最多可儲存 500 項觀測條件。';repaint();return;}
+    announcement='觀測條件已儲存於目前瀏覽器。';persist();repaint();
   });
   window.DailyTrends = {render:renderPage,refresh,getData:()=>data,getPreferences:()=>preferences};
 })();
