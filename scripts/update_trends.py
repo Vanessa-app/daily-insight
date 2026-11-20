@@ -17,6 +17,7 @@ import os
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 from source_quality import metadata, source_type
+from trend_history import event_snapshot
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data'
@@ -266,10 +267,11 @@ def update_history(events, now=NOW):
                 'top_event_ids': [e['id'] for e in events[:8]],
                 'event_ids': [e['id'] for e in events],
                 'indexed_article_count': sum(len(e.get('articles', [])) for e in events)}
+    snapshot.update(event_snapshot(events, history, now, canonical_url))
     days = [entry for entry in history if isinstance(entry, dict) and entry.get('date') != day]
     days.append(snapshot)
-    days = sorted(days, key=lambda x: x['date'])[-180:]
-    write_json(path, {'schema_version': 1, 'days': days})
+    days = sorted(days, key=lambda x: x['date'])[-181:]
+    write_json(path, {'schema_version': 1, 'event_metrics_version': 1, 'days': days})
     return len(days)
 
 
