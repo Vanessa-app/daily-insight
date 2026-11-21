@@ -1,7 +1,87 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-20T10:56:15.486511+00:00",
+  "updated_at": "2026-11-21T00:57:59.920039+00:00",
   "items": [
+    {
+      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/elementium-illustration.png",
+      "image_rights": "unverified",
+      "image_credit": "NASA",
+      "quiz_reviewed": false,
+      "quiz": [],
+      "excerpt_original": "Awards to small businesses around the country are addressing some of NASA’s most crucial technology needs for exploration of the Moon and Mars while fueling the U.S. space economy. NASA’s Small Business Innovation Research/Small Business Technology Transfer (SBIR/STTR) program recently selected 302 innovative projects, for a total investment of up to $171 million in seed […]",
+      "translation_zh_hant": null,
+      "evidence_original": [
+        "Awards to small businesses around the country are addressing some of NASA’s most crucial technology needs for exploration of the Moon and Mars while fueling the U.S. space economy. NASA’s Small Business Innovation Research/Small Business Technology Transfer (SBIR/STTR) program recently selected 302 innovative projects, for a total investment of up to $171 million in seed […]"
+      ],
+      "evidence_zh_hant": [],
+      "translation_status": "translation_not_requested",
+      "content_scope": "publisher_feed_excerpt",
+      "extraction_status": "not_attempted",
+      "content_complete": false,
+      "reuse_license": "not_confirmed",
+      "id": "nasa:3505422532",
+      "source_id": "nasa",
+      "source": "NASA",
+      "category": "AI與科技",
+      "title": "New NASA Seed Funding Primes Small Businesses for Innovation",
+      "url": "https://www.nasa.gov/directorates/rtmd/new-nasa-seed-funding-primes-small-businesses-for-innovation/",
+      "published_at": "2026-11-20T20:46:14+00:00",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
+    {
+      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/dsc-6269-stennis-honor-awards-1.jpg",
+      "image_rights": "unverified",
+      "image_credit": "NASA",
+      "quiz_reviewed": false,
+      "quiz": [],
+      "excerpt_original": "Employees contributing to NASA’s mission at the agency’s Stennis Space Center near Bay St. Louis, Mississippi, were recognized during the center’s Honor Awards ceremony on Nov. 18. Presenting the awards were Christine Powell, NASA Stennis center director, and Jeremy Parsons, the agency’s Artemis program manager responsible for management and oversight of NASA’s initiative to return […]",
+      "translation_zh_hant": null,
+      "evidence_original": [
+        "Employees contributing to NASA’s mission at the agency’s Stennis Space Center near Bay St. Louis, Mississippi, were recognized during the center’s Honor Awards ceremony on Nov. 18. Presenting the awards were Christine Powell, NASA Stennis center director, and Jeremy Parsons, the agency’s Artemis program manager responsible for management and oversight of NASA’s initiative to return […]"
+      ],
+      "evidence_zh_hant": [],
+      "translation_status": "translation_not_requested",
+      "content_scope": "publisher_feed_excerpt",
+      "extraction_status": "not_attempted",
+      "content_complete": false,
+      "reuse_license": "not_confirmed",
+      "id": "nasa:684045636",
+      "source_id": "nasa",
+      "source": "NASA",
+      "category": "AI與科技",
+      "title": "NASA Honor Awards Ceremony Recognizes Employees at Stennis Space Center",
+      "url": "https://www.nasa.gov/centers-and-facilities/stennis/honor-awards-ceremony-at-stennis/",
+      "published_at": "2026-11-20T16:27:46+00:00",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
+    {
+      "id": "adi:21492",
+      "source_id": "adi",
+      "source": "數位產業署",
+      "kind": "news",
+      "category": "AI與科技",
+      "title": "「CYBERDAY 2026 資安產業日」登場，數位產業署強化資安自主能量，攜手產業邁向國際",
+      "url": "https://moda.gov.tw/ADI/news/latest-news/21492",
+      "published_at": "2026-11-20T00:00:00+08:00",
+      "content_complete": true,
+      "reuse_license": "approved",
+      "license_name": "CC0 1.0",
+      "license_url": "https://moda.gov.tw/announcement/publicdeclare/951",
+      "content_scope": "official_full_text",
+      "translation_status": "original_zh_hant",
+      "evidence_original": [
+        "由數位發展部數位產業署（以下簡稱數產署）主辦的「CYBERDAY 2026 資安產業日」，今（11/20）日於臺北集思仁杭會議中心盛大登場，數位發展部楊佳玲次長蒞臨致詞並頒發2026資安新秀優勝獎項，數產署林俊秀署長引言開場，並邀請資安應用服務聯盟、台灣資安大聯盟、行動應用資安聯盟、中華民國資訊軟體服務商業同業公會及台灣駭客協會等14個公協會共襄盛舉。本次活動聚焦半導體設備資安、後量子密碼（PQC）、國際市場拓展及資安人才培育等議題，現場集結36家本土資安廠商與新秀展示創新解決方案，並邀集專家分享趨勢，促進產官學研交流。",
+        "楊佳玲次長於開幕致詞時表示，今年是資安領域最不平靜的一年，AI已具備駭客攻擊能力，資安攻防態勢隨之改變。數發部已成立跨部會「先進AI資安風險因應小組」，建立漏洞依風險等級限期修補機制，並運用先進AI工具主動掃描政府及關鍵基礎設施系統，力求在敵人找到漏洞前先行修補；未來也將推動Secure by Design(安全設計)理念，讓軟體在使用前即符合資安規範。楊次長指出，當前最需要協助的是產業界，許多中小企業缺乏足夠能量因應資安風險，需要資安業者與政府公私協力，攜手為臺灣打造最堅強的資安防護牆。",
+        "為落實上述政策方向，數產署從人才培育與供應鏈韌性兩大面向厚植產業能量。今年累計培訓逾3,900名資安人才（含405人取得Google資安專業證書、162人成功轉職），並舉辦「沙崙資安新秀大賽」培育新血。同時，延續與SEMI國際半導體產業協會合作建立半導體設備資安認驗證制度，今年8月資策會與工研院取得TAF認證成為首批示範實驗室，預計年底核發首批SEMI E187驗證標章，協助業者接軌國際。",
+        "此外，在關鍵技術與海外拓銷方面，數產署同樣積極推動，今年成功技轉首顆國產後量子密碼（PQC）晶片量產，並協助二家醫學中心完成系統PQC升級，加速技術落地。此外，數產署帶領國內業者以「Cyber Taiwan Pavilion」臺灣資安主題館進軍美國RSAC、日本IT Week及荷蘭ONE Conference等國際大展；期間更促成資策會與荷蘭TrustCB簽署晶片安全MOU，建立與國際SESIP認證的跨國試辦框架，以及工研院與荷蘭TNO簽署策略合作協議，深化臺荷技術研發合作。",
+        "本次活動匯聚資安業者、公協會及產學研代表，促進跨域合作與技術供需對接。數產署將持續推動自主研發、人才培育與國際標準接軌，結合臺灣半導體與資通訊優勢，擴大國產資安方案輸出，打造具國際競爭力的臺灣資安產業。"
+      ],
+      "excerpt_original": "由數位發展部數位產業署（以下簡稱數產署）主辦的「CYBERDAY 2026 資安產業日」，今（11/20）日於臺北集思仁杭會議中心盛大登場，數位發展部楊佳玲次長蒞臨致詞並頒發2026資安新秀優勝獎項，數產署林俊秀署長引言開場，並邀請資安應用服務聯盟、台灣資安大聯盟、行動應用資安聯盟、中華民國資訊軟體服務商業同業公會及台灣駭客協會等14個公協會共襄盛舉。本次活動聚焦半導體設備資安、後量子密碼（PQC）、國際市場拓展及資安人才培育等議題，現場集結36家本土資安廠商與新秀展示創新解決方案，並邀集專家分享趨勢，促進產官學研交流。",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
     {
       "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/ttt-publicinputonlife-2026.png",
       "image_rights": "unverified",
@@ -1591,122 +1671,38 @@
       "excerpt_original": "行政院今（5）日通過文化部擬具之「國家鐵道博物館設置條例」草案，將函請立法院審議。",
       "verification": "publisher_domain_checked",
       "claim_verification": "not_independently_verified"
-    },
-    {
-      "id": "ey:d6716352-809b-48b5-a600-da100e7c5de0",
-      "source_id": "ey",
-      "source": "行政院",
-      "kind": "news",
-      "category": "社會與公共政策",
-      "title": "卓揆肯定海巡署執行「國安、治安、平安」三安任務 守護國家主權與安全",
-      "url": "https://www.ey.gov.tw/Page/9277F759E41CCD91/d6716352-809b-48b5-a600-da100e7c5de0",
-      "published_at": "2026-11-05T00:00:00+08:00",
-      "content_complete": true,
-      "reuse_license": "approved",
-      "license_name": "政府資料開放授權條款－第1版",
-      "license_url": "https://www.ey.gov.tw/Page/2EADDBFEDDB6357E",
-      "content_scope": "official_full_text",
-      "translation_status": "original_zh_hant",
-      "evidence_original": [
-        "行政院長卓榮泰今（5）日在行政院會聽取海洋委員會「藍色國土守護者-海巡重要施政成效」報告後表示，臺灣是海洋國家，海委會海巡署執行「國安、治安、平安」三安任務，肩負應處中國灰色地帶、查緝新興毒品、打擊走私偷渡及國人海上遇難救助等多項任務，不僅維護國家主權，更是國人安居樂業的堅強後盾。11月8日是一年一度的「海巡節」，他代表國人向全體海巡同仁致上崇高的敬意與感謝。",
-        "在國安方面，卓院長表示，海巡署近年重點在於應處中國灰色地帶襲擾，維護國家主權。今（2026）年到目前為止，已查處及驅離中國船舶618艘次、扣留15艘、沒入12艘，偵獲的中國公務船464艘次，也在執行專屬經濟海域巡護173航次，並落實維護南海生態、強化海纜防護、確保海洋權益，是守護國家安全重要的屏障。",
-        "在治安方面，卓院長指出，海巡署聯合內政部警政署破獲該署近10年在內陸查獲大麻最大量紀錄，高達766公斤，也首度查獲高階半導體非法出口，價值超過5,300萬元，以及其他槍枝、毒品、通緝犯、失聯移工、農產品的走私偷渡等重大案件。",
-        "在平安方面，卓院長進一步指出，海巡署持續執行海上搜救及海難應處，共救生271人次、救難136人次，也驅逐滯留的商貨船輪45艘，以及查處豬隻屍體18件。另外，也在太平島辦理南援九號演練，以及離岸風電海難應處演練，強化跨機關協調合作與緊急應變能力，全方位保障國人在海域生活的生命與財產安全。",
-        "卓院長表示，近年行政院支持海巡署推動「海空一體，精銳海巡」有關計畫及國安韌性特別預算，加強科技轉型及「國艦國造，強韌環境」施政，持續籌建多艘新式艦艇及6艘高緯度遠洋巡護船，並增設第三位副署長，推展海巡外交工作，共同維護區域安全，也提升海巡執行量能。",
-        "此外，卓院長進一步表示，行政院已核定調整戰航管、深夜危勞、海上職務、船務人員薪點折合率、監偵、特勤、警勤、危險及第三類型海巡部隊加給等共增加9項待遇，並推動基層單位駐用廳舍各項新建工程，透過提升勤務待遇，讓海巡同仁有更適合的場域，做出更大貢獻。",
-        "卓院長再次指出，海委會今日下午將舉辦海巡節慶祝活動，他特別請張惇涵秘書長代表前往頒獎及祝賀，並祝福每位海巡同仁勤務平安、闔家安康、幸福美滿。"
-      ],
-      "excerpt_original": "行政院長卓榮泰今（5）日在行政院會聽取海洋委員會「藍色國土守護者-海巡重要施政成效」報告後表示，臺灣是海洋國家，海委會海巡署執行「國安、治安、平安」三安任務，肩負應處中國灰色地帶、查緝新興毒品、打擊走私偷渡及國人海上遇難救助等多項任務，不僅維護國家主權，更是國人安居樂業的堅強後盾。11月8日是一年一度的「海巡節」，他代表國人向全體海巡同仁致上崇高的敬意與感謝。",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
-    },
-    {
-      "id": "ey:a08549b5-0783-46c4-bb1d-22d8f6fb7184",
-      "source_id": "ey",
-      "source": "行政院",
-      "kind": "news",
-      "category": "社會與公共政策",
-      "title": "主持治安會報 卓揆：加強查賄制暴、嚴防境外勢力介選 確保選舉公平、公正、安全",
-      "url": "https://www.ey.gov.tw/Page/9277F759E41CCD91/a08549b5-0783-46c4-bb1d-22d8f6fb7184",
-      "published_at": "2026-11-05T00:00:00+08:00",
-      "content_complete": true,
-      "reuse_license": "approved",
-      "license_name": "政府資料開放授權條款－第1版",
-      "license_url": "https://www.ey.gov.tw/Page/2EADDBFEDDB6357E",
-      "content_scope": "official_full_text",
-      "translation_status": "original_zh_hant",
-      "evidence_original": [
-        "行政院長卓榮泰今（5）日主持「行政院115年第5次治安會報」，並聽取「115年地方公職人員選舉治安維護與查察妨害選舉工作」、「115年地方公職人員選舉查賄制暴工作」及「選舉期間之入出境與邊境安全管制強化作為」等報告。卓院長指出，面對即將到來的地方公職人員選舉及全國性公民投票，請檢、警、調、廉、移民等各機關強化跨機關合作，加強查賄制暴及不法金流查緝，並嚴防境外勢力介選、跨國鎮壓及深偽假訊息干擾，確保選舉公平、公正及安全，守護我國民主法治。",
-        "卓院長致詞時表示，「地方公職人員選舉及全國性公民投票」將於今（115）年11月28日舉行，為防止不法資金與勢力介入選舉，臺灣高等檢察署早已開始統籌全國檢、警、調機關，於今年8月中至9月4日實施第一波「查緝不法金流專案」，全力掃蕩境外資金、地下匯兌與選舉賭盤等，共查獲不法金流案件212案、588人，查扣犯罪所得約9億906萬餘元，成果豐碩，對不法選舉歪風形成強而有力的嚇阻作用。卓院長請檢、警、調、廉、移民等機關全力淨化選前治安、加強查賄制暴、杜絕深偽影音與假訊息干擾，並嚴防境外勢力介選，確保公平、公正的選舉結果不遭受破壞。",
-        "卓院長指出，近期發生多起境外勢力在國內實施跨國鎮壓或滋擾事件，嚴重危害國家安全與社會治安，請檢、警、調與國安單位緊密合作，針對各候選人及特定重要人士，加強危安情資蒐報及人身安全維護，並嚴加究辦此類跨國鎮壓案件，溯源清查幕後主使者及在地協力者，澈底瓦解境外不法勢力，守護我國民主法治及言論自由。",
-        "卓院長強調，選務整備工作相當繁重，請相關機關妥適規劃同仁的勤務輪替及休息時間，優先維護同仁權益。卓院長也提醒同仁在執勤時務必維持平和心理狀態，彼此同心協力，做好選舉與治安工作。同時，對於所有檢、警、調、移民等機關同仁在投票當日投票權益的行使，亦應提早妥善規劃，讓每個人都盡到國民應盡的權利與義務。",
-        "隨後，卓院長在聽取內政部警政署「115年地方公職人員選舉治安維護與查察妨害選舉工作」報告後表示，中央選舉委員會與警政署務必保持密切合作，確保選票印製、護送及保管安全，並嚴防投票日當天發生干擾投票、選舉暴力等違法行為；另請警政署要求各警察機關，主動徵詢候選人的安全需求及發掘相關危安情資。對於曾遭受威脅、跟監，或有具體安全疑慮的候選人，更要提高警覺，加強安全評估需求，必要時採取專案保護措施。",
-        "為防範選舉暴力，卓院長亦責成警政署及相關機關更精確掌握選前治安動態情資及任何不法動態，加強掃黑、肅槍工作，並強化候選人、選舉與重要處所及造勢活動場所等安全維護。同時，亦應強化突發事件應變機制，嚴防暴力滋事及妨害選舉秩序情事發生，確保選舉安全、平和、順利完成。",
-        "有關法務部「115年地方公職人員選舉查賄制暴工作」報告，卓院長請各機關強化跨機關協作，落實各項查察及維安部署，並特別注意兩項作為，包括：第一，「公正執法，嚴守正當法律程序」，對於涉嫌妨害選舉案件一律依法查辦，秉持客觀中立、公正執法原則，嚴守正當法律程序及偵查不公開規定，兼顧人權保障及選舉公平。第二，「嚴查妨害選舉犯罪，強化溯源查緝」，請法務部督導檢察機關，結合警、調、廉、移民等機關，秉持行政中立原則，落實公正執法，「有聞必查、有據必辦、勿枉勿縱」，並強化情資蒐報、科技偵查及不法金流追查。",
-        "另針對選舉賭盤、深偽假訊息及境外勢力介選等新犯罪型態，卓院長責成相關單位強化即時應處及數位鑑識能力，深入追查資金來源、組織網絡及幕後操作者，落實速查嚴辦、向上溯源。",
-        "針對內政部移民署「選舉期間之入出境與邊境安全管制強化作為」報告，卓院長請移民署繼續精進案件審查、國境查驗及跨國鎮壓案件聯防應處；有關防制犯嫌潛逃出境的實地演練，請移民署聯合警政署等機關落實辦理；另對已發生之重大案件，相關權責機關必須進行澈底檢討，始可發揮反制效果。",
-        "卓院長表示，跨國鎮壓具有預謀、快速且不斷變化的各種特性，因此情資分享是有效反制的關鍵，請各部會透過跨國鎮壓跨機關溝通平臺，積極交流情報資訊，遇有案件發生時，立即警示通報，並由跨機關共同協力合作，以維選舉安全。此外，針對入出境管理邊境等日常作業，亦應透過各種經驗累積，全面強化安全防護作為。"
-      ],
-      "excerpt_original": "行政院長卓榮泰今（5）日主持「行政院115年第5次治安會報」，並聽取「115年地方公職人員選舉治安維護與查察妨害選舉工作」、「115年地方公職人員選舉查賄制暴工作」及「選舉期間之入出境與邊境安全管制強化作為」等報告。卓院長指出，面對即將到來的地方公職人員選舉及全國性公民投票，請檢、警、調、廉、移民等各機關強化跨機關合作，加強查賄制暴及不法金流查緝，並嚴防境外勢力介選、跨國鎮壓及深偽假訊息干擾，確保選舉公平、公正及安全，守護我國民主法治。",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
-    },
-    {
-      "id": "ey:c81e8f01-4e9a-49f6-be89-36159c050384",
-      "source_id": "ey",
-      "source": "行政院",
-      "kind": "news",
-      "category": "社會與公共政策",
-      "title": "政院投入逾33億推動「觀光雙輪驅動方案」展成效 卓揆拍板方案擴大加碼並延長至年底",
-      "url": "https://www.ey.gov.tw/Page/9277F759E41CCD91/c81e8f01-4e9a-49f6-be89-36159c050384",
-      "published_at": "2026-11-05T00:00:00+08:00",
-      "content_complete": true,
-      "reuse_license": "approved",
-      "license_name": "政府資料開放授權條款－第1版",
-      "license_url": "https://www.ey.gov.tw/Page/2EADDBFEDDB6357E",
-      "content_scope": "official_full_text",
-      "translation_status": "original_zh_hant",
-      "evidence_original": [
-        "行政院長卓榮泰今（5）日於行政院會聽取交通部「觀光雙輪驅動方案執行情形」報告後表示，觀光產業是展現國家軟實力及在地文化的關鍵基礎，交通部觀光署透過「觀光雙輪驅動方案」，推動「平日國旅優惠」及「強化國際觀光動能」，行政院更投入33.3億元經費，引導國人平日深度旅遊，並吸引高消費國際客重遊臺灣，預估可帶來440萬人次旅遊、創造374億元觀光產值。",
-        "卓院長指出，「平日國旅優惠」上路以來，有效引導旅客早日規劃連續住宿以及多日行程，達成全國第二晚連住率突破5成的績效。卓院長感謝臺南、花蓮、金門、馬祖、澎湖各縣市地方政府及旅宿業者，響應觀光署政策並積極加碼，有效帶動地區觀光發展。卓院長請交通部繼續推動「平日國旅優惠」，將獲得好評的「平日住宿獎助」及「遊樂園留宿」活動延長至今（115）年12月31日止，並規劃Taiwan PASS「5折方案」第2波加碼，鼓勵民眾規劃年底出遊，帶動國旅風潮。",
-        "同時，卓院長也請觀光署繼續以「質量並進．價值升級」的核心策略推動觀光產業發展，並督導旅宿業者提升服務品質，透過「百工百業挺國旅」發揮企業號召力，並請各部會加強協力，如農業部的休閒農場與森林遊樂區，以及經濟部推動觀光工廠與活絡商圈等，以期將傳統「景點參訪」轉型為「深度旅遊與價值體驗」，共創優良品質的旅遊環境。",
-        "針對馬永成政務委員提及如何在大型會展、國際會議、國際運動賽事、演唱會前後，加強推銷國內各種套裝觀光行程，以吸引更多國際友人多停留臺灣，欣賞臺灣各地風景及文化優美之處，以帶動周邊經濟活動事，卓院長請觀光署協助旅行業者、飯店業者，提早發布相關訊息，並將此列為未來重要工作事項。"
-      ],
-      "excerpt_original": "行政院長卓榮泰今（5）日於行政院會聽取交通部「觀光雙輪驅動方案執行情形」報告後表示，觀光產業是展現國家軟實力及在地文化的關鍵基礎，交通部觀光署透過「觀光雙輪驅動方案」，推動「平日國旅優惠」及「強化國際觀光動能」，行政院更投入33.3億元經費，引導國人平日深度旅遊，並吸引高消費國際客重遊臺灣，預估可帶來440萬人次旅遊、創造374億元觀光產值。",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
     }
   ],
   "sources": {
     "nasa": {
       "status": "ok",
-      "accepted": 1,
-      "checked_at": "2026-11-20T10:56:15.486511+00:00"
+      "accepted": 2,
+      "checked_at": "2026-11-21T00:57:59.920039+00:00"
     },
     "who": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-20T10:56:15.486511+00:00"
+      "checked_at": "2026-11-21T00:57:59.920039+00:00"
     },
     "un": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-20T10:56:15.486511+00:00"
+      "checked_at": "2026-11-21T00:57:59.920039+00:00"
     },
     "數位發展部": {
       "status": "ok",
-      "accepted": 5,
-      "checked_at": "2026-11-20T10:56:15.486511+00:00"
+      "accepted": 4,
+      "checked_at": "2026-11-21T00:57:59.920039+00:00"
     },
     "數位產業署": {
       "status": "ok",
       "accepted": 6,
-      "checked_at": "2026-11-20T10:56:15.486511+00:00"
+      "checked_at": "2026-11-21T00:57:59.920039+00:00"
     },
     "行政院": {
       "status": "ok",
       "accepted": 6,
-      "checked_at": "2026-11-20T10:56:15.486511+00:00"
+      "checked_at": "2026-11-21T00:57:59.920039+00:00"
     }
   },
   "disclaimer": "Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed."

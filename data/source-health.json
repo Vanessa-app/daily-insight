@@ -1,38 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-20T10:56:49.013747+00:00",
+  "generated_at": "2026-11-21T00:58:39.764481+00:00",
   "method": "bounded_head_checks_no_article_download",
   "checked_this_run": 12,
   "links": {
-    "https://ec.ltn.com.tw/article/breakingnews/5642619": {
+    "https://ec.ltn.com.tw/article/breakingnews/5646284": {
       "status": "unknown",
       "http_status": 403,
-      "checked_at": "2026-11-20T00:05:25.353519+00:00"
+      "checked_at": "2026-11-21T00:58:34.101090+00:00"
     },
-    "https://ec.ltn.com.tw/article/breakingnews/5646914": {
+    "https://ec.ltn.com.tw/article/breakingnews/5646286": {
       "status": "unknown",
       "http_status": 403,
-      "checked_at": "2026-11-20T00:55:44.776007+00:00"
-    },
-    "https://ec.ltn.com.tw/article/breakingnews/5647048": {
-      "status": "unknown",
-      "http_status": 403,
-      "checked_at": "2026-11-20T00:55:44.776007+00:00"
-    },
-    "https://ec.ltn.com.tw/article/breakingnews/5647082": {
-      "status": "unknown",
-      "http_status": 403,
-      "checked_at": "2026-11-20T00:55:44.776007+00:00"
-    },
-    "https://ec.ltn.com.tw/article/breakingnews/5647086": {
-      "status": "unknown",
-      "http_status": 403,
-      "checked_at": "2026-11-20T00:55:44.776007+00:00"
-    },
-    "https://ec.ltn.com.tw/article/breakingnews/5647101": {
-      "status": "unknown",
-      "http_status": 403,
-      "checked_at": "2026-11-20T00:55:44.776007+00:00"
+      "checked_at": "2026-11-21T00:58:34.101090+00:00"
     },
     "https://ec.ltn.com.tw/article/breakingnews/5647117": {
       "status": "unknown",
@@ -68,6 +48,11 @@
       "status": "unknown",
       "http_status": 403,
       "checked_at": "2026-11-20T05:58:32.293989+00:00"
+    },
+    "https://ec.ltn.com.tw/article/breakingnews/5647429": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-21T00:58:34.101090+00:00"
     },
     "https://ec.ltn.com.tw/article/breakingnews/5647440": {
       "status": "unknown",
@@ -134,30 +119,45 @@
       "http_status": 403,
       "checked_at": "2026-11-20T10:56:44.072851+00:00"
     },
-    "https://ec.ltn.com.tw/article/paper/1779122": {
+    "https://ec.ltn.com.tw/article/breakingnews/5647922": {
       "status": "unknown",
       "http_status": 403,
-      "checked_at": "2026-11-20T00:55:44.776007+00:00"
+      "checked_at": "2026-11-21T00:58:34.101090+00:00"
     },
-    "https://ec.ltn.com.tw/article/paper/1779138": {
+    "https://ec.ltn.com.tw/article/breakingnews/5648177": {
       "status": "unknown",
       "http_status": 403,
-      "checked_at": "2026-11-20T00:55:44.776007+00:00"
+      "checked_at": "2026-11-21T00:58:34.101090+00:00"
     },
-    "https://ec.ltn.com.tw/article/paper/1779140": {
+    "https://ec.ltn.com.tw/article/breakingnews/5648248": {
       "status": "unknown",
       "http_status": 403,
-      "checked_at": "2026-11-20T05:58:32.293989+00:00"
+      "checked_at": "2026-11-21T00:58:34.101090+00:00"
     },
-    "https://ec.ltn.com.tw/article/paper/1779219": {
+    "https://ec.ltn.com.tw/article/breakingnews/5648268": {
       "status": "unknown",
       "http_status": 403,
-      "checked_at": "2026-11-20T05:58:32.293989+00:00"
+      "checked_at": "2026-11-21T00:58:34.101090+00:00"
     },
-    "https://ec.ltn.com.tw/article/paper/1779220": {
+    "https://ec.ltn.com.tw/article/paper/1779305": {
       "status": "unknown",
       "http_status": 403,
-      "checked_at": "2026-11-20T05:58:32.293989+00:00"
+      "checked_at": "2026-11-21T00:58:34.101090+00:00"
+    },
+    "https://ec.ltn.com.tw/article/paper/1779306": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-21T00:58:34.101090+00:00"
+    },
+    "https://ec.ltn.com.tw/article/paper/1779346": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-21T00:58:34.101090+00:00"
+    },
+    "https://ec.ltn.com.tw/article/paper/1779348": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-21T00:58:34.101090+00:00"
     },
     "https://enews.moenv.gov.tw/moenv-news/zh-tw/News/14435": {
       "status": "available",
@@ -198,6 +198,11 @@
       "status": "available",
       "http_status": 200,
       "checked_at": "2026-11-20T06:03:15.970015+00:00"
+    },
+    "https://moda.gov.tw/ADI/news/latest-news/21492": {
+      "status": "available",
+      "http_status": 200,
+      "checked_at": "2026-11-21T00:58:34.101090+00:00"
     },
     "https://moda.gov.tw/press/press-releases/21450": {
       "status": "available",
