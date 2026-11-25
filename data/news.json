@@ -1,7 +1,115 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-24T10:53:03.504968+00:00",
+  "updated_at": "2026-11-25T01:01:32.837511+00:00",
   "items": [
+    {
+      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/nasa-promo-image-horizontal-1.jpg",
+      "image_rights": "unverified",
+      "image_credit": "NASA",
+      "quiz_reviewed": false,
+      "quiz": [],
+      "excerpt_original": "NASA announced Monday that NASA+ content has found its first theatrical home at The Greenbelt Cinema in Greenbelt, Maryland, expanding the agency’s reach across major viewing platforms and bringing space even closer to home. “The National Aeronautics and Space Act of 1958 calls us to share our story of space exploration with the broadest possible […]",
+      "translation_zh_hant": null,
+      "evidence_original": [
+        "NASA announced Monday that NASA+ content has found its first theatrical home at The Greenbelt Cinema in Greenbelt, Maryland, expanding the agency’s reach across major viewing platforms and bringing space even closer to home. “The National Aeronautics and Space Act of 1958 calls us to share our story of space exploration with the broadest possible […]"
+      ],
+      "evidence_zh_hant": [],
+      "translation_status": "translation_not_requested",
+      "content_scope": "publisher_feed_excerpt",
+      "extraction_status": "not_attempted",
+      "content_complete": false,
+      "reuse_license": "not_confirmed",
+      "id": "nasa:2182233225",
+      "source_id": "nasa",
+      "source": "NASA",
+      "category": "AI與科技",
+      "title": "NASA+ Content Coming to Big Screen at Greenbelt, Maryland Cinema",
+      "url": "https://www.nasa.gov/nasa/nasa-content-coming-to-big-screen-at-greenbelt-maryland-cinema/",
+      "published_at": "2026-11-24T21:14:36+00:00",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
+    {
+      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/06/sr-1-freedom-11-6-2026.png",
+      "image_rights": "unverified",
+      "image_credit": "NASA",
+      "quiz_reviewed": false,
+      "quiz": [],
+      "excerpt_original": "NASA completed a major review for Space Reactor-1 (SR-1) Freedom and locked in key elements of the spacecraft, which is targeted to launch in 2028 and demonstrate nuclear electric propulsion in deep space for the first time. Experts from across the agency, the U.S. Department of Energy (DOE), and industry met at NASA’s Glenn Research […]",
+      "translation_zh_hant": null,
+      "evidence_original": [
+        "NASA completed a major review for Space Reactor-1 (SR-1) Freedom and locked in key elements of the spacecraft, which is targeted to launch in 2028 and demonstrate nuclear electric propulsion in deep space for the first time. Experts from across the agency, the U.S. Department of Energy (DOE), and industry met at NASA’s Glenn Research […]"
+      ],
+      "evidence_zh_hant": [],
+      "translation_status": "translation_not_requested",
+      "content_scope": "publisher_feed_excerpt",
+      "extraction_status": "not_attempted",
+      "content_complete": false,
+      "reuse_license": "not_confirmed",
+      "id": "nasa:2702410023",
+      "source_id": "nasa",
+      "source": "NASA",
+      "category": "AI與科技",
+      "title": "Teams Lock in Mission Architecture for NASA’s SR-1 Freedom",
+      "url": "https://www.nasa.gov/general/nasa-locks-in-sr1-freedom-mission-architecture/",
+      "published_at": "2026-11-24T21:04:32+00:00",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
+    {
+      "id": "moda:21524",
+      "source_id": "moda",
+      "source": "數位發展部",
+      "kind": "news",
+      "category": "AI與科技",
+      "title": "2026總統盃黑客松國際松卓越團隊出爐 全球跨域實踐數位共好",
+      "url": "https://moda.gov.tw/press/press-releases/21524",
+      "published_at": "2026-11-24T02:10:14+08:00",
+      "content_complete": true,
+      "reuse_license": "approved",
+      "license_name": "CC0 1.0",
+      "license_url": "https://moda.gov.tw/announcement/publicdeclare/951",
+      "content_scope": "official_full_text",
+      "translation_status": "original_zh_hant",
+      "evidence_original": [
+        "由總統府指導，行政院主辦，數位發展部承辦的總統盃黑客松國際松邁入第8屆，2026年得獎名單正式揭曉。數發部表示，經過嚴謹初選，共遴選8組團隊脫穎而出晉級複賽。入選團隊歷經一個月的專家與AI技術顧問一對一輔導，全面優化提案架構、技術應用成熟度、落地可行性及成果呈現。最終由聚焦以AI輔助高齡者生活風險與公共服務需求的跨國團隊「Team Yadokari」與以AI技術解決構音障礙者的中文語音辨識需求的美國團隊「OwnVoice」獲得本屆賽事最高榮譽「卓越團隊獎」。",
+        "本屆賽事以「Digital Inclusion in the AI Era（數位共好：打造AI新未來）」為題，吸引來自全球六大洲、41個國家及地區共226組團隊踴躍報名，經資格審查後共125組進入初選，報名規模與國際參與度皆創下歷屆新高，展現臺灣以黑客松鏈結國際公民科技社群的強大號召力。",
+        "本屆獲獎方案緊扣社會弱勢需求，以科技創新落實包容精神。來自日本、加拿大及印度跨國組成的Team Yadokari團隊聚焦高齡者生活風險與公共服務需求，運用AI協助長者辨識詐騙、醫療及獨居等風險，並串聯政府補助與服務資源，將複雜資訊轉化為長者易懂、清晰的行動建議。OwnVoice則針對構音障礙者的中文語音辨識需求，開發可辨識口腔癌病理性語音及中文聲調錯誤的系統；該技術未來可延伸應用於語音輔具與個人化聲音重建，提升口腔病理患者的溝通便利，提升生活品質。",
+        "數發部表示，總統盃黑客松國際松不僅是展現創意的舞臺，更是串聯全球頂尖數位人才、公共資源與實踐場域的關鍵樞紐。政府未來將持續導入資源，協助兼具公共價值與市場潛力的數位解方轉化為實際應用，讓AI與科技成為推動數位共好、回應社會需求的重要力量。",
+        "2026總統盃黑客松頒獎典禮預計於12月13日舉行，兩組卓越團隊將獲邀來臺受獎，並實地走訪我國產、官、學、研單位，深化技術交流與促成國際合作。更多賽事成果與最新動態，歡迎關注總統盃黑客松國際松官方網站（https://gov.tw/cYQ）或追蹤社群平台。"
+      ],
+      "excerpt_original": "由總統府指導，行政院主辦，數位發展部承辦的總統盃黑客松國際松邁入第8屆，2026年得獎名單正式揭曉。數發部表示，經過嚴謹初選，共遴選8組團隊脫穎而出晉級複賽。入選團隊歷經一個月的專家與AI技術顧問一對一輔導，全面優化提案架構、技術應用成熟度、落地可行性及成果呈現。最終由聚焦以AI輔助高齡者生活風險與公共服務需求的跨國團隊「Team Yadokari」與以AI技術解決構音障礙者的中文語音辨識需求的美國團隊「OwnVoice」獲得本屆賽事最高榮譽「卓越團隊獎」。",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
+    {
+      "id": "ey:44bb27e2-b925-4707-ae9a-8a4ef83f270b",
+      "source_id": "ey",
+      "source": "行政院",
+      "kind": "news",
+      "category": "社會與公共政策",
+      "title": "參拜新北市八里開台天后宮 卓揆：積極推動新北交通路網建設與產業發展 全力帶動地方繁榮發展",
+      "url": "https://www.ey.gov.tw/Page/9277F759E41CCD91/44bb27e2-b925-4707-ae9a-8a4ef83f270b",
+      "published_at": "2026-11-24T00:00:00+08:00",
+      "content_complete": true,
+      "reuse_license": "approved",
+      "license_name": "政府資料開放授權條款－第1版",
+      "license_url": "https://www.ey.gov.tw/Page/2EADDBFEDDB6357E",
+      "content_scope": "official_full_text",
+      "translation_status": "original_zh_hant",
+      "evidence_original": [
+        "行政院長卓榮泰今（24）日前往新北市八里開台天后宮參拜祈福時表示，中央高度重視新北市交通路網建設與產業發展，不論從淡江大橋工程、臺北港物流倉儲區開發，到「首都圈黃金廊帶」及「AI新基地・淡海智慧科技城」計畫等，各項建設正逐步開花結果，也感謝在地立法委員及民意代表為民喉舌，積極爭取各項建設，帶動地方繁榮發展。",
+        "談及新北地方建設－淡江大橋工程，卓院長表示，淡江大橋設計非常獨特，但也面臨工程難度提高、建設經費持續攀升等問題，以致連續數次流標。2018年他擔任行政院秘書長，當時不論是蘇巧慧立委或呂孫綾前立委都曾前來行政院反映淡江大橋是淡水、八里交通的重心，早一日完工，便能增進民眾交通往來便利性與產業發展，符合地方需要。",
+        "卓院長提到，淡江大橋工程在經歷行政院公共工程委員會多次審慎研議後，最後他與時任行政院長賴清德總統在院長室內反覆檢討與評估整體工程效益。為了不辜負鄉親們的期待與需求，同時也回應立法委員的高度關注，最終由賴前院長拍板核定該工程修正計畫，並於蘇貞昌前院長任內順利開工。",
+        "卓院長強調，如今看到淡江大橋落成後，相當壯觀亮麗，且成功通過颱風的嚴峻考驗，具備高度安全性。同時，淡江大橋串聯台61線、台64線及市道105線的交通網絡，縮短淡水與八里之間的通行距離，大幅提升地方居民的交通便利性，相信八里將可望重現早期重要交通與產業樞紐的榮景，再創地方繁榮高峰。他也代表行政院再次感謝蘇巧慧立委與呂孫綾前立委當年極力爭取淡江大橋建設，如今印證這個堅持是對的。",
+        "至於臺北港物流倉儲區填海造地開發計畫，卓院長指出，該計畫不僅有助於提升貨物吞吐量，更能藉由填海造陸一併解決國內營建土石方去化問題。而土石方載運車輛進出，難免造成周邊交通與揚塵困擾，在接獲蘇巧慧立委及新北市鄭宇恩議員反映後，行政院立即邀集內政部國土管理署、警政署、交通部及臺灣港務公司研商改善方案，並在短時間內改善問題，讓載運土石方車輛進出臺北港的秩序更為順暢，有效解決居民困擾。",
+        "卓院長表示，行政院已將北北基宜四縣市納入「首都圈黃金廊帶」區域發展，預估將投入9,007億元預算，完善整體規劃與建設，全力推動觀光、科技、產業與傳統農業發展，包括交通部觀光署將在北海岸持續推動「皇冠海岸觀光圈」計畫，將北部皇冠擦得更亮，成為吸引民眾前來的重要觀光景點。同時，為因應AI產業需求，行政院將「淡海科學城」重新檢討定名為「AI新基地・淡海智慧科技城」，採分階段加速開發，預計118年便能讓智慧製造、智慧物流、健康產業及海洋經濟等相關供應鏈廠商與公共工程同步進場施工設廠。",
+        "致詞結束後，卓院長與行政院李慧芝發言人、蘇巧慧立委、新北市鄭宇恩議員、八里開台天后宮汪金傳副主委等人合影，並參訪老街，購買地方特產，與店家合影留念。"
+      ],
+      "excerpt_original": "行政院長卓榮泰今（24）日前往新北市八里開台天后宮參拜祈福時表示，中央高度重視新北市交通路網建設與產業發展，不論從淡江大橋工程、臺北港物流倉儲區開發，到「首都圈黃金廊帶」及「AI新基地・淡海智慧科技城」計畫等，各項建設正逐步開花結果，也感謝在地立法委員及民意代表為民喉舌，積極爭取各項建設，帶動地方繁榮發展。",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
     {
       "image_url": "https://www.nasa.gov/wp-content/uploads/2022/02/nasa_meatball_large.jpg",
       "image_rights": "unverified",
@@ -1566,153 +1674,38 @@
       "excerpt_original": "行政院長卓榮泰今（9）日接見「第80屆金商獎」中外得獎企業一行時表示，本屆榮獲金商獎的「優良商人」展現追求創新與永續的精神；「優良外國駐臺商務單位」及「優良外商」呈現對未來雙邊信賴合作與共同發展的契機；「優良老店」及「菁英老店」則展現臺灣傳承與轉型的價值，其中許多獲獎店家的產品，他都親自購買或品嘗過，政府也從得獎者的成功經驗中檢視政策方向是否正確，並持續與企業並肩同行，共同推動國家的進步與發展。",
       "verification": "publisher_domain_checked",
       "claim_verification": "not_independently_verified"
-    },
-    {
-      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/stmd-exteriorlunarbase-hdlandscapeversion-2026-0521.png",
-      "image_rights": "unverified",
-      "image_credit": "NASA",
-      "quiz_reviewed": false,
-      "quiz": [],
-      "excerpt_original": "On Sunday, NASA announced the opening of its $1 million Moon Base Student Challenge during a MAX POWER event at Kennedy Space Center Visitor Complex in Florida. As part of a Golden Age of Science, the competition invites student teams at U.S. high schools and post-secondary schools to contribute designs for the Moon Base. “We’re […]",
-      "translation_zh_hant": "週日,美國航天局宣佈在佛羅里達肯尼迪空間中心訪客綜合體的MAX POWER活動期間,開啓其100萬美元月球基地學生挑戰。 作爲金色科學時代的一部分,比賽邀請美國學生團隊參加。 高中和中學後學校爲月球基地的設計作出貢獻。 \" 我們是... \"",
-      "evidence_original": [
-        "On Sunday, NASA announced the opening of its $1 million Moon Base Student Challenge during a MAX POWER event at Kennedy Space Center Visitor Complex in Florida. As part of a Golden Age of Science, the competition invites student teams at U.S. high schools and post-secondary schools to contribute designs for the Moon Base. “We’re […]"
-      ],
-      "evidence_zh_hant": [
-        "週日,美國航天局宣佈在佛羅里達肯尼迪空間中心訪客綜合體的MAX POWER活動期間,開啓其100萬美元月球基地學生挑戰。 作爲金色科學時代的一部分,比賽邀請美國學生團隊參加。 高中和中學後學校爲月球基地的設計作出貢獻。 \" 我們是... \""
-      ],
-      "translation_status": "translated_unreviewed",
-      "content_scope": "publisher_feed_excerpt",
-      "extraction_status": "not_attempted",
-      "content_complete": false,
-      "reuse_license": "not_confirmed",
-      "id": "nasa:629074875",
-      "source_id": "nasa",
-      "source": "NASA",
-      "category": "AI與科技",
-      "title": "NASA Announces $1 Million to Students for Moon Base Challenge",
-      "url": "https://www.nasa.gov/news-release/nasa-announces-1-million-to-students-for-moon-base-challenge/",
-      "published_at": "2026-11-08T15:26:38+00:00",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
-    },
-    {
-      "id": "adi:21270",
-      "source_id": "adi",
-      "source": "數位產業署",
-      "kind": "news",
-      "category": "AI與科技",
-      "title": "【數位逗鎮趣】再度攜手彰化田中馬拉松  結合賽事服務與數位體驗跑出安全數位力",
-      "url": "https://moda.gov.tw/ADI/news/latest-news/21270",
-      "published_at": "2026-11-08T00:00:00+08:00",
-      "content_complete": true,
-      "reuse_license": "approved",
-      "license_name": "CC0 1.0",
-      "license_url": "https://moda.gov.tw/announcement/publicdeclare/951",
-      "content_scope": "official_full_text",
-      "translation_status": "original_zh_hant",
-      "evidence_original": [
-        "由數位發展部數位產業署主辦的「數位逗鎮趣」，今年再度攜手彰化田中馬拉松，延續去年的合作成果，從熱鬧的選手之夜一路延伸至馬拉松賽事現場，結合防詐、資安、AI應用、數位學習及數位消費等多元主題，透過互動闖關與生活化體驗，邀請跑者及民眾在參與賽事之餘，一同探索數位科技的便利與安全，讓數位素養教育融入全民運動盛事。",
-        "情境闖關破解詐騙　AI資安防護一起學\n防詐與資安體驗結合假客服、釣魚連結等生活情境，讓民眾透過互動挑戰破解詐騙話術，並實際操作「網路詐騙通報查詢網」，學習查詢與通報可疑訊息。同時融入AI資安及個資保護觀念，讓民眾發現：「原來有些訊息看起來很真實，連使用AI也要注意個資安全！」也更加了解遇到可疑資訊時，先查證的重要性。",
-        "AI神隊友帶路　數位學習與消費權益一次懂\nAI互動導覽、遊戲分級及數位學習等體驗，吸引大小朋友一起探索科技應用，也透過集資平臺案例認識數位消費權益。不少民眾對AI導覽的便利應用感到新奇，家長則分享：「原來集資和一般網購不一樣，孩子買遊戲點數也有這麼多要注意的地方！」讓數位知識更貼近日常生活。",
-        "選手之夜防詐有獎徵答　熱鬧互動守護荷包\n選手之夜結合digi@防詐有獎徵答，因應時事宣導選舉小物詐騙、LINE投票詐騙及實用防詐工具等生活化題目，吸引民眾熱情搶答。現場也提醒大家，不隨意點擊陌生連結、不依指示操作網銀，並善用防詐工具查證可疑資訊，讓民眾在歡笑與搶答中學習實用的防詐知識。",
-        "賽事服務結合防詐宣導　田中馬資訊站再升級\n今年也持續打造「田中馬×數位逗鎮趣-服務資訊站」，提供賽事資訊查詢、即時成績查詢及digi@防詐宣導。讓跑者及民眾透過現場展示及宣導資訊，認識近期常見的詐騙手法與實用防詐工具。",
-        "數位知識走入生活　打造更安心的數位環境\n數位產業署表示，「數位逗鎮趣」透過展覽、市集及在地活動，將數位知識帶入民眾生活。期盼民眾在趣味體驗中學習防詐、資安及數位應用知識，並將所學分享給親友，共同打造更安全、便利的數位生活。",
-        "【數位逗鎮趣-辦理場次預告】\n12/16(三)13:30-16:00-臺東-國立臺東大學"
-      ],
-      "excerpt_original": "由數位發展部數位產業署主辦的「數位逗鎮趣」，今年再度攜手彰化田中馬拉松，延續去年的合作成果，從熱鬧的選手之夜一路延伸至馬拉松賽事現場，結合防詐、資安、AI應用、數位學習及數位消費等多元主題，透過互動闖關與生活化體驗，邀請跑者及民眾在參與賽事之餘，一同探索數位科技的便利與安全，讓數位素養教育融入全民運動盛事。",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
-    },
-    {
-      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/moon-base-artists-concept.jpg",
-      "image_rights": "unverified",
-      "image_credit": "NASA",
-      "quiz_reviewed": false,
-      "quiz": [],
-      "excerpt_original": "NASA announced a suite of awards and mission updates on Saturday to expand the agency’s Moon Base exploration, science, and infrastructure capabilities. The investments will advance commercial robotic deliveries, a nuclear-powered rover named PROMISE, launch and orbital transfer services, and surface infrastructure as the agency works with American industry to establish a sustained presence on […]",
-      "translation_zh_hant": "美國航天局在星期六宣佈了一系列獎項和任務更新,以擴大該機構的月球探索、科學和基礎設施能力。 投資將推動商業機器人送貨、名爲PROMISSE的核動力運輸工具、發射和軌道轉移服務以及地面基礎設施,因爲該機構與美國工業合作,在[.]建立持續存在。",
-      "evidence_original": [
-        "NASA announced a suite of awards and mission updates on Saturday to expand the agency’s Moon Base exploration, science, and infrastructure capabilities. The investments will advance commercial robotic deliveries, a nuclear-powered rover named PROMISE, launch and orbital transfer services, and surface infrastructure as the agency works with American industry to establish a sustained presence on […]"
-      ],
-      "evidence_zh_hant": [
-        "美國航天局在星期六宣佈了一系列獎項和任務更新,以擴大該機構的月球探索、科學和基礎設施能力。 投資將推動商業機器人送貨、名爲PROMISSE的核動力運輸工具、發射和軌道轉移服務以及地面基礎設施,因爲該機構與美國工業合作,在[.]建立持續存在。"
-      ],
-      "translation_status": "translated_unreviewed",
-      "content_scope": "publisher_feed_excerpt",
-      "extraction_status": "not_attempted",
-      "content_complete": false,
-      "reuse_license": "not_confirmed",
-      "id": "nasa:279341519",
-      "source_id": "nasa",
-      "source": "NASA",
-      "category": "AI與科技",
-      "title": "NASA Awards Moon Base Transportation, Technology, Science Projects",
-      "url": "https://www.nasa.gov/news-release/nasa-awards-moon-base-transportation-technology-science-projects/",
-      "published_at": "2026-11-07T22:47:03+00:00",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
-    },
-    {
-      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/jsc2025e076292large.jpg",
-      "image_rights": "unverified",
-      "image_credit": "NASA",
-      "quiz_reviewed": false,
-      "quiz": [],
-      "excerpt_original": "NASA is looking for the explorers who will help write the next chapter of human spaceflight. Applications are now open for the agency’s next class of astronauts, who will join NASA as America returns to the Moon, builds the Moon Base, and lays the groundwork for the first crewed missions to Mars. The next generation […]",
-      "translation_zh_hant": "美國航天局正在尋找探險家 來幫助撰寫人類太空飛行的下一章 現在向該機構的下一班宇航員開放申請,這些宇航員將隨着美國返回月球而加入美國航天局,建造月球基地,併爲首次乘員前往火星的任務奠定基礎。 下一代[.]",
-      "evidence_original": [
-        "NASA is looking for the explorers who will help write the next chapter of human spaceflight. Applications are now open for the agency’s next class of astronauts, who will join NASA as America returns to the Moon, builds the Moon Base, and lays the groundwork for the first crewed missions to Mars. The next generation […]"
-      ],
-      "evidence_zh_hant": [
-        "美國航天局正在尋找探險家 來幫助撰寫人類太空飛行的下一章 現在向該機構的下一班宇航員開放申請,這些宇航員將隨着美國返回月球而加入美國航天局,建造月球基地,併爲首次乘員前往火星的任務奠定基礎。 下一代[.]"
-      ],
-      "translation_status": "translated_unreviewed",
-      "content_scope": "publisher_feed_excerpt",
-      "extraction_status": "not_attempted",
-      "content_complete": false,
-      "reuse_license": "not_confirmed",
-      "id": "nasa:3291777430",
-      "source_id": "nasa",
-      "source": "NASA",
-      "category": "AI與科技",
-      "title": "NASA Seeks Next Generation of Explorers to Join Astronaut Corps",
-      "url": "https://www.nasa.gov/news-release/nasa-seeks-next-generation-of-explorers-to-join-astronaut-corps/",
-      "published_at": "2026-11-07T18:11:57+00:00",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
     }
   ],
   "sources": {
     "nasa": {
       "status": "ok",
-      "accepted": 1,
-      "checked_at": "2026-11-24T10:53:03.504968+00:00"
+      "accepted": 2,
+      "checked_at": "2026-11-25T01:01:32.837511+00:00"
     },
     "who": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-24T10:53:03.504968+00:00"
+      "checked_at": "2026-11-25T01:01:32.837511+00:00"
     },
     "un": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-24T10:53:03.504968+00:00"
+      "checked_at": "2026-11-25T01:01:32.837511+00:00"
     },
     "數位發展部": {
       "status": "ok",
-      "accepted": 5,
-      "checked_at": "2026-11-24T10:53:03.504968+00:00"
+      "accepted": 6,
+      "checked_at": "2026-11-25T01:01:32.837511+00:00"
     },
     "數位產業署": {
       "status": "ok",
       "accepted": 7,
-      "checked_at": "2026-11-24T10:53:03.504968+00:00"
+      "checked_at": "2026-11-25T01:01:32.837511+00:00"
     },
     "行政院": {
       "status": "ok",
       "accepted": 7,
-      "checked_at": "2026-11-24T10:53:03.504968+00:00"
+      "checked_at": "2026-11-25T01:01:32.837511+00:00"
     }
   },
   "disclaimer": "Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed."
