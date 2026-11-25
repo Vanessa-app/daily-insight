@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-25T05:57:34.425998+00:00",
+  "generated_at": "2026-11-25T10:55:03.664883+00:00",
   "method": "explainable_source_comparison_no_ai",
   "disclaimer": "事件合併及標題相似度是規則式推論；有官方來源也不等於已獨立查核，請參考原始連結。",
   "topics": [
@@ -133,60 +133,6 @@
       "independently_verified": false,
       "facts": [],
       "watchpoint": "正式政策文本、施行日期及後續配套",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-704a4b3b8f56d6",
-      "aliases": [],
-      "title": "黃仁勳回鍋輝達 中國憂美國管制再升級 料加速晶片國產",
-      "primary_topic": "semiconductors",
-      "related_topics": [
-        "politics_policy"
-      ],
-      "importance_score": 6,
-      "importance_factors": {
-        "topical": 2,
-        "impact": 1,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T18:56:07+00:00",
-      "updated_at": "2026-11-24T18:56:07+00:00",
-      "article_urls": [
-        "https://news.ltn.com.tw/news/world/breakingnews/5652300"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "黃仁勳回鍋輝達 中國憂美國管制再升級 料加速晶片國產",
-          "url": "https://news.ltn.com.tw/news/world/breakingnews/5652300",
-          "source": "自由時報",
-          "published_at": "2026-11-24T18:56:07+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-world",
-          "source_domain": "news.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "黃仁勳回鍋輝達 中國憂美國管制再升級 料加速晶片國產",
-          "article_urls": [
-            "https://news.ltn.com.tw/news/world/breakingnews/5652300"
-          ],
-          "source_groups": [
-            "ltn-world"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "供應鏈合作、製程與產能進度及需求變化",
       "interpretation_label": "觀察方向，非已證實結論或投資建議",
       "origin_priority": "media_index"
     },
@@ -399,56 +345,108 @@
       "origin_priority": "primary_source"
     },
     {
-      "id": "trend-e542838699ff4b",
+      "id": "trend-dbfcaca78feac8",
       "aliases": [],
-      "title": "接見第80屆金商獎中外得獎企業 卓揆：全力推動「AI新十大建設」與中小微轉型升級 攜手企業布局全球",
-      "primary_topic": "business_management",
+      "title": "中國發射神舟24號  首次搭載外籍太空人一同出任務",
+      "primary_topic": "politics_policy",
       "related_topics": [],
       "importance_score": 5,
       "importance_factors": {
         "topical": 1,
-        "impact": 3,
-        "recency": 0,
+        "impact": 1,
+        "recency": 2,
         "sources": 1
       },
       "status": "new",
-      "first_seen_at": "2026-11-08T16:00:00+00:00",
-      "updated_at": "2026-11-08T16:00:00+00:00",
+      "first_seen_at": "2026-11-25T06:18:46+00:00",
+      "updated_at": "2026-11-25T06:18:46+00:00",
       "article_urls": [
-        "https://www.ey.gov.tw/Page/9277F759E41CCD91/2e50c1f3-7a72-49d1-8795-0868b814a667"
+        "https://news.ltn.com.tw/news/world/breakingnews/5652825"
       ],
       "source_count": 1,
       "articles": [
         {
-          "title": "接見第80屆金商獎中外得獎企業 卓揆：全力推動「AI新十大建設」與中小微轉型升級 攜手企業布局全球",
-          "url": "https://www.ey.gov.tw/Page/9277F759E41CCD91/2e50c1f3-7a72-49d1-8795-0868b814a667",
-          "source": "行政院",
-          "published_at": "2026-11-08T16:00:00+00:00",
-          "source_type": "official",
-          "content_access": "licensed_full_text",
-          "source_group": "ey",
-          "source_domain": "www.ey.gov.tw"
+          "title": "中國發射神舟24號  首次搭載外籍太空人一同出任務",
+          "url": "https://news.ltn.com.tw/news/world/breakingnews/5652825",
+          "source": "自由時報",
+          "published_at": "2026-11-25T06:18:46+00:00",
+          "source_type": "media",
+          "content_access": "excerpt",
+          "source_group": "ltn-world",
+          "source_domain": "news.ltn.com.tw"
         }
       ],
       "headline_groups": [
         {
-          "headline": "接見第80屆金商獎中外得獎企業 卓揆：全力推動「AI新十大建設」與中小微轉型升級 攜手企業布局全球",
+          "headline": "中國發射神舟24號  首次搭載外籍太空人一同出任務",
           "article_urls": [
-            "https://www.ey.gov.tw/Page/9277F759E41CCD91/2e50c1f3-7a72-49d1-8795-0868b814a667"
+            "https://news.ltn.com.tw/news/world/breakingnews/5652825"
           ],
           "source_groups": [
-            "ey"
+            "ltn-world"
           ],
           "status": "similar_headline_only",
           "independently_verified": false
         }
       ],
-      "evidence_status": "primary_source_available",
+      "evidence_status": "media_reports_only",
       "independently_verified": false,
       "facts": [],
-      "watchpoint": "企業後續公告、執行進度與可衡量成果",
+      "watchpoint": "正式政策文本、施行日期及後續配套",
       "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "primary_source"
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-c1e55ffe31c01f",
+      "aliases": [],
+      "title": "北韓報復瑞士制裁 限瑞士外交官48小時內離境",
+      "primary_topic": "politics_policy",
+      "related_topics": [],
+      "importance_score": 5,
+      "importance_factors": {
+        "topical": 2,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T06:04:21+00:00",
+      "updated_at": "2026-11-25T06:04:21+00:00",
+      "article_urls": [
+        "https://news.ltn.com.tw/news/world/breakingnews/5652814"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "北韓報復瑞士制裁 限瑞士外交官48小時內離境",
+          "url": "https://news.ltn.com.tw/news/world/breakingnews/5652814",
+          "source": "自由時報",
+          "published_at": "2026-11-25T06:04:21+00:00",
+          "source_type": "media",
+          "content_access": "excerpt",
+          "source_group": "ltn-world",
+          "source_domain": "news.ltn.com.tw"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "北韓報復瑞士制裁 限瑞士外交官48小時內離境",
+          "article_urls": [
+            "https://news.ltn.com.tw/news/world/breakingnews/5652814"
+          ],
+          "source_groups": [
+            "ltn-world"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "正式政策文本、施行日期及後續配套",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
     },
     {
       "id": "trend-71c4dd692500fc",
@@ -555,6 +553,58 @@
       "origin_priority": "media_index"
     },
     {
+      "id": "trend-aa8dc332576923",
+      "aliases": [],
+      "title": "股市急漲急跌　法人籲３方向檢梘投資部位",
+      "primary_topic": "global_finance",
+      "related_topics": [],
+      "importance_score": 5,
+      "importance_factors": {
+        "topical": 1,
+        "impact": 1,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T02:28:23+00:00",
+      "updated_at": "2026-11-25T02:28:23+00:00",
+      "article_urls": [
+        "https://tw.news.yahoo.com/%E8%82%A1%E5%B8%82%E6%80%A5%E6%BC%B2%E6%80%A5%E8%B7%8C-%E6%B3%95%E4%BA%BA%E7%B1%B2-%E6%96%B9%E5%90%91%E6%AA%A2%E6%A2%98%E6%8A%95%E8%B3%87%E9%83%A8%E4%BD%8D-102823603.html"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "股市急漲急跌　法人籲３方向檢梘投資部位",
+          "url": "https://tw.news.yahoo.com/%E8%82%A1%E5%B8%82%E6%80%A5%E6%BC%B2%E6%80%A5%E8%B7%8C-%E6%B3%95%E4%BA%BA%E7%B1%B2-%E6%96%B9%E5%90%91%E6%AA%A2%E6%A2%98%E6%8A%95%E8%B3%87%E9%83%A8%E4%BD%8D-102823603.html",
+          "source": "Yahoo奇摩新聞",
+          "published_at": "2026-11-25T02:28:23+00:00",
+          "source_type": "media",
+          "content_access": "headline_only",
+          "source_group": "yahoo-finance",
+          "source_domain": "tw.news.yahoo.com"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "股市急漲急跌　法人籲３方向檢梘投資部位",
+          "article_urls": [
+            "https://tw.news.yahoo.com/%E8%82%A1%E5%B8%82%E6%80%A5%E6%BC%B2%E6%80%A5%E8%B7%8C-%E6%B3%95%E4%BA%BA%E7%B1%B2-%E6%96%B9%E5%90%91%E6%AA%A2%E6%A2%98%E6%8A%95%E8%B3%87%E9%83%A8%E4%BD%8D-102823603.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "後續公布的官方指標與政策決議",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
       "id": "trend-4b6c48b32d98d9",
       "aliases": [],
       "title": "黃仁勳復職中國官媒叫好！《環時》警告美國別再做這件事",
@@ -603,6 +653,58 @@
       "independently_verified": false,
       "facts": [],
       "watchpoint": "正式政策文本、施行日期及後續配套",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-50dc680ad9f5a9",
+      "aliases": [],
+      "title": "川習三會後　中美貿易委員會農業工作組首次開會",
+      "primary_topic": "global_finance",
+      "related_topics": [],
+      "importance_score": 5,
+      "importance_factors": {
+        "topical": 1,
+        "impact": 1,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T02:15:54+00:00",
+      "updated_at": "2026-11-25T02:15:54+00:00",
+      "article_urls": [
+        "https://tw.news.yahoo.com/%E5%B7%9D%E7%BF%92%E4%B8%89%E6%9C%83%E5%BE%8C-%E4%B8%AD%E7%BE%8E%E8%B2%BF%E6%98%93%E5%A7%94%E5%93%A1%E6%9C%83%E8%BE%B2%E6%A5%AD%E5%B7%A5%E4%BD%9C%E7%B5%84%E9%A6%96%E6%AC%A1%E9%96%8B%E6%9C%83-101554319.html"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "川習三會後　中美貿易委員會農業工作組首次開會",
+          "url": "https://tw.news.yahoo.com/%E5%B7%9D%E7%BF%92%E4%B8%89%E6%9C%83%E5%BE%8C-%E4%B8%AD%E7%BE%8E%E8%B2%BF%E6%98%93%E5%A7%94%E5%93%A1%E6%9C%83%E8%BE%B2%E6%A5%AD%E5%B7%A5%E4%BD%9C%E7%B5%84%E9%A6%96%E6%AC%A1%E9%96%8B%E6%9C%83-101554319.html",
+          "source": "Yahoo奇摩新聞",
+          "published_at": "2026-11-25T02:15:54+00:00",
+          "source_type": "media",
+          "content_access": "headline_only",
+          "source_group": "yahoo-finance",
+          "source_domain": "tw.news.yahoo.com"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "川習三會後　中美貿易委員會農業工作組首次開會",
+          "article_urls": [
+            "https://tw.news.yahoo.com/%E5%B7%9D%E7%BF%92%E4%B8%89%E6%9C%83%E5%BE%8C-%E4%B8%AD%E7%BE%8E%E8%B2%BF%E6%98%93%E5%A7%94%E5%93%A1%E6%9C%83%E8%BE%B2%E6%A5%AD%E5%B7%A5%E4%BD%9C%E7%B5%84%E9%A6%96%E6%AC%A1%E9%96%8B%E6%9C%83-101554319.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "後續公布的官方指標與政策決議",
       "interpretation_label": "觀察方向，非已證實結論或投資建議",
       "origin_priority": "media_index"
     },
@@ -973,424 +1075,6 @@
       "origin_priority": "media_index"
     },
     {
-      "id": "trend-37be887bf2e98e",
-      "aliases": [],
-      "title": "彭博：川普擬援引301條款加徵製造業關稅  中國商品恐成主要目標",
-      "primary_topic": "politics_policy",
-      "related_topics": [],
-      "importance_score": 5,
-      "importance_factors": {
-        "topical": 2,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T18:51:27+00:00",
-      "updated_at": "2026-11-24T18:51:27+00:00",
-      "article_urls": [
-        "https://news.ltn.com.tw/news/world/breakingnews/5652298"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "彭博：川普擬援引301條款加徵製造業關稅  中國商品恐成主要目標",
-          "url": "https://news.ltn.com.tw/news/world/breakingnews/5652298",
-          "source": "自由時報",
-          "published_at": "2026-11-24T18:51:27+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-world",
-          "source_domain": "news.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "彭博：川普擬援引301條款加徵製造業關稅  中國商品恐成主要目標",
-          "article_urls": [
-            "https://news.ltn.com.tw/news/world/breakingnews/5652298"
-          ],
-          "source_groups": [
-            "ltn-world"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "正式政策文本、施行日期及後續配套",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-c9593c3f65bc5c",
-      "aliases": [],
-      "title": "黃仁勳搞上共諜請辭「11天強勢回鍋」！中國外交部臭臉回8字",
-      "primary_topic": "politics_policy",
-      "related_topics": [],
-      "importance_score": 5,
-      "importance_factors": {
-        "topical": 2,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T17:01:19+00:00",
-      "updated_at": "2026-11-24T17:01:19+00:00",
-      "article_urls": [
-        "https://news.ltn.com.tw/news/world/breakingnews/5652233"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "黃仁勳搞上共諜請辭「11天強勢回鍋」！中國外交部臭臉回8字",
-          "url": "https://news.ltn.com.tw/news/world/breakingnews/5652233",
-          "source": "自由時報",
-          "published_at": "2026-11-24T17:01:19+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-world",
-          "source_domain": "news.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "黃仁勳搞上共諜請辭「11天強勢回鍋」！中國外交部臭臉回8字",
-          "article_urls": [
-            "https://news.ltn.com.tw/news/world/breakingnews/5652233"
-          ],
-          "source_groups": [
-            "ltn-world"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "正式政策文本、施行日期及後續配套",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-670d402865d2e9",
-      "aliases": [],
-      "title": "LG 以機器人、AI 資料中心為新引擎重整內部人事！共計44名高階主管升遷",
-      "primary_topic": "technology_ai",
-      "related_topics": [],
-      "importance_score": 5,
-      "importance_factors": {
-        "topical": 2,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T16:48:58+00:00",
-      "updated_at": "2026-11-24T16:48:58+00:00",
-      "article_urls": [
-        "https://tw.news.yahoo.com/lg-restructures-its-ranks-to-drive-robotics-and-ai-data-centers-as-new-growth-engines-004858687.html"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "LG 以機器人、AI 資料中心為新引擎重整內部人事！共計44名高階主管升遷",
-          "url": "https://tw.news.yahoo.com/lg-restructures-its-ranks-to-drive-robotics-and-ai-data-centers-as-new-growth-engines-004858687.html",
-          "source": "Yahoo奇摩新聞",
-          "published_at": "2026-11-24T16:48:58+00:00",
-          "source_type": "media",
-          "content_access": "headline_only",
-          "source_group": "yahoo-technology",
-          "source_domain": "tw.news.yahoo.com"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "LG 以機器人、AI 資料中心為新引擎重整內部人事！共計44名高階主管升遷",
-          "article_urls": [
-            "https://tw.news.yahoo.com/lg-restructures-its-ranks-to-drive-robotics-and-ai-data-centers-as-new-growth-engines-004858687.html"
-          ],
-          "source_groups": [
-            "yahoo-technology"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "後續產品實際應用、技術能力及官方更新",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-f8ebc4e6e254a0",
-      "aliases": [],
-      "title": "台股才飆3310點又噴血！美股費半暴跌近8%　台指期夜盤重摔1842點、台積電ADR跌近4%",
-      "primary_topic": "semiconductors",
-      "related_topics": [
-        "global_finance"
-      ],
-      "importance_score": 5,
-      "importance_factors": {
-        "topical": 2,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T16:40:00+00:00",
-      "updated_at": "2026-11-24T16:40:00+00:00",
-      "article_urls": [
-        "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E6%89%8D%E9%A3%863310%E9%BB%9E%E5%8F%88%E5%99%B4%E8%A1%80-%E7%BE%8E%E8%82%A1%E8%B2%BB%E5%8D%8A%E6%9A%B4%E8%B7%8C%E8%BF%918-%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A4%E9%87%8D%E6%91%941842%E9%BB%9E-%E5%8F%B0%E7%A9%8D%E9%9B%BBadr%E8%B7%8C%E8%BF%914-004000037.html"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "台股才飆3310點又噴血！美股費半暴跌近8%　台指期夜盤重摔1842點、台積電ADR跌近4%",
-          "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E6%89%8D%E9%A3%863310%E9%BB%9E%E5%8F%88%E5%99%B4%E8%A1%80-%E7%BE%8E%E8%82%A1%E8%B2%BB%E5%8D%8A%E6%9A%B4%E8%B7%8C%E8%BF%918-%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A4%E9%87%8D%E6%91%941842%E9%BB%9E-%E5%8F%B0%E7%A9%8D%E9%9B%BBadr%E8%B7%8C%E8%BF%914-004000037.html",
-          "source": "Yahoo奇摩新聞",
-          "published_at": "2026-11-24T16:40:00+00:00",
-          "source_type": "media",
-          "content_access": "headline_only",
-          "source_group": "yahoo-finance",
-          "source_domain": "tw.stock.yahoo.com"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "台股才飆3310點又噴血！美股費半暴跌近8%　台指期夜盤重摔1842點、台積電ADR跌近4%",
-          "article_urls": [
-            "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E6%89%8D%E9%A3%863310%E9%BB%9E%E5%8F%88%E5%99%B4%E8%A1%80-%E7%BE%8E%E8%82%A1%E8%B2%BB%E5%8D%8A%E6%9A%B4%E8%B7%8C%E8%BF%918-%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A4%E9%87%8D%E6%91%941842%E9%BB%9E-%E5%8F%B0%E7%A9%8D%E9%9B%BBadr%E8%B7%8C%E8%BF%914-004000037.html"
-          ],
-          "source_groups": [
-            "yahoo-finance"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "供應鏈合作、製程與產能進度及需求變化",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-c088eb0578dc77",
-      "aliases": [],
-      "title": "澳洲央行官員稱，升息後金融環境「明顯具有限制性」，中性利率走升",
-      "primary_topic": "global_finance",
-      "related_topics": [],
-      "importance_score": 5,
-      "importance_factors": {
-        "topical": 2,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T16:35:51+00:00",
-      "updated_at": "2026-11-24T16:35:51+00:00",
-      "article_urls": [
-        "https://tw.stock.yahoo.com/news/%E6%BE%B3%E6%B4%B2%E5%A4%AE%E8%A1%8C%E5%AE%98%E5%93%A1%E7%A8%B1-%E5%8D%87%E6%81%AF%E5%BE%8C%E9%87%91%E8%9E%8D%E7%92%B0%E5%A2%83-%E6%98%8E%E9%A1%AF%E5%85%B7%E6%9C%89%E9%99%90%E5%88%B6%E6%80%A7-%E4%B8%AD%E6%80%A7%E5%88%A9%E7%8E%87%E8%B5%B0%E5%8D%87-003551514.html"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "澳洲央行官員稱，升息後金融環境「明顯具有限制性」，中性利率走升",
-          "url": "https://tw.stock.yahoo.com/news/%E6%BE%B3%E6%B4%B2%E5%A4%AE%E8%A1%8C%E5%AE%98%E5%93%A1%E7%A8%B1-%E5%8D%87%E6%81%AF%E5%BE%8C%E9%87%91%E8%9E%8D%E7%92%B0%E5%A2%83-%E6%98%8E%E9%A1%AF%E5%85%B7%E6%9C%89%E9%99%90%E5%88%B6%E6%80%A7-%E4%B8%AD%E6%80%A7%E5%88%A9%E7%8E%87%E8%B5%B0%E5%8D%87-003551514.html",
-          "source": "Yahoo奇摩新聞",
-          "published_at": "2026-11-24T16:35:51+00:00",
-          "source_type": "media",
-          "content_access": "headline_only",
-          "source_group": "yahoo-finance",
-          "source_domain": "tw.stock.yahoo.com"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "澳洲央行官員稱，升息後金融環境「明顯具有限制性」，中性利率走升",
-          "article_urls": [
-            "https://tw.stock.yahoo.com/news/%E6%BE%B3%E6%B4%B2%E5%A4%AE%E8%A1%8C%E5%AE%98%E5%93%A1%E7%A8%B1-%E5%8D%87%E6%81%AF%E5%BE%8C%E9%87%91%E8%9E%8D%E7%92%B0%E5%A2%83-%E6%98%8E%E9%A1%AF%E5%85%B7%E6%9C%89%E9%99%90%E5%88%B6%E6%80%A7-%E4%B8%AD%E6%80%A7%E5%88%A9%E7%8E%87%E8%B5%B0%E5%8D%87-003551514.html"
-          ],
-          "source_groups": [
-            "yahoo-finance"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "後續公布的官方指標與政策決議",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-f1221a601c6617",
-      "aliases": [],
-      "title": "台積電1天市值狂增5.2兆 專家曝「反彈行情有幾天、利多何時消退」",
-      "primary_topic": "semiconductors",
-      "related_topics": [],
-      "importance_score": 5,
-      "importance_factors": {
-        "topical": 2,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T10:17:35+00:00",
-      "updated_at": "2026-11-24T10:17:35+00:00",
-      "article_urls": [
-        "https://ec.ltn.com.tw/article/breakingnews/5652037"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "台積電1天市值狂增5.2兆 專家曝「反彈行情有幾天、利多何時消退」",
-          "url": "https://ec.ltn.com.tw/article/breakingnews/5652037",
-          "source": "自由時報",
-          "published_at": "2026-11-24T10:17:35+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-business",
-          "source_domain": "ec.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "台積電1天市值狂增5.2兆 專家曝「反彈行情有幾天、利多何時消退」",
-          "article_urls": [
-            "https://ec.ltn.com.tw/article/breakingnews/5652037"
-          ],
-          "source_groups": [
-            "ltn-business"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "供應鏈合作、製程與產能進度及需求變化",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-c84abcd341819e",
-      "aliases": [],
-      "title": "助ICC度過美國制裁難關 日本宣布提前繳納明年會費相挺",
-      "primary_topic": "politics_policy",
-      "related_topics": [],
-      "importance_score": 5,
-      "importance_factors": {
-        "topical": 2,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T09:41:47+00:00",
-      "updated_at": "2026-11-24T09:41:47+00:00",
-      "article_urls": [
-        "https://news.ltn.com.tw/news/world/breakingnews/5651889"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "助ICC度過美國制裁難關 日本宣布提前繳納明年會費相挺",
-          "url": "https://news.ltn.com.tw/news/world/breakingnews/5651889",
-          "source": "自由時報",
-          "published_at": "2026-11-24T09:41:47+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-world",
-          "source_domain": "news.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "助ICC度過美國制裁難關 日本宣布提前繳納明年會費相挺",
-          "article_urls": [
-            "https://news.ltn.com.tw/news/world/breakingnews/5651889"
-          ],
-          "source_groups": [
-            "ltn-world"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "正式政策文本、施行日期及後續配套",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-a73fe41efa5b66",
-      "aliases": [],
-      "title": "輝達利多能否延續？關鍵觀察AI融資與美國晶片管制",
-      "primary_topic": "semiconductors",
-      "related_topics": [],
-      "importance_score": 5,
-      "importance_factors": {
-        "topical": 2,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T09:01:44+00:00",
-      "updated_at": "2026-11-24T09:01:44+00:00",
-      "article_urls": [
-        "https://ec.ltn.com.tw/article/breakingnews/5651917"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "輝達利多能否延續？關鍵觀察AI融資與美國晶片管制",
-          "url": "https://ec.ltn.com.tw/article/breakingnews/5651917",
-          "source": "自由時報",
-          "published_at": "2026-11-24T09:01:44+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-business",
-          "source_domain": "ec.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "輝達利多能否延續？關鍵觀察AI融資與美國晶片管制",
-          "article_urls": [
-            "https://ec.ltn.com.tw/article/breakingnews/5651917"
-          ],
-          "source_groups": [
-            "ltn-business"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "供應鏈合作、製程與產能進度及需求變化",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
       "id": "trend-7d12b35dffc3b2",
       "aliases": [],
       "title": "出席台美21世紀醫療合作論壇 卓揆：深化台美醫療合作及國際交流 讓臺灣醫療專業與世界接軌",
@@ -1547,6 +1231,268 @@
       "watchpoint": "企業後續公告、執行進度與可衡量成果",
       "interpretation_label": "觀察方向，非已證實結論或投資建議",
       "origin_priority": "primary_source"
+    },
+    {
+      "id": "trend-e96c1f32a47ca5",
+      "aliases": [],
+      "title": "台股震盪加劇 國泰投研建議科技股布局三大檢視重點",
+      "primary_topic": "global_finance",
+      "related_topics": [],
+      "importance_score": 4,
+      "importance_factors": {
+        "topical": 1,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T09:17:35+00:00",
+      "updated_at": "2026-11-25T09:17:35+00:00",
+      "article_urls": [
+        "https://ec.ltn.com.tw/article/breakingnews/5653180"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "台股震盪加劇 國泰投研建議科技股布局三大檢視重點",
+          "url": "https://ec.ltn.com.tw/article/breakingnews/5653180",
+          "source": "自由時報",
+          "published_at": "2026-11-25T09:17:35+00:00",
+          "source_type": "media",
+          "content_access": "excerpt",
+          "source_group": "ltn-business",
+          "source_domain": "ec.ltn.com.tw"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "台股震盪加劇 國泰投研建議科技股布局三大檢視重點",
+          "article_urls": [
+            "https://ec.ltn.com.tw/article/breakingnews/5653180"
+          ],
+          "source_groups": [
+            "ltn-business"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "後續公布的官方指標與政策決議",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-5d3fa23496e1cb",
+      "aliases": [],
+      "title": "食品通膨飆逾112％！伊朗稱不懼美國海上封鎖 力拚穩定物價",
+      "primary_topic": "consumer_lifestyle",
+      "related_topics": [
+        "politics_policy"
+      ],
+      "importance_score": 4,
+      "importance_factors": {
+        "topical": 1,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T09:16:43+00:00",
+      "updated_at": "2026-11-25T09:16:43+00:00",
+      "article_urls": [
+        "https://news.ltn.com.tw/news/world/breakingnews/5653060"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "食品通膨飆逾112％！伊朗稱不懼美國海上封鎖 力拚穩定物價",
+          "url": "https://news.ltn.com.tw/news/world/breakingnews/5653060",
+          "source": "自由時報",
+          "published_at": "2026-11-25T09:16:43+00:00",
+          "source_type": "media",
+          "content_access": "excerpt",
+          "source_group": "ltn-world",
+          "source_domain": "news.ltn.com.tw"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "食品通膨飆逾112％！伊朗稱不懼美國海上封鎖 力拚穩定物價",
+          "article_urls": [
+            "https://news.ltn.com.tw/news/world/breakingnews/5653060"
+          ],
+          "source_groups": [
+            "ltn-world"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "實際採用情況、消費者反應及後續服務變化",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-622028d903b4b4",
+      "aliases": [],
+      "title": "花蓮縣議員更正版選舉公報「獨漏」蔡翼陽 民眾黨：意圖使人不當選",
+      "primary_topic": "politics_policy",
+      "related_topics": [],
+      "importance_score": 4,
+      "importance_factors": {
+        "topical": 1,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T09:10:40+00:00",
+      "updated_at": "2026-11-25T09:10:40+00:00",
+      "article_urls": [
+        "https://news.ltn.com.tw/news/politics/breakingnews/5653081"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "花蓮縣議員更正版選舉公報「獨漏」蔡翼陽 民眾黨：意圖使人不當選",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5653081",
+          "source": "自由時報",
+          "published_at": "2026-11-25T09:10:40+00:00",
+          "source_type": "media",
+          "content_access": "excerpt",
+          "source_group": "ltn-politics",
+          "source_domain": "news.ltn.com.tw"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "花蓮縣議員更正版選舉公報「獨漏」蔡翼陽 民眾黨：意圖使人不當選",
+          "article_urls": [
+            "https://news.ltn.com.tw/news/politics/breakingnews/5653081"
+          ],
+          "source_groups": [
+            "ltn-politics"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "正式政策文本、施行日期及後續配套",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-7f48948527046b",
+      "aliases": [],
+      "title": "川普親頒平民最高榮譽  前紐約市長朱利安尼獲「總統自由勳章」",
+      "primary_topic": "politics_policy",
+      "related_topics": [],
+      "importance_score": 4,
+      "importance_factors": {
+        "topical": 1,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T08:36:44+00:00",
+      "updated_at": "2026-11-25T08:36:44+00:00",
+      "article_urls": [
+        "https://news.ltn.com.tw/news/world/breakingnews/5652980"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "川普親頒平民最高榮譽  前紐約市長朱利安尼獲「總統自由勳章」",
+          "url": "https://news.ltn.com.tw/news/world/breakingnews/5652980",
+          "source": "自由時報",
+          "published_at": "2026-11-25T08:36:44+00:00",
+          "source_type": "media",
+          "content_access": "excerpt",
+          "source_group": "ltn-world",
+          "source_domain": "news.ltn.com.tw"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "川普親頒平民最高榮譽  前紐約市長朱利安尼獲「總統自由勳章」",
+          "article_urls": [
+            "https://news.ltn.com.tw/news/world/breakingnews/5652980"
+          ],
+          "source_groups": [
+            "ltn-world"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "正式政策文本、施行日期及後續配套",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-cb36a4b2f9d8ce",
+      "aliases": [],
+      "title": "友善旅遊  澎管處整合14處借問站打造最好客的海島人情味",
+      "primary_topic": "consumer_lifestyle",
+      "related_topics": [],
+      "importance_score": 4,
+      "importance_factors": {
+        "topical": 1,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T07:02:50+00:00",
+      "updated_at": "2026-11-25T07:02:50+00:00",
+      "article_urls": [
+        "https://news.ltn.com.tw/news/life/breakingnews/5652930"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "友善旅遊  澎管處整合14處借問站打造最好客的海島人情味",
+          "url": "https://news.ltn.com.tw/news/life/breakingnews/5652930",
+          "source": "自由時報",
+          "published_at": "2026-11-25T07:02:50+00:00",
+          "source_type": "media",
+          "content_access": "excerpt",
+          "source_group": "ltn-life",
+          "source_domain": "news.ltn.com.tw"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "友善旅遊  澎管處整合14處借問站打造最好客的海島人情味",
+          "article_urls": [
+            "https://news.ltn.com.tw/news/life/breakingnews/5652930"
+          ],
+          "source_groups": [
+            "ltn-life"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "實際採用情況、消費者反應及後續服務變化",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
     },
     {
       "id": "trend-e873906bc241da",
@@ -1965,6 +1911,214 @@
       "origin_priority": "media_index"
     },
     {
+      "id": "trend-129e2eed3bfe56",
+      "aliases": [],
+      "title": "台股跌近2千點收在38K　這四檔ETF成交爆量皆逾百萬張",
+      "primary_topic": "global_finance",
+      "related_topics": [],
+      "importance_score": 4,
+      "importance_factors": {
+        "topical": 1,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T02:23:32+00:00",
+      "updated_at": "2026-11-25T02:23:32+00:00",
+      "article_urls": [
+        "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E8%B7%8C%E8%BF%912%E5%8D%83%E9%BB%9E%E6%94%B6%E5%9C%A838k-%E9%80%99%E5%9B%9B%E6%AA%94etf%E6%88%90%E4%BA%A4%E7%88%86%E9%87%8F%E7%9A%86%E9%80%BE%E7%99%BE%E8%90%AC%E5%BC%B5-102332734.html"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "台股跌近2千點收在38K　這四檔ETF成交爆量皆逾百萬張",
+          "url": "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E8%B7%8C%E8%BF%912%E5%8D%83%E9%BB%9E%E6%94%B6%E5%9C%A838k-%E9%80%99%E5%9B%9B%E6%AA%94etf%E6%88%90%E4%BA%A4%E7%88%86%E9%87%8F%E7%9A%86%E9%80%BE%E7%99%BE%E8%90%AC%E5%BC%B5-102332734.html",
+          "source": "Yahoo奇摩新聞",
+          "published_at": "2026-11-25T02:23:32+00:00",
+          "source_type": "media",
+          "content_access": "headline_only",
+          "source_group": "yahoo-finance",
+          "source_domain": "tw.news.yahoo.com"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "台股跌近2千點收在38K　這四檔ETF成交爆量皆逾百萬張",
+          "article_urls": [
+            "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E8%B7%8C%E8%BF%912%E5%8D%83%E9%BB%9E%E6%94%B6%E5%9C%A838k-%E9%80%99%E5%9B%9B%E6%AA%94etf%E6%88%90%E4%BA%A4%E7%88%86%E9%87%8F%E7%9A%86%E9%80%BE%E7%99%BE%E8%90%AC%E5%BC%B5-102332734.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "後續公布的官方指標與政策決議",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-90499ddf808296",
+      "aliases": [],
+      "title": "\"輝黃\"行情一日遊! 台股週三崩1926點失守4萬關卡",
+      "primary_topic": "global_finance",
+      "related_topics": [],
+      "importance_score": 4,
+      "importance_factors": {
+        "topical": 1,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T02:15:59+00:00",
+      "updated_at": "2026-11-25T02:15:59+00:00",
+      "article_urls": [
+        "https://tw.stock.yahoo.com/news/%E8%BC%9D%E9%BB%83-%E8%A1%8C%E6%83%85-%E6%97%A5%E9%81%8A-%E5%8F%B0%E8%82%A1%E9%80%B1%E4%B8%89%E5%B4%A91926%E9%BB%9E%E5%A4%B1%E5%AE%884%E8%90%AC%E9%97%9C%E5%8D%A1-101559421.html"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "\"輝黃\"行情一日遊! 台股週三崩1926點失守4萬關卡",
+          "url": "https://tw.stock.yahoo.com/news/%E8%BC%9D%E9%BB%83-%E8%A1%8C%E6%83%85-%E6%97%A5%E9%81%8A-%E5%8F%B0%E8%82%A1%E9%80%B1%E4%B8%89%E5%B4%A91926%E9%BB%9E%E5%A4%B1%E5%AE%884%E8%90%AC%E9%97%9C%E5%8D%A1-101559421.html",
+          "source": "Yahoo奇摩新聞",
+          "published_at": "2026-11-25T02:15:59+00:00",
+          "source_type": "media",
+          "content_access": "headline_only",
+          "source_group": "yahoo-finance",
+          "source_domain": "tw.stock.yahoo.com"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "\"輝黃\"行情一日遊! 台股週三崩1926點失守4萬關卡",
+          "article_urls": [
+            "https://tw.stock.yahoo.com/news/%E8%BC%9D%E9%BB%83-%E8%A1%8C%E6%83%85-%E6%97%A5%E9%81%8A-%E5%8F%B0%E8%82%A1%E9%80%B1%E4%B8%89%E5%B4%A91926%E9%BB%9E%E5%A4%B1%E5%AE%884%E8%90%AC%E9%97%9C%E5%8D%A1-101559421.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "後續公布的官方指標與政策決議",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-4c80c95e985faf",
+      "aliases": [],
+      "title": "美國對台新關稅將至　台經院估「不超過15%」不用太擔心",
+      "primary_topic": "politics_policy",
+      "related_topics": [],
+      "importance_score": 4,
+      "importance_factors": {
+        "topical": 1,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T02:15:00+00:00",
+      "updated_at": "2026-11-25T02:15:00+00:00",
+      "article_urls": [
+        "https://tw.news.yahoo.com/%E7%BE%8E%E5%9C%8B%E5%B0%8D%E5%8F%B0%E6%96%B0%E9%97%9C%E7%A8%85%E5%B0%87%E8%87%B3-%E5%8F%B0%E7%B6%93%E9%99%A2%E4%BC%B0-%E4%B8%8D%E8%B6%85%E9%81%8E15-%E4%B8%8D%E7%94%A8%E5%A4%AA%E6%93%94%E5%BF%83-101500018.html"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "美國對台新關稅將至　台經院估「不超過15%」不用太擔心",
+          "url": "https://tw.news.yahoo.com/%E7%BE%8E%E5%9C%8B%E5%B0%8D%E5%8F%B0%E6%96%B0%E9%97%9C%E7%A8%85%E5%B0%87%E8%87%B3-%E5%8F%B0%E7%B6%93%E9%99%A2%E4%BC%B0-%E4%B8%8D%E8%B6%85%E9%81%8E15-%E4%B8%8D%E7%94%A8%E5%A4%AA%E6%93%94%E5%BF%83-101500018.html",
+          "source": "Yahoo奇摩新聞",
+          "published_at": "2026-11-25T02:15:00+00:00",
+          "source_type": "media",
+          "content_access": "headline_only",
+          "source_group": "yahoo-finance",
+          "source_domain": "tw.news.yahoo.com"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "美國對台新關稅將至　台經院估「不超過15%」不用太擔心",
+          "article_urls": [
+            "https://tw.news.yahoo.com/%E7%BE%8E%E5%9C%8B%E5%B0%8D%E5%8F%B0%E6%96%B0%E9%97%9C%E7%A8%85%E5%B0%87%E8%87%B3-%E5%8F%B0%E7%B6%93%E9%99%A2%E4%BC%B0-%E4%B8%8D%E8%B6%85%E9%81%8E15-%E4%B8%8D%E7%94%A8%E5%A4%AA%E6%93%94%E5%BF%83-101500018.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "正式政策文本、施行日期及後續配套",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-273dff6d908056",
+      "aliases": [],
+      "title": "台股又崩！金管會喊話借券降溫、庫藏股上陣",
+      "primary_topic": "global_finance",
+      "related_topics": [],
+      "importance_score": 4,
+      "importance_factors": {
+        "topical": 1,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T02:13:10+00:00",
+      "updated_at": "2026-11-25T02:13:10+00:00",
+      "article_urls": [
+        "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E5%8F%88%E5%B4%A9-%E9%87%91%E7%AE%A1%E6%9C%83%E5%96%8A%E8%A9%B1%E5%80%9F%E5%88%B8%E9%99%8D%E6%BA%AB-%E5%BA%AB%E8%97%8F%E8%82%A1%E4%B8%8A%E9%99%A3-101310706.html"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "台股又崩！金管會喊話借券降溫、庫藏股上陣",
+          "url": "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E5%8F%88%E5%B4%A9-%E9%87%91%E7%AE%A1%E6%9C%83%E5%96%8A%E8%A9%B1%E5%80%9F%E5%88%B8%E9%99%8D%E6%BA%AB-%E5%BA%AB%E8%97%8F%E8%82%A1%E4%B8%8A%E9%99%A3-101310706.html",
+          "source": "Yahoo奇摩新聞",
+          "published_at": "2026-11-25T02:13:10+00:00",
+          "source_type": "media",
+          "content_access": "headline_only",
+          "source_group": "yahoo-finance",
+          "source_domain": "tw.news.yahoo.com"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "台股又崩！金管會喊話借券降溫、庫藏股上陣",
+          "article_urls": [
+            "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E5%8F%88%E5%B4%A9-%E9%87%91%E7%AE%A1%E6%9C%83%E5%96%8A%E8%A9%B1%E5%80%9F%E5%88%B8%E9%99%8D%E6%BA%AB-%E5%BA%AB%E8%97%8F%E8%82%A1%E4%B8%8A%E9%99%A3-101310706.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "後續公布的官方指標與政策決議",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
       "id": "trend-d460ada0e8d7cb",
       "aliases": [],
       "title": "美中央情報局遭駭客攻擊 近期美國關鍵技術機構網攻頻傳",
@@ -2065,6 +2219,162 @@
       "independently_verified": false,
       "facts": [],
       "watchpoint": "正式政策文本、施行日期及後續配套",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-3311252a9de891",
+      "aliases": [],
+      "title": "民主剛果戰火威脅伊波拉抗疫　醫療人員撤離疫情重災區一所醫院",
+      "primary_topic": "consumer_lifestyle",
+      "related_topics": [],
+      "importance_score": 4,
+      "importance_factors": {
+        "topical": 1,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T01:59:39+00:00",
+      "updated_at": "2026-11-25T01:59:39+00:00",
+      "article_urls": [
+        "https://tw.news.yahoo.com/%E6%B0%91%E4%B8%BB%E5%89%9B%E6%9E%9C%E6%88%B0%E7%81%AB%E5%A8%81%E8%84%85%E4%BC%8A%E6%B3%A2%E6%8B%89%E6%8A%97%E7%96%AB-%E9%86%AB%E7%99%82%E4%BA%BA%E5%93%A1%E6%92%A4%E9%9B%A2%E7%96%AB%E6%83%85%E9%87%8D%E7%81%BD%E5%8D%80-%E6%89%80%E9%86%AB%E9%99%A2-095939400.html"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "民主剛果戰火威脅伊波拉抗疫　醫療人員撤離疫情重災區一所醫院",
+          "url": "https://tw.news.yahoo.com/%E6%B0%91%E4%B8%BB%E5%89%9B%E6%9E%9C%E6%88%B0%E7%81%AB%E5%A8%81%E8%84%85%E4%BC%8A%E6%B3%A2%E6%8B%89%E6%8A%97%E7%96%AB-%E9%86%AB%E7%99%82%E4%BA%BA%E5%93%A1%E6%92%A4%E9%9B%A2%E7%96%AB%E6%83%85%E9%87%8D%E7%81%BD%E5%8D%80-%E6%89%80%E9%86%AB%E9%99%A2-095939400.html",
+          "source": "Yahoo奇摩新聞",
+          "published_at": "2026-11-25T01:59:39+00:00",
+          "source_type": "media",
+          "content_access": "headline_only",
+          "source_group": "yahoo-health",
+          "source_domain": "tw.news.yahoo.com"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "民主剛果戰火威脅伊波拉抗疫　醫療人員撤離疫情重災區一所醫院",
+          "article_urls": [
+            "https://tw.news.yahoo.com/%E6%B0%91%E4%B8%BB%E5%89%9B%E6%9E%9C%E6%88%B0%E7%81%AB%E5%A8%81%E8%84%85%E4%BC%8A%E6%B3%A2%E6%8B%89%E6%8A%97%E7%96%AB-%E9%86%AB%E7%99%82%E4%BA%BA%E5%93%A1%E6%92%A4%E9%9B%A2%E7%96%AB%E6%83%85%E9%87%8D%E7%81%BD%E5%8D%80-%E6%89%80%E9%86%AB%E9%99%A2-095939400.html"
+          ],
+          "source_groups": [
+            "yahoo-health"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "實際採用情況、消費者反應及後續服務變化",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-27c070a4d29512",
+      "aliases": [],
+      "title": "國泰金控 x KidZania打造「國泰健康園區」　沉浸式體驗讓健康教育向下扎根",
+      "primary_topic": "consumer_lifestyle",
+      "related_topics": [],
+      "importance_score": 4,
+      "importance_factors": {
+        "topical": 1,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T01:40:00+00:00",
+      "updated_at": "2026-11-25T01:40:00+00:00",
+      "article_urls": [
+        "https://tw.news.yahoo.com/%E5%9C%8B%E6%B3%B0%E9%87%91%E6%8E%A7-x-kidzania%E6%89%93%E9%80%A0-%E5%9C%8B%E6%B3%B0%E5%81%A5%E5%BA%B7%E5%9C%92%E5%8D%80-%E6%B2%89%E6%B5%B8%E5%BC%8F%E9%AB%94%E9%A9%97%E8%AE%93%E5%81%A5%E5%BA%B7%E6%95%99%E8%82%B2%E5%90%91%E4%B8%8B%E6%89%8E%E6%A0%B9-094000083.html"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "國泰金控 x KidZania打造「國泰健康園區」　沉浸式體驗讓健康教育向下扎根",
+          "url": "https://tw.news.yahoo.com/%E5%9C%8B%E6%B3%B0%E9%87%91%E6%8E%A7-x-kidzania%E6%89%93%E9%80%A0-%E5%9C%8B%E6%B3%B0%E5%81%A5%E5%BA%B7%E5%9C%92%E5%8D%80-%E6%B2%89%E6%B5%B8%E5%BC%8F%E9%AB%94%E9%A9%97%E8%AE%93%E5%81%A5%E5%BA%B7%E6%95%99%E8%82%B2%E5%90%91%E4%B8%8B%E6%89%8E%E6%A0%B9-094000083.html",
+          "source": "Yahoo奇摩新聞",
+          "published_at": "2026-11-25T01:40:00+00:00",
+          "source_type": "media",
+          "content_access": "headline_only",
+          "source_group": "yahoo-lifestyle",
+          "source_domain": "tw.news.yahoo.com"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "國泰金控 x KidZania打造「國泰健康園區」　沉浸式體驗讓健康教育向下扎根",
+          "article_urls": [
+            "https://tw.news.yahoo.com/%E5%9C%8B%E6%B3%B0%E9%87%91%E6%8E%A7-x-kidzania%E6%89%93%E9%80%A0-%E5%9C%8B%E6%B3%B0%E5%81%A5%E5%BA%B7%E5%9C%92%E5%8D%80-%E6%B2%89%E6%B5%B8%E5%BC%8F%E9%AB%94%E9%A9%97%E8%AE%93%E5%81%A5%E5%BA%B7%E6%95%99%E8%82%B2%E5%90%91%E4%B8%8B%E6%89%8E%E6%A0%B9-094000083.html"
+          ],
+          "source_groups": [
+            "yahoo-lifestyle"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "實際採用情況、消費者反應及後續服務變化",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-a7553c21924662",
+      "aliases": [],
+      "title": "走路步數也能看健康！原本走8千步突降至3千步要留意",
+      "primary_topic": "consumer_lifestyle",
+      "related_topics": [],
+      "importance_score": 4,
+      "importance_factors": {
+        "topical": 1,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T01:39:38+00:00",
+      "updated_at": "2026-11-25T01:39:38+00:00",
+      "article_urls": [
+        "https://tw.news.yahoo.com/%E8%B5%B0%E8%B7%AF%E6%AD%A5%E6%95%B8%E4%B9%9F%E8%83%BD%E7%9C%8B%E5%81%A5%E5%BA%B7-%E5%8E%9F%E6%9C%AC%E8%B5%B08%E5%8D%83%E6%AD%A5%E7%AA%81%E9%99%8D%E8%87%B33%E5%8D%83%E6%AD%A5%E8%A6%81%E7%95%99%E6%84%8F-093938638.html"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "走路步數也能看健康！原本走8千步突降至3千步要留意",
+          "url": "https://tw.news.yahoo.com/%E8%B5%B0%E8%B7%AF%E6%AD%A5%E6%95%B8%E4%B9%9F%E8%83%BD%E7%9C%8B%E5%81%A5%E5%BA%B7-%E5%8E%9F%E6%9C%AC%E8%B5%B08%E5%8D%83%E6%AD%A5%E7%AA%81%E9%99%8D%E8%87%B33%E5%8D%83%E6%AD%A5%E8%A6%81%E7%95%99%E6%84%8F-093938638.html",
+          "source": "Yahoo奇摩新聞",
+          "published_at": "2026-11-25T01:39:38+00:00",
+          "source_type": "media",
+          "content_access": "headline_only",
+          "source_group": "yahoo-health",
+          "source_domain": "tw.news.yahoo.com"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "走路步數也能看健康！原本走8千步突降至3千步要留意",
+          "article_urls": [
+            "https://tw.news.yahoo.com/%E8%B5%B0%E8%B7%AF%E6%AD%A5%E6%95%B8%E4%B9%9F%E8%83%BD%E7%9C%8B%E5%81%A5%E5%BA%B7-%E5%8E%9F%E6%9C%AC%E8%B5%B08%E5%8D%83%E6%AD%A5%E7%AA%81%E9%99%8D%E8%87%B33%E5%8D%83%E6%AD%A5%E8%A6%81%E7%95%99%E6%84%8F-093938638.html"
+          ],
+          "source_groups": [
+            "yahoo-health"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "實際採用情況、消費者反應及後續服務變化",
       "interpretation_label": "觀察方向，非已證實結論或投資建議",
       "origin_priority": "media_index"
     },
@@ -2221,6 +2531,58 @@
       "independently_verified": false,
       "facts": [],
       "watchpoint": "後續公布的官方指標與政策決議",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-d70895c4777a52",
+      "aliases": [],
+      "title": "科技輔助搭細膩服務　永慶房屋黃國一助高齡母子3週售屋成功",
+      "primary_topic": "technology_ai",
+      "related_topics": [],
+      "importance_score": 4,
+      "importance_factors": {
+        "topical": 1,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-24T23:43:34+00:00",
+      "updated_at": "2026-11-24T23:43:34+00:00",
+      "article_urls": [
+        "https://tw.news.yahoo.com/%E7%A7%91%E6%8A%80%E8%BC%94%E5%8A%A9%E6%90%AD%E7%B4%B0%E8%86%A9%E6%9C%8D%E5%8B%99-%E6%B0%B8%E6%85%B6%E6%88%BF%E5%B1%8B%E9%BB%83%E5%9C%8B-%E5%8A%A9%E9%AB%98%E9%BD%A1%E6%AF%8D%E5%AD%903%E9%80%B1%E5%94%AE%E5%B1%8B%E6%88%90%E5%8A%9F-074334067.html"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "科技輔助搭細膩服務　永慶房屋黃國一助高齡母子3週售屋成功",
+          "url": "https://tw.news.yahoo.com/%E7%A7%91%E6%8A%80%E8%BC%94%E5%8A%A9%E6%90%AD%E7%B4%B0%E8%86%A9%E6%9C%8D%E5%8B%99-%E6%B0%B8%E6%85%B6%E6%88%BF%E5%B1%8B%E9%BB%83%E5%9C%8B-%E5%8A%A9%E9%AB%98%E9%BD%A1%E6%AF%8D%E5%AD%903%E9%80%B1%E5%94%AE%E5%B1%8B%E6%88%90%E5%8A%9F-074334067.html",
+          "source": "Yahoo奇摩新聞",
+          "published_at": "2026-11-24T23:43:34+00:00",
+          "source_type": "media",
+          "content_access": "headline_only",
+          "source_group": "yahoo-technology",
+          "source_domain": "tw.news.yahoo.com"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "科技輔助搭細膩服務　永慶房屋黃國一助高齡母子3週售屋成功",
+          "article_urls": [
+            "https://tw.news.yahoo.com/%E7%A7%91%E6%8A%80%E8%BC%94%E5%8A%A9%E6%90%AD%E7%B4%B0%E8%86%A9%E6%9C%8D%E5%8B%99-%E6%B0%B8%E6%85%B6%E6%88%BF%E5%B1%8B%E9%BB%83%E5%9C%8B-%E5%8A%A9%E9%AB%98%E9%BD%A1%E6%AF%8D%E5%AD%903%E9%80%B1%E5%94%AE%E5%B1%8B%E6%88%90%E5%8A%9F-074334067.html"
+          ],
+          "source_groups": [
+            "yahoo-technology"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "後續產品實際應用、技術能力及官方更新",
       "interpretation_label": "觀察方向，非已證實結論或投資建議",
       "origin_priority": "media_index"
     },
@@ -2689,788 +3051,6 @@
       "independently_verified": false,
       "facts": [],
       "watchpoint": "實際採用情況、消費者反應及後續服務變化",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-85ca778b936998",
-      "aliases": [],
-      "title": "60多歲男搭機突發氣胸、喘不過氣！有這5種健康狀況，出發前先問醫師",
-      "primary_topic": "consumer_lifestyle",
-      "related_topics": [],
-      "importance_score": 4,
-      "importance_factors": {
-        "topical": 1,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T19:37:26+00:00",
-      "updated_at": "2026-11-24T19:37:26+00:00",
-      "article_urls": [
-        "https://tw.news.yahoo.com/60%E5%A4%9A%E6%AD%B2%E7%94%B7%E6%90%AD%E6%A9%9F%E7%AA%81%E7%99%BC%E6%B0%A3%E8%83%B8-%E5%96%98%E4%B8%8D%E9%81%8E%E6%B0%A3-%E6%9C%89%E9%80%995%E7%A8%AE%E5%81%A5%E5%BA%B7%E7%8B%80%E6%B3%81-%E5%87%BA%E7%99%BC%E5%89%8D%E5%85%88%E5%95%8F%E9%86%AB%E5%B8%AB-033726407.html"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "60多歲男搭機突發氣胸、喘不過氣！有這5種健康狀況，出發前先問醫師",
-          "url": "https://tw.news.yahoo.com/60%E5%A4%9A%E6%AD%B2%E7%94%B7%E6%90%AD%E6%A9%9F%E7%AA%81%E7%99%BC%E6%B0%A3%E8%83%B8-%E5%96%98%E4%B8%8D%E9%81%8E%E6%B0%A3-%E6%9C%89%E9%80%995%E7%A8%AE%E5%81%A5%E5%BA%B7%E7%8B%80%E6%B3%81-%E5%87%BA%E7%99%BC%E5%89%8D%E5%85%88%E5%95%8F%E9%86%AB%E5%B8%AB-033726407.html",
-          "source": "Yahoo奇摩新聞",
-          "published_at": "2026-11-24T19:37:26+00:00",
-          "source_type": "media",
-          "content_access": "headline_only",
-          "source_group": "yahoo-health",
-          "source_domain": "tw.news.yahoo.com"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "60多歲男搭機突發氣胸、喘不過氣！有這5種健康狀況，出發前先問醫師",
-          "article_urls": [
-            "https://tw.news.yahoo.com/60%E5%A4%9A%E6%AD%B2%E7%94%B7%E6%90%AD%E6%A9%9F%E7%AA%81%E7%99%BC%E6%B0%A3%E8%83%B8-%E5%96%98%E4%B8%8D%E9%81%8E%E6%B0%A3-%E6%9C%89%E9%80%995%E7%A8%AE%E5%81%A5%E5%BA%B7%E7%8B%80%E6%B3%81-%E5%87%BA%E7%99%BC%E5%89%8D%E5%85%88%E5%95%8F%E9%86%AB%E5%B8%AB-033726407.html"
-          ],
-          "source_groups": [
-            "yahoo-health"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "實際採用情況、消費者反應及後續服務變化",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-f73331b66c56a1",
-      "aliases": [],
-      "title": "黃仁勳緋聞掀間諜定義激辯！習近平擴編國安部至80萬人 線民界線日益模糊",
-      "primary_topic": "politics_policy",
-      "related_topics": [],
-      "importance_score": 4,
-      "importance_factors": {
-        "topical": 1,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T18:53:13+00:00",
-      "updated_at": "2026-11-24T18:53:13+00:00",
-      "article_urls": [
-        "https://news.ltn.com.tw/news/world/breakingnews/5652296"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "黃仁勳緋聞掀間諜定義激辯！習近平擴編國安部至80萬人 線民界線日益模糊",
-          "url": "https://news.ltn.com.tw/news/world/breakingnews/5652296",
-          "source": "自由時報",
-          "published_at": "2026-11-24T18:53:13+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-world",
-          "source_domain": "news.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "黃仁勳緋聞掀間諜定義激辯！習近平擴編國安部至80萬人 線民界線日益模糊",
-          "article_urls": [
-            "https://news.ltn.com.tw/news/world/breakingnews/5652296"
-          ],
-          "source_groups": [
-            "ltn-world"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "正式政策文本、施行日期及後續配套",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-3e5429b52e5c9b",
-      "aliases": [],
-      "title": "黃仁勳回歸掀漲停潮！廣達再搭AI潮入榜　「這檔金融」明年配息估上看1.8元獲八大官股狂掃近4億奪冠",
-      "primary_topic": "global_finance",
-      "related_topics": [],
-      "importance_score": 4,
-      "importance_factors": {
-        "topical": 1,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T16:32:00+00:00",
-      "updated_at": "2026-11-24T16:32:00+00:00",
-      "article_urls": [
-        "https://tw.stock.yahoo.com/news/%E9%BB%83%E4%BB%81%E5%8B%B3%E5%9B%9E%E6%AD%B8%E6%8E%80%E6%BC%B2%E5%81%9C%E6%BD%AE-%E5%BB%A3%E9%81%94%E5%86%8D%E6%90%ADai%E6%BD%AE%E5%85%A5%E6%A6%9C-%E9%80%99%E6%AA%94%E9%87%91%E8%9E%8D-%E6%98%8E%E5%B9%B4%E9%85%8D%E6%81%AF%E4%BC%B0%E4%B8%8A%E7%9C%8B1-8%E5%85%83%E7%8D%B2%E5%85%AB%E5%A4%A7%E5%AE%98%E8%82%A1%E7%8B%82%E6%8E%83%E8%BF%914%E5%84%84%E5%A5%AA%E5%86%A0-003200275.html"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "黃仁勳回歸掀漲停潮！廣達再搭AI潮入榜　「這檔金融」明年配息估上看1.8元獲八大官股狂掃近4億奪冠",
-          "url": "https://tw.stock.yahoo.com/news/%E9%BB%83%E4%BB%81%E5%8B%B3%E5%9B%9E%E6%AD%B8%E6%8E%80%E6%BC%B2%E5%81%9C%E6%BD%AE-%E5%BB%A3%E9%81%94%E5%86%8D%E6%90%ADai%E6%BD%AE%E5%85%A5%E6%A6%9C-%E9%80%99%E6%AA%94%E9%87%91%E8%9E%8D-%E6%98%8E%E5%B9%B4%E9%85%8D%E6%81%AF%E4%BC%B0%E4%B8%8A%E7%9C%8B1-8%E5%85%83%E7%8D%B2%E5%85%AB%E5%A4%A7%E5%AE%98%E8%82%A1%E7%8B%82%E6%8E%83%E8%BF%914%E5%84%84%E5%A5%AA%E5%86%A0-003200275.html",
-          "source": "Yahoo奇摩新聞",
-          "published_at": "2026-11-24T16:32:00+00:00",
-          "source_type": "media",
-          "content_access": "headline_only",
-          "source_group": "yahoo-finance",
-          "source_domain": "tw.stock.yahoo.com"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "黃仁勳回歸掀漲停潮！廣達再搭AI潮入榜　「這檔金融」明年配息估上看1.8元獲八大官股狂掃近4億奪冠",
-          "article_urls": [
-            "https://tw.stock.yahoo.com/news/%E9%BB%83%E4%BB%81%E5%8B%B3%E5%9B%9E%E6%AD%B8%E6%8E%80%E6%BC%B2%E5%81%9C%E6%BD%AE-%E5%BB%A3%E9%81%94%E5%86%8D%E6%90%ADai%E6%BD%AE%E5%85%A5%E6%A6%9C-%E9%80%99%E6%AA%94%E9%87%91%E8%9E%8D-%E6%98%8E%E5%B9%B4%E9%85%8D%E6%81%AF%E4%BC%B0%E4%B8%8A%E7%9C%8B1-8%E5%85%83%E7%8D%B2%E5%85%AB%E5%A4%A7%E5%AE%98%E8%82%A1%E7%8B%82%E6%8E%83%E8%BF%914%E5%84%84%E5%A5%AA%E5%86%A0-003200275.html"
-          ],
-          "source_groups": [
-            "yahoo-finance"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "後續公布的官方指標與政策決議",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-0419394481cea1",
-      "aliases": [],
-      "title": "費半挫7.88%台指期夜盤跌逾1800點　台股強彈後面臨壓力",
-      "primary_topic": "global_finance",
-      "related_topics": [],
-      "importance_score": 4,
-      "importance_factors": {
-        "topical": 1,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T16:28:42+00:00",
-      "updated_at": "2026-11-24T16:28:42+00:00",
-      "article_urls": [
-        "https://tw.news.yahoo.com/%E8%B2%BB%E5%8D%8A%E6%8C%AB7-88-%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A4%E8%B7%8C%E9%80%BE1800%E9%BB%9E-%E5%8F%B0%E8%82%A1%E5%BC%B7%E5%BD%88%E5%BE%8C%E9%9D%A2%E8%87%A8%E5%A3%93%E5%8A%9B-002842782.html"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "費半挫7.88%台指期夜盤跌逾1800點　台股強彈後面臨壓力",
-          "url": "https://tw.news.yahoo.com/%E8%B2%BB%E5%8D%8A%E6%8C%AB7-88-%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A4%E8%B7%8C%E9%80%BE1800%E9%BB%9E-%E5%8F%B0%E8%82%A1%E5%BC%B7%E5%BD%88%E5%BE%8C%E9%9D%A2%E8%87%A8%E5%A3%93%E5%8A%9B-002842782.html",
-          "source": "Yahoo奇摩新聞",
-          "published_at": "2026-11-24T16:28:42+00:00",
-          "source_type": "media",
-          "content_access": "headline_only",
-          "source_group": "yahoo-finance",
-          "source_domain": "tw.news.yahoo.com"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "費半挫7.88%台指期夜盤跌逾1800點　台股強彈後面臨壓力",
-          "article_urls": [
-            "https://tw.news.yahoo.com/%E8%B2%BB%E5%8D%8A%E6%8C%AB7-88-%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A4%E8%B7%8C%E9%80%BE1800%E9%BB%9E-%E5%8F%B0%E8%82%A1%E5%BC%B7%E5%BD%88%E5%BE%8C%E9%9D%A2%E8%87%A8%E5%A3%93%E5%8A%9B-002842782.html"
-          ],
-          "source_groups": [
-            "yahoo-finance"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "後續公布的官方指標與政策決議",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-3b36fb88c854f2",
-      "aliases": [],
-      "title": "川普新一輪關稅箭在弦上！鎖定16個貿易夥伴　台灣也在調查名單內",
-      "primary_topic": "politics_policy",
-      "related_topics": [
-        "global_finance"
-      ],
-      "importance_score": 4,
-      "importance_factors": {
-        "topical": 1,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T16:26:00+00:00",
-      "updated_at": "2026-11-24T16:26:00+00:00",
-      "article_urls": [
-        "https://tw.stock.yahoo.com/news/%E5%B7%9D%E6%99%AE%E6%96%B0-%E8%BC%AA%E9%97%9C%E7%A8%85%E7%AE%AD%E5%9C%A8%E5%BC%A6%E4%B8%8A-%E9%8E%96%E5%AE%9A16%E5%80%8B%E8%B2%BF%E6%98%93%E5%A4%A5%E4%BC%B4-%E5%8F%B0%E7%81%A3%E4%B9%9F%E5%9C%A8%E8%AA%BF%E6%9F%A5%E5%90%8D%E5%96%AE%E5%85%A7-002600006.html"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "川普新一輪關稅箭在弦上！鎖定16個貿易夥伴　台灣也在調查名單內",
-          "url": "https://tw.stock.yahoo.com/news/%E5%B7%9D%E6%99%AE%E6%96%B0-%E8%BC%AA%E9%97%9C%E7%A8%85%E7%AE%AD%E5%9C%A8%E5%BC%A6%E4%B8%8A-%E9%8E%96%E5%AE%9A16%E5%80%8B%E8%B2%BF%E6%98%93%E5%A4%A5%E4%BC%B4-%E5%8F%B0%E7%81%A3%E4%B9%9F%E5%9C%A8%E8%AA%BF%E6%9F%A5%E5%90%8D%E5%96%AE%E5%85%A7-002600006.html",
-          "source": "Yahoo奇摩新聞",
-          "published_at": "2026-11-24T16:26:00+00:00",
-          "source_type": "media",
-          "content_access": "headline_only",
-          "source_group": "yahoo-finance",
-          "source_domain": "tw.stock.yahoo.com"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "川普新一輪關稅箭在弦上！鎖定16個貿易夥伴　台灣也在調查名單內",
-          "article_urls": [
-            "https://tw.stock.yahoo.com/news/%E5%B7%9D%E6%99%AE%E6%96%B0-%E8%BC%AA%E9%97%9C%E7%A8%85%E7%AE%AD%E5%9C%A8%E5%BC%A6%E4%B8%8A-%E9%8E%96%E5%AE%9A16%E5%80%8B%E8%B2%BF%E6%98%93%E5%A4%A5%E4%BC%B4-%E5%8F%B0%E7%81%A3%E4%B9%9F%E5%9C%A8%E8%AA%BF%E6%9F%A5%E5%90%8D%E5%96%AE%E5%85%A7-002600006.html"
-          ],
-          "source_groups": [
-            "yahoo-finance"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "正式政策文本、施行日期及後續配套",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-0b9efb4db8f60d",
-      "aliases": [],
-      "title": "費半重挫7.88%拖累日韓股市，韓股早盤急跌5.1%觸發賣盤SIDECAR",
-      "primary_topic": "global_finance",
-      "related_topics": [],
-      "importance_score": 4,
-      "importance_factors": {
-        "topical": 1,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T16:24:40+00:00",
-      "updated_at": "2026-11-24T16:24:40+00:00",
-      "article_urls": [
-        "https://tw.stock.yahoo.com/news/%E8%B2%BB%E5%8D%8A%E9%87%8D%E6%8C%AB7-88-%E6%8B%96%E7%B4%AF%E6%97%A5%E9%9F%93%E8%82%A1%E5%B8%82-%E9%9F%93%E8%82%A1%E6%97%A9%E7%9B%A4%E6%80%A5%E8%B7%8C5-1-002440974.html"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "費半重挫7.88%拖累日韓股市，韓股早盤急跌5.1%觸發賣盤SIDECAR",
-          "url": "https://tw.stock.yahoo.com/news/%E8%B2%BB%E5%8D%8A%E9%87%8D%E6%8C%AB7-88-%E6%8B%96%E7%B4%AF%E6%97%A5%E9%9F%93%E8%82%A1%E5%B8%82-%E9%9F%93%E8%82%A1%E6%97%A9%E7%9B%A4%E6%80%A5%E8%B7%8C5-1-002440974.html",
-          "source": "Yahoo奇摩新聞",
-          "published_at": "2026-11-24T16:24:40+00:00",
-          "source_type": "media",
-          "content_access": "headline_only",
-          "source_group": "yahoo-finance",
-          "source_domain": "tw.stock.yahoo.com"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "費半重挫7.88%拖累日韓股市，韓股早盤急跌5.1%觸發賣盤SIDECAR",
-          "article_urls": [
-            "https://tw.stock.yahoo.com/news/%E8%B2%BB%E5%8D%8A%E9%87%8D%E6%8C%AB7-88-%E6%8B%96%E7%B4%AF%E6%97%A5%E9%9F%93%E8%82%A1%E5%B8%82-%E9%9F%93%E8%82%A1%E6%97%A9%E7%9B%A4%E6%80%A5%E8%B7%8C5-1-002440974.html"
-          ],
-          "source_groups": [
-            "yahoo-finance"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "後續公布的官方指標與政策決議",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-31d206a8c4296e",
-      "aliases": [],
-      "title": "黃仁勳重掌輝達，與Anthropic AI模型路線之爭升溫",
-      "primary_topic": "technology_ai",
-      "related_topics": [],
-      "importance_score": 4,
-      "importance_factors": {
-        "topical": 1,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T16:14:33+00:00",
-      "updated_at": "2026-11-24T16:14:33+00:00",
-      "article_urls": [
-        "https://tw.stock.yahoo.com/news/%E9%BB%83%E4%BB%81%E5%8B%B3%E9%87%8D%E6%8E%8C%E8%BC%9D%E9%81%94-%E8%88%87anthropic-ai%E6%A8%A1%E5%9E%8B%E8%B7%AF%E7%B7%9A%E4%B9%8B%E7%88%AD%E5%8D%87%E6%BA%AB-001433373.html"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "黃仁勳重掌輝達，與Anthropic AI模型路線之爭升溫",
-          "url": "https://tw.stock.yahoo.com/news/%E9%BB%83%E4%BB%81%E5%8B%B3%E9%87%8D%E6%8E%8C%E8%BC%9D%E9%81%94-%E8%88%87anthropic-ai%E6%A8%A1%E5%9E%8B%E8%B7%AF%E7%B7%9A%E4%B9%8B%E7%88%AD%E5%8D%87%E6%BA%AB-001433373.html",
-          "source": "Yahoo奇摩新聞",
-          "published_at": "2026-11-24T16:14:33+00:00",
-          "source_type": "media",
-          "content_access": "headline_only",
-          "source_group": "yahoo-finance",
-          "source_domain": "tw.stock.yahoo.com"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "黃仁勳重掌輝達，與Anthropic AI模型路線之爭升溫",
-          "article_urls": [
-            "https://tw.stock.yahoo.com/news/%E9%BB%83%E4%BB%81%E5%8B%B3%E9%87%8D%E6%8E%8C%E8%BC%9D%E9%81%94-%E8%88%87anthropic-ai%E6%A8%A1%E5%9E%8B%E8%B7%AF%E7%B7%9A%E4%B9%8B%E7%88%AD%E5%8D%87%E6%BA%AB-001433373.html"
-          ],
-          "source_groups": [
-            "yahoo-finance"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "後續產品實際應用、技術能力及官方更新",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-e2926284725e8c",
-      "aliases": [],
-      "title": "花錢買「純鈦保溫杯」超健康？醫揭造假黑幕！小心釋出重金屬恐傷腎",
-      "primary_topic": "consumer_lifestyle",
-      "related_topics": [],
-      "importance_score": 4,
-      "importance_factors": {
-        "topical": 1,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T16:00:00+00:00",
-      "updated_at": "2026-11-24T16:00:00+00:00",
-      "article_urls": [
-        "https://tw.news.yahoo.com/%E8%8A%B1%E9%8C%A2%E8%B2%B7-%E7%B4%94%E9%88%A6%E4%BF%9D%E6%BA%AB%E6%9D%AF-%E8%B6%85%E5%81%A5%E5%BA%B7-%E9%86%AB%E6%8F%AD%E9%80%A0%E5%81%87%E9%BB%91%E5%B9%95-%E5%B0%8F%E5%BF%83%E9%87%8B%E5%87%BA%E9%87%8D%E9%87%91%E5%B1%AC%E6%81%90%E5%82%B7%E8%85%8E-000000965.html"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "花錢買「純鈦保溫杯」超健康？醫揭造假黑幕！小心釋出重金屬恐傷腎",
-          "url": "https://tw.news.yahoo.com/%E8%8A%B1%E9%8C%A2%E8%B2%B7-%E7%B4%94%E9%88%A6%E4%BF%9D%E6%BA%AB%E6%9D%AF-%E8%B6%85%E5%81%A5%E5%BA%B7-%E9%86%AB%E6%8F%AD%E9%80%A0%E5%81%87%E9%BB%91%E5%B9%95-%E5%B0%8F%E5%BF%83%E9%87%8B%E5%87%BA%E9%87%8D%E9%87%91%E5%B1%AC%E6%81%90%E5%82%B7%E8%85%8E-000000965.html",
-          "source": "Yahoo奇摩新聞",
-          "published_at": "2026-11-24T16:00:00+00:00",
-          "source_type": "media",
-          "content_access": "headline_only",
-          "source_group": "yahoo-health",
-          "source_domain": "tw.news.yahoo.com"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "花錢買「純鈦保溫杯」超健康？醫揭造假黑幕！小心釋出重金屬恐傷腎",
-          "article_urls": [
-            "https://tw.news.yahoo.com/%E8%8A%B1%E9%8C%A2%E8%B2%B7-%E7%B4%94%E9%88%A6%E4%BF%9D%E6%BA%AB%E6%9D%AF-%E8%B6%85%E5%81%A5%E5%BA%B7-%E9%86%AB%E6%8F%AD%E9%80%A0%E5%81%87%E9%BB%91%E5%B9%95-%E5%B0%8F%E5%BF%83%E9%87%8B%E5%87%BA%E9%87%8D%E9%87%91%E5%B1%AC%E6%81%90%E5%82%B7%E8%85%8E-000000965.html"
-          ],
-          "source_groups": [
-            "yahoo-health"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "實際採用情況、消費者反應及後續服務變化",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-75a04e49b30888",
-      "aliases": [],
-      "title": "傳捷報！智崴三大國際合作案到手 明年營運動能看旺",
-      "primary_topic": "business_management",
-      "related_topics": [],
-      "importance_score": 4,
-      "importance_factors": {
-        "topical": 0,
-        "impact": 1,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T10:27:09+00:00",
-      "updated_at": "2026-11-24T10:27:09+00:00",
-      "article_urls": [
-        "https://ec.ltn.com.tw/article/breakingnews/5652034"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "傳捷報！智崴三大國際合作案到手 明年營運動能看旺",
-          "url": "https://ec.ltn.com.tw/article/breakingnews/5652034",
-          "source": "自由時報",
-          "published_at": "2026-11-24T10:27:09+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-business",
-          "source_domain": "ec.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "傳捷報！智崴三大國際合作案到手 明年營運動能看旺",
-          "article_urls": [
-            "https://ec.ltn.com.tw/article/breakingnews/5652034"
-          ],
-          "source_groups": [
-            "ltn-business"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "企業後續公告、執行進度與可衡量成果",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-dea8327656adc4",
-      "aliases": [],
-      "title": "反制中國跨境鎮壓 陸委會：危害民主法治秩序應訂罪責",
-      "primary_topic": "politics_policy",
-      "related_topics": [],
-      "importance_score": 4,
-      "importance_factors": {
-        "topical": 1,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T10:17:23+00:00",
-      "updated_at": "2026-11-24T10:17:23+00:00",
-      "article_urls": [
-        "https://news.ltn.com.tw/news/politics/breakingnews/5652027"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "反制中國跨境鎮壓 陸委會：危害民主法治秩序應訂罪責",
-          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5652027",
-          "source": "自由時報",
-          "published_at": "2026-11-24T10:17:23+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-politics",
-          "source_domain": "news.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "反制中國跨境鎮壓 陸委會：危害民主法治秩序應訂罪責",
-          "article_urls": [
-            "https://news.ltn.com.tw/news/politics/breakingnews/5652027"
-          ],
-          "source_groups": [
-            "ltn-politics"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "正式政策文本、施行日期及後續配套",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-351637bb9760cd",
-      "aliases": [],
-      "title": "屏東10月交通事故下降但死亡人數攀升 機車族占9成",
-      "primary_topic": "consumer_lifestyle",
-      "related_topics": [],
-      "importance_score": 4,
-      "importance_factors": {
-        "topical": 1,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T09:53:17+00:00",
-      "updated_at": "2026-11-24T09:53:17+00:00",
-      "article_urls": [
-        "https://news.ltn.com.tw/news/life/breakingnews/5651972"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "屏東10月交通事故下降但死亡人數攀升 機車族占9成",
-          "url": "https://news.ltn.com.tw/news/life/breakingnews/5651972",
-          "source": "自由時報",
-          "published_at": "2026-11-24T09:53:17+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-life",
-          "source_domain": "news.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "屏東10月交通事故下降但死亡人數攀升 機車族占9成",
-          "article_urls": [
-            "https://news.ltn.com.tw/news/life/breakingnews/5651972"
-          ],
-          "source_groups": [
-            "ltn-life"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "實際採用情況、消費者反應及後續服務變化",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-591fb7b3e913f1",
-      "aliases": [],
-      "title": "擷發科技首登慕尼黑電子展    逾千人次造訪聚焦AI無人機",
-      "primary_topic": "technology_ai",
-      "related_topics": [],
-      "importance_score": 4,
-      "importance_factors": {
-        "topical": 1,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T09:52:54+00:00",
-      "updated_at": "2026-11-24T09:52:54+00:00",
-      "article_urls": [
-        "https://ec.ltn.com.tw/article/breakingnews/5652004"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "擷發科技首登慕尼黑電子展    逾千人次造訪聚焦AI無人機",
-          "url": "https://ec.ltn.com.tw/article/breakingnews/5652004",
-          "source": "自由時報",
-          "published_at": "2026-11-24T09:52:54+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-business",
-          "source_domain": "ec.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "擷發科技首登慕尼黑電子展    逾千人次造訪聚焦AI無人機",
-          "article_urls": [
-            "https://ec.ltn.com.tw/article/breakingnews/5652004"
-          ],
-          "source_groups": [
-            "ltn-business"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "後續產品實際應用、技術能力及官方更新",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-49ee1b1cea78b1",
-      "aliases": [],
-      "title": "11/28選舉人數曝光！1957萬人可投縣市長 六都外僅「這縣市」破百萬",
-      "primary_topic": "politics_policy",
-      "related_topics": [],
-      "importance_score": 4,
-      "importance_factors": {
-        "topical": 1,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T09:23:30+00:00",
-      "updated_at": "2026-11-24T09:23:30+00:00",
-      "article_urls": [
-        "https://news.ltn.com.tw/news/politics/breakingnews/5651950"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "11/28選舉人數曝光！1957萬人可投縣市長 六都外僅「這縣市」破百萬",
-          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5651950",
-          "source": "自由時報",
-          "published_at": "2026-11-24T09:23:30+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-politics",
-          "source_domain": "news.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "11/28選舉人數曝光！1957萬人可投縣市長 六都外僅「這縣市」破百萬",
-          "article_urls": [
-            "https://news.ltn.com.tw/news/politics/breakingnews/5651950"
-          ],
-          "source_groups": [
-            "ltn-politics"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "正式政策文本、施行日期及後續配套",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-28eb8426b64633",
-      "aliases": [],
-      "title": "台南攜手建東精工導入智慧機器人 消防救災、巡檢拚科技助攻",
-      "primary_topic": "technology_ai",
-      "related_topics": [],
-      "importance_score": 4,
-      "importance_factors": {
-        "topical": 1,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T09:08:26+00:00",
-      "updated_at": "2026-11-24T09:08:26+00:00",
-      "article_urls": [
-        "https://news.ltn.com.tw/news/life/breakingnews/5651925"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "台南攜手建東精工導入智慧機器人 消防救災、巡檢拚科技助攻",
-          "url": "https://news.ltn.com.tw/news/life/breakingnews/5651925",
-          "source": "自由時報",
-          "published_at": "2026-11-24T09:08:26+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-life",
-          "source_domain": "news.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "台南攜手建東精工導入智慧機器人 消防救災、巡檢拚科技助攻",
-          "article_urls": [
-            "https://news.ltn.com.tw/news/life/breakingnews/5651925"
-          ],
-          "source_groups": [
-            "ltn-life"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "後續產品實際應用、技術能力及官方更新",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-d2a45d1ca7b7ca",
-      "aliases": [],
-      "title": "響應政策護盤！ 鈺創：預計買回5000張庫藏股",
-      "primary_topic": "politics_policy",
-      "related_topics": [],
-      "importance_score": 4,
-      "importance_factors": {
-        "topical": 0,
-        "impact": 1,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T08:57:09+00:00",
-      "updated_at": "2026-11-24T08:57:09+00:00",
-      "article_urls": [
-        "https://ec.ltn.com.tw/article/breakingnews/5651910"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "響應政策護盤！ 鈺創：預計買回5000張庫藏股",
-          "url": "https://ec.ltn.com.tw/article/breakingnews/5651910",
-          "source": "自由時報",
-          "published_at": "2026-11-24T08:57:09+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-business",
-          "source_domain": "ec.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "響應政策護盤！ 鈺創：預計買回5000張庫藏股",
-          "article_urls": [
-            "https://ec.ltn.com.tw/article/breakingnews/5651910"
-          ],
-          "source_groups": [
-            "ltn-business"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "正式政策文本、施行日期及後續配套",
       "interpretation_label": "觀察方向，非已證實結論或投資建議",
       "origin_priority": "media_index"
     },
@@ -4047,6 +3627,318 @@
       "origin_priority": "primary_source"
     },
     {
+      "id": "trend-f7c6e1b845c1ac",
+      "aliases": [],
+      "title": "營運三箭持續發威 台灣東洋看旺明年營運",
+      "primary_topic": "business_management",
+      "related_topics": [],
+      "importance_score": 3,
+      "importance_factors": {
+        "topical": 0,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T10:40:24+00:00",
+      "updated_at": "2026-11-25T10:40:24+00:00",
+      "article_urls": [
+        "https://ec.ltn.com.tw/article/breakingnews/5653290"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "營運三箭持續發威 台灣東洋看旺明年營運",
+          "url": "https://ec.ltn.com.tw/article/breakingnews/5653290",
+          "source": "自由時報",
+          "published_at": "2026-11-25T10:40:24+00:00",
+          "source_type": "media",
+          "content_access": "excerpt",
+          "source_group": "ltn-business",
+          "source_domain": "ec.ltn.com.tw"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "營運三箭持續發威 台灣東洋看旺明年營運",
+          "article_urls": [
+            "https://ec.ltn.com.tw/article/breakingnews/5653290"
+          ],
+          "source_groups": [
+            "ltn-business"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "企業後續公告、執行進度與可衡量成果",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-d4df2cd9f3db5a",
+      "aliases": [],
+      "title": "彰銀看明年景氣審慎正向  AI、出口續撐成長",
+      "primary_topic": "technology_ai",
+      "related_topics": [],
+      "importance_score": 3,
+      "importance_factors": {
+        "topical": 0,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T10:38:24+00:00",
+      "updated_at": "2026-11-25T10:38:24+00:00",
+      "article_urls": [
+        "https://ec.ltn.com.tw/article/breakingnews/5653278"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "彰銀看明年景氣審慎正向  AI、出口續撐成長",
+          "url": "https://ec.ltn.com.tw/article/breakingnews/5653278",
+          "source": "自由時報",
+          "published_at": "2026-11-25T10:38:24+00:00",
+          "source_type": "media",
+          "content_access": "excerpt",
+          "source_group": "ltn-business",
+          "source_domain": "ec.ltn.com.tw"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "彰銀看明年景氣審慎正向  AI、出口續撐成長",
+          "article_urls": [
+            "https://ec.ltn.com.tw/article/breakingnews/5653278"
+          ],
+          "source_groups": [
+            "ltn-business"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "後續產品實際應用、技術能力及官方更新",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-0893251ab15168",
+      "aliases": [],
+      "title": "AI已過高速成長高峰？ 台經院：AI動能未來2至3年都不是問題",
+      "primary_topic": "technology_ai",
+      "related_topics": [],
+      "importance_score": 3,
+      "importance_factors": {
+        "topical": 0,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T10:35:24+00:00",
+      "updated_at": "2026-11-25T10:35:24+00:00",
+      "article_urls": [
+        "https://ec.ltn.com.tw/article/breakingnews/5653277"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "AI已過高速成長高峰？ 台經院：AI動能未來2至3年都不是問題",
+          "url": "https://ec.ltn.com.tw/article/breakingnews/5653277",
+          "source": "自由時報",
+          "published_at": "2026-11-25T10:35:24+00:00",
+          "source_type": "media",
+          "content_access": "excerpt",
+          "source_group": "ltn-business",
+          "source_domain": "ec.ltn.com.tw"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "AI已過高速成長高峰？ 台經院：AI動能未來2至3年都不是問題",
+          "article_urls": [
+            "https://ec.ltn.com.tw/article/breakingnews/5653277"
+          ],
+          "source_groups": [
+            "ltn-business"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "後續產品實際應用、技術能力及官方更新",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-58317632a2bd6c",
+      "aliases": [],
+      "title": "沙國最大煉油廠遇襲起火！青年運動再轟首都金融區",
+      "primary_topic": "global_finance",
+      "related_topics": [],
+      "importance_score": 3,
+      "importance_factors": {
+        "topical": 0,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T10:03:31+00:00",
+      "updated_at": "2026-11-25T10:03:31+00:00",
+      "article_urls": [
+        "https://news.ltn.com.tw/news/world/breakingnews/5653115"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "沙國最大煉油廠遇襲起火！青年運動再轟首都金融區",
+          "url": "https://news.ltn.com.tw/news/world/breakingnews/5653115",
+          "source": "自由時報",
+          "published_at": "2026-11-25T10:03:31+00:00",
+          "source_type": "media",
+          "content_access": "excerpt",
+          "source_group": "ltn-world",
+          "source_domain": "news.ltn.com.tw"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "沙國最大煉油廠遇襲起火！青年運動再轟首都金融區",
+          "article_urls": [
+            "https://news.ltn.com.tw/news/world/breakingnews/5653115"
+          ],
+          "source_groups": [
+            "ltn-world"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "後續公布的官方指標與政策決議",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-5ea4469a8b0676",
+      "aliases": [],
+      "title": "大搶AI商機 長榮航空第一架客改貨機明年第2季投入營運",
+      "primary_topic": "technology_ai",
+      "related_topics": [],
+      "importance_score": 3,
+      "importance_factors": {
+        "topical": 0,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T09:07:37+00:00",
+      "updated_at": "2026-11-25T09:07:37+00:00",
+      "article_urls": [
+        "https://ec.ltn.com.tw/article/breakingnews/5653160"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "大搶AI商機 長榮航空第一架客改貨機明年第2季投入營運",
+          "url": "https://ec.ltn.com.tw/article/breakingnews/5653160",
+          "source": "自由時報",
+          "published_at": "2026-11-25T09:07:37+00:00",
+          "source_type": "media",
+          "content_access": "excerpt",
+          "source_group": "ltn-business",
+          "source_domain": "ec.ltn.com.tw"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "大搶AI商機 長榮航空第一架客改貨機明年第2季投入營運",
+          "article_urls": [
+            "https://ec.ltn.com.tw/article/breakingnews/5653160"
+          ],
+          "source_groups": [
+            "ltn-business"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "後續產品實際應用、技術能力及官方更新",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-756cf75c825763",
+      "aliases": [],
+      "title": "訴求聘僱人員喪假與公務員齊平 工會籲政府修正給假辦法",
+      "primary_topic": "politics_policy",
+      "related_topics": [],
+      "importance_score": 3,
+      "importance_factors": {
+        "topical": 0,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T07:02:17+00:00",
+      "updated_at": "2026-11-25T07:02:17+00:00",
+      "article_urls": [
+        "https://news.ltn.com.tw/news/life/breakingnews/5652873"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "訴求聘僱人員喪假與公務員齊平 工會籲政府修正給假辦法",
+          "url": "https://news.ltn.com.tw/news/life/breakingnews/5652873",
+          "source": "自由時報",
+          "published_at": "2026-11-25T07:02:17+00:00",
+          "source_type": "media",
+          "content_access": "excerpt",
+          "source_group": "ltn-life",
+          "source_domain": "news.ltn.com.tw"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "訴求聘僱人員喪假與公務員齊平 工會籲政府修正給假辦法",
+          "article_urls": [
+            "https://news.ltn.com.tw/news/life/breakingnews/5652873"
+          ],
+          "source_groups": [
+            "ltn-life"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "正式政策文本、施行日期及後續配套",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
       "id": "trend-14c2ebd36a1031",
       "aliases": [],
       "title": "黃仁勳重返輝達 產業人士：美中AI競賽出現人才爭奪戰",
@@ -4255,6 +4147,110 @@
       "origin_priority": "media_index"
     },
     {
+      "id": "trend-9176896cdaa169",
+      "aliases": [],
+      "title": "台泥法說2》進口水泥侵蝕3成市場 張安平籲政府出手：做再多AI還是要用建材",
+      "primary_topic": "technology_ai",
+      "related_topics": [],
+      "importance_score": 3,
+      "importance_factors": {
+        "topical": 0,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T02:34:44+00:00",
+      "updated_at": "2026-11-25T02:34:44+00:00",
+      "article_urls": [
+        "https://tw.stock.yahoo.com/news/%E5%8F%B0%E6%B3%A5%E6%B3%95%E8%AA%AA2%E3%80%8B%E9%80%B2%E5%8F%A3%E6%B0%B4%E6%B3%A5%E4%BE%B5%E8%9D%953%E6%88%90%E5%B8%82%E5%A0%B4-%E5%BC%B5%E5%AE%89%E5%B9%B3%E7%B1%B2%E6%94%BF%E5%BA%9C%E5%87%BA%E6%89%8B%EF%BC%9A%E5%81%9A%E5%86%8D%E5%A4%9Aai%E9%82%84%E6%98%AF%E8%A6%81%E7%94%A8%E5%BB%BA%E6%9D%90-103820938.html"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "台泥法說2》進口水泥侵蝕3成市場 張安平籲政府出手：做再多AI還是要用建材",
+          "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E6%B3%A5%E6%B3%95%E8%AA%AA2%E3%80%8B%E9%80%B2%E5%8F%A3%E6%B0%B4%E6%B3%A5%E4%BE%B5%E8%9D%953%E6%88%90%E5%B8%82%E5%A0%B4-%E5%BC%B5%E5%AE%89%E5%B9%B3%E7%B1%B2%E6%94%BF%E5%BA%9C%E5%87%BA%E6%89%8B%EF%BC%9A%E5%81%9A%E5%86%8D%E5%A4%9Aai%E9%82%84%E6%98%AF%E8%A6%81%E7%94%A8%E5%BB%BA%E6%9D%90-103820938.html",
+          "source": "Yahoo奇摩新聞",
+          "published_at": "2026-11-25T02:34:44+00:00",
+          "source_type": "media",
+          "content_access": "headline_only",
+          "source_group": "yahoo-finance",
+          "source_domain": "tw.stock.yahoo.com"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "台泥法說2》進口水泥侵蝕3成市場 張安平籲政府出手：做再多AI還是要用建材",
+          "article_urls": [
+            "https://tw.stock.yahoo.com/news/%E5%8F%B0%E6%B3%A5%E6%B3%95%E8%AA%AA2%E3%80%8B%E9%80%B2%E5%8F%A3%E6%B0%B4%E6%B3%A5%E4%BE%B5%E8%9D%953%E6%88%90%E5%B8%82%E5%A0%B4-%E5%BC%B5%E5%AE%89%E5%B9%B3%E7%B1%B2%E6%94%BF%E5%BA%9C%E5%87%BA%E6%89%8B%EF%BC%9A%E5%81%9A%E5%86%8D%E5%A4%9Aai%E9%82%84%E6%98%AF%E8%A6%81%E7%94%A8%E5%BB%BA%E6%9D%90-103820938.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "後續產品實際應用、技術能力及官方更新",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-6fae4d1745a472",
+      "aliases": [],
+      "title": "從綠色金融到防詐服務　富邦金控率子公司奪29座永續獎",
+      "primary_topic": "global_finance",
+      "related_topics": [],
+      "importance_score": 3,
+      "importance_factors": {
+        "topical": 0,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-25T01:30:00+00:00",
+      "updated_at": "2026-11-25T01:30:00+00:00",
+      "article_urls": [
+        "https://tw.news.yahoo.com/%E5%BE%9E%E7%B6%A0%E8%89%B2%E9%87%91%E8%9E%8D%E5%88%B0%E9%98%B2%E8%A9%90%E6%9C%8D%E5%8B%99-%E5%AF%8C%E9%82%A6%E9%87%91%E6%8E%A7%E7%8E%87%E5%AD%90%E5%85%AC%E5%8F%B8%E5%A5%AA29%E5%BA%A7%E6%B0%B8%E7%BA%8C%E7%8D%8E-093000687.html"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "從綠色金融到防詐服務　富邦金控率子公司奪29座永續獎",
+          "url": "https://tw.news.yahoo.com/%E5%BE%9E%E7%B6%A0%E8%89%B2%E9%87%91%E8%9E%8D%E5%88%B0%E9%98%B2%E8%A9%90%E6%9C%8D%E5%8B%99-%E5%AF%8C%E9%82%A6%E9%87%91%E6%8E%A7%E7%8E%87%E5%AD%90%E5%85%AC%E5%8F%B8%E5%A5%AA29%E5%BA%A7%E6%B0%B8%E7%BA%8C%E7%8D%8E-093000687.html",
+          "source": "Yahoo奇摩新聞",
+          "published_at": "2026-11-25T01:30:00+00:00",
+          "source_type": "media",
+          "content_access": "headline_only",
+          "source_group": "yahoo-lifestyle",
+          "source_domain": "tw.news.yahoo.com"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "從綠色金融到防詐服務　富邦金控率子公司奪29座永續獎",
+          "article_urls": [
+            "https://tw.news.yahoo.com/%E5%BE%9E%E7%B6%A0%E8%89%B2%E9%87%91%E8%9E%8D%E5%88%B0%E9%98%B2%E8%A9%90%E6%9C%8D%E5%8B%99-%E5%AF%8C%E9%82%A6%E9%87%91%E6%8E%A7%E7%8E%87%E5%AD%90%E5%85%AC%E5%8F%B8%E5%A5%AA29%E5%BA%A7%E6%B0%B8%E7%BA%8C%E7%8D%8E-093000687.html"
+          ],
+          "source_groups": [
+            "yahoo-lifestyle"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "後續公布的官方指標與政策決議",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
       "id": "trend-0722c8e5018e5e",
       "aliases": [],
       "title": "AI伺服器搶瘋了！戴爾積壓訂單飆破1323億美元 營運長示警：明年缺貨更嚴重",
@@ -4303,6 +4299,58 @@
       "independently_verified": false,
       "facts": [],
       "watchpoint": "後續產品實際應用、技術能力及官方更新",
+      "interpretation_label": "觀察方向，非已證實結論或投資建議",
+      "origin_priority": "media_index"
+    },
+    {
+      "id": "trend-cce7c4720601e7",
+      "aliases": [],
+      "title": "Yahoo 購物雙 12 檔期優惠來襲！刷卡最高回饋 18 %、爆品 1,212 元還有 1 克拉鑽戒抽獎",
+      "primary_topic": "consumer_lifestyle",
+      "related_topics": [],
+      "importance_score": 3,
+      "importance_factors": {
+        "topical": 0,
+        "impact": 0,
+        "recency": 2,
+        "sources": 1
+      },
+      "status": "new",
+      "first_seen_at": "2026-11-24T22:13:33+00:00",
+      "updated_at": "2026-11-24T22:13:33+00:00",
+      "article_urls": [
+        "https://tw.news.yahoo.com/yahoo-%E8%B3%BC%E7%89%A9%E9%9B%99-12-%E6%AA%94%E6%9C%9F%E5%84%AA%E6%83%A0%E4%BE%86%E8%A5%B2-%E5%88%B7%E5%8D%A1%E6%9C%80%E9%AB%98%E5%9B%9E%E9%A5%8B-061333216.html"
+      ],
+      "source_count": 1,
+      "articles": [
+        {
+          "title": "Yahoo 購物雙 12 檔期優惠來襲！刷卡最高回饋 18 %、爆品 1,212 元還有 1 克拉鑽戒抽獎",
+          "url": "https://tw.news.yahoo.com/yahoo-%E8%B3%BC%E7%89%A9%E9%9B%99-12-%E6%AA%94%E6%9C%9F%E5%84%AA%E6%83%A0%E4%BE%86%E8%A5%B2-%E5%88%B7%E5%8D%A1%E6%9C%80%E9%AB%98%E5%9B%9E%E9%A5%8B-061333216.html",
+          "source": "Yahoo奇摩新聞",
+          "published_at": "2026-11-24T22:13:33+00:00",
+          "source_type": "media",
+          "content_access": "headline_only",
+          "source_group": "yahoo-technology",
+          "source_domain": "tw.news.yahoo.com"
+        }
+      ],
+      "headline_groups": [
+        {
+          "headline": "Yahoo 購物雙 12 檔期優惠來襲！刷卡最高回饋 18 %、爆品 1,212 元還有 1 克拉鑽戒抽獎",
+          "article_urls": [
+            "https://tw.news.yahoo.com/yahoo-%E8%B3%BC%E7%89%A9%E9%9B%99-12-%E6%AA%94%E6%9C%9F%E5%84%AA%E6%83%A0%E4%BE%86%E8%A5%B2-%E5%88%B7%E5%8D%A1%E6%9C%80%E9%AB%98%E5%9B%9E%E9%A5%8B-061333216.html"
+          ],
+          "source_groups": [
+            "yahoo-technology"
+          ],
+          "status": "similar_headline_only",
+          "independently_verified": false
+        }
+      ],
+      "evidence_status": "media_reports_only",
+      "independently_verified": false,
+      "facts": [],
+      "watchpoint": "實際採用情況、消費者反應及後續服務變化",
       "interpretation_label": "觀察方向，非已證實結論或投資建議",
       "origin_priority": "media_index"
     },
@@ -4814,734 +4862,6 @@
           ],
           "source_groups": [
             "yahoo-finance"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "正式政策文本、施行日期及後續配套",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-6ca88649fa2eec",
-      "aliases": [],
-      "title": "三星人事異動！黃相俊掌記憶體、崔元俊接掌 Galaxy 手機事業",
-      "primary_topic": "semiconductors",
-      "related_topics": [],
-      "importance_score": 3,
-      "importance_factors": {
-        "topical": 0,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T16:52:09+00:00",
-      "updated_at": "2026-11-24T16:52:09+00:00",
-      "article_urls": [
-        "https://tw.news.yahoo.com/samsung-executive-reshuffle--samsung-leadership-changes-005209363.html"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "三星人事異動！黃相俊掌記憶體、崔元俊接掌 Galaxy 手機事業",
-          "url": "https://tw.news.yahoo.com/samsung-executive-reshuffle--samsung-leadership-changes-005209363.html",
-          "source": "Yahoo奇摩新聞",
-          "published_at": "2026-11-24T16:52:09+00:00",
-          "source_type": "media",
-          "content_access": "headline_only",
-          "source_group": "yahoo-technology",
-          "source_domain": "tw.news.yahoo.com"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "三星人事異動！黃相俊掌記憶體、崔元俊接掌 Galaxy 手機事業",
-          "article_urls": [
-            "https://tw.news.yahoo.com/samsung-executive-reshuffle--samsung-leadership-changes-005209363.html"
-          ],
-          "source_groups": [
-            "yahoo-technology"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "供應鏈合作、製程與產能進度及需求變化",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-8e81fa9d4809fb",
-      "aliases": [],
-      "title": "黃仁勳下週赴國會作證！川普表明願動用赦免權　不排除入股輝達",
-      "primary_topic": "politics_policy",
-      "related_topics": [],
-      "importance_score": 3,
-      "importance_factors": {
-        "topical": 0,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T16:50:00+00:00",
-      "updated_at": "2026-11-24T16:50:00+00:00",
-      "article_urls": [
-        "https://tw.stock.yahoo.com/news/%E9%BB%83%E4%BB%81%E5%8B%B3%E4%B8%8B%E9%80%B1%E8%B5%B4%E5%9C%8B%E6%9C%83%E4%BD%9C%E8%AD%89-%E5%B7%9D%E6%99%AE%E8%A1%A8%E6%98%8E%E9%A1%98%E5%8B%95%E7%94%A8%E8%B5%A6%E5%85%8D%E6%AC%8A-%E4%B8%8D%E6%8E%92%E9%99%A4%E5%85%A5%E8%82%A1%E8%BC%9D%E9%81%94-005000380.html"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "黃仁勳下週赴國會作證！川普表明願動用赦免權　不排除入股輝達",
-          "url": "https://tw.stock.yahoo.com/news/%E9%BB%83%E4%BB%81%E5%8B%B3%E4%B8%8B%E9%80%B1%E8%B5%B4%E5%9C%8B%E6%9C%83%E4%BD%9C%E8%AD%89-%E5%B7%9D%E6%99%AE%E8%A1%A8%E6%98%8E%E9%A1%98%E5%8B%95%E7%94%A8%E8%B5%A6%E5%85%8D%E6%AC%8A-%E4%B8%8D%E6%8E%92%E9%99%A4%E5%85%A5%E8%82%A1%E8%BC%9D%E9%81%94-005000380.html",
-          "source": "Yahoo奇摩新聞",
-          "published_at": "2026-11-24T16:50:00+00:00",
-          "source_type": "media",
-          "content_access": "headline_only",
-          "source_group": "yahoo-finance",
-          "source_domain": "tw.stock.yahoo.com"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "黃仁勳下週赴國會作證！川普表明願動用赦免權　不排除入股輝達",
-          "article_urls": [
-            "https://tw.stock.yahoo.com/news/%E9%BB%83%E4%BB%81%E5%8B%B3%E4%B8%8B%E9%80%B1%E8%B5%B4%E5%9C%8B%E6%9C%83%E4%BD%9C%E8%AD%89-%E5%B7%9D%E6%99%AE%E8%A1%A8%E6%98%8E%E9%A1%98%E5%8B%95%E7%94%A8%E8%B5%A6%E5%85%8D%E6%AC%8A-%E4%B8%8D%E6%8E%92%E9%99%A4%E5%85%A5%E8%82%A1%E8%BC%9D%E9%81%94-005000380.html"
-          ],
-          "source_groups": [
-            "yahoo-finance"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "正式政策文本、施行日期及後續配套",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-2bdbfd43ef869a",
-      "aliases": [],
-      "title": "黃仁勳也難救？ 台指期夜盤血崩1842點、費半重挫近8％　AI股反殺4大原因曝光",
-      "primary_topic": "technology_ai",
-      "related_topics": [],
-      "importance_score": 3,
-      "importance_factors": {
-        "topical": 0,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T16:34:00+00:00",
-      "updated_at": "2026-11-24T16:34:00+00:00",
-      "article_urls": [
-        "https://tw.stock.yahoo.com/news/%E9%BB%83%E4%BB%81%E5%8B%B3%E4%B9%9F%E9%9B%A3%E6%95%91-%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A4%E8%A1%80%E5%B4%A91842%E9%BB%9E-%E8%B2%BB%E5%8D%8A%E9%87%8D%E6%8C%AB%E8%BF%918-ai%E8%82%A1%E5%8F%8D%E6%AE%BA4%E5%A4%A7%E5%8E%9F%E5%9B%A0%E6%9B%9D%E5%85%89-003400585.html"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "黃仁勳也難救？ 台指期夜盤血崩1842點、費半重挫近8％　AI股反殺4大原因曝光",
-          "url": "https://tw.stock.yahoo.com/news/%E9%BB%83%E4%BB%81%E5%8B%B3%E4%B9%9F%E9%9B%A3%E6%95%91-%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A4%E8%A1%80%E5%B4%A91842%E9%BB%9E-%E8%B2%BB%E5%8D%8A%E9%87%8D%E6%8C%AB%E8%BF%918-ai%E8%82%A1%E5%8F%8D%E6%AE%BA4%E5%A4%A7%E5%8E%9F%E5%9B%A0%E6%9B%9D%E5%85%89-003400585.html",
-          "source": "Yahoo奇摩新聞",
-          "published_at": "2026-11-24T16:34:00+00:00",
-          "source_type": "media",
-          "content_access": "headline_only",
-          "source_group": "yahoo-finance",
-          "source_domain": "tw.stock.yahoo.com"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "黃仁勳也難救？ 台指期夜盤血崩1842點、費半重挫近8％　AI股反殺4大原因曝光",
-          "article_urls": [
-            "https://tw.stock.yahoo.com/news/%E9%BB%83%E4%BB%81%E5%8B%B3%E4%B9%9F%E9%9B%A3%E6%95%91-%E5%8F%B0%E6%8C%87%E6%9C%9F%E5%A4%9C%E7%9B%A4%E8%A1%80%E5%B4%A91842%E9%BB%9E-%E8%B2%BB%E5%8D%8A%E9%87%8D%E6%8C%AB%E8%BF%918-ai%E8%82%A1%E5%8F%8D%E6%AE%BA4%E5%A4%A7%E5%8E%9F%E5%9B%A0%E6%9B%9D%E5%85%89-003400585.html"
-          ],
-          "source_groups": [
-            "yahoo-finance"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "後續產品實際應用、技術能力及官方更新",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-ac8a13a0ed90ee",
-      "aliases": [],
-      "title": "科技股賣壓與關稅陰霾拖累，LME期銅週二重挫5.31%，跌破1.2萬美元",
-      "primary_topic": "politics_policy",
-      "related_topics": [],
-      "importance_score": 3,
-      "importance_factors": {
-        "topical": 0,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T16:33:36+00:00",
-      "updated_at": "2026-11-24T16:33:36+00:00",
-      "article_urls": [
-        "https://tw.stock.yahoo.com/news/%E7%A7%91%E6%8A%80%E8%82%A1%E8%B3%A3%E5%A3%93%E8%88%87%E9%97%9C%E7%A8%85%E9%99%B0%E9%9C%BE%E6%8B%96%E7%B4%AF-lme%E6%9C%9F%E9%8A%85%E9%80%B1%E4%BA%8C%E9%87%8D%E6%8C%AB5-31-%E8%B7%8C%E7%A0%B41-2%E8%90%AC%E7%BE%8E%E5%85%83-003336598.html"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "科技股賣壓與關稅陰霾拖累，LME期銅週二重挫5.31%，跌破1.2萬美元",
-          "url": "https://tw.stock.yahoo.com/news/%E7%A7%91%E6%8A%80%E8%82%A1%E8%B3%A3%E5%A3%93%E8%88%87%E9%97%9C%E7%A8%85%E9%99%B0%E9%9C%BE%E6%8B%96%E7%B4%AF-lme%E6%9C%9F%E9%8A%85%E9%80%B1%E4%BA%8C%E9%87%8D%E6%8C%AB5-31-%E8%B7%8C%E7%A0%B41-2%E8%90%AC%E7%BE%8E%E5%85%83-003336598.html",
-          "source": "Yahoo奇摩新聞",
-          "published_at": "2026-11-24T16:33:36+00:00",
-          "source_type": "media",
-          "content_access": "headline_only",
-          "source_group": "yahoo-finance",
-          "source_domain": "tw.stock.yahoo.com"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "科技股賣壓與關稅陰霾拖累，LME期銅週二重挫5.31%，跌破1.2萬美元",
-          "article_urls": [
-            "https://tw.stock.yahoo.com/news/%E7%A7%91%E6%8A%80%E8%82%A1%E8%B3%A3%E5%A3%93%E8%88%87%E9%97%9C%E7%A8%85%E9%99%B0%E9%9C%BE%E6%8B%96%E7%B4%AF-lme%E6%9C%9F%E9%8A%85%E9%80%B1%E4%BA%8C%E9%87%8D%E6%8C%AB5-31-%E8%B7%8C%E7%A0%B41-2%E8%90%AC%E7%BE%8E%E5%85%83-003336598.html"
-          ],
-          "source_groups": [
-            "yahoo-finance"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "正式政策文本、施行日期及後續配套",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-625901921a69b5",
-      "aliases": [],
-      "title": "騰訊混元開源第三代翻譯模型Hy MT3，支援語言增至102種",
-      "primary_topic": "technology_ai",
-      "related_topics": [],
-      "importance_score": 3,
-      "importance_factors": {
-        "topical": 0,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T16:30:07+00:00",
-      "updated_at": "2026-11-24T16:30:07+00:00",
-      "article_urls": [
-        "https://tw.stock.yahoo.com/news/%E9%A8%B0%E8%A8%8A%E6%B7%B7%E5%85%83%E9%96%8B%E6%BA%90%E7%AC%AC%E4%B8%89%E4%BB%A3%E7%BF%BB%E8%AD%AF%E6%A8%A1%E5%9E%8Bhy-mt3-%E6%94%AF%E6%8F%B4%E8%AA%9E%E8%A8%80%E5%A2%9E%E8%87%B3102%E7%A8%AE-003007769.html"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "騰訊混元開源第三代翻譯模型Hy MT3，支援語言增至102種",
-          "url": "https://tw.stock.yahoo.com/news/%E9%A8%B0%E8%A8%8A%E6%B7%B7%E5%85%83%E9%96%8B%E6%BA%90%E7%AC%AC%E4%B8%89%E4%BB%A3%E7%BF%BB%E8%AD%AF%E6%A8%A1%E5%9E%8Bhy-mt3-%E6%94%AF%E6%8F%B4%E8%AA%9E%E8%A8%80%E5%A2%9E%E8%87%B3102%E7%A8%AE-003007769.html",
-          "source": "Yahoo奇摩新聞",
-          "published_at": "2026-11-24T16:30:07+00:00",
-          "source_type": "media",
-          "content_access": "headline_only",
-          "source_group": "yahoo-finance",
-          "source_domain": "tw.stock.yahoo.com"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "騰訊混元開源第三代翻譯模型Hy MT3，支援語言增至102種",
-          "article_urls": [
-            "https://tw.stock.yahoo.com/news/%E9%A8%B0%E8%A8%8A%E6%B7%B7%E5%85%83%E9%96%8B%E6%BA%90%E7%AC%AC%E4%B8%89%E4%BB%A3%E7%BF%BB%E8%AD%AF%E6%A8%A1%E5%9E%8Bhy-mt3-%E6%94%AF%E6%8F%B4%E8%AA%9E%E8%A8%80%E5%A2%9E%E8%87%B3102%E7%A8%AE-003007769.html"
-          ],
-          "source_groups": [
-            "yahoo-finance"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "後續產品實際應用、技術能力及官方更新",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-b193349f9fec8e",
-      "aliases": [],
-      "title": "鬼故事又來？ 川普恐再祭新關稅 最快本週公告",
-      "primary_topic": "politics_policy",
-      "related_topics": [],
-      "importance_score": 3,
-      "importance_factors": {
-        "topical": 0,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T16:21:00+00:00",
-      "updated_at": "2026-11-24T16:21:00+00:00",
-      "article_urls": [
-        "https://tw.stock.yahoo.com/news/%E9%AC%BC%E6%95%85%E4%BA%8B%E5%8F%88%E4%BE%86-%E5%B7%9D%E6%99%AE%E6%81%90%E5%86%8D%E7%A5%AD%E6%96%B0%E9%97%9C%E7%A8%85-%E6%9C%80%E5%BF%AB%E6%9C%AC%E9%80%B1%E5%85%AC%E5%91%8A-002100096.html"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "鬼故事又來？ 川普恐再祭新關稅 最快本週公告",
-          "url": "https://tw.stock.yahoo.com/news/%E9%AC%BC%E6%95%85%E4%BA%8B%E5%8F%88%E4%BE%86-%E5%B7%9D%E6%99%AE%E6%81%90%E5%86%8D%E7%A5%AD%E6%96%B0%E9%97%9C%E7%A8%85-%E6%9C%80%E5%BF%AB%E6%9C%AC%E9%80%B1%E5%85%AC%E5%91%8A-002100096.html",
-          "source": "Yahoo奇摩新聞",
-          "published_at": "2026-11-24T16:21:00+00:00",
-          "source_type": "media",
-          "content_access": "headline_only",
-          "source_group": "yahoo-finance",
-          "source_domain": "tw.stock.yahoo.com"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "鬼故事又來？ 川普恐再祭新關稅 最快本週公告",
-          "article_urls": [
-            "https://tw.stock.yahoo.com/news/%E9%AC%BC%E6%95%85%E4%BA%8B%E5%8F%88%E4%BE%86-%E5%B7%9D%E6%99%AE%E6%81%90%E5%86%8D%E7%A5%AD%E6%96%B0%E9%97%9C%E7%A8%85-%E6%9C%80%E5%BF%AB%E6%9C%AC%E9%80%B1%E5%85%AC%E5%91%8A-002100096.html"
-          ],
-          "source_groups": [
-            "yahoo-finance"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "正式政策文本、施行日期及後續配套",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-f6e9308768b52a",
-      "aliases": [],
-      "title": "美新一輪關稅行動引發拋售，紐約期金和現貨金週二大跌2.46%、2.14%",
-      "primary_topic": "politics_policy",
-      "related_topics": [],
-      "importance_score": 3,
-      "importance_factors": {
-        "topical": 0,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T16:16:51+00:00",
-      "updated_at": "2026-11-24T16:16:51+00:00",
-      "article_urls": [
-        "https://tw.stock.yahoo.com/news/%E7%BE%8E%E6%96%B0-%E8%BC%AA%E9%97%9C%E7%A8%85%E8%A1%8C%E5%8B%95%E5%BC%95%E7%99%BC%E6%8B%8B%E5%94%AE-%E7%B4%90%E7%B4%84%E6%9C%9F%E9%87%91%E5%92%8C%E7%8F%BE%E8%B2%A8%E9%87%91%E9%80%B1%E4%BA%8C%E5%A4%A7%E8%B7%8C2-46-2-001651482.html"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "美新一輪關稅行動引發拋售，紐約期金和現貨金週二大跌2.46%、2.14%",
-          "url": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E6%96%B0-%E8%BC%AA%E9%97%9C%E7%A8%85%E8%A1%8C%E5%8B%95%E5%BC%95%E7%99%BC%E6%8B%8B%E5%94%AE-%E7%B4%90%E7%B4%84%E6%9C%9F%E9%87%91%E5%92%8C%E7%8F%BE%E8%B2%A8%E9%87%91%E9%80%B1%E4%BA%8C%E5%A4%A7%E8%B7%8C2-46-2-001651482.html",
-          "source": "Yahoo奇摩新聞",
-          "published_at": "2026-11-24T16:16:51+00:00",
-          "source_type": "media",
-          "content_access": "headline_only",
-          "source_group": "yahoo-finance",
-          "source_domain": "tw.stock.yahoo.com"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "美新一輪關稅行動引發拋售，紐約期金和現貨金週二大跌2.46%、2.14%",
-          "article_urls": [
-            "https://tw.stock.yahoo.com/news/%E7%BE%8E%E6%96%B0-%E8%BC%AA%E9%97%9C%E7%A8%85%E8%A1%8C%E5%8B%95%E5%BC%95%E7%99%BC%E6%8B%8B%E5%94%AE-%E7%B4%90%E7%B4%84%E6%9C%9F%E9%87%91%E5%92%8C%E7%8F%BE%E8%B2%A8%E9%87%91%E9%80%B1%E4%BA%8C%E5%A4%A7%E8%B7%8C2-46-2-001651482.html"
-          ],
-          "source_groups": [
-            "yahoo-finance"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "正式政策文本、施行日期及後續配套",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-4956f033ea399a",
-      "aliases": [],
-      "title": "關稅及升息風險攪局，AI股熄火，費半週二急吐7.88%，道瓊獨漲423點",
-      "primary_topic": "technology_ai",
-      "related_topics": [],
-      "importance_score": 3,
-      "importance_factors": {
-        "topical": 0,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T16:15:21+00:00",
-      "updated_at": "2026-11-24T16:15:21+00:00",
-      "article_urls": [
-        "https://tw.stock.yahoo.com/news/%E9%97%9C%E7%A8%85%E5%8F%8A%E5%8D%87%E6%81%AF%E9%A2%A8%E9%9A%AA%E6%94%AA%E5%B1%80-ai%E8%82%A1%E7%86%84%E7%81%AB-%E8%B2%BB%E5%8D%8A%E9%80%B1%E4%BA%8C%E6%80%A5%E5%90%907-88-%E9%81%93%E7%93%8A%E7%8D%A8%E6%BC%B2423%E9%BB%9E-001521028.html"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "關稅及升息風險攪局，AI股熄火，費半週二急吐7.88%，道瓊獨漲423點",
-          "url": "https://tw.stock.yahoo.com/news/%E9%97%9C%E7%A8%85%E5%8F%8A%E5%8D%87%E6%81%AF%E9%A2%A8%E9%9A%AA%E6%94%AA%E5%B1%80-ai%E8%82%A1%E7%86%84%E7%81%AB-%E8%B2%BB%E5%8D%8A%E9%80%B1%E4%BA%8C%E6%80%A5%E5%90%907-88-%E9%81%93%E7%93%8A%E7%8D%A8%E6%BC%B2423%E9%BB%9E-001521028.html",
-          "source": "Yahoo奇摩新聞",
-          "published_at": "2026-11-24T16:15:21+00:00",
-          "source_type": "media",
-          "content_access": "headline_only",
-          "source_group": "yahoo-finance",
-          "source_domain": "tw.stock.yahoo.com"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "關稅及升息風險攪局，AI股熄火，費半週二急吐7.88%，道瓊獨漲423點",
-          "article_urls": [
-            "https://tw.stock.yahoo.com/news/%E9%97%9C%E7%A8%85%E5%8F%8A%E5%8D%87%E6%81%AF%E9%A2%A8%E9%9A%AA%E6%94%AA%E5%B1%80-ai%E8%82%A1%E7%86%84%E7%81%AB-%E8%B2%BB%E5%8D%8A%E9%80%B1%E4%BA%8C%E6%80%A5%E5%90%907-88-%E9%81%93%E7%93%8A%E7%8D%A8%E6%BC%B2423%E9%BB%9E-001521028.html"
-          ],
-          "source_groups": [
-            "yahoo-finance"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "後續產品實際應用、技術能力及官方更新",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-c3b043cf8d59f5",
-      "aliases": [],
-      "title": "挺藍網紅嗆「台股沒回到4萬下架民進黨」 今遭打臉網灌爆嘲諷",
-      "primary_topic": "global_finance",
-      "related_topics": [],
-      "importance_score": 3,
-      "importance_factors": {
-        "topical": 0,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T10:31:58+00:00",
-      "updated_at": "2026-11-24T10:31:58+00:00",
-      "article_urls": [
-        "https://news.ltn.com.tw/news/politics/breakingnews/5651872"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "挺藍網紅嗆「台股沒回到4萬下架民進黨」 今遭打臉網灌爆嘲諷",
-          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5651872",
-          "source": "自由時報",
-          "published_at": "2026-11-24T10:31:58+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-politics",
-          "source_domain": "news.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "挺藍網紅嗆「台股沒回到4萬下架民進黨」 今遭打臉網灌爆嘲諷",
-          "article_urls": [
-            "https://news.ltn.com.tw/news/politics/breakingnews/5651872"
-          ],
-          "source_groups": [
-            "ltn-politics"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "後續公布的官方指標與政策決議",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-0b317e10ec0af5",
-      "aliases": [],
-      "title": "宏碁資訊3大核心佈局 今明年營運步步高升",
-      "primary_topic": "business_management",
-      "related_topics": [],
-      "importance_score": 3,
-      "importance_factors": {
-        "topical": 0,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T10:11:02+00:00",
-      "updated_at": "2026-11-24T10:11:02+00:00",
-      "article_urls": [
-        "https://ec.ltn.com.tw/article/breakingnews/5652019"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "宏碁資訊3大核心佈局 今明年營運步步高升",
-          "url": "https://ec.ltn.com.tw/article/breakingnews/5652019",
-          "source": "自由時報",
-          "published_at": "2026-11-24T10:11:02+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-business",
-          "source_domain": "ec.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "宏碁資訊3大核心佈局 今明年營運步步高升",
-          "article_urls": [
-            "https://ec.ltn.com.tw/article/breakingnews/5652019"
-          ],
-          "source_groups": [
-            "ltn-business"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "企業後續公告、執行進度與可衡量成果",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-2fb93b8a356d93",
-      "aliases": [],
-      "title": "資安需求大增 安碁資訊明年拼雙位數成長",
-      "primary_topic": "technology_ai",
-      "related_topics": [],
-      "importance_score": 3,
-      "importance_factors": {
-        "topical": 0,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T09:52:06+00:00",
-      "updated_at": "2026-11-24T09:52:06+00:00",
-      "article_urls": [
-        "https://ec.ltn.com.tw/article/breakingnews/5652002"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "資安需求大增 安碁資訊明年拼雙位數成長",
-          "url": "https://ec.ltn.com.tw/article/breakingnews/5652002",
-          "source": "自由時報",
-          "published_at": "2026-11-24T09:52:06+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-business",
-          "source_domain": "ec.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "資安需求大增 安碁資訊明年拼雙位數成長",
-          "article_urls": [
-            "https://ec.ltn.com.tw/article/breakingnews/5652002"
-          ],
-          "source_groups": [
-            "ltn-business"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "後續產品實際應用、技術能力及官方更新",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-3247fdeccc5113",
-      "aliases": [],
-      "title": "遭質疑拿索羅斯、USAID經費 沈伯洋：理事長不能支薪、一毛都沒進口袋",
-      "primary_topic": "technology_ai",
-      "related_topics": [],
-      "importance_score": 3,
-      "importance_factors": {
-        "topical": 0,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T09:32:45+00:00",
-      "updated_at": "2026-11-24T09:32:45+00:00",
-      "article_urls": [
-        "https://news.ltn.com.tw/news/politics/breakingnews/5651954"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "遭質疑拿索羅斯、USAID經費 沈伯洋：理事長不能支薪、一毛都沒進口袋",
-          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5651954",
-          "source": "自由時報",
-          "published_at": "2026-11-24T09:32:45+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-politics",
-          "source_domain": "news.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "遭質疑拿索羅斯、USAID經費 沈伯洋：理事長不能支薪、一毛都沒進口袋",
-          "article_urls": [
-            "https://news.ltn.com.tw/news/politics/breakingnews/5651954"
-          ],
-          "source_groups": [
-            "ltn-politics"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "後續產品實際應用、技術能力及官方更新",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-a05e1103b21002",
-      "aliases": [],
-      "title": "AI激勵 10月批發營收長紅21個月",
-      "primary_topic": "technology_ai",
-      "related_topics": [],
-      "importance_score": 3,
-      "importance_factors": {
-        "topical": 0,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T08:59:12+00:00",
-      "updated_at": "2026-11-24T08:59:12+00:00",
-      "article_urls": [
-        "https://ec.ltn.com.tw/article/breakingnews/5651915"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "AI激勵 10月批發營收長紅21個月",
-          "url": "https://ec.ltn.com.tw/article/breakingnews/5651915",
-          "source": "自由時報",
-          "published_at": "2026-11-24T08:59:12+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-business",
-          "source_domain": "ec.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "AI激勵 10月批發營收長紅21個月",
-          "article_urls": [
-            "https://ec.ltn.com.tw/article/breakingnews/5651915"
-          ],
-          "source_groups": [
-            "ltn-business"
-          ],
-          "status": "similar_headline_only",
-          "independently_verified": false
-        }
-      ],
-      "evidence_status": "media_reports_only",
-      "independently_verified": false,
-      "facts": [],
-      "watchpoint": "後續產品實際應用、技術能力及官方更新",
-      "interpretation_label": "觀察方向，非已證實結論或投資建議",
-      "origin_priority": "media_index"
-    },
-    {
-      "id": "trend-b2bbfc46664081",
-      "aliases": [],
-      "title": "黃仁勳回任輝達執行長  華爾街日報：川普政府須回答5個問題",
-      "primary_topic": "politics_policy",
-      "related_topics": [],
-      "importance_score": 3,
-      "importance_factors": {
-        "topical": 0,
-        "impact": 0,
-        "recency": 2,
-        "sources": 1
-      },
-      "status": "new",
-      "first_seen_at": "2026-11-24T08:54:42+00:00",
-      "updated_at": "2026-11-24T08:54:42+00:00",
-      "article_urls": [
-        "https://ec.ltn.com.tw/article/breakingnews/5651894"
-      ],
-      "source_count": 1,
-      "articles": [
-        {
-          "title": "黃仁勳回任輝達執行長  華爾街日報：川普政府須回答5個問題",
-          "url": "https://ec.ltn.com.tw/article/breakingnews/5651894",
-          "source": "自由時報",
-          "published_at": "2026-11-24T08:54:42+00:00",
-          "source_type": "media",
-          "content_access": "excerpt",
-          "source_group": "ltn-business",
-          "source_domain": "ec.ltn.com.tw"
-        }
-      ],
-      "headline_groups": [
-        {
-          "headline": "黃仁勳回任輝達執行長  華爾街日報：川普政府須回答5個問題",
-          "article_urls": [
-            "https://ec.ltn.com.tw/article/breakingnews/5651894"
-          ],
-          "source_groups": [
-            "ltn-business"
           ],
           "status": "similar_headline_only",
           "independently_verified": false
