@@ -1,7 +1,81 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-26T01:01:50.862924+00:00",
+  "updated_at": "2026-11-26T05:57:38.030838+00:00",
   "items": [
+    {
+      "id": "ey:6bd247b7-44ee-4345-9b9a-4a964b98f01f",
+      "source_id": "ey",
+      "source": "行政院",
+      "kind": "news",
+      "category": "社會與公共政策",
+      "title": "九合一選舉將至 卓揆促全面檢視選務工作 確保選舉順利、深化民主政治",
+      "url": "https://www.ey.gov.tw/Page/9277F759E41CCD91/6bd247b7-44ee-4345-9b9a-4a964b98f01f",
+      "published_at": "2026-11-26T00:00:00+08:00",
+      "content_complete": true,
+      "reuse_license": "approved",
+      "license_name": "政府資料開放授權條款－第1版",
+      "license_url": "https://www.ey.gov.tw/Page/2EADDBFEDDB6357E",
+      "content_scope": "official_full_text",
+      "translation_status": "original_zh_hant",
+      "evidence_original": [
+        "行政院長卓榮泰今（26）日於行政院會表示，九合一選舉（115年地方公職人員選舉及全國性公民投票案第22案）將於後（28）日舉行，請中央選舉委員會及各縣市選舉委員會在投票前最後兩天，全面檢視選務工作及其相關因應措施。",
+        "卓院長指出，有關投票當日的投票秩序、地方治安、候選人人身安全等工作，請法務部及內政部務必加強整備，確保選舉順利完成。若因交通或天候因素影響選票運送等作業，請相關部會直接提供協助，務必克服困難，如有需協調溝通之處，也請本院張惇涵秘書長全力協助。",
+        "卓院長進一步表示，資安攻擊預期仍會持續發生，請數位發展部、中選會及各縣市選委會保持密切聯繫，採取必要處置。隨著科技進化，選舉過程也面臨不同挑戰，盼相關部會加強技術、人力等方面的合作，確保選舉公平、程序完備，深化我國民主政治。"
+      ],
+      "excerpt_original": "行政院長卓榮泰今（26）日於行政院會表示，九合一選舉（115年地方公職人員選舉及全國性公民投票案第22案）將於後（28）日舉行，請中央選舉委員會及各縣市選舉委員會在投票前最後兩天，全面檢視選務工作及其相關因應措施。",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
+    {
+      "id": "ey:f090e490-de25-4757-be93-079241f6d2f8",
+      "source_id": "ey",
+      "source": "行政院",
+      "kind": "news",
+      "category": "社會與公共政策",
+      "title": "「駐英國台北代表處與英國在台辦事處科學、創新暨技術合作協議」准予備查 首波合作聚焦衛星通訊、矽光子及半導體培力",
+      "url": "https://www.ey.gov.tw/Page/9277F759E41CCD91/f090e490-de25-4757-be93-079241f6d2f8",
+      "published_at": "2026-11-26T00:00:00+08:00",
+      "content_complete": true,
+      "reuse_license": "approved",
+      "license_name": "政府資料開放授權條款－第1版",
+      "license_url": "https://www.ey.gov.tw/Page/2EADDBFEDDB6357E",
+      "content_scope": "official_full_text",
+      "translation_status": "original_zh_hant",
+      "evidence_original": [
+        "為促進臺、英科學、創新及技術合作與交流，行政院會今（26）日針對國家科學及技術委員會函送之「駐英國台北代表處與英國在台辦事處科學、創新暨技術合作協議」，決定由院復准備查，並函請總統府秘書長查照轉陳。",
+        "行政院長卓榮泰表示，本協議已於今（115）年10月2日於英國倫敦完成簽署，象徵臺英雙方科技夥伴關係邁向全新里程碑，共同提升雙方在關鍵科技領域的全球競爭力與供應鏈韌性。未來雙方的首波科技合作，將聚焦衛星通訊、矽光子及半導體培力等三大旗艦領域，具體實踐「強強聯手、優勢互補」的合作機制。",
+        "卓院長請國科會以本協議合作模式為範本，持續深化與全球頂尖學術機構及產業聚落的跨國鏈結，與理念相近的民主國家共享科研價值，讓臺灣成為全球民主陣營中不可或缺的科技韌性夥伴。並請外交部與各部會持續協力，完成對外外交、經貿、文化、人才培育等各項重要工作。"
+      ],
+      "excerpt_original": "為促進臺、英科學、創新及技術合作與交流，行政院會今（26）日針對國家科學及技術委員會函送之「駐英國台北代表處與英國在台辦事處科學、創新暨技術合作協議」，決定由院復准備查，並函請總統府秘書長查照轉陳。",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
+    {
+      "id": "ey:97a9d396-29cb-4da9-920f-832331d1e8f6",
+      "source_id": "ey",
+      "source": "行政院",
+      "kind": "news",
+      "category": "社會與公共政策",
+      "title": "美方公布14國「結構性產能過剩」301調查報告 我301關稅建議稅率為最低級別「15%不疊加」",
+      "url": "https://www.ey.gov.tw/Page/9277F759E41CCD91/97a9d396-29cb-4da9-920f-832331d1e8f6",
+      "published_at": "2026-11-26T00:00:00+08:00",
+      "content_complete": true,
+      "reuse_license": "approved",
+      "license_name": "政府資料開放授權條款－第1版",
+      "license_url": "https://www.ey.gov.tw/Page/2EADDBFEDDB6357E",
+      "content_scope": "official_full_text",
+      "translation_status": "original_zh_hant",
+      "evidence_original": [
+        "美國貿易代表署（USTR）於美東時間11月25日公布「結構性產能過剩」301調查報告，提出對全球14個經濟體的建議關稅，其中對臺灣、日本、韓國、歐盟、瑞士等國的建議稅率為「15%不疊加MFN，且不再疊加強迫勞動301關稅」，同屬最低稅率級別。本調查報告為建議措施，本案仍須經2027年1月5日前徵詢公眾意見，以及2027年1月25日起舉行公聽會，待相關301法定程序都完成後才會定案。",
+        "行政院臺美經貿工作小組指出，臺美已於今年1、2月簽署投資合作備忘錄（MOU）及對等貿易協定（ART），分別就占我國輸美七成多的半導體及資通訊等產品取得232優惠待遇，以及就占我國輸美兩成多的傳統工業及農業產品取得對等關稅「15%不疊加MFN」的優惠待遇。惟美國最高法院於2月判決對等關稅法源依據失效，爰美方從3月展開「禁止進口強迫勞動產品」及「結構性產能過剩」兩項301調查，用以替代原對等關稅法源。至於MOU及232關稅則不受高院判決影響，自今年5月起包括汽車零組件、無人機、航空器零組件中的鋼鋁銅、木材及其製品等多項232關稅優惠待遇已逐步落實；半導體及衍生品之232關稅雖尚未提出，但我方亦已於MOU預先取得最惠待遇。",
+        "美方於7月23日公布第一項「禁止進口強迫勞動產品」301調查報告之最終稅率，臺灣適用稅率為「10%不疊加MFN」，與歐盟同屬最低稅率級別，我國另有2,231項輸美產品豁免該301關稅。在本次產能過剩301調查最終定案前，我國輸美的傳統工業及農業產品仍將持續適用強迫勞動301關稅，也就是「10%不疊加MFN」的全球最低稅率。",
+        "臺美經貿工作小組表示，我方去年與美方歷經兩階段談判，於今年初簽署兩項協議，後續持續因應美方所啟動的兩項301調查，我們的目標就是希望在談判中為產業爭取到立足點的公平，甚至更具優勢的競爭地位。今日的301調查報告，顯示我們已朝著目標邁進。接下來，我們仍會在後續301調查定案過程中繼續努力，鞏固既有談判結果，符合我國協議原先所取得相對優惠待遇，確保我國產業利益及競爭優勢。",
+        "臺美經貿工作小組表示，調查報告中亦針對多國提出潛在擬議稅率，如果美國貿易代表後續對與該國進行的諮商及相關承諾不滿意時，則擬考慮對該國所有產品課徵更高的關稅，臺灣該替代方案之擬議稅率為25%（扣除既有301關稅），韓國則同為25%，但依據臺美溝通情形，我方確信雙方皆會維持協議議定的15%不疊加。"
+      ],
+      "excerpt_original": "美國貿易代表署（USTR）於美東時間11月25日公布「結構性產能過剩」301調查報告，提出對全球14個經濟體的建議關稅，其中對臺灣、日本、韓國、歐盟、瑞士等國的建議稅率為「15%不疊加MFN，且不再疊加強迫勞動301關稅」，同屬最低稅率級別。本調查報告為建議措施，本案仍須經2027年1月5日前徵詢公眾意見，以及2027年1月25日起舉行公聽會，待相關301法定程序都完成後才會定案。",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
     {
       "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/lrs00622.jpg",
       "image_rights": "unverified",
@@ -83,6 +157,34 @@
         "致詞結束後，卓院長偕同行政院李慧芝發言人、衛福部呂建德次長、社會救助及社工司楊雅嵐司長、現場最年長志工張秀玉女士、最年輕志工林士元先生、服務時數最多志工簡忠成先生，共同啟動卷軸，隨即呈現「志工有愛，生命有光」字樣，象徵完成啟動儀式。接續，卓院長逐一頒發獎座予25隊績優志工團隊，以及頒發獎牌予10位金牌獎得主，並合影留念。"
       ],
       "excerpt_original": "行政院長卓榮泰今（25）日出席「115年全國績優志工表揚典禮」，頒獎表揚績優志工團隊及金牌獎得主。卓院長表示，志工夥伴不論在日常生活或關鍵時刻，都為國人與這塊土地全心付出，特別是在花蓮馬太鞍溪堰塞湖事件中，多達50萬名「鏟子超人」志工協助受災戶重建家園，展現臺灣強韌的社會力與人情溫暖，令世界感動。卓院長除向全國志工、提供志願服務的單位，以及相關部會與地方政府表達最高敬意與感謝外，也期許在今（2026）年聯合國「國際志工永續發展年」之際，能將服務信念深植每位國人心中，形成利人利己的「善的循環」，讓臺灣對接國際永續發展目標（SDGs），為社會注入更多愛與信任。",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
+    {
+      "id": "ey:e94df8c0-61f2-4fed-8864-c789d0749caf",
+      "source_id": "ey",
+      "source": "行政院",
+      "kind": "news",
+      "category": "社會與公共政策",
+      "title": "參拜臺中樂成宮 卓揆：打造中部精密智慧新核心、擴大臺中機場規模 全力促進地方發展",
+      "url": "https://www.ey.gov.tw/Page/9277F759E41CCD91/e94df8c0-61f2-4fed-8864-c789d0749caf",
+      "published_at": "2026-11-25T00:00:00+08:00",
+      "content_complete": true,
+      "reuse_license": "approved",
+      "license_name": "政府資料開放授權條款－第1版",
+      "license_url": "https://www.ey.gov.tw/Page/2EADDBFEDDB6357E",
+      "content_scope": "official_full_text",
+      "translation_status": "original_zh_hant",
+      "evidence_original": [
+        "行政院長卓榮泰今（25）日前往臺中市樂成宮參拜祈福，祈求國泰民安、風調雨順及我國產業與經濟持續穩定發展。卓院長表示，中央與地方正加倍合作，除了將中彰投雲四縣市打造為「中部精密智慧新核心」外，他也提出「南北雙空港，臺中大機場」計畫，期盼與地方共同擴大臺中國際機場規模、強化區域交通串聯，促進臺中發展，並搭配增加各種孕產相關假別、發放兒少成長津貼等育兒福利政策，吸引年輕人返鄉打拚。",
+        "卓院長表示，歷史悠久的樂成宮是國定三級古蹟、臺灣宗教百景之一，其所舉辦的「旱溪媽祖遶境十八庄」更是地方重要的文化資產、信仰中心；同時，樂成宮的各級幹事亦熱衷於地方公益，關心社區大小事。今日來此，希望祈求主祀天上聖母保佑國泰民安、風調雨順、我國產業及經濟穩定發展，這也是賴清德總統帶領國家向前走最重要的目標，讓人民生活一天比一天更好、更安定，政府才有辦法獲得人民更大的信任及託付。為此目標，中央、地方都是加倍合作。",
+        "談及地方建設，卓院長指出，精密產業、精密機械、工具機等產業本就在臺中聚集成規模龐大的基地；隨著AI時代來臨，為全力推動智慧設計、智慧製造發展，因此政府將包含臺中在內的中部四縣市，劃定為「六大區域產業及生活圈」的「中部精密智慧新核心」，希望藉由傳統加上創新，讓產業更加發展。",
+        "除此以外，卓院長進一步說，區域產業發展首重對外交通便利，因此無論是捷運、台74 線以及與國道串接等交通建設，交通部和臺中市政府都有合作。此外，北部有桃園國際機場，南部有高雄國際機場，形成「南北雙空港」，他也進一步提出「南北雙空港，臺中大機場」計畫，讓臺中機場擴大，使旅客與貨品出入便利，並配合未來「中部精密智慧新核心」產業的快速發展，這就是政府預計逐步推動的願景。",
+        "卓院長強調，臺中產業發展穩定，就能吸引年輕人回到臺中努力打拚。政府為照顧老幼、在地人、出外人，也推動許多社會福利政策，希望年輕人為國家延續下一代，例如產假從8週延長至14週，婚假、陪產假、陪產檢假等均有延長，同時規劃0至18 歲兒少每人每月發放 5,000 元成長津貼，等到18歲以後就有第一桶金運用。",
+        "卓院長表示，在百工百業努力下，目前國家財政確實比過去更好，現在的臺灣是中華民國歷史上最好的一個時代，雖然仍有許多內外衝擊與挑戰，但只要穩定逐步向前走，在經濟發展、產業發展、科技領先、全民團結下，臺灣將可走向更光輝的時代。最後，卓院長祈求神明保佑，讓國人更健康、國家更強大、世界擁抱臺灣。同時，本週六（11月28日）就是地方公職人員選舉及全國性公民投票日，也期盼神明保佑臺灣民主選舉順利完成，讓全世界看到臺灣民主政治再次成熟，綻放美麗的花朵。",
+        "致詞結束後，卓院長與行政院李慧芝發言人、阮昭雄副秘書長、中部聯合服務中心蔡雅玲副執行長、樂成宮何敏誠董事長、楊家銘總幹事等合影留念。"
+      ],
+      "excerpt_original": "行政院長卓榮泰今（25）日前往臺中市樂成宮參拜祈福，祈求國泰民安、風調雨順及我國產業與經濟持續穩定發展。卓院長表示，中央與地方正加倍合作，除了將中彰投雲四縣市打造為「中部精密智慧新核心」外，他也提出「南北雙空港，臺中大機場」計畫，期盼與地方共同擴大臺中國際機場規模、強化區域交通串聯，促進臺中發展，並搭配增加各種孕產相關假別、發放兒少成長津貼等育兒福利政策，吸引年輕人返鄉打拚。",
       "verification": "publisher_domain_checked",
       "claim_verification": "not_independently_verified"
     },
@@ -1559,154 +1661,38 @@
       "excerpt_original": "行政院長卓榮泰今（11）日出席「國道1號五股交流道增設匝道改善工程」通車典禮時表示，感謝交通部高速公路局與施工團隊精進工法、克服困難，提前11個月完工，包括「泰山轉接道交織改善」、「北出高架匝道」、「往台 64 匝道拓寬」及「北入高架匝道」等工程今日均已全面完工通車，不僅縮短相關路段行車時間，更減少事故發生率，提高行車安全。而未來尚有「新五路拓寬」工程仍在進行中，期盼明（2027）年能夠全部完成。",
       "verification": "publisher_domain_checked",
       "claim_verification": "not_independently_verified"
-    },
-    {
-      "id": "ey:1ada6479-77ae-4da3-b912-84af5f3eda80",
-      "source_id": "ey",
-      "source": "行政院",
-      "kind": "news",
-      "category": "社會與公共政策",
-      "title": "出席「第80屆工業節慶祝大會」 卓揆：全力協助中小微企業轉型升級 落實均衡臺灣理念",
-      "url": "https://www.ey.gov.tw/Page/9277F759E41CCD91/1ada6479-77ae-4da3-b912-84af5f3eda80",
-      "published_at": "2026-11-11T00:00:00+08:00",
-      "content_complete": true,
-      "reuse_license": "approved",
-      "license_name": "政府資料開放授權條款－第1版",
-      "license_url": "https://www.ey.gov.tw/Page/2EADDBFEDDB6357E",
-      "content_scope": "official_full_text",
-      "translation_status": "original_zh_hant",
-      "evidence_original": [
-        "行政院長卓榮泰今（11）日出席「第80屆工業節慶祝大會」時表示，感謝百工百業及全體國人共同打拚，創造臺灣經濟佳績，政府將秉持財政永續原則，持續推動前瞻政策、協助中小微企業轉型升級，並協助解決產業發展所需電力、水資源、人力需求等問題，落實「均衡臺灣」理念，為國家經濟發展再創高峰。",
-        "卓院長指出，回顧80年來，臺灣從農業社會邁入工業時代，並設立加工出口區，其後因應科技進步，陸續成立科學園區及產業園區，掌握高科技快速成長契機，見證臺灣經濟結構逐步轉型。在百工百業與全體國人認真努力下，為臺灣打拚出傲人的成績，今（2026）年9月外銷訂單高達1142.1億美元，創歷年單月新高，年增62.4%，正如賴清德總統所說「現在是中華民國臺灣最好的時代」，但政府絕不以眼前的進步自滿，即便臺灣高科技產業居於世界領先地位，但未來AI的發展仍有一段長路要走。",
-        "卓院長強調，政府的職責不是單純讓經濟數據不斷往上疊加，而是必須用「除法」的觀念，將經濟成長率「除以」百工百業及2,350萬名國人，讓經濟成長的果實更均衡分配給每一位國人，因此落實「均衡臺灣」理念、照顧百工百業、推動前瞻政策及財政永續，皆為政府目前施政的重點工作。",
-        "卓院長表示，賴總統上任後提出「五大信賴產業」，行政院也全力推動「AI新十大建設」，積極研發量子、矽光子、AI機器人等關鍵技術，並提出「十三項戰略產業」，將關鍵礦物、生技醫療、都市更新、文創產業、體育發展等，皆納入國家未來發展的重要旗艦計畫。同時，中小微企業在發展過程中，需要政府給予更多協助，尤其在電力供應方面，政府積極推動「二次能源轉型」，發展多元綠能、科技儲能、深度節能，及強化電網韌性。同時規劃興建25部燃氣發電機組「以氣換煤」，確保供電無虞。當產業有多元綠能需求時，經濟部與台電公司已規劃相應機制，讓中小微企業能夠取得綠電，順利接軌國際市場；另一方面，政府加速發展算力基礎建設後，也會提供一定能量供中小微企業使用。",
-        "針對產業界關心供水問題，卓院長表示，經濟部推動「珍珠串計畫」，透過聯通管將北中南的水庫與河川相互串聯調度，形成「北水南調、南水北供、中水南北送」的調配機制。包含汐止至基隆、三重至蘆洲、板新地區供水改善計畫二期工程、桃園至新竹、鯉魚潭至苗栗、大甲溪至大安溪、臺中至雲林，以及南部南化水庫、曾文水庫與高雄重要河川串聯等，未來16條聯通管全數完成後，供水狀況將比現在更充裕、更安全。",
-        "在人力需求方面，卓院長指出，勞動部已提出「跨國勞動力精進方案」，將於來源國設立專責單位直接引進更充裕的勞動力。同時，企業只要為本國勞工加薪，即可增加移工的聘僱名額，兼顧產業人力需求與本國勞工權益。",
-        "卓院長強調，政府會全力協助中小微企業轉型升級，成為高科技產業供應鏈的一環，形成具韌性的生態系，絕不會讓中小微企業單打獨鬥。對此，行政院已通過《中小微企業轉型升級發展條例》草案，並送請立法院審議，經濟部也與工商團體積極溝通，期盼各界發揮影響力，促成法案儘速通過。未來政府規劃8年加碼1,000億元預算，再加上常年公務預算，每年約投入近250億元，透過金融支持、租稅優惠、設備汰舊換新、人才培育等措施，全面照顧171萬家中小微企業與近千萬就業人口。而各項政策均會滾動檢討，視百工百業需求，適時加大政府協助力道與速度。",
-        "卓院長也感謝國內企業在國家有需要時，總是挺身而出，例如COVID-19期間的口罩國家隊，或是中東戰爭期間協助增加塑膠袋產量等。卓院長說，過去一、兩年臺灣在物價穩定上的努力，已達初步成效，但中油與台電公司為肩負穩定民生的政策目標，已吸收許多能源價格緩漲的成本，因此政府必須協助強化其財務體質健全。卓院長感謝工總、商總、中小企業總會等八大工商團體多次公開呼籲行政、立法兩院應共同協助穩定民生經濟，政府會持續努力，也請所有產業先進持續給予國家更多協助。",
-        "最後，卓院長表示，政府施政的目的在於滿足國人需求、維護現有社會制度與生活方式不被改變，國家進步的動力掌握在大家手中，政府已找出正確方向並具備完整計畫，期盼大家團結一致，相信國家經濟發展絕對能再創新高。",
-        "致詞結束後，卓院長與與會貴賓共同觸碰儀式臺上球型LED燈，完成慶祝儀式。包括行政院李慧芝發言人、經濟部龔明鑫部長、內政部吳堂安次長、國家發展委員會詹方冠副主委、海峽交流基金會蘇嘉全董事長、中華民國全國工業總會許勝雄榮譽理事長、潘俊榮理事長、苗豐盛監事會召集人等均出席今日活動。"
-      ],
-      "excerpt_original": "行政院長卓榮泰今（11）日出席「第80屆工業節慶祝大會」時表示，感謝百工百業及全體國人共同打拚，創造臺灣經濟佳績，政府將秉持財政永續原則，持續推動前瞻政策、協助中小微企業轉型升級，並協助解決產業發展所需電力、水資源、人力需求等問題，落實「均衡臺灣」理念，為國家經濟發展再創高峰。",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
-    },
-    {
-      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/voyager-1-advisory-image-2-nov-10.jpg",
-      "image_rights": "unverified",
-      "image_credit": "NASA",
-      "quiz_reviewed": false,
-      "quiz": [],
-      "excerpt_original": "Launched nearly 50 years ago in 1977, NASA’s Voyager 1 on Wednesday, Nov. 18 will have traveled one light-day from Earth, which is more than 16 billion miles (25.9 billion kilometers). Voyager 1 is the most distant human-made object, and any light from Earth would take 24 hours to reach the spacecraft. NASA will highlight […]",
-      "translation_zh_hant": null,
-      "evidence_original": [
-        "Launched nearly 50 years ago in 1977, NASA’s Voyager 1 on Wednesday, Nov. 18 will have traveled one light-day from Earth, which is more than 16 billion miles (25.9 billion kilometers). Voyager 1 is the most distant human-made object, and any light from Earth would take 24 hours to reach the spacecraft. NASA will highlight […]"
-      ],
-      "evidence_zh_hant": [],
-      "translation_status": "translation_not_requested",
-      "content_scope": "publisher_feed_excerpt",
-      "extraction_status": "not_attempted",
-      "content_complete": false,
-      "reuse_license": "not_confirmed",
-      "id": "nasa:417961410",
-      "source_id": "nasa",
-      "source": "NASA",
-      "category": "AI與科技",
-      "title": "NASA Invites Media, Public to Join Voyager 1 One-Light Day Activities",
-      "url": "https://www.nasa.gov/news-release/nasa-invites-media-public-to-join-voyager-1-one-light-day-activities/",
-      "published_at": "2026-11-10T19:22:45+00:00",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
-    },
-    {
-      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/expedition-74-picture.jpg",
-      "image_rights": "unverified",
-      "image_credit": "NASA",
-      "quiz_reviewed": false,
-      "quiz": [],
-      "excerpt_original": "NASA will welcome home the Expedition 74 crew during a public event at Space Center Houston following their return from a long-duration mission aboard the International Space Station. NASA astronauts Jessica Meir, Jack Hathaway, and Chris Williams; ESA (European Space Agency) astronaut Sophie Adenot; and Roscosmos cosmonauts Sergey Kud‑Sverchkov and Sergei Mikaev will share mission […]",
-      "translation_zh_hant": null,
-      "evidence_original": [
-        "NASA will welcome home the Expedition 74 crew during a public event at Space Center Houston following their return from a long-duration mission aboard the International Space Station. NASA astronauts Jessica Meir, Jack Hathaway, and Chris Williams; ESA (European Space Agency) astronaut Sophie Adenot; and Roscosmos cosmonauts Sergey Kud‑Sverchkov and Sergei Mikaev will share mission […]"
-      ],
-      "evidence_zh_hant": [],
-      "translation_status": "translation_not_requested",
-      "content_scope": "publisher_feed_excerpt",
-      "extraction_status": "not_attempted",
-      "content_complete": false,
-      "reuse_license": "not_confirmed",
-      "id": "nasa:2329670143",
-      "source_id": "nasa",
-      "source": "NASA",
-      "category": "AI與科技",
-      "title": "NASA to Welcome Expedition 74 Astronauts Home at Space Center Houston",
-      "url": "https://www.nasa.gov/news-release/nasa-to-welcome-expedition-74-astronauts-home-at-space-center-houston/",
-      "published_at": "2026-11-10T18:06:33+00:00",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
-    },
-    {
-      "id": "ey:008fe836-d6f6-4636-8805-2d8066f35e97",
-      "source_id": "ey",
-      "source": "行政院",
-      "kind": "news",
-      "category": "社會與公共政策",
-      "title": "「TiBOOST創新大步計畫」決賽頒獎 卓揆：持續整合跨部會資源 建構完整創新產業生態系",
-      "url": "https://www.ey.gov.tw/Page/9277F759E41CCD91/008fe836-d6f6-4636-8805-2d8066f35e97",
-      "published_at": "2026-11-10T00:00:00+08:00",
-      "content_complete": true,
-      "reuse_license": "approved",
-      "license_name": "政府資料開放授權條款－第1版",
-      "license_url": "https://www.ey.gov.tw/Page/2EADDBFEDDB6357E",
-      "content_scope": "official_full_text",
-      "translation_status": "original_zh_hant",
-      "evidence_original": [
-        "行政院長卓榮泰今（10）日出席「TiBOOST創新大步計畫」晚宴時表示，「TiBOOST」結合臺灣創新板的英文縮寫「TIB（Taiwan Innovation Board）」，以及代表快速成長的「BOOST」，希望加速臺灣新創事業快速成長。卓院長恭賀今日獲獎的12組團隊，其背後代表12種解決問題的能力與改變產業的機會，雖然競賽排名有先後，但創新的潛力卻是無窮，期盼透過今日獎項，激勵大家百尺竿頭、更進一步，讓更多臺灣「新創獨角獸」在國內外發光發熱，為臺灣再創經濟高峰。政府將持續整合產業政策、技術研發、人才培育、國際合作及資本市場資源，建構完整的創新產業生態系。",
-        "卓院長指出，今日很高興與大家共同見證「TiBOOST創新大步計畫」決賽頒獎，這對臺灣資本市場而言，是非常具有歷史意義的一刻。本次得獎及進入決賽的團隊，不僅以創新精神為獎項寫下新的定義，也為未來投入新創事業的年輕夥伴樹立標竿，展現臺灣在新創事業的雄厚實力。本次計畫共吸引來自23個國家的396件提案，最終由12個團隊脫穎而出，代表各團隊的技術實力、創新能力及對未來市場潛力的洞察力獲得肯定。今日決賽成果出爐，也是下一階段的新起點，各團隊將設定新的目標、掌握市場趨勢，以更大的力量迎向世界；而政府的責任則是打造更好的投資環境，迎接全球夥伴，串聯臺灣與全世界。",
-        "卓院長強調，近年來受惠於人工智慧、半導體等科技產業驅動，以及全民與百工百業共同努力，臺灣經濟表現亮眼，去（114）年經濟成長率達8.76%，今（115）年第3季經濟成長率概估達14.36%，全年預估達11.05%。其中，在出口方面，今年10月出口額達967.6億美元，創歷年單月新高，年增率達58.9%，並已連續36個月正成長；累計1至10月出口額達7,582.9億美元，年增率達47.7%，同樣創下歷史紀錄。",
-        "卓院長強調，政府現在更重視的是，如何將經濟成長動能延續至明年。目前各界預期明年全球經濟成長率可能偏低，約為3%左右，臺灣則有望達5%至6%，甚至更高。在全球關注臺灣經濟表現之際，政府更須推動均衡發展。而賴清德總統也多次以「均衡臺灣」理念勉勵行政團隊，一方面要讓高科技產業帶領臺灣起飛，另一方面也要加速推動中小微企業轉型升級，使其成為高科技產業鏈的一環，共同打造臺灣堅強的產業生態系。",
-        "卓院長指出，行政院已提出《中小微企業轉型升級發展條例》草案，並編列8年1,000億元預算，協助中小微企業轉型升級，期盼獲得立法院支持通過。卓院長說，中小微企業特別需要創新，但其自主創新的能量不如高科技產業般雄厚，因此期盼在場新創夥伴能將目光投向中小微企業，協助其持續創新、成長，讓臺灣經濟更均衡發展。",
-        "為推升臺灣經濟持續成長，卓院長進一步表示，政府正積極推動「AI新十大建設」及「13項戰略產業」，從建置主權AI、算力建設、人才培育到資金引進，均有相對應的計畫予以落實，絕不會遺漏任何產業，期盼發揮整體力量，帶動百工百業智慧運用，進一步建立「全民智慧生活圈」，讓全民同步向前。有鑑於此，政府必須要整合跨部會資源，包括國家發展基金、民間創投、企業創投及雄厚資本市場；同時也將持續健全資本市場、精進上市櫃制度、提升市場流動性、強化資訊揭露與投資人保護，以打造更友善的新創支持環境。",
-        "談及「亞洲資產管理中心」，卓院長提到，金融監督管理委員會以「2年有感、4年有變、6年有成」為目標，持續推動「亞洲資產管理中心」，而高雄示範專區的成功，讓「亞洲資產管理中心」從「2年有感」進入至「4年有變」階段，也希望將高雄經驗複製到其他縣市，讓臺灣金融創新遍地開花。同時，政府亦推動臺灣創新板，並串聯創投、產業與公開市場，讓所有新創產業能更早看見希望。",
-        "卓院長指出，截至115年9月底止，上市櫃總家數合計1,978家，臺灣上市櫃公司總市值突破新臺幣168兆元，已是全球第四大股市。其中，臺灣創新板掛牌企業已超過30家，創新板成交金額較去年同期成長373%。這些數字代表臺灣新創產業確實已累積更多經驗、資金與技術合作，邁入快速成長期，同時也顯示資本市場正透過各種方式支持新創產業，提供投資人更多機會參與臺灣未來的共同發展，目前臺灣可說是正處於「金融支持產業、創新帶動產業、產業壯大臺灣」的新時代。",
-        "對於近期股市的波動，卓院長表示，政府觀察的重點在於市場是否在自由、健康的環境下運作，並在出現較大幅變化時維持全民信心。政府會採取更自由、開放的立場，並維持對股市基本的關注，但不會輕易進行過多干預。",
-        "致詞結束後，卓院長親自頒獎予創業大聯盟競賽前三名得獎團體（亞洲準譯股份有限公司、振生半導體股份有限公司、DOGU Robotics Co., Ltd.），並偕同行政院葉俊顯政委兼國家發展委員會主委、李慧芝發言人、金融監督管理委員會彭金隆主委、臺灣證券交易所林修銘董事長、中華民國私募股權投資商業同業公會邱德成理事長及得獎團體合影留念。"
-      ],
-      "excerpt_original": "行政院長卓榮泰今（10）日出席「TiBOOST創新大步計畫」晚宴時表示，「TiBOOST」結合臺灣創新板的英文縮寫「TIB（Taiwan Innovation Board）」，以及代表快速成長的「BOOST」，希望加速臺灣新創事業快速成長。卓院長恭賀今日獲獎的12組團隊，其背後代表12種解決問題的能力與改變產業的機會，雖然競賽排名有先後，但創新的潛力卻是無窮，期盼透過今日獎項，激勵大家百尺竿頭、更進一步，讓更多臺灣「新創獨角獸」在國內外發光發熱，為臺灣再創經濟高峰。政府將持續整合產業政策、技術研發、人才培育、國際合作及資本市場資源，建構完整的創新產業生態系。",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
     }
   ],
   "sources": {
     "nasa": {
       "status": "ok",
-      "accepted": 2,
-      "checked_at": "2026-11-26T01:01:50.862924+00:00"
+      "accepted": 1,
+      "checked_at": "2026-11-26T05:57:38.030838+00:00"
     },
     "who": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-26T01:01:50.862924+00:00"
+      "checked_at": "2026-11-26T05:57:38.030838+00:00"
     },
     "un": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-26T01:01:50.862924+00:00"
+      "checked_at": "2026-11-26T05:57:38.030838+00:00"
     },
     "數位發展部": {
       "status": "ok",
       "accepted": 6,
-      "checked_at": "2026-11-26T01:01:50.862924+00:00"
+      "checked_at": "2026-11-26T05:57:38.030838+00:00"
     },
     "數位產業署": {
       "status": "ok",
       "accepted": 5,
-      "checked_at": "2026-11-26T01:01:50.862924+00:00"
+      "checked_at": "2026-11-26T05:57:38.030838+00:00"
     },
     "行政院": {
-      "status": "error",
-      "accepted": 0,
-      "checked_at": "2026-11-26T01:01:50.862924+00:00"
+      "status": "ok",
+      "accepted": 8,
+      "checked_at": "2026-11-26T05:57:38.030838+00:00"
     }
   },
   "disclaimer": "Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed."
