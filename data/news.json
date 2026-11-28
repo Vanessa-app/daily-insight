@@ -1,7 +1,34 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-27T10:52:16.167698+00:00",
+  "updated_at": "2026-11-28T01:01:40.928100+00:00",
   "items": [
+    {
+      "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/ksc-20261117-ph-kls02-0020orig.jpg",
+      "image_rights": "unverified",
+      "image_credit": "NASA",
+      "quiz_reviewed": false,
+      "quiz": [],
+      "excerpt_original": "NASA astronaut Andre Douglas, Artemis III mission specialist, stands inside an RS-25 engine test article during a visit to the Vehicle Assembly Building at NASA’s Kennedy Space Center in Florida on Tuesday, Nov. 17, 2026. During Artemis III, four RS-25 engines will power the SLS (Space Launch System) rocket core stage to send the Orion […]",
+      "translation_zh_hant": null,
+      "evidence_original": [
+        "NASA astronaut Andre Douglas, Artemis III mission specialist, stands inside an RS-25 engine test article during a visit to the Vehicle Assembly Building at NASA’s Kennedy Space Center in Florida on Tuesday, Nov. 17, 2026. During Artemis III, four RS-25 engines will power the SLS (Space Launch System) rocket core stage to send the Orion […]"
+      ],
+      "evidence_zh_hant": [],
+      "translation_status": "translation_not_requested",
+      "content_scope": "publisher_feed_excerpt",
+      "extraction_status": "not_attempted",
+      "content_complete": false,
+      "reuse_license": "not_confirmed",
+      "id": "nasa:2815994895",
+      "source_id": "nasa",
+      "source": "NASA",
+      "category": "AI與科技",
+      "title": "Artemis III Astronaut Andre Douglas Visits VAB",
+      "url": "https://www.nasa.gov/image-article/artemis-iii-astronaut-andre-douglas-visits-vab/",
+      "published_at": "2026-11-27T15:01:00+00:00",
+      "verification": "publisher_domain_checked",
+      "claim_verification": "not_independently_verified"
+    },
     {
       "id": "ey:6bd247b7-44ee-4345-9b9a-4a964b98f01f",
       "source_id": "ey",
@@ -1629,63 +1656,38 @@
       "excerpt_original": "行政院長卓榮泰今（12）日出席「115資訊月暨臺灣教育科技展開幕典禮」時表示，政府以國家戰略高度推動「人才、技術、產業、治理」四大面向同步發展，其中「人才培育」更是核心關鍵。未來4年除了投入逾1,300億元推動「AI新十大建設」之外，預計2026至2029年間亦投入117億元推動「AI人才方舟計畫」，建構中小學AI學習環境，向下扎根，並透過公私協力推動AI服務，共同打造「全民智慧生活圈」，讓臺灣真正成為「人工智慧島」。",
       "verification": "publisher_domain_checked",
       "claim_verification": "not_independently_verified"
-    },
-    {
-      "id": "adi:21432",
-      "source_id": "adi",
-      "source": "數位產業署",
-      "kind": "news",
-      "category": "AI與科技",
-      "title": "數發部數產署主題館開幕　全民共創AI新時代 展現臺灣數位信任、AI賦能與數位遊戲產業成果",
-      "url": "https://moda.gov.tw/ADI/news/latest-news/21432",
-      "published_at": "2026-11-12T00:00:00+08:00",
-      "content_complete": true,
-      "reuse_license": "approved",
-      "license_name": "CC0 1.0",
-      "license_url": "https://moda.gov.tw/announcement/publicdeclare/951",
-      "content_scope": "official_full_text",
-      "translation_status": "original_zh_hant",
-      "evidence_original": [
-        "2026台北資訊月於今（12）日以「共創AI新時代」為主題盛大開幕，數發部數產署呼應大會主題，推出「共創AI島」主題館，匯集數位信任、AI產業創新應用、原創數位遊戲及AR互動體驗等豐富成果，透過全民互動參與，讓每一位參觀者都成為AI數位島民。",
-        "「共創AI島」主題館以島嶼地景為設計概念，規劃三大展示區域，分別為「信任基石區」、「智慧地景區」及「創意聚落區」。「信任基石區」以情境體驗的方式，示範宇峻奧汀、鈊象電子、藍新科技等業者在FIDO數位身分驗證、物流隱碼及電子簽章三項技術的實際應用。「智慧地景區」展示生成式AI在不同產業如半導體、影視產業、醫療產業、物業管理等應用的樣貌。「創意聚落區」則展示獨立遊戲開發獎勵計畫輔導的遊戲業者作品，展現臺灣原創量能。",
-        "除了實體展示規劃，主題館也在舞台活動區辦理了系列活動，首場活動由「產業應用人才成果發表」盛大登場，展現資服業者以「帶題參訓」模式運用Vibe Coding及AI開發工具的實作成果；而在創新量能部分，亦有「HolonIQ 2026 Taiwan EdTech 50 × GESAwards Taiwan 2026頒獎典禮」展現臺灣智慧學習產業創新成果，以及「GenAI Stars Pitch Day｜百工百業應用發表會暨頒獎典禮」由晉級決審的25組團隊現場展示GenAI在產業端之應用。",
-        "接下來展期三天還有許多精彩的論壇、頒獎典禮活動，數發部數產署誠摯邀請民眾於資訊月展期間蒞臨「共創AI島」主題館，一起創造自己的AI數位島民，見證臺灣邁向AI新時代的行動與成果。"
-      ],
-      "excerpt_original": "2026台北資訊月於今（12）日以「共創AI新時代」為主題盛大開幕，數發部數產署呼應大會主題，推出「共創AI島」主題館，匯集數位信任、AI產業創新應用、原創數位遊戲及AR互動體驗等豐富成果，透過全民互動參與，讓每一位參觀者都成為AI數位島民。",
-      "verification": "publisher_domain_checked",
-      "claim_verification": "not_independently_verified"
     }
   ],
   "sources": {
     "nasa": {
       "status": "ok",
-      "accepted": 0,
-      "checked_at": "2026-11-27T10:52:16.167698+00:00"
+      "accepted": 1,
+      "checked_at": "2026-11-28T01:01:40.928100+00:00"
     },
     "who": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-27T10:52:16.167698+00:00"
+      "checked_at": "2026-11-28T01:01:40.928100+00:00"
     },
     "un": {
       "status": "ok",
       "accepted": 3,
-      "checked_at": "2026-11-27T10:52:16.167698+00:00"
+      "checked_at": "2026-11-28T01:01:40.928100+00:00"
     },
     "數位發展部": {
       "status": "ok",
       "accepted": 6,
-      "checked_at": "2026-11-27T10:52:16.167698+00:00"
+      "checked_at": "2026-11-28T01:01:40.928100+00:00"
     },
     "數位產業署": {
       "status": "ok",
       "accepted": 5,
-      "checked_at": "2026-11-27T10:52:16.167698+00:00"
+      "checked_at": "2026-11-28T01:01:40.928100+00:00"
     },
     "行政院": {
       "status": "ok",
       "accepted": 7,
-      "checked_at": "2026-11-27T10:52:16.167698+00:00"
+      "checked_at": "2026-11-28T01:01:40.928100+00:00"
     }
   },
   "disclaimer": "Source excerpts unless independently approved for full-text use; machine translations unreviewed; no full-text rights assumed."
