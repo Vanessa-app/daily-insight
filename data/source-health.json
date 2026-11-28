@@ -1,40 +1,10 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-28T01:02:10.887046+00:00",
+  "generated_at": "2026-11-28T05:54:51.469838+00:00",
   "method": "bounded_head_checks_no_article_download",
   "checked_this_run": 12,
   "links": {
-    "https://ec.ltn.com.tw/article/breakingnews/5654894": {
-      "status": "unknown",
-      "http_status": 403,
-      "checked_at": "2026-11-27T05:59:03.810341+00:00"
-    },
-    "https://ec.ltn.com.tw/article/breakingnews/5654901": {
-      "status": "unknown",
-      "http_status": 403,
-      "checked_at": "2026-11-27T05:59:03.810341+00:00"
-    },
     "https://ec.ltn.com.tw/article/breakingnews/5654946": {
-      "status": "unknown",
-      "http_status": 403,
-      "checked_at": "2026-11-27T05:59:03.810341+00:00"
-    },
-    "https://ec.ltn.com.tw/article/breakingnews/5655053": {
-      "status": "unknown",
-      "http_status": 403,
-      "checked_at": "2026-11-27T05:59:03.810341+00:00"
-    },
-    "https://ec.ltn.com.tw/article/breakingnews/5655125": {
-      "status": "unknown",
-      "http_status": 403,
-      "checked_at": "2026-11-27T05:59:03.810341+00:00"
-    },
-    "https://ec.ltn.com.tw/article/breakingnews/5655131": {
-      "status": "unknown",
-      "http_status": 403,
-      "checked_at": "2026-11-27T05:59:03.810341+00:00"
-    },
-    "https://ec.ltn.com.tw/article/breakingnews/5655134": {
       "status": "unknown",
       "http_status": 403,
       "checked_at": "2026-11-27T05:59:03.810341+00:00"
@@ -78,6 +48,16 @@
       "status": "unknown",
       "http_status": 403,
       "checked_at": "2026-11-28T01:02:07.125944+00:00"
+    },
+    "https://ec.ltn.com.tw/article/breakingnews/5656158": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-28T05:54:47.571152+00:00"
+    },
+    "https://ec.ltn.com.tw/article/breakingnews/5656163": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-28T05:54:47.571152+00:00"
     },
     "https://ec.ltn.com.tw/article/paper/1780172": {
       "status": "unknown",
@@ -149,11 +129,6 @@
       "http_status": 403,
       "checked_at": "2026-11-28T01:02:07.125944+00:00"
     },
-    "https://news.ltn.com.tw/news/life/breakingnews/5655190": {
-      "status": "unknown",
-      "http_status": 403,
-      "checked_at": "2026-11-27T05:59:03.810341+00:00"
-    },
     "https://news.ltn.com.tw/news/life/breakingnews/5655277": {
       "status": "unknown",
       "http_status": 403,
@@ -169,17 +144,27 @@
       "http_status": 403,
       "checked_at": "2026-11-27T10:52:40.909164+00:00"
     },
+    "https://news.ltn.com.tw/news/life/breakingnews/5656114": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-28T05:54:47.571152+00:00"
+    },
+    "https://news.ltn.com.tw/news/life/breakingnews/5656207": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-28T05:54:47.571152+00:00"
+    },
+    "https://news.ltn.com.tw/news/life/breakingnews/5656248": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-28T05:54:47.571152+00:00"
+    },
     "https://news.ltn.com.tw/news/life/paper/1780203": {
       "status": "unknown",
       "http_status": 403,
       "checked_at": "2026-11-28T01:02:07.125944+00:00"
     },
     "https://news.ltn.com.tw/news/politics/breakingnews/5655095": {
-      "status": "unknown",
-      "http_status": 403,
-      "checked_at": "2026-11-27T10:52:40.909164+00:00"
-    },
-    "https://news.ltn.com.tw/news/politics/breakingnews/5655170": {
       "status": "unknown",
       "http_status": 403,
       "checked_at": "2026-11-27T10:52:40.909164+00:00"
@@ -208,6 +193,41 @@
       "status": "unknown",
       "http_status": 403,
       "checked_at": "2026-11-28T01:02:07.125944+00:00"
+    },
+    "https://news.ltn.com.tw/news/politics/breakingnews/5656257": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-28T05:54:47.571152+00:00"
+    },
+    "https://news.ltn.com.tw/news/politics/breakingnews/5656271": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-28T05:54:47.571152+00:00"
+    },
+    "https://news.ltn.com.tw/news/politics/paper/1780186": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-28T05:54:47.571152+00:00"
+    },
+    "https://news.ltn.com.tw/news/world/breakingnews/5655299": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-28T05:54:47.571152+00:00"
+    },
+    "https://news.ltn.com.tw/news/world/breakingnews/5655339": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-28T05:54:47.571152+00:00"
+    },
+    "https://news.ltn.com.tw/news/world/breakingnews/5655392": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-28T05:54:47.571152+00:00"
+    },
+    "https://news.ltn.com.tw/news/world/breakingnews/5655517": {
+      "status": "unknown",
+      "http_status": 403,
+      "checked_at": "2026-11-28T05:54:47.571152+00:00"
     }
   }
 }

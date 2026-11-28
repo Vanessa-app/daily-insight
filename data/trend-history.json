@@ -21922,13 +21922,13 @@
     },
     {
       "date": "2026-11-28",
-      "total_events": 102,
+      "total_events": 105,
       "topic_counts": {
-        "technology_ai": 27,
-        "semiconductors": 16,
-        "global_finance": 14,
-        "business_management": 8,
-        "politics_policy": 29,
+        "technology_ai": 30,
+        "semiconductors": 13,
+        "global_finance": 9,
+        "business_management": 6,
+        "politics_policy": 39,
         "consumer_lifestyle": 8
       },
       "top_event_ids": [
@@ -21939,7 +21939,7 @@
         "trend-f5f2206eec6b39",
         "trend-f313bbb3b17da1",
         "trend-eb783336f1c581",
-        "trend-5b63aa01210593"
+        "trend-cf5ce706119f83"
       ],
       "event_ids": [
         "trend-db99d2c0f8e2d0",
@@ -21949,10 +21949,16 @@
         "trend-f5f2206eec6b39",
         "trend-f313bbb3b17da1",
         "trend-eb783336f1c581",
+        "trend-cf5ce706119f83",
+        "trend-0cd74d44f6f8f0",
+        "trend-84e67599205c83",
+        "trend-7856c3d74219c3",
         "trend-5b63aa01210593",
         "trend-98468a48a35e95",
         "trend-e3b6958ab6242c",
         "trend-f3d9bce37d0193",
+        "trend-3521e55af3c7eb",
+        "trend-7799113d13379f",
         "trend-3d869b0dd080b9",
         "trend-a75cffd34c8031",
         "trend-a532f80e34aabc",
@@ -21960,22 +21966,28 @@
         "trend-2b16db7260cec0",
         "trend-c3331ee29259f9",
         "trend-a36251d3ad48f4",
-        "trend-c904ef72728a2e",
-        "trend-f73006e5eea0ea",
-        "trend-51b15c38f648e6",
-        "trend-6d03516e5af9f9",
-        "trend-a1bc6c8bb51d55",
-        "trend-7b304873a44905",
         "trend-37a9c1b9cb08af",
         "trend-7d12b35dffc3b2",
         "trend-faf3bdcd89c6e8",
         "trend-18d903652270fc",
+        "trend-d791d40f5d92d9",
+        "trend-2e06adad658a30",
+        "trend-682f09fc834bfa",
+        "trend-7123a5aa20ad61",
         "trend-1bc93848006af0",
         "trend-be72d3318d17f5",
         "trend-3f23a6848e30bc",
+        "trend-a67c4a3c0d40bc",
         "trend-49853fed7342c3",
         "trend-5daff393b02b32",
         "trend-9032add78f5a72",
+        "trend-e627765eadf43c",
+        "trend-c2c5832c08a053",
+        "trend-c976dfa96ec392",
+        "trend-ed00e17303db4c",
+        "trend-14c3ac95de83c0",
+        "trend-72a96906de597e",
+        "trend-e4d57a3c77f5a8",
         "trend-61d23a6cd271c5",
         "trend-e19ea46c013e7b",
         "trend-892c9f8fa15774",
@@ -21990,18 +22002,6 @@
         "trend-c66d8f8c534425",
         "trend-b6da10dacfeb1f",
         "trend-172bae720a069e",
-        "trend-489aa51830ff46",
-        "trend-3f06f25755070f",
-        "trend-7fd5bd10beae52",
-        "trend-3b656da10f3e10",
-        "trend-6e946406232a14",
-        "trend-5d78707e23440a",
-        "trend-266f9c5226d02b",
-        "trend-c086bf7c5d5746",
-        "trend-4933c34f9086b1",
-        "trend-d56d4c678f4d45",
-        "trend-b39b1d94e7923a",
-        "trend-ffa4c900236b6e",
         "trend-11accf475dab83",
         "trend-425e878faff367",
         "trend-cabf3f70411d99",
@@ -22011,9 +22011,16 @@
         "trend-b3147b415fb2eb",
         "trend-0ffe12a98aeaea",
         "trend-36c2c5973bdc78",
+        "trend-7555a2d561c6b0",
+        "trend-251fe6adf71f4f",
+        "trend-cb78fd22b257bc",
         "trend-a8145f6d674b3a",
         "trend-e02270252a60ce",
         "trend-ef0dcfa30a08f1",
+        "trend-8e21091d8a2118",
+        "trend-fab26f6dd70cda",
+        "trend-e1c811f4107217",
+        "trend-167d1ba09ed9d2",
         "trend-be00601e171423",
         "trend-be306ad40d8cf7",
         "trend-e9e69e54625001",
@@ -22028,10 +22035,6 @@
         "trend-0f1133c81c8412",
         "trend-a1b395794483da",
         "trend-0e9ee2c6fa8cc8",
-        "trend-ab80bc88c6b685",
-        "trend-ec6ebb3b6c41e0",
-        "trend-2e5dabb1a072e5",
-        "trend-7c1848f40dff7c",
         "trend-2b2cc839d83214",
         "trend-6e0f7abbca08b1",
         "trend-40564df58e22d2",
@@ -22045,12 +22048,27 @@
         "trend-fc0636397d3d60",
         "trend-d8c333c82ce686"
       ],
-      "indexed_article_count": 102,
+      "indexed_article_count": 105,
       "observation_version": 1,
-      "observed_at": "2026-11-28T01:02:06.977447+00:00",
+      "observed_at": "2026-11-28T05:54:47.380604+00:00",
       "closed": false,
       "baseline": false,
       "event_stats": [
+        {
+          "id": "trend-0cd74d44f6f8f0",
+          "aliases": [],
+          "title": "中國微博冷處理台灣選舉 唯一熱搜在攻擊民進黨",
+          "primary_topic": "politics_policy",
+          "article_keys": [
+            "https://news.ltn.com.tw/news/world/breakingnews/5656211"
+          ],
+          "new_article_keys": [
+            "https://news.ltn.com.tw/news/world/breakingnews/5656211"
+          ],
+          "source_groups": [
+            "ltn-world"
+          ]
+        },
         {
           "id": "trend-0e9ee2c6fa8cc8",
           "aliases": [],
@@ -22104,6 +22122,21 @@
           ]
         },
         {
+          "id": "trend-14c3ac95de83c0",
+          "aliases": [],
+          "title": "散裝航運熱度不減！「這檔」11艘貨輪明年Q2起交付、全簽5年長約　毛利率拼50%",
+          "primary_topic": "global_finance",
+          "article_keys": [
+            "https://tw.stock.yahoo.com/news/%E6%95%A3%E8%A3%9D%E8%88%AA%E9%81%8B%E7%86%B1%E5%BA%A6%E4%B8%8D%E6%B8%9B-%E9%80%99%E6%AA%94-11%E8%89%98%E8%B2%A8%E8%BC%AA%E6%98%8E%E5%B9%B4q2%E8%B5%B7%E4%BA%A4%E4%BB%98-%E5%85%A8%E7%B0%BD5%E5%B9%B4%E9%95%B7%E7%B4%84-%E6%AF%9B%E5%88%A9%E7%8E%87%E6%8B%BC50-040000908.html"
+          ],
+          "new_article_keys": [
+            "https://tw.stock.yahoo.com/news/%E6%95%A3%E8%A3%9D%E8%88%AA%E9%81%8B%E7%86%B1%E5%BA%A6%E4%B8%8D%E6%B8%9B-%E9%80%99%E6%AA%94-11%E8%89%98%E8%B2%A8%E8%BC%AA%E6%98%8E%E5%B9%B4q2%E8%B5%B7%E4%BA%A4%E4%BB%98-%E5%85%A8%E7%B0%BD5%E5%B9%B4%E9%95%B7%E7%B4%84-%E6%AF%9B%E5%88%A9%E7%8E%87%E6%8B%BC50-040000908.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
+          ]
+        },
+        {
           "id": "trend-150b0226379cf9",
           "aliases": [],
           "title": "教育部推iLink計畫 AI助攻人文社會學生提升就業力",
@@ -22114,6 +22147,21 @@
           "new_article_keys": [],
           "source_groups": [
             "ltn-life"
+          ]
+        },
+        {
+          "id": "trend-167d1ba09ed9d2",
+          "aliases": [],
+          "title": "返鄉投票熱　雙鐵客運27日疏運較上屆選舉增近3成",
+          "primary_topic": "politics_policy",
+          "article_keys": [
+            "https://tw.news.yahoo.com/%E8%BF%94%E9%84%89%E6%8A%95%E7%A5%A8%E7%86%B1-%E9%9B%99%E9%90%B5%E5%AE%A2%E9%81%8B27%E6%97%A5%E7%96%8F%E9%81%8B%E8%BC%83%E4%B8%8A%E5%B1%86%E9%81%B8%E8%88%89%E5%A2%9E%E8%BF%913%E6%88%90-033818350.html"
+          ],
+          "new_article_keys": [
+            "https://tw.news.yahoo.com/%E8%BF%94%E9%84%89%E6%8A%95%E7%A5%A8%E7%86%B1-%E9%9B%99%E9%90%B5%E5%AE%A2%E9%81%8B27%E6%97%A5%E7%96%8F%E9%81%8B%E8%BC%83%E4%B8%8A%E5%B1%86%E9%81%B8%E8%88%89%E5%A2%9E%E8%BF%913%E6%88%90-033818350.html"
+          ],
+          "source_groups": [
+            "yahoo-lifestyle"
           ]
         },
         {
@@ -22155,6 +22203,21 @@
           ],
           "source_groups": [
             "ltn-world"
+          ]
+        },
+        {
+          "id": "trend-251fe6adf71f4f",
+          "aliases": [],
+          "title": "台北天空驚現明顯雲界！鄭明典曝衛星雲圖 網喊：真的很震撼",
+          "primary_topic": "technology_ai",
+          "article_keys": [
+            "https://news.ltn.com.tw/news/life/breakingnews/5656207"
+          ],
+          "new_article_keys": [
+            "https://news.ltn.com.tw/news/life/breakingnews/5656207"
+          ],
+          "source_groups": [
+            "ltn-life"
           ]
         },
         {
@@ -22225,6 +22288,21 @@
           ]
         },
         {
+          "id": "trend-2e06adad658a30",
+          "aliases": [],
+          "title": "別上幸運國旗小花排隊投票 游淑貞：今晚民主選舉結果揭曉",
+          "primary_topic": "politics_policy",
+          "article_keys": [
+            "https://news.ltn.com.tw/news/politics/breakingnews/5656257"
+          ],
+          "new_article_keys": [
+            "https://news.ltn.com.tw/news/politics/breakingnews/5656257"
+          ],
+          "source_groups": [
+            "ltn-politics"
+          ]
+        },
+        {
           "id": "trend-2e5dabb1a072e5",
           "aliases": [],
           "title": "台新新光金控前三季營運動能穩健　銀行整併邁入最後階段",
@@ -22248,6 +22326,21 @@
           "new_article_keys": [],
           "source_groups": [
             "adi"
+          ]
+        },
+        {
+          "id": "trend-3521e55af3c7eb",
+          "aliases": [],
+          "title": "蘋果、OpenAI法律戰升級　互控挖角竊密、施壓供應商阻撓合作",
+          "primary_topic": "technology_ai",
+          "article_keys": [
+            "https://tw.stock.yahoo.com/news/%E8%98%8B%E6%9E%9C-openai%E6%B3%95%E5%BE%8B%E6%88%B0%E5%8D%87%E7%B4%9A-%E4%BA%92%E6%8E%A7%E6%8C%96%E8%A7%92%E7%AB%8A%E5%AF%86-%E6%96%BD%E5%A3%93%E4%BE%9B%E6%87%89%E5%95%86%E9%98%BB%E6%92%93%E5%90%88%E4%BD%9C-051000208.html"
+          ],
+          "new_article_keys": [
+            "https://tw.stock.yahoo.com/news/%E8%98%8B%E6%9E%9C-openai%E6%B3%95%E5%BE%8B%E6%88%B0%E5%8D%87%E7%B4%9A-%E4%BA%92%E6%8E%A7%E6%8C%96%E8%A7%92%E7%AB%8A%E5%AF%86-%E6%96%BD%E5%A3%93%E4%BE%9B%E6%87%89%E5%95%86%E9%98%BB%E6%92%93%E5%90%88%E4%BD%9C-051000208.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
           ]
         },
         {
@@ -22577,6 +22670,21 @@
           ]
         },
         {
+          "id": "trend-682f09fc834bfa",
+          "aliases": [],
+          "title": "美國航空2架客機 驚傳在華盛頓機場擦撞",
+          "primary_topic": "politics_policy",
+          "article_keys": [
+            "https://news.ltn.com.tw/news/world/breakingnews/5656125"
+          ],
+          "new_article_keys": [
+            "https://news.ltn.com.tw/news/world/breakingnews/5656125"
+          ],
+          "source_groups": [
+            "ltn-world"
+          ]
+        },
+        {
           "id": "trend-6a1c578f1a350b",
           "aliases": [],
           "title": "黃樂事件後》美國出口管制升級　台積電暫停部分中國先進製程訂單",
@@ -22643,6 +22751,81 @@
           ],
           "source_groups": [
             "yahoo-finance"
+          ]
+        },
+        {
+          "id": "trend-7123a5aa20ad61",
+          "aliases": [],
+          "title": "台灣選舉像嘉年華！法新社直擊選民瘋飄帶 綁上寵物與包包",
+          "primary_topic": "politics_policy",
+          "article_keys": [
+            "https://news.ltn.com.tw/news/world/breakingnews/5656086"
+          ],
+          "new_article_keys": [
+            "https://news.ltn.com.tw/news/world/breakingnews/5656086"
+          ],
+          "source_groups": [
+            "ltn-world"
+          ]
+        },
+        {
+          "id": "trend-72a96906de597e",
+          "aliases": [],
+          "title": "摩斯漢堡遭惡意網攻　安心食品啟動資安事件應變",
+          "primary_topic": "consumer_lifestyle",
+          "article_keys": [
+            "https://tw.news.yahoo.com/%E6%91%A9%E6%96%AF%E6%BC%A2%E5%A0%A1%E9%81%AD%E6%83%A1%E6%84%8F%E7%B6%B2%E6%94%BB-%E5%AE%89%E5%BF%83%E9%A3%9F%E5%93%81%E5%95%9F%E5%8B%95%E8%B3%87%E5%AE%89%E4%BA%8B%E4%BB%B6%E6%87%89%E8%AE%8A-020421890.html"
+          ],
+          "new_article_keys": [
+            "https://tw.news.yahoo.com/%E6%91%A9%E6%96%AF%E6%BC%A2%E5%A0%A1%E9%81%AD%E6%83%A1%E6%84%8F%E7%B6%B2%E6%94%BB-%E5%AE%89%E5%BF%83%E9%A3%9F%E5%93%81%E5%95%9F%E5%8B%95%E8%B3%87%E5%AE%89%E4%BA%8B%E4%BB%B6%E6%87%89%E8%AE%8A-020421890.html"
+          ],
+          "source_groups": [
+            "yahoo-lifestyle"
+          ]
+        },
+        {
+          "id": "trend-7555a2d561c6b0",
+          "aliases": [],
+          "title": "返鄉投票踴躍 雙鐵及國道客運較2022選舉運量成長28％",
+          "primary_topic": "politics_policy",
+          "article_keys": [
+            "https://news.ltn.com.tw/news/life/breakingnews/5656248"
+          ],
+          "new_article_keys": [
+            "https://news.ltn.com.tw/news/life/breakingnews/5656248"
+          ],
+          "source_groups": [
+            "ltn-life"
+          ]
+        },
+        {
+          "id": "trend-7799113d13379f",
+          "aliases": [],
+          "title": "上海資料中心藏Blackwell晶片！彭博揭背後牽涉Megaspeed前高層黃樂",
+          "primary_topic": "semiconductors",
+          "article_keys": [
+            "https://tw.stock.yahoo.com/news/%E4%B8%8A%E6%B5%B7%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83%E8%97%8Fblackwell%E6%99%B6%E7%89%87-%E5%BD%AD%E5%8D%9A%E6%8F%AD%E8%83%8C%E5%BE%8C%E7%89%BD%E6%B6%89megaspeed%E5%89%8D%E9%AB%98%E5%B1%A4%E9%BB%83%E6%A8%82-042500951.html"
+          ],
+          "new_article_keys": [
+            "https://tw.stock.yahoo.com/news/%E4%B8%8A%E6%B5%B7%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83%E8%97%8Fblackwell%E6%99%B6%E7%89%87-%E5%BD%AD%E5%8D%9A%E6%8F%AD%E8%83%8C%E5%BE%8C%E7%89%BD%E6%B6%89megaspeed%E5%89%8D%E9%AB%98%E5%B1%A4%E9%BB%83%E6%A8%82-042500951.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
+          ]
+        },
+        {
+          "id": "trend-7856c3d74219c3",
+          "aliases": [],
+          "title": "台股漲幅全球NO.1！網「1問題」曝散戶真實處境",
+          "primary_topic": "global_finance",
+          "article_keys": [
+            "https://ec.ltn.com.tw/article/breakingnews/5656158"
+          ],
+          "new_article_keys": [
+            "https://ec.ltn.com.tw/article/breakingnews/5656158"
+          ],
+          "source_groups": [
+            "ltn-business"
           ]
         },
         {
@@ -22726,6 +22909,21 @@
           ]
         },
         {
+          "id": "trend-84e67599205c83",
+          "aliases": [],
+          "title": "日媒關注台灣選舉 直指中國持續施壓",
+          "primary_topic": "politics_policy",
+          "article_keys": [
+            "https://news.ltn.com.tw/news/world/breakingnews/5656164"
+          ],
+          "new_article_keys": [
+            "https://news.ltn.com.tw/news/world/breakingnews/5656164"
+          ],
+          "source_groups": [
+            "ltn-world"
+          ]
+        },
+        {
           "id": "trend-868db625a746e8",
           "aliases": [],
           "title": "參拜苗栗玉清宮 卓揆：攜手地方全力推動交通、醫療及產業建設 讓苗栗脫胎換骨",
@@ -22751,6 +22949,21 @@
           ],
           "source_groups": [
             "ltn-world"
+          ]
+        },
+        {
+          "id": "trend-8e21091d8a2118",
+          "aliases": [],
+          "title": "獨家／涉租共軍算力？ 台中神秘酒商 獨家回覆《EBC東森新聞》",
+          "primary_topic": "technology_ai",
+          "article_keys": [
+            "https://tw.news.yahoo.com/%E7%8D%A8%E5%AE%B6-%E6%B6%89%E7%A7%9F%E5%85%B1%E8%BB%8D%E7%AE%97%E5%8A%9B-%E5%8F%B0%E4%B8%AD%E7%A5%9E%E7%A7%98%E9%85%92%E5%95%86-%E7%8D%A8%E5%AE%B6%E5%9B%9E%E8%A6%86-ebc%E6%9D%B1%E6%A3%AE%E6%96%B0%E8%81%9E-052600324.html"
+          ],
+          "new_article_keys": [
+            "https://tw.news.yahoo.com/%E7%8D%A8%E5%AE%B6-%E6%B6%89%E7%A7%9F%E5%85%B1%E8%BB%8D%E7%AE%97%E5%8A%9B-%E5%8F%B0%E4%B8%AD%E7%A5%9E%E7%A7%98%E9%85%92%E5%95%86-%E7%8D%A8%E5%AE%B6%E5%9B%9E%E8%A6%86-ebc%E6%9D%B1%E6%A3%AE%E6%96%B0%E8%81%9E-052600324.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
           ]
         },
         {
@@ -22847,6 +23060,21 @@
           ],
           "new_article_keys": [
             "https://tw.stock.yahoo.com/news/q3%E7%87%9F%E6%94%B6%E5%88%B7%E6%96%B0%E5%96%AE%E5%AD%A3%E7%B4%80%E9%8C%84-%E7%B6%B2%E9%80%9A%E6%99%B6%E7%89%87%E5%A4%A7%E5%BB%A0-%E8%82%A1%E5%83%B9%E9%80%A34%E5%99%B413-36-%E6%99%89%E5%8D%87%E5%BC%B7%E5%8B%A2%E8%82%A1%E7%8E%8B-000000450.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
+          ]
+        },
+        {
+          "id": "trend-a67c4a3c0d40bc",
+          "aliases": [],
+          "title": "算力中心全滿載！「連接器大廠」每月進帳逾3千萬　明年AI高速線出貨再衝高",
+          "primary_topic": "technology_ai",
+          "article_keys": [
+            "https://tw.stock.yahoo.com/news/%E7%AE%97%E5%8A%9B%E4%B8%AD%E5%BF%83%E5%85%A8%E6%BB%BF%E8%BC%89-%E9%80%A3%E6%8E%A5%E5%99%A8%E5%A4%A7%E5%BB%A0-%E6%AF%8F%E6%9C%88%E9%80%B2%E5%B8%B3%E9%80%BE3%E5%8D%83%E8%90%AC-%E6%98%8E%E5%B9%B4ai%E9%AB%98%E9%80%9F%E7%B7%9A%E5%87%BA%E8%B2%A8%E5%86%8D%E8%A1%9D%E9%AB%98-054000111.html"
+          ],
+          "new_article_keys": [
+            "https://tw.stock.yahoo.com/news/%E7%AE%97%E5%8A%9B%E4%B8%AD%E5%BF%83%E5%85%A8%E6%BB%BF%E8%BC%89-%E9%80%A3%E6%8E%A5%E5%99%A8%E5%A4%A7%E5%BB%A0-%E6%AF%8F%E6%9C%88%E9%80%B2%E5%B8%B3%E9%80%BE3%E5%8D%83%E8%90%AC-%E6%98%8E%E5%B9%B4ai%E9%AB%98%E9%80%9F%E7%B7%9A%E5%87%BA%E8%B2%A8%E5%86%8D%E8%A1%9D%E9%AB%98-054000111.html"
           ],
           "source_groups": [
             "yahoo-finance"
@@ -23019,6 +23247,21 @@
           ]
         },
         {
+          "id": "trend-c2c5832c08a053",
+          "aliases": [],
+          "title": "賴總統回台南投籲投票   晚上坐鎮黨中央親上火線解讀選舉結果",
+          "primary_topic": "politics_policy",
+          "article_keys": [
+            "https://tw.stock.yahoo.com/news/%E8%B3%B4%E7%B8%BD%E7%B5%B1%E5%9B%9E%E5%8F%B0%E5%8D%97%E6%8A%95%E7%B1%B2%E6%8A%95%E7%A5%A8-%E6%99%9A%E4%B8%8A%E5%9D%90%E9%8E%AE%E9%BB%A8%E4%B8%AD%E5%A4%AE%E8%A6%AA%E4%B8%8A%E7%81%AB%E7%B7%9A%E8%A7%A3%E8%AE%80%E9%81%B8%E8%88%89%E7%B5%90%E6%9E%9C-041801452.html"
+          ],
+          "new_article_keys": [
+            "https://tw.stock.yahoo.com/news/%E8%B3%B4%E7%B8%BD%E7%B5%B1%E5%9B%9E%E5%8F%B0%E5%8D%97%E6%8A%95%E7%B1%B2%E6%8A%95%E7%A5%A8-%E6%99%9A%E4%B8%8A%E5%9D%90%E9%8E%AE%E9%BB%A8%E4%B8%AD%E5%A4%AE%E8%A6%AA%E4%B8%8A%E7%81%AB%E7%B7%9A%E8%A7%A3%E8%AE%80%E9%81%B8%E8%88%89%E7%B5%90%E6%9E%9C-041801452.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
+          ]
+        },
+        {
           "id": "trend-c3331ee29259f9",
           "aliases": [],
           "title": "高雄國際冬季旅展登場 海外旅遊最高省2萬",
@@ -23058,6 +23301,21 @@
           ]
         },
         {
+          "id": "trend-c976dfa96ec392",
+          "aliases": [],
+          "title": "食物沒過期就能安心吃？　食品開封後別只看有效期限！掌握5原則保存",
+          "primary_topic": "consumer_lifestyle",
+          "article_keys": [
+            "https://tw.news.yahoo.com/%E9%A3%9F%E7%89%A9%E6%B2%92%E9%81%8E%E6%9C%9F%E5%B0%B1%E8%83%BD%E5%AE%89%E5%BF%83%E5%90%83-%E9%A3%9F%E5%93%81%E9%96%8B%E5%B0%81%E5%BE%8C%E5%88%A5%E5%8F%AA%E7%9C%8B%E6%9C%89%E6%95%88%E6%9C%9F%E9%99%90-%E6%8E%8C%E6%8F%A15%E5%8E%9F%E5%89%87%E4%BF%9D%E5%AD%98-041000344.html"
+          ],
+          "new_article_keys": [
+            "https://tw.news.yahoo.com/%E9%A3%9F%E7%89%A9%E6%B2%92%E9%81%8E%E6%9C%9F%E5%B0%B1%E8%83%BD%E5%AE%89%E5%BF%83%E5%90%83-%E9%A3%9F%E5%93%81%E9%96%8B%E5%B0%81%E5%BE%8C%E5%88%A5%E5%8F%AA%E7%9C%8B%E6%9C%89%E6%95%88%E6%9C%9F%E9%99%90-%E6%8E%8C%E6%8F%A15%E5%8E%9F%E5%89%87%E4%BF%9D%E5%AD%98-041000344.html"
+          ],
+          "source_groups": [
+            "yahoo-health"
+          ]
+        },
+        {
           "id": "trend-cabf3f70411d99",
           "aliases": [],
           "title": "選舉期間境外拜票來電頻傳 行政院打擊詐欺指揮中心提醒防範境外詐騙來電",
@@ -23068,6 +23326,36 @@
           "new_article_keys": [],
           "source_groups": [
             "ey"
+          ]
+        },
+        {
+          "id": "trend-cb78fd22b257bc",
+          "aliases": [],
+          "title": "選舉疏運高鐵 今加開8班自由座列車",
+          "primary_topic": "politics_policy",
+          "article_keys": [
+            "https://news.ltn.com.tw/news/life/breakingnews/5656114"
+          ],
+          "new_article_keys": [
+            "https://news.ltn.com.tw/news/life/breakingnews/5656114"
+          ],
+          "source_groups": [
+            "ltn-life"
+          ]
+        },
+        {
+          "id": "trend-cf5ce706119f83",
+          "aliases": [],
+          "title": "外資2個月狂賣台股逾2兆！謝金河：台灣金融市場歷經嚴厲壓力測試",
+          "primary_topic": "global_finance",
+          "article_keys": [
+            "https://ec.ltn.com.tw/article/breakingnews/5656163"
+          ],
+          "new_article_keys": [
+            "https://ec.ltn.com.tw/article/breakingnews/5656163"
+          ],
+          "source_groups": [
+            "ltn-business"
           ]
         },
         {
@@ -23094,6 +23382,21 @@
           "new_article_keys": [],
           "source_groups": [
             "yahoo-lifestyle"
+          ]
+        },
+        {
+          "id": "trend-d791d40f5d92d9",
+          "aliases": [],
+          "title": "九合一選舉開票 沈伯洋競總前湧現排隊人潮！",
+          "primary_topic": "politics_policy",
+          "article_keys": [
+            "https://news.ltn.com.tw/news/politics/breakingnews/5656271"
+          ],
+          "new_article_keys": [
+            "https://news.ltn.com.tw/news/politics/breakingnews/5656271"
+          ],
+          "source_groups": [
+            "ltn-politics"
           ]
         },
         {
@@ -23170,6 +23473,21 @@
           ]
         },
         {
+          "id": "trend-e1c811f4107217",
+          "aliases": [],
+          "title": "整天狂滑手機看選情小心選舉症候群 精神科醫師這招防資訊過載",
+          "primary_topic": "politics_policy",
+          "article_keys": [
+            "https://tw.news.yahoo.com/%E6%95%B4%E5%A4%A9%E7%8B%82%E6%BB%91%E6%89%8B%E6%A9%9F%E7%9C%8B%E9%81%B8%E6%83%85%E5%B0%8F%E5%BF%83%E9%81%B8%E8%88%89%E7%97%87%E5%80%99%E7%BE%A4-%E7%B2%BE%E7%A5%9E%E7%A7%91%E9%86%AB%E5%B8%AB%E9%80%99%E6%8B%9B%E9%98%B2%E8%B3%87%E8%A8%8A%E9%81%8E%E8%BC%89-044802507.html"
+          ],
+          "new_article_keys": [
+            "https://tw.news.yahoo.com/%E6%95%B4%E5%A4%A9%E7%8B%82%E6%BB%91%E6%89%8B%E6%A9%9F%E7%9C%8B%E9%81%B8%E6%83%85%E5%B0%8F%E5%BF%83%E9%81%B8%E8%88%89%E7%97%87%E5%80%99%E7%BE%A4-%E7%B2%BE%E7%A5%9E%E7%A7%91%E9%86%AB%E5%B8%AB%E9%80%99%E6%8B%9B%E9%98%B2%E8%B3%87%E8%A8%8A%E9%81%8E%E8%BC%89-044802507.html"
+          ],
+          "source_groups": [
+            "yahoo-lifestyle"
+          ]
+        },
+        {
           "id": "trend-e3b6958ab6242c",
           "aliases": [],
           "title": "台男助中企搶半導體人才 危及國安 求刑1年4月以上",
@@ -23195,6 +23513,36 @@
           "new_article_keys": [],
           "source_groups": [
             "ltn-business"
+          ]
+        },
+        {
+          "id": "trend-e4d57a3c77f5a8",
+          "aliases": [],
+          "title": "信義房屋獲國內外四項永續大獎，公司治理連續 12 年名列前 5%",
+          "primary_topic": "business_management",
+          "article_keys": [
+            "https://tw.news.yahoo.com/%E4%BF%A1%E7%BE%A9%E6%88%BF%E5%B1%8B%E7%8D%B2%E5%9C%8B%E5%85%A7%E5%A4%96%E5%9B%9B%E9%A0%85%E6%B0%B8%E7%BA%8C%E5%A4%A7%E7%8D%8E-%E5%85%AC%E5%8F%B8%E6%B2%BB%E7%90%86%E9%80%A3%E7%BA%8C-12-%E5%B9%B4%E5%90%8D%E5%88%97%E5%89%8D-5-013507484.html"
+          ],
+          "new_article_keys": [
+            "https://tw.news.yahoo.com/%E4%BF%A1%E7%BE%A9%E6%88%BF%E5%B1%8B%E7%8D%B2%E5%9C%8B%E5%85%A7%E5%A4%96%E5%9B%9B%E9%A0%85%E6%B0%B8%E7%BA%8C%E5%A4%A7%E7%8D%8E-%E5%85%AC%E5%8F%B8%E6%B2%BB%E7%90%86%E9%80%A3%E7%BA%8C-12-%E5%B9%B4%E5%90%8D%E5%88%97%E5%89%8D-5-013507484.html"
+          ],
+          "source_groups": [
+            "yahoo-technology"
+          ]
+        },
+        {
+          "id": "trend-e627765eadf43c",
+          "aliases": [],
+          "title": "美AI供應鏈去中化成PCB大補帖　台廠22強",
+          "primary_topic": "technology_ai",
+          "article_keys": [
+            "https://tw.news.yahoo.com/%E7%BE%8Eai%E4%BE%9B%E6%87%89%E9%8F%88%E5%8E%BB%E4%B8%AD%E5%8C%96%E6%88%90pcb%E5%A4%A7%E8%A3%9C%E5%B8%96-%E5%8F%B0%E5%BB%A022%E5%BC%B7-050500623.html"
+          ],
+          "new_article_keys": [
+            "https://tw.news.yahoo.com/%E7%BE%8Eai%E4%BE%9B%E6%87%89%E9%8F%88%E5%8E%BB%E4%B8%AD%E5%8C%96%E6%88%90pcb%E5%A4%A7%E8%A3%9C%E5%B8%96-%E5%8F%B0%E5%BB%A022%E5%BC%B7-050500623.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
           ]
         },
         {
@@ -23236,6 +23584,21 @@
           "new_article_keys": [],
           "source_groups": [
             "ltn-business"
+          ]
+        },
+        {
+          "id": "trend-ed00e17303db4c",
+          "aliases": [],
+          "title": "中國占荷蘭曝光設備商營收20%！美國新規恐衝擊市場　荷蘭揚言阻止實施",
+          "primary_topic": "politics_policy",
+          "article_keys": [
+            "https://tw.stock.yahoo.com/news/%E4%B8%AD%E5%9C%8B%E5%8D%A0%E8%8D%B7%E8%98%AD%E6%9B%9D%E5%85%89%E8%A8%AD%E5%82%99%E5%95%86%E7%87%9F%E6%94%B620-%E7%BE%8E%E5%9C%8B%E6%96%B0%E8%A6%8F%E6%81%90%E8%A1%9D%E6%93%8A%E5%B8%82%E5%A0%B4-%E8%8D%B7%E8%98%AD%E6%8F%9A%E8%A8%80%E9%98%BB%E6%AD%A2%E5%AF%A6%E6%96%BD-041000680.html"
+          ],
+          "new_article_keys": [
+            "https://tw.stock.yahoo.com/news/%E4%B8%AD%E5%9C%8B%E5%8D%A0%E8%8D%B7%E8%98%AD%E6%9B%9D%E5%85%89%E8%A8%AD%E5%82%99%E5%95%86%E7%87%9F%E6%94%B620-%E7%BE%8E%E5%9C%8B%E6%96%B0%E8%A6%8F%E6%81%90%E8%A1%9D%E6%93%8A%E5%B8%82%E5%A0%B4-%E8%8D%B7%E8%98%AD%E6%8F%9A%E8%A8%80%E9%98%BB%E6%AD%A2%E5%AF%A6%E6%96%BD-041000680.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
           ]
         },
         {
@@ -23385,6 +23748,21 @@
           "new_article_keys": [],
           "source_groups": [
             "ltn-business"
+          ]
+        },
+        {
+          "id": "trend-fab26f6dd70cda",
+          "aliases": [],
+          "title": "豪砸601.7億大擴產！載板三雄「這檔」衝刺高階ABF產能　瞄準AI、5G大商機",
+          "primary_topic": "technology_ai",
+          "article_keys": [
+            "https://tw.stock.yahoo.com/news/%E8%B1%AA%E7%A0%B8601-7%E5%84%84%E5%A4%A7%E6%93%B4%E7%94%A2-%E8%BC%89%E6%9D%BF%E4%B8%89%E9%9B%84-%E9%80%99%E6%AA%94-%E8%A1%9D%E5%88%BA%E9%AB%98%E9%9A%8Eabf%E7%94%A2%E8%83%BD-045500200.html"
+          ],
+          "new_article_keys": [
+            "https://tw.stock.yahoo.com/news/%E8%B1%AA%E7%A0%B8601-7%E5%84%84%E5%A4%A7%E6%93%B4%E7%94%A2-%E8%BC%89%E6%9D%BF%E4%B8%89%E9%9B%84-%E9%80%99%E6%AA%94-%E8%A1%9D%E5%88%BA%E9%AB%98%E9%9A%8Eabf%E7%94%A2%E8%83%BD-045500200.html"
+          ],
+          "source_groups": [
+            "yahoo-finance"
           ]
         },
         {
